@@ -1,0 +1,13 @@
+openapi: 3.0.1
+info:
+  title: OracleConnection_getCustData
+  description: API Definition of OracleConnection_getCustData
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/customer_data
+paths:
+  /:
+    get:
+      responses:
+        default:
+          description: Default response

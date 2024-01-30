@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esb:EsbDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb">
+  <server type="SEQUENCE">
+    <children xsi:type="esb:Sequences" name="APIReqHandlerSeq">
+      <outputConnector>
+        <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
+      </outputConnector>
+      <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+      <mediatorFlow>
+        <children xsi:type="esb:DSSMediator" description="Request write ApiLogHandler" serviceName="NotificationEngineDS" availableDataServices="NotificationEngineDS">
+          <operations operationName="ApiLogHandler">
+            <DSSPrperties propertyName="req_id" propertyValueType="EXPRESSION">
+              <propertyExpression propertyName="req_id" propertyValue="$ctx:req_id" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </DSSPrperties>
+            <DSSPrperties propertyName="process_id" propertyValueType="EXPRESSION">
+              <propertyExpression propertyName="process_id" propertyValue="$ctx:process_id" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </DSSPrperties>
+            <DSSPrperties propertyName="process" propertyValue="testing">
+              <propertyExpression prettyName="Property Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+            </DSSPrperties>
+            <DSSPrperties propertyName="system" propertyValueType="EXPRESSION">
+              <propertyExpression propertyName="system" propertyValue="$ctx:system" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </DSSPrperties>
+            <DSSPrperties propertyName="api_name" propertyValueType="EXPRESSION">
+              <propertyExpression propertyName="api_name" propertyValue="get-property('SYNAPSE_REST_API')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </DSSPrperties>
+            <DSSPrperties propertyName="request" propertyValueType="EXPRESSION">
+              <propertyExpression propertyName="request" propertyValue="$ctx:request" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </DSSPrperties>
+            <DSSPrperties propertyName="http_method" propertyValueType="EXPRESSION">
+              <propertyExpression propertyName="http_method" propertyValue="$ctx:REST_METHOD" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </DSSPrperties>
+            <DSSPrperties propertyName="response" propertyValue="null">
+              <propertyExpression prettyName="Property Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+            </DSSPrperties>
+            <DSSPrperties propertyName="status" propertyValue="InProcess">
+              <propertyExpression prettyName="Property Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+            </DSSPrperties>
+          </operations>
+          <inputConnector incomingLinks="//@server/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@inputConnector"/>
+          </outputConnector>
+        </children>
+      </mediatorFlow>
+      <onError prettyName="OnError sequence Key" keyName="OnError sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+    </children>
+  </server>
+</esb:EsbDiagram>

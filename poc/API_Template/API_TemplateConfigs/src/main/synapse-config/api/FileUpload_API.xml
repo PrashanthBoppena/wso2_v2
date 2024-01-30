@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/upload-file" name="FileUpload_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST">
+        <inSequence>
+            <!-- vfs:sftp://bscsr17:Bscs%402020@172.16.110.237/home/bscsr17/WSO2Test?sftpPathFromRoot=true -->
+            <call>
+                <endpoint>
+                    <address format="pox" uri="vfs:sftp://bscsr17:Bscs%402020@172.16.110.237/home/bscsr17/WSO2Test?sftpPathFromRoot=true">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </address>
+                </endpoint>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

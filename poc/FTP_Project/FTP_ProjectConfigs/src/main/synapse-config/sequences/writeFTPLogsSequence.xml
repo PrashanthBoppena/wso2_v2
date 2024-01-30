@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="writeFTPLogsSequence" onError="FaultSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <dbreport>
+        <connection>
+            <pool>
+                <driver>com.mysql.jdbc.Driver</driver>
+                <url>jdbc:mysql://localhost:3306/wso2?useSSL=false</url>
+                <user>root</user>
+                <password>Pashi@13</password>
+            </pool>
+        </connection>
+        <statement>
+            <sql><![CDATA[insert into wso2.ftp_logs (username, filename, operation, status, created_on) values (?,?,?,?,now())]]></sql>
+            <parameter type="VARCHAR" value="test_admin"/>
+            <parameter expression="$ctx:filename" type="VARCHAR"/>
+            <parameter expression="$ctx:operation" type="VARCHAR"/>
+            <parameter type="VARCHAR" value="processing"/>
+        </statement>
+    </dbreport>
+</sequence>

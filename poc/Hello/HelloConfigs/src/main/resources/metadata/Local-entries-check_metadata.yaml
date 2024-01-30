@@ -1,0 +1,11 @@
+---
+key: "Local-entries-check-1.0.0"
+name : "Local-entries-check"
+displayName : "Local-entries-check"
+description: "Sample API"
+version: "1.0.0"
+serviceUrl: "https://{MI_HOST}:{MI_PORT}/local-entries"
+definitionType: "OAS3"
+securityType: "BASIC"
+mutualSSLEnabled: false
+apiId : "null"

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/PROPERTYLOADER" name="PROPERTlOADER" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET">
+        <inSequence>
+            <!-- <property expression="get-property('custom','getProperty('apiregistry.db.password')')" name="propertyValue" scope="default" type="STRING"/>  -->
+            <log level="custom">
+                <property expression="get-property('propertyValue')" name="RegUsernameProperties==>"/>
+            </log>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="SampleAPI_1" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/SampleAPI_1.xml</file>
+    </artifact>
+    <artifact name="BSCS_Sample_Dynamic_API" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/BSCS_Sample_Dynamic_API.xml</file>
+    </artifact>
+    <artifact name="BSCS_Sample_Dynamic_API_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/BSCS_Sample_Dynamic_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="BSCS_Sample_Dynamic_API_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/BSCS_Sample_Dynamic_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="ProcedureCall_API" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/ProcedureCall_API.xml</file>
+    </artifact>
+    <artifact name="ProcedureCall_API_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/ProcedureCall_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="ProcedureCall_API_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/ProcedureCall_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="OracleConnection_getCustData" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/OracleConnection_getCustData.xml</file>
+    </artifact>
+    <artifact name="OracleConnection_getCustData_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/OracleConnection_getCustData_swagger.yaml</file>
+    </artifact>
+    <artifact name="OracleConnection_getCustData_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/OracleConnection_getCustData_metadata.yaml</file>
+    </artifact>
+    <artifact name="FileTransferToServerInboundEP" groupId="com.example.inbound-endpoint" version="1.0.0" type="synapse/inbound-endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/inbound-endpoints/FileTransferToServerInboundEP.xml</file>
+    </artifact>
+    <artifact name="file_get_contents-strpos" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/file_get_contents-strpos.xml</file>
+    </artifact>
+    <artifact name="SFTPVFSProxy" groupId="com.example.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/SFTPVFSProxy.xml</file>
+    </artifact>
+    <artifact name="SFTPVFSProxy_proxy_metadata" groupId="com.example.proxy-service.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/SFTPVFSProxy_proxy_metadata.yaml</file>
+    </artifact>
+    <artifact name="FaultSequence" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/FaultSequence.xml</file>
+    </artifact>
+    <artifact name="FileUploadProxyService" groupId="com.example.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/FileUploadProxyService.xml</file>
+    </artifact>
+    <artifact name="FileUploadProxyService_proxy_metadata" groupId="com.example.proxy-service.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/FileUploadProxyService_proxy_metadata.yaml</file>
+    </artifact>
+    <artifact name="FileUpload_API" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/FileUpload_API.xml</file>
+    </artifact>
+    <artifact name="FileUpload_API_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/FileUpload_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="FileUpload_API_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/FileUpload_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="ServerToServerFTP" groupId="com.example.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/ServerToServerFTP.xml</file>
+    </artifact>
+    <artifact name="ServerToServerFTP_proxy_metadata" groupId="com.example.proxy-service.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/ServerToServerFTP_proxy_metadata.yaml</file>
+    </artifact>
+    <artifact name="BscsReportLogSequence" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/BscsReportLogSequence.xml</file>
+    </artifact>
+    <artifact name="BscsReportUpdateLogSequence" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/BscsReportUpdateLogSequence.xml</file>
+    </artifact>
+    <artifact name="FreeMarker_template_API" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/FreeMarker_template_API.xml</file>
+    </artifact>
+    <artifact name="FreeMarker_template_API_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/FreeMarker_template_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="FreeMarker_template_API_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/FreeMarker_template_API_metadata.yaml</file>
+    </artifact>
+</artifacts>

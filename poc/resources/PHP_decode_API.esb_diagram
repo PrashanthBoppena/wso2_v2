@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_s18CwBNKEe6IS7QHcbuaBw" type="Esb" name="PHP_decode_API" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_s41lwBNKEe6IS7QHcbuaBw" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_s41lxRNKEe6IS7QHcbuaBw" type="7001">
+      <children xmi:type="notation:Shape" xmi:id="_tZ2oIBNKEe6IS7QHcbuaBw" type="3668" fontName="Segoe UI">
+        <children xmi:type="notation:BasicCompartment" xmi:id="_tZ2oIhNKEe6IS7QHcbuaBw" type="7044">
+          <children xmi:type="notation:Node" xmi:id="_tbyh0BNKEe6IS7QHcbuaBw" type="3669">
+            <children xmi:type="notation:Node" xmi:id="_tb2zQBNKEe6IS7QHcbuaBw" type="3670">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_tb2zQRNKEe6IS7QHcbuaBw"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_tb2zQhNKEe6IS7QHcbuaBw" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_tb2zQxNKEe6IS7QHcbuaBw"/>
+              <element xmi:type="esb:APIResourceInputConnector" href="PHP_decode_API.esb#//@server/@children.0/@resources.0/@inputConnector"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tb2zRBNKEe6IS7QHcbuaBw" x="86" y="-11"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_tb2zRRNKEe6IS7QHcbuaBw" type="3671">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_tb2zRhNKEe6IS7QHcbuaBw"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_tb2zRxNKEe6IS7QHcbuaBw" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_tb2zSBNKEe6IS7QHcbuaBw"/>
+              <element xmi:type="esb:APIResourceOutputConnector" href="PHP_decode_API.esb#//@server/@children.0/@resources.0/@outputConnector"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tb2zSRNKEe6IS7QHcbuaBw" x="86" y="-23"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_tb3aUBNKEe6IS7QHcbuaBw" type="3730">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_tb3aURNKEe6IS7QHcbuaBw"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_tb3aUhNKEe6IS7QHcbuaBw" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_tb3aUxNKEe6IS7QHcbuaBw"/>
+              <element xmi:type="esb:APIResourceOutSequenceOutputConnector" href="PHP_decode_API.esb#//@server/@children.0/@resources.0/@outSequenceOutputConnector"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tb3aVBNKEe6IS7QHcbuaBw" x="110" y="-11"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_tb3aVRNKEe6IS7QHcbuaBw" type="3672">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_tb3aVhNKEe6IS7QHcbuaBw"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_tb3aVxNKEe6IS7QHcbuaBw" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_tb3aWBNKEe6IS7QHcbuaBw"/>
+              <element xmi:type="esb:APIResourceFaultInputConnector" href="PHP_decode_API.esb#//@server/@children.0/@resources.0/@faultInputConnector"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tb3aWRNKEe6IS7QHcbuaBw" x="86" y="7"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_tb4BYBNKEe6IS7QHcbuaBw" type="3673">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_tb4BYRNKEe6IS7QHcbuaBw"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_tb4BYhNKEe6IS7QHcbuaBw" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_tb4BYxNKEe6IS7QHcbuaBw"/>
+              <element xmi:type="esb:ProxyServiceContainer" href="PHP_decode_API.esb#//@server/@children.0/@resources.0/@container"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tb4BZBNKEe6IS7QHcbuaBw"/>
+            </children>
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_tbyh0RNKEe6IS7QHcbuaBw"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_tbyh0hNKEe6IS7QHcbuaBw" fontName="Segoe UI"/>
+            <styles xmi:type="notation:LineStyle" xmi:id="_tbyh0xNKEe6IS7QHcbuaBw"/>
+            <element xmi:type="esb:APIResource" href="PHP_decode_API.esb#//@server/@children.0/@resources.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tbyh1BNKEe6IS7QHcbuaBw" width="300" height="400"/>
+          </children>
+        </children>
+        <element xmi:type="esb:SynapseAPI" href="PHP_decode_API.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tZ2oIRNKEe6IS7QHcbuaBw" width="640" height="500"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_s41lwRNKEe6IS7QHcbuaBw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_s41lwhNKEe6IS7QHcbuaBw" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_s41lwxNKEe6IS7QHcbuaBw"/>
+    <element xmi:type="esb:EsbServer" href="PHP_decode_API.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_s41lxBNKEe6IS7QHcbuaBw"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_s18p0BNKEe6IS7QHcbuaBw"/>
+  <element xmi:type="esb:EsbDiagram" href="PHP_decode_API.esb#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_t-85QBNKEe6IS7QHcbuaBw" type="4001" source="_tb2zRRNKEe6IS7QHcbuaBw" target="_tvQQYBNKEe6IS7QHcbuaBw" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_t-85QRNKEe6IS7QHcbuaBw" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="PHP_decode_API.esb#//@server/@children.0/@resources.0/@outputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_t-85QhNKEe6IS7QHcbuaBw" points="[6, 3, -11, -7]$[11, 6, -6, -4]"/>
+  </edges>
+</notation:Diagram>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_-IX40LT5Ee6XAqFGjPSEGA" type="Esb" name="sampleSecurityAPI" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_-JLKELT5Ee6XAqFGjPSEGA" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_-JLKFbT5Ee6XAqFGjPSEGA" type="7001">
+      <children xmi:type="notation:Shape" xmi:id="_-RL2kLT5Ee6XAqFGjPSEGA" type="3668" fontName="Segoe UI">
+        <children xmi:type="notation:BasicCompartment" xmi:id="_-RO54LT5Ee6XAqFGjPSEGA" type="7044">
+          <children xmi:type="notation:Node" xmi:id="_-RYq4LT5Ee6XAqFGjPSEGA" type="3669">
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_-RYq4bT5Ee6XAqFGjPSEGA"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_-RYq4rT5Ee6XAqFGjPSEGA" fontName="Segoe UI"/>
+            <styles xmi:type="notation:LineStyle" xmi:id="_-RYq47T5Ee6XAqFGjPSEGA"/>
+            <element xmi:type="esb:APIResource" href="sampleSecurityAPI.esb#//@server/@children.0/@resources.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-RYq5LT5Ee6XAqFGjPSEGA" width="300" height="400"/>
+          </children>
+        </children>
+        <element xmi:type="esb:SynapseAPI" href="sampleSecurityAPI.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-RL2kbT5Ee6XAqFGjPSEGA" width="640" height="500"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_-JLKEbT5Ee6XAqFGjPSEGA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_-JLKErT5Ee6XAqFGjPSEGA" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_-JLKE7T5Ee6XAqFGjPSEGA"/>
+    <element xmi:type="esb:EsbServer" href="sampleSecurityAPI.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-JLKFLT5Ee6XAqFGjPSEGA"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_-IX40bT5Ee6XAqFGjPSEGA"/>
+  <element xmi:type="esb:EsbDiagram" href="sampleSecurityAPI.esb#/"/>
+</notation:Diagram>

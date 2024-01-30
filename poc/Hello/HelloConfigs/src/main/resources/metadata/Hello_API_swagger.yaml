@@ -1,0 +1,21 @@
+openapi: 3.0.1
+info:
+  title: Hello_API
+  description: API Definition of Hello_API
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/greeting
+paths:
+  /{name}:
+    get:
+      parameters:
+      - name: name
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        default:
+          description: Default response

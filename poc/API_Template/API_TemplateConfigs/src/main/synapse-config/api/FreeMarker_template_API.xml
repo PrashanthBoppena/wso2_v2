@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/FreeMarker_template" name="FreeMarker_template_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST GET">
+        <inSequence>
+            <payloadFactory media-type="json" template-type="freemarker">
+                <format><![CDATA[{
+"Name": "${payload.user.first_name} ${payload.user.last_name}",
+"Age": "${payload.user.age}",
+"Address": "${payload.user.location.city},${payload.user.location.state.@code}"
+}]]></format>
+                <args/>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST GET" url-mapping="/2">
+        <inSequence>
+            <payloadFactory media-type="xml" template-type="freemarker">
+                <format><![CDATA[<user>
+    <Name>${payload.first_name} ${payload.last_name}</Name>
+    <Age>${payload.age}</Age>
+    <Address>${payload.location.city}, ${payload.location.state.code}</Address>
+    </user>]]></format>
+                <args/>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST GET" url-mapping="/3">
+        <inSequence>
+            <payloadFactory media-type="json" template-type="freemarker">
+                <format><![CDATA[{
+            "Name": "${payload.first_name} ${payload.last_name}",
+            "Age": ${payload.age},
+            "Address": "${payload.location.city}, ${payload.location.state.code}"
+        }]]></format>
+                <args/>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST GET" url-mapping="/4">
+        <inSequence>
+            <payloadFactory media-type="xml" template-type="freemarker">
+                <format><![CDATA[<people>
+        <#list payload.people.person as person>
+        <person>
+            <index>${person.id}</index>
+            <name>${person.first_name} ${person.last_name}</name>
+        </person>
+        </#list>
+        </people>]]></format>
+                <args/>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST GET" url-mapping="/5">
+        <inSequence>
+            <payloadFactory media-type="xml" template-type="freemarker">
+                <format><![CDATA[<people>
+        <#list payload as person>
+        <person>
+            <index>${person.id}</index>
+            <name>${person.first_name} ${person.last_name}</name>
+        </person>
+        </#list>
+        </people>]]></format>
+                <args/>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST GET" url-mapping="/6">
+        <inSequence>
+            <payloadFactory media-type="text" template-type="freemarker">
+                <format><![CDATA[<#list payload.people.person[0]?children?filter(c -> c?node_type == 'element') as c>${c?node_name}<#sep>,</#list>
+<#list payload.people.person as person>
+<#list person?children?filter(c -> c?node_type == 'element') as c>${c}<#sep>,</#list>
+</#list>]]></format>
+                <args/>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST GET" url-mapping="/7">
+        <inSequence>
+            <payloadFactory media-type="json" template-type="freemarker">
+                <format><![CDATA[{
+    "Name": "${payload.first_name} ${payload.last_name ! "" }",
+    "Age": ${payload.age}
+     }]]></format>
+                <args/>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST GET" url-mapping="/8">
+        <inSequence>
+            <property name="user_name" scope="default" type="STRING" value="john"/>
+            <payloadFactory media-type="json" template-type="freemarker">
+                <format><![CDATA[{
+"ctx property" : "${ctx.user_name}",
+"axis2 property": "${axis2.REST_URL_POSTFIX}",
+"trp property": "${trp.Host}"
+}]]></format>
+                <args/>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

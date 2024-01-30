@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/gender" name="Gender_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource faultSequence="faultSeq" methods="GET">
+        <inSequence>
+            <log description="LOG START" level="custom">
+                <property expression="$trp:GenderId" name="GENDER IS =====>"/>
+            </log>
+            <filter description="VERIFY HEADER PROPERTY" regex="Male" source="$trp:GenderId">
+                <then>
+                    <log description="LOG MALE" level="custom">
+                        <property name="LOG MALE" value="MALE"/>
+                    </log>
+                    <sequence key="processingMaleSeq"/>
+                </then>
+                <else>
+                    <log description="LOG FEMALE" level="custom">
+                        <property name="LOG FEMALE" value="FEMALE"/>
+                    </log>
+                    <send>
+                        <endpoint key="unexistentFemaleEP"/>
+                    </send>
+                </else>
+            </filter>
+        </inSequence>
+        <outSequence/>
+    </resource>
+</api>

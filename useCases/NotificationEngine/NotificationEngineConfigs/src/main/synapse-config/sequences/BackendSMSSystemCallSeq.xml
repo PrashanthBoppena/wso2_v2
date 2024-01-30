@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="BackendSMSSystemCallSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log description="SMS  Seq Request" level="custom">
+        <property expression="json-eval($.Message)" name="SMS Seq Req Log"/>
+    </log>
+    <!-- Call the SMSE dataservice to write the request data into DB -->
+    <!-- Call the backend service comes here -->
+    <dbreport>
+        <connection>
+            <pool>
+                <dsName>MySQLConnectionSMS</dsName>
+            </pool>
+        </connection>
+        <statement>
+            <sql><![CDATA[insert into storefromqueue (Message, reqId) values (?,?)]]></sql>
+            <parameter expression="$ctx:message" type="VARCHAR"/>
+            <parameter expression="get-property('MessageID')" type="VARCHAR"/>
+        </statement>
+    </dbreport>
+</sequence>

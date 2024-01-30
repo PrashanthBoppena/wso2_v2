@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="priority-inbound-service" startOnLoad="true" transports="http" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <property name="OUT_ONLY" scope="default" type="STRING" value="true"/>
+            <property name="FORCE_SC_ACCEPTED" scope="axis2" type="STRING" value="true"/>
+            <log level="custom">
+                <property expression="$trp:PRIORITYID" name="PRIORITY_ID"/>
+            </log>
+            <send>
+                <endpoint>
+                    <address uri="rabbitmq:/priority-inbound-service?rabbitmq.server.host.name=localhost&amp;rabbitmq.server.port=5672&amp;rabbitmq.queue.name=test-queue&amp;rabbitmq.queue.route.key=test-queue&amp;rabbitmq.exchange.name=test-exchange">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>1</progressionFactor>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </address>
+                </endpoint>
+            </send>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </target>
+</proxy>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_ksoVcDQcEe61FMwEwzyHiQ" type="Esb" name="SMS_System_Call_Proxy" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_rgl8kDQcEe61FMwEwzyHiQ" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_rmBPIDQcEe61FMwEwzyHiQ" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_tu0HoDQcEe61FMwEwzyHiQ" type="3001">
+        <children xmi:type="notation:DecorationNode" xmi:id="_tu0usDQcEe61FMwEwzyHiQ" type="5003"/>
+        <children xmi:type="notation:Node" xmi:id="_tu5AIDQcEe61FMwEwzyHiQ" type="3002">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_tu5AITQcEe61FMwEwzyHiQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_tu5AIjQcEe61FMwEwzyHiQ" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_tu5AIzQcEe61FMwEwzyHiQ"/>
+          <element xmi:type="esb:ProxyOutputConnector" href="SMS_System_Call_Proxy.esb#//@server/@children.0/@outputConnector"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tu5AJDQcEe61FMwEwzyHiQ" x="86" y="-23"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_tu5nMDQcEe61FMwEwzyHiQ" type="3003">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_tu5nMTQcEe61FMwEwzyHiQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_tu5nMjQcEe61FMwEwzyHiQ" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_tu5nMzQcEe61FMwEwzyHiQ"/>
+          <element xmi:type="esb:ProxyInputConnector" href="SMS_System_Call_Proxy.esb#//@server/@children.0/@inputConnector"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tu5nNDQcEe61FMwEwzyHiQ" x="86" y="-11"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_tu6OQDQcEe61FMwEwzyHiQ" type="3729">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_tu6OQTQcEe61FMwEwzyHiQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_tu6OQjQcEe61FMwEwzyHiQ" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_tu6OQzQcEe61FMwEwzyHiQ"/>
+          <element xmi:type="esb:ProxyOutSequenceOutputConnector" href="SMS_System_Call_Proxy.esb#//@server/@children.0/@outSequenceOutputConnector"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tu6ORDQcEe61FMwEwzyHiQ" x="110" y="-11"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_tu61UDQcEe61FMwEwzyHiQ" type="3489">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_tu61UTQcEe61FMwEwzyHiQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_tu61UjQcEe61FMwEwzyHiQ" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_tu61UzQcEe61FMwEwzyHiQ"/>
+          <element xmi:type="esb:ProxyFaultInputConnector" href="SMS_System_Call_Proxy.esb#//@server/@children.0/@faultInputConnector"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tu61VDQcEe61FMwEwzyHiQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_tu61VTQcEe61FMwEwzyHiQ" type="3486">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_tu61VjQcEe61FMwEwzyHiQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_tu61VzQcEe61FMwEwzyHiQ" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_tu61WDQcEe61FMwEwzyHiQ"/>
+          <element xmi:type="esb:ProxyServiceContainer" href="SMS_System_Call_Proxy.esb#//@server/@children.0/@container"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tu61WTQcEe61FMwEwzyHiQ"/>
+        </children>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_tu0HoTQcEe61FMwEwzyHiQ"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_tu0HojQcEe61FMwEwzyHiQ" fontName="Segoe UI"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_tu0HozQcEe61FMwEwzyHiQ"/>
+        <element xmi:type="esb:ProxyService" href="SMS_System_Call_Proxy.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tu0HpDQcEe61FMwEwzyHiQ" width="300" height="400"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_rgl8kTQcEe61FMwEwzyHiQ"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_rgl8kjQcEe61FMwEwzyHiQ" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_rgl8kzQcEe61FMwEwzyHiQ"/>
+    <element xmi:type="esb:EsbServer" href="SMS_System_Call_Proxy.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rgl8lDQcEe61FMwEwzyHiQ"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_ksoVcTQcEe61FMwEwzyHiQ"/>
+  <element xmi:type="esb:EsbDiagram" href="SMS_System_Call_Proxy.esb#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_t97hsDQcEe61FMwEwzyHiQ" type="4001" source="_tu5AIDQcEe61FMwEwzyHiQ" target="_tyMLwDQcEe61FMwEwzyHiQ" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_t97hsTQcEe61FMwEwzyHiQ" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="SMS_System_Call_Proxy.esb#//@server/@children.0/@outputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_t97hsjQcEe61FMwEwzyHiQ" points="[6, 5, -5, 0]$[5, 0, -6, -5]"/>
+  </edges>
+</notation:Diagram>

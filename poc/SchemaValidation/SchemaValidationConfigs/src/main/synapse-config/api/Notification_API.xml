@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/notification/send" name="Notification_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST">
+        <inSequence>
+            <property description="msg transformation" name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <log level="custom">
+                <property expression="json-eval($)" name="In SMS syatem Req"/>
+            </log>
+            <validate cache-schema="false" source="json-eval($)">
+                <schema key="conf:custom/smsJsonSchema/sms.json"/>
+                <on-fail>
+                    <log level="custom">
+                        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+                    </log>
+                    <payloadFactory media-type="json">
+                        <format>{&#xd;
+"Status":400,&#xd;
+"Message":"Bad Request",&#xd;
+"Detail":"$1"&#xd;
+}</format>
+                        <args>
+                            <arg evaluator="xml" expression="get-property('ERROR_MESSAGE')"/>
+                        </args>
+                    </payloadFactory>
+                    <respond/>
+                </on-fail>
+            </validate>
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+"Status":200,&#xd;
+"Message":"Ok"&#xd;
+}</format>
+                <args/>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

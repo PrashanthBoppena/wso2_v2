@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/custAddress" name="AddressRead_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource faultSequence="FaultSequence" methods="POST">
+        <inSequence>
+            <property description="Input_payload" expression="json-eval($)" name="INPUT_PAYLOAD" scope="default" type="STRING"/>
+            <log description="In Log" level="custom">
+                <property expression="json-eval($)" name="Input"/>
+                <property expression="get-property('MessageID')" name="Message_ID"/>
+            </log>
+            <sequence key="BSCSAddressReadSeq"/>
+            <log description="Out Log" level="custom">
+                <property expression="json-eval($)" name="Output"/>
+                <property expression="get-property('MessageID')" name="Message_ID"/>
+                <property expression="$axis2:HTTP_SC" name="Status_Code"/>
+                <property expression="$axis2:HTTP_SC_DESC" name="Status_Desc"/>
+            </log>
+            <property description="Output_Response" expression="json-eval($)" name="OUTPUT_RESPONSE" scope="default" type="STRING"/>
+            <sequence key="DBReportSeq"/>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+    </resource>
+</api>

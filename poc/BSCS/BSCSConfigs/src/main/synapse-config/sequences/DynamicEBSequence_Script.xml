@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="DynamicEBSequence_Script" onError="EBFaultSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property name="BUID_VAL" scope="default" type="STRING" value="2"/>
+    <property expression="get-property($ctx:req_template_ID)" name="req_template" scope="default" type="OM"/>
+    <!-- <log level="custom">
+        <property expression="get-property($ctx:req_template_ID)" name="req_template data==>"/>
+    </log>  -->
+    <script language="js"><![CDATA[var log = mc.getServiceLog();   
+            var XMLRequest = mc.getProperty("req_template");
+            //log.info("req_template in script "+ XMLRequest);
+            var srcRequest = XMLRequest.toString();
+            
+            // Extract placeholder keys from the  srcRequest
+              var dynamicKeys = srcRequest.match(/{(.*?)}/g).map(function(key) 
+              {
+              return key.replace(/[{}]/g, '');
+              });
+             //     log.info("dynamic replaceble keys are-->"+dynamicKeys);       
+            // Replace placeholders with dynamically fetched values
+              dynamicKeys.forEach(function(key) 
+              {
+               if (mc.getProperty(key)) {
+           //    log.info("key  are-->"+key+"::"+mc.getProperty(key));      
+               srcRequest = srcRequest.replace("{" + key + "}", mc.getProperty(key));
+              }
+              });
+           //     log.info("templateString-->"+srcRequest);
+            mc.setPayloadXML(new XML(srcRequest));]]></script>
+</sequence>

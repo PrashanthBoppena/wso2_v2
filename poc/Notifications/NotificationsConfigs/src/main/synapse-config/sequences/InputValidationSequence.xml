@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="InputValidationSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <!-- <propertyGroup>
+        <property expression="json-eval($.req_id)" name="req_id" scope="default" type="STRING"/>
+        <property expression="json-eval($.MSISDN)" name="msisdn" scope="default" type="STRING"/>
+        <property expression="json-eval($.template_id)" name="template_id" scope="default" type="STRING"/>
+    </propertyGroup>  -->
+    <!-- Validate cust_name -->
+    <filter regex="^\s*$" source="$ctx:req_id">
+        <then>
+            <log level="custom">
+                <property expression="$ctx:req_id" name="log req_id"/>
+            </log>
+            <payloadFactory media-type="text">
+                <format>{&#xd;
+  "status": 400,&#xd;
+  "message": "Bad Request",&#xd;
+ "error":{&#xd;
+		"msg":"Invalid req_id."&#xd;
+	}&#xd;
+}&#xd;
+</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:ERROR_MESSAGE"/>
+                </args>
+            </payloadFactory>
+            <property expression="json-eval($)" name="response" scope="default" type="STRING"/>
+            <dataServiceCall description="write errors into api logs" serviceName="NotificationsDS">
+                <operations type="single">
+                    <operation name="updateApiLogHandler">
+                        <param evaluator="xml" expression="$ctx:response" name="response"/>
+                        <param evaluator="xml" expression="$ctx:step1_id" name="process_id"/>
+                    </operation>
+                </operations>
+                <source type="inline"/>
+                <target type="body"/>
+            </dataServiceCall>
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+  "status": 400,&#xd;
+  "message": "Bad Request",&#xd;
+ "error":{&#xd;
+		"msg":"Invalid req_id."&#xd;
+	}&#xd;
+}&#xd;
+</format>
+                <args/>
+            </payloadFactory>
+            <property description="set statuc code" name="HTTP_SC" scope="axis2" type="STRING" value="400"/>
+            <respond/>
+        </then>
+        <else/>
+    </filter>
+    <!-- Validate msisdn -->
+    <filter regex="[1-9]{7}" source="json-eval($ctx:request.Sender_MSISDN)">
+        <then/>
+        <else>
+            <payloadFactory media-type="text">
+                <format>{&#xd;
+  "status": 400,&#xd;
+  "message": "Bad Request",&#xd;
+ "error":{&#xd;
+		"msg":"Invalid Sender MSISDN number."&#xd;
+	}&#xd;
+}&#xd;
+</format>
+                <args/>
+            </payloadFactory>
+            <property description="response" expression="json-eval($)" name="response" scope="default" type="STRING"/>
+            <dataServiceCall description="write errors into api logs" serviceName="NotificationsDS">
+                <operations type="single">
+                    <operation name="updateApiLogHandler">
+                        <param evaluator="xml" expression="$ctx:response" name="response"/>
+                        <param evaluator="xml" expression="$ctx:step1_id" name="process_id"/>
+                    </operation>
+                </operations>
+                <source type="inline"/>
+                <target type="body"/>
+            </dataServiceCall>
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+  "status": 400,&#xd;
+  "message": "Bad Request",&#xd;
+ "error":{&#xd;
+		"msg":"Invalid Sender MSISDN number."&#xd;
+	}&#xd;
+}&#xd;
+</format>
+                <args/>
+            </payloadFactory>
+            <property description="set statuc code" name="HTTP_SC" scope="axis2" type="STRING" value="400"/>
+            <respond/>
+        </else>
+    </filter>
+    <!-- Validate Receiver MSISDN -->
+    <filter regex="[1-9]{7}" source="json-eval($ctx:request.Receiver_MSISDN)">
+        <then/>
+        <else>
+            <payloadFactory media-type="text">
+                <format>{&#xd;
+  "status": 400,&#xd;
+  "message": "Bad Request",&#xd;
+ "error":{&#xd;
+		"msg":"Invalid Sender MSISDN number."&#xd;
+	}&#xd;
+}&#xd;
+</format>
+                <args/>
+            </payloadFactory>
+            <property description="response" expression="json-eval($)" name="response" scope="default" type="STRING"/>
+            <dataServiceCall description="write errors into api logs" serviceName="NotificationsDS">
+                <operations type="single">
+                    <operation name="updateApiLogHandler">
+                        <param evaluator="xml" expression="$ctx:response" name="response"/>
+                        <param evaluator="xml" expression="$ctx:step1_id" name="process_id"/>
+                    </operation>
+                </operations>
+                <source type="inline"/>
+                <target type="body"/>
+            </dataServiceCall>
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+  "status": 400,&#xd;
+  "message": "Bad Request",&#xd;
+ "error":{&#xd;
+		"msg":"Invalid MSISDN number."&#xd;
+	}&#xd;
+}&#xd;
+</format>
+                <args/>
+            </payloadFactory>
+            <property description="set statuc code" name="HTTP_SC" scope="axis2" type="STRING" value="400"/>
+            <respond/>
+        </else>
+    </filter>
+    <!-- Validate template_id -->
+    <filter regex="^\s*$" source="$ctx:template_id">
+        <then>
+            <payloadFactory media-type="text">
+                <format>{&#xd;
+  "status": 400,&#xd;
+  "message": "Bad Request",&#xd;
+ "error":{&#xd;
+		"msg":"Invalid Template_ID."&#xd;
+	}&#xd;
+}&#xd;
+</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:ERROR_MESSAGE"/>
+                </args>
+            </payloadFactory>
+            <property expression="json-eval($)" name="response" scope="default" type="STRING"/>
+            <dataServiceCall description="write errors into api logs" serviceName="NotificationsDS">
+                <operations type="single">
+                    <operation name="updateApiLogHandler">
+                        <param evaluator="xml" expression="$ctx:response" name="response"/>
+                        <param evaluator="xml" expression="$ctx:step1_id" name="process_id"/>
+                    </operation>
+                </operations>
+                <source type="inline"/>
+                <target type="body"/>
+            </dataServiceCall>
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+  "status": 400,&#xd;
+  "message": "Bad Request",&#xd;
+ "error":{&#xd;
+		"msg":"Invalid Template_ID."&#xd;
+	}&#xd;
+}&#xd;
+</format>
+                <args/>
+            </payloadFactory>
+            <property description="set statuc code" name="HTTP_SC" scope="axis2" type="STRING" value="400"/>
+            <respond/>
+        </then>
+        <else/>
+    </filter>
+</sequence>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_D2_o4CobEe6WecJXZswbaA" type="Esb" name="sysReqLogHandler" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_D319cCobEe6WecJXZswbaA" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_D32kgCobEe6WecJXZswbaA" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_D9AxUCobEe6WecJXZswbaA" type="3614">
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_D9AxUSobEe6WecJXZswbaA"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_D9AxUiobEe6WecJXZswbaA" fontName="Segoe UI"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_D9AxUyobEe6WecJXZswbaA"/>
+        <element xmi:type="esb:Sequences" href="sysReqLogHandler.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_D9AxVCobEe6WecJXZswbaA" width="195" height="125"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_D319cSobEe6WecJXZswbaA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_D319ciobEe6WecJXZswbaA" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_D319cyobEe6WecJXZswbaA"/>
+    <element xmi:type="esb:EsbServer" href="sysReqLogHandler.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_D319dCobEe6WecJXZswbaA"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_D2_o4SobEe6WecJXZswbaA"/>
+  <element xmi:type="esb:EsbDiagram" href="sysReqLogHandler.esb#/"/>
+</notation:Diagram>

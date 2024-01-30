@@ -1,0 +1,13 @@
+openapi: 3.0.1
+info:
+  title: RecallProcessSeqApi
+  description: API Definition of RecallProcessSeqApi
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/process/retry
+paths:
+  /:
+    post:
+      responses:
+        default:
+          description: Default response

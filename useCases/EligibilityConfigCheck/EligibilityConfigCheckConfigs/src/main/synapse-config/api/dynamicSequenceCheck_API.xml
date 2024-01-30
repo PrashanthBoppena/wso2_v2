@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/dynamicSequenceCheck" name="dynamicSequenceCheck_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource faultSequence="FaultSequence" methods="POST GET">
+        <inSequence>
+            <sequence key="compositeDynamicSequence"/>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+    </resource>
+</api>

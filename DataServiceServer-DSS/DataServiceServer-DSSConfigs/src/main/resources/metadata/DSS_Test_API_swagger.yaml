@@ -1,0 +1,17 @@
+openapi: 3.0.1
+info:
+  title: DSS_Test_API
+  description: API Definition of DSS_Test_API
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/customer-services
+paths:
+  /:
+    get:
+      responses:
+        default:
+          description: Default response
+    post:
+      responses:
+        default:
+          description: Default response

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="dynamicSBSequence" onError="FaultSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <sequence key="dynamic_propvariable_setupSEQ"/>
+    <log level="custom">
+        <property expression="$ctx:sub_endpoint" name="$ctx:sub_endpoint===>"/>
+        <property expression="$ctx:system_name" name="$ctx:system_name===>"/>
+    </log>
+    <switch source="$ctx:system_name">
+        <case regex="UOL">
+            <sequence key="REST_API_Call_Seq"/>
+            <property expression="json-eval($)" name="UOL_Response" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="$ctx:UOL_Response" name="UOL_Response==>"/>
+            </log>
+        </case>
+        <case regex="EB">
+            <sequence key="Dynamic_EB_Sequence_v1"/>
+            <property expression="json-eval($)" name="EB_Response" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="$ctx:EB_Response" name="EB_Response==>"/>
+            </log>
+        </case>
+        <case regex="QUERY">
+            <sequence key="Dynamic_Query_Call_Seq"/>
+            <property expression="json-eval($)" name="Query_Response" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="$ctx:Query_Response" name="Query_Response==>"/>
+            </log>
+        </case>
+        <case regex="NMS">
+            <log level="custom">
+                <property name="NMS call=======>" value="NMS system"/>
+            </log>
+            <sequence key="Dynamic_NMS_Sequence_v1"/>
+            <property expression="json-eval($)" name="NMS_Response" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="$ctx:NMS_Response" name="NMS_Response==>"/>
+            </log>
+        </case>
+        <default>
+            <log level="custom">
+                <property name="ExecutingDefault==>" value="ExecutingDefault"/>
+            </log>
+        </default>
+    </switch>
+</sequence>

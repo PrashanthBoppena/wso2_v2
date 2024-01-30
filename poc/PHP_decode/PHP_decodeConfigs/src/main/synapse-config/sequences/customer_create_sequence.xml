@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="customer_create_sequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <!-- <propertyGroup>
+        <property expression="$func:payment_resp" name="paymentResp" scope="default" type="STRING"/>
+        <property expression="$func:is_individual_overdisc_disabled" name="isIndividualOverdiscDisabled" scope="default" type="STRING"/>
+        <property expression="$func:prg_code" name="prgCode" scope="default" type="STRING"/>
+        <property expression="$func:rp_code" name="rpcode" scope="default" type="STRING"/>
+        <property expression="$func:trade_code" name="tradeCode" scope="default" type="STRING"/>
+        <property expression="$func:cost_id" name="costId" scope="default" type="STRING"/>
+        <property expression="$func:cs_password" name="csPassword" scope="default" type="STRING"/>
+        <property expression="$func:cs_crcheck_agreed" name="csCrcheckAgreed" scope="default" type="STRING"/>
+        <property expression="$func:cs_billcycle" name="csBillcycle" scope="default" type="STRING"/>
+        <property expression="$func:cs_limit_tr1" name="csLimitTr1" scope="default" type="STRING"/>
+        <property expression="$func:cs_limit_tr2" name="csLimitTr2" scope="default" type="STRING"/>
+        <property expression="$func:cs_limit_tr3" name="csLimitTr3" scope="default" type="STRING"/>
+        <property expression="$func:amount" name="amount" scope="default" type="STRING"/>
+        <property expression="$func:currency" name="currency" scope="default" type="STRING"/>
+        <property expression="$func:deposite_amount" name="deposite_amount" scope="default" type="STRING"/>
+        <property expression="$func:deposite_currency" name="deposite_currency" scope="default" type="STRING"/>
+        <property expression="$func:cs_dunning" name="csDunning" scope="default" type="STRING"/>
+        <property expression="$func:cs_prepayment" name="csPrepayment" scope="default" type="STRING"/>
+        <property expression="$func:cust_cat_Code" name="custcatCode" scope="default" type="STRING"/>
+        <property name="serviceUrl" scope="default" type="STRING" value="http://your-service-url.com"/>
+    </propertyGroup>  -->
+    <call>
+        <endpoint>
+            <http method="get" uri-template="http://localhost:8285/greet">
+                <suspendOnFailure>
+                    <initialDuration>-1</initialDuration>
+                    <progressionFactor>-1</progressionFactor>
+                    <maximumDuration>0</maximumDuration>
+                </suspendOnFailure>
+                <markForSuspension>
+                    <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                </markForSuspension>
+            </http>
+        </endpoint>
+    </call>
+    <filter regex="200" source="get-property('http.status')">
+        <then>
+            <property expression="$body/*[local-name()='executeReturn']" name="response" scope="default" type="OM"/>
+            <enrich>
+                <source clone="true" type="inline">
+                    <response>
+                        <error_code>0</error_code>
+                        <data>$ctx:response</data>
+                    </response>
+                </source>
+                <target property="JSON_PAYLOAD" type="property"/>
+            </enrich>
+            <log level="custom">
+                <property expression="$ctx:JSON_PAYLOAD" name="Response Payload"/>
+            </log>
+            <property name="HTTP_SC" scope="axis2" type="STRING" value="200"/>
+        </then>
+        <else>
+            <property expression="$body//faultstring/text()" name="errorMessage" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="$ctx:errorMessage" name="Error Message"/>
+            </log>
+            <enrich>
+                <source clone="true" type="inline">
+                    <response>
+                        <error_code>101</error_code>
+                        <data>$ctx:errorMessage</data>
+                    </response>
+                </source>
+                <target property="JSON_PAYLOAD" type="property"/>
+            </enrich>
+            <property name="HTTP_SC" scope="axis2" type="STRING" value="500"/>
+        </else>
+    </filter>
+</sequence>

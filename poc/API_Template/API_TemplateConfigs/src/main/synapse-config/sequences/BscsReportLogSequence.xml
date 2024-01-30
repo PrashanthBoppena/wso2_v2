@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="BscsReportLogSequence" onError="FaultSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <script description="process ID generate" language="js"><![CDATA[var uuid = java.util.UUID.randomUUID().toString();
+         mc.setProperty("ProcessId", uuid);]]></script>
+    <dbreport>
+        <connection>
+            <pool>
+                <dsName>MysqlConJNDI1</dsName>
+            </pool>
+        </connection>
+        <statement>
+            <sql><![CDATA[insert into wso2.bscsreqloghandler (ReqId, ProcessId, Process, Api, RequestPayload, Status) values (?,?,?,?,?,?)
+]]></sql>
+            <parameter expression="$ctx:ReqId" type="VARCHAR"/>
+            <parameter expression="$ctx:ProcessId" type="VARCHAR"/>
+            <parameter expression="$ctx:Process" type="VARCHAR"/>
+            <parameter expression="$ctx:Api" type="VARCHAR"/>
+            <parameter expression="$ctx:RequestPayload" type="VARCHAR"/>
+            <parameter type="VARCHAR" value="Inprocess"/>
+        </statement>
+    </dbreport>
+</sequence>

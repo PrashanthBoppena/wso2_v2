@@ -1,0 +1,11 @@
+---
+key: "BSCS_SOAP_API_Call-1.0.0"
+name : "BSCS_SOAP_API_Call"
+displayName : "BSCS_SOAP_API_Call"
+description: "Sample API"
+version: "1.0.0"
+serviceUrl: "https://{MI_HOST}:{MI_PORT}/bscs_api_call"
+definitionType: "OAS3"
+securityType: "BASIC"
+mutualSSLEnabled: false
+apiId : "null"

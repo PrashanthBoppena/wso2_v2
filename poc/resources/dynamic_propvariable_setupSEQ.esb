@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esb:EsbDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb">
+  <server type="SEQUENCE">
+    <children xsi:type="esb:Sequences" name="dynamic_propvariable_setupSEQ">
+      <commentsList> setting the json data as property and value  </commentsList>
+      <outputConnector>
+        <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
+      </outputConnector>
+      <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
+      <mediatorFlow>
+        <children xsi:type="esb:PropertyGroupMediator">
+          <inputConnector incomingLinks="//@server/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.1/@inputConnector"/>
+            <commentMediators commentText=" setting the json data as property and value  "/>
+          </outputConnector>
+          <properties valueType="EXPRESSION" newPropertyName="requestPayload">
+            <inputConnector/>
+            <outputConnector/>
+            <valueExpression propertyValue="json-eval($)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+          </properties>
+        </children>
+        <children xsi:type="esb:ScriptMediator" description="setting properties dynamically" scriptType="INLINE" scriptBody="var log = mc.getServiceLog();&#xA;var jsonData = mc.getProperty(&quot;requestPayload&quot;);&#xA;&#xA;var json = JSON.parse(jsonData);&#xA;//log.info(&quot;json obj is==>&quot;+json);&#xA;function setProperties(json, parentKey) {&#xA;&#x9;for (var key in json) {&#xA;&#x9;&#x9;if (json.hasOwnProperty(key)) {&#xA;&#x9;&#x9;&#x9;var value = json[key];&#xA;&#xA;&#x9;&#x9;&#x9;if (typeof value === 'object') {&#xA;&#x9;&#x9;&#x9;&#x9;// If the value is a nested JSON object, recursively iterate&#xA;&#x9;&#x9;&#x9;&#x9;setProperties(value, parentKey + key + '.');&#xA;&#x9;&#x9;&#x9;} else {&#xA;&#x9;&#x9;&#x9;&#x9;// If the value is a leaf node, set the property&#xA;&#x9;&#x9;&#x9;&#x9;// var propertyName = parentKey + key;    parameters.addressRequest.adrLname&#xA;&#x9;&#x9;&#x9;&#x9;var propertyName = key;&#xA;&#x9;&#x9;&#x9;&#x9;var propertyValue = value.toString();&#xA;&#x9;&#x9;&#x9;&#x9;mc.setProperty(propertyName, propertyValue);&#xA;&#x9;&#x9;&#x9;&#x9;//log.info(&quot;Property set: &quot; + propertyName + &quot; = &quot; + propertyValue);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;}&#xA;&#xA;// Set properties dynamically&#xA;setProperties(json, '');">
+          <scriptDynamicKey prettyName="" propertyName="dynamic key" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@inputConnector"/>
+          </outputConnector>
+          <scriptStaticKey prettyName="Script Key" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+        </children>
+      </mediatorFlow>
+      <onError prettyName="OnError sequence Key" keyName="OnError sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+    </children>
+  </server>
+</esb:EsbDiagram>

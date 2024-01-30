@@ -1,0 +1,31 @@
+{
+    "customerReadResponse": {
+        "csId": 518531,
+        "csIdPub": "CUST0000110880",
+        "csCode": 1.400759
+    },
+    "addressReadResponse": {
+        "adrNationality": 80,
+        "adrNationalityPub": "DEU"
+    },
+    "contractReadResponse": {
+        "contracts": {
+            "item": [
+                {
+                    "contractTypeId": 1,
+                    "buId": 2,
+                    "coStatus": 2,
+                    "csCode": 1.400759,
+                    "dirnum": 555706950026
+                },
+                {
+                    "contractTypeId": 1,
+                    "buId": 2,
+                    "coStatus": 2,
+                    "csCode": 1.400759,
+                    "dirnum": 55509950135
+                }
+            ]
+        }
+    }
+}

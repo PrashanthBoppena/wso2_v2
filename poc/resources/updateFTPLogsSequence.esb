@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esb:EsbDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb">
+  <server type="SEQUENCE">
+    <children xsi:type="esb:Sequences" name="updateFTPLogsSequence">
+      <outputConnector>
+        <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
+      </outputConnector>
+      <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+      <mediatorFlow>
+        <children xsi:type="esb:DBReportMediator" connectionDbType="MYSQL" connectionDbDriver="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/wso2?useSSL=false" connectionUsername="root" connectionPassword="Pashi@13">
+          <sqlStatements queryString="update  wso2.ftp_logs set updated_on=now(), status=? where filename=?">
+            <parameters dataType="VARCHAR" valueType="LITERAL" valueLiteral="completed">
+              <valueExpression prettyName="Expression" propertyName="Expression" propertyValue="/default/expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </parameters>
+            <parameters dataType="VARCHAR" valueLiteral="default">
+              <valueExpression propertyValue="$ctx:filename" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </parameters>
+          </sqlStatements>
+          <inputConnector incomingLinks="//@server/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@inputConnector"/>
+          </outputConnector>
+        </children>
+      </mediatorFlow>
+      <onError prettyName="OnError sequence Key" keyName="OnError sequence Key" keyValue="FaultSequence" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+    </children>
+  </server>
+</esb:EsbDiagram>

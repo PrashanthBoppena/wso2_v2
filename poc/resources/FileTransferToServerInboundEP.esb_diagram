@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_xENBEGabEe6kLLExzdmpYQ" type="Esb" name="FileTransferToServerInboundEP" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_xFCHgGabEe6kLLExzdmpYQ" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_xFCukGabEe6kLLExzdmpYQ" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_xKKfIGabEe6kLLExzdmpYQ" type="3767">
+        <children xmi:type="notation:Node" xmi:id="_xKOJgGabEe6kLLExzdmpYQ" type="3768">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_xKOJgWabEe6kLLExzdmpYQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_xKOJgmabEe6kLLExzdmpYQ" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_xKOJg2abEe6kLLExzdmpYQ"/>
+          <element xmi:type="esb:InboundEndpointSequenceInputConnector" href="FileTransferToServerInboundEP.esb#//@server/@children.0/@sequenceInputConnector"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xKOJhGabEe6kLLExzdmpYQ" x="-6" y="-5"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_xKOJhWabEe6kLLExzdmpYQ" type="3769">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_xKOJhmabEe6kLLExzdmpYQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_xKOJh2abEe6kLLExzdmpYQ" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_xKOJiGabEe6kLLExzdmpYQ"/>
+          <element xmi:type="esb:InboundEndpointSequenceOutputConnector" href="FileTransferToServerInboundEP.esb#//@server/@children.0/@sequenceOutputConnector"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xKOJiWabEe6kLLExzdmpYQ" x="86" y="-29"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_xKOwkGabEe6kLLExzdmpYQ" type="3770">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_xKOwkWabEe6kLLExzdmpYQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_xKOwkmabEe6kLLExzdmpYQ" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_xKOwk2abEe6kLLExzdmpYQ"/>
+          <element xmi:type="esb:InboundEndpointOnErrorSequenceInputConnector" href="FileTransferToServerInboundEP.esb#//@server/@children.0/@onErrorSequenceInputConnector"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xKOwlGabEe6kLLExzdmpYQ" x="-6" y="-5"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_xKOwlWabEe6kLLExzdmpYQ" type="3771">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_xKOwlmabEe6kLLExzdmpYQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_xKOwl2abEe6kLLExzdmpYQ" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_xKOwmGabEe6kLLExzdmpYQ"/>
+          <element xmi:type="esb:InboundEndpointOnErrorSequenceOutputConnector" href="FileTransferToServerInboundEP.esb#//@server/@children.0/@onErrorSequenceOutputConnector"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xKOwmWabEe6kLLExzdmpYQ" x="86" y="19"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_xKPXoGabEe6kLLExzdmpYQ" type="3772" fontName="Segoe UI">
+          <element xmi:type="esb:InboundEndpointContainer" href="FileTransferToServerInboundEP.esb#//@server/@children.0/@container"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xKPXoWabEe6kLLExzdmpYQ"/>
+        </children>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_xKKfIWabEe6kLLExzdmpYQ"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_xKKfImabEe6kLLExzdmpYQ" fontName="Segoe UI"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_xKKfI2abEe6kLLExzdmpYQ"/>
+        <element xmi:type="esb:InboundEndpoint" href="FileTransferToServerInboundEP.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xKKfJGabEe6kLLExzdmpYQ" width="300" height="400"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_xFCHgWabEe6kLLExzdmpYQ"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_xFCHgmabEe6kLLExzdmpYQ" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_xFCHg2abEe6kLLExzdmpYQ"/>
+    <element xmi:type="esb:EsbServer" href="FileTransferToServerInboundEP.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xFCHhGabEe6kLLExzdmpYQ"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_xENBEWabEe6kLLExzdmpYQ"/>
+  <element xmi:type="esb:EsbDiagram" href="FileTransferToServerInboundEP.esb#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_xMQJ0GabEe6kLLExzdmpYQ" type="4001" source="_xKOJhWabEe6kLLExzdmpYQ" target="_xLiYIGabEe6kLLExzdmpYQ" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xMQJ0WabEe6kLLExzdmpYQ" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="FileTransferToServerInboundEP.esb#//@server/@children.0/@sequenceOutputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xMQJ0mabEe6kLLExzdmpYQ" points="[5, 5, -12, -11]$[11, 11, -6, -5]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_xMXekGabEe6kLLExzdmpYQ" type="4001" source="_xKOwlWabEe6kLLExzdmpYQ" target="_xL7ZsGabEe6kLLExzdmpYQ" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xMXekWabEe6kLLExzdmpYQ" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="FileTransferToServerInboundEP.esb#//@server/@children.0/@onErrorSequenceOutputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xMXekmabEe6kLLExzdmpYQ" points="[6, 5, -11, 0]$[11, 0, -6, -5]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_xMezUGabEe6kLLExzdmpYQ" type="4001" source="_xL-dAGabEe6kLLExzdmpYQ" target="_xKOwkGabEe6kLLExzdmpYQ" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xMezUWabEe6kLLExzdmpYQ" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="FileTransferToServerInboundEP.esb#//@server/@children.0/@container/@onErrorSequenceContainer/@mediatorFlow/@children.0/@outputConnector.0/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xMezUmabEe6kLLExzdmpYQ" points="[-6, -2, 103, 27]$[-103, -28, 6, 1]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_xMk58GabEe6kLLExzdmpYQ" type="4001" source="_xLmCgGabEe6kLLExzdmpYQ" target="_xKOJgGabEe6kLLExzdmpYQ" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xMk58WabEe6kLLExzdmpYQ" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="FileTransferToServerInboundEP.esb#//@server/@children.0/@container/@sequenceContainer/@mediatorFlow/@children.0/@outputConnector.0/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xMk58mabEe6kLLExzdmpYQ" points="[-6, 0, 103, -8]$[-103, 7, 6, -1]"/>
+  </edges>
+</notation:Diagram>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/dynamic_mediation_seq" name="DynamicMediation_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST GET">
+        <inSequence>
+            <property expression="json-eval($)" name="API_Request" scope="default" type="STRING"/>
+            <filter regex="false" source="boolean($trp:parentId)">
+                <then>
+                    <log description="parentId null" level="custom">
+                        <property name="Log" value="This call is Main call"/>
+                    </log>
+                    <sequence key="gov:custom/sequences/parentIdGenerateSeq.xml"/>
+                    <property description="childId" name="childId" scope="default" type="STRING" value="Main"/>
+                </then>
+                <else>
+                    <log description="parent Id from $trp" level="custom">
+                        <property name="Log" value="This call is child call having parent Id"/>
+                        <property expression="$trp:parentId" name="log parentId header==>"/>
+                    </log>
+                    <property description="parentId" expression="$trp:parentId" name="parentId" scope="default" type="STRING"/>
+                    <sequence key="gov:custom/sequences/childIdGeneratingSeq.xml"/>
+                    <property action="remove" description="make $trp parentId null" name="parentId" scope="transport"/>
+                </else>
+            </filter>
+            <property description="set parentId trp" expression="$ctx:parentId" name="parentId" scope="transport" type="STRING"/>
+            <sequence key="gov:custom/sequences/CommonAPIPropertiesCollectionSeq.xml"/>
+            <class description="SystemRequestLogs" name="com.knot.uol.utils.SystemRequestNewLog">
+                <property name="process" value="dynamicMediationSequence"/>
+                <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+                <property expression="json-eval($)" name="requestPayload"/>
+                <property expression="get-property('SYNAPSE_REST_API')" name="apiName"/>
+                <property expression="$ctx:parentId" name="parentId"/>
+                <property expression="$ctx:processId" name="processId"/>
+                <property expression="$ctx:childId" name="childId"/>
+            </class>
+            <payloadFactory description="Dynamic Query Payload" media-type="json">
+                <format>{&#xd;
+    "queryName": "CUS_OnBoarding",&#xd;
+    "parameters": {&#xd;
+   		"customer_id": "518531",&#xd;
+		"sub_api_id": "CUS_OnBoarding"&#xd;
+    }&#xd;
+}</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:queryName"/>
+                    <arg evaluator="json" expression="$.parameters"/>
+                    <arg evaluator="json" expression="$.bscs_params"/>
+                </args>
+            </payloadFactory>
+            <propertyGroup description="BSCS Properties">
+                <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath" scope="default" type="STRING"/>
+                <property expression="json-eval($)" name="dynamicQueryMediatorRequestPayload" scope="default" type="STRING"/>
+            </propertyGroup>
+            <class description="Dynamic Query" name="com.knot.uol.mediators.DynamicXMLQueryMediator"/>
+            <log level="custom">
+                <property expression="$ctx:dynamicQueryMediatorResponsePayload" name="json-eval($ctx:dynamicQueryMediatorResponsePayload)"/>
+            </log>
+            <payloadFactory description="buildPayload" media-type="json">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="json" expression="$ctx:dynamicQueryMediatorResponsePayload.response"/>
+                </args>
+            </payloadFactory>
+            <property expression="json-eval($.length())" name="dynamicMediationItrCount" scope="default" type="STRING"/>
+            <log description="log the Enableflag Count" level="custom">
+                <property expression="get-property('dynamicMediationItrCount')" name="dynamicMediationItrCount"/>
+            </log>
+            <iterate expression="//jsonElement" id="dynamicMediationItrAgg1" sequential="true">
+                <target>
+                    <sequence>
+                        <propertyGroup>
+                            <property expression="//sub_api_id" name="sub_api_id" scope="default" type="STRING"/>
+                            <property expression="//System_Name" name="System_Name" scope="default" type="STRING"/>
+                            <property expression="//Process_ID" name="Process_ID" scope="default" type="STRING"/>
+                            <property expression="//Process_Name" name="Process_Name" scope="default" type="STRING"/>
+                            <property expression="//Enable_Flag" name="Enable_Flag" scope="default" type="STRING"/>
+                            <property expression="//Endpoint" name="Endpoint" scope="default" type="STRING"/>
+                            <property expression="//HTTP_Method" name="HTTP_Method" scope="default" type="STRING"/>
+                            <property expression="//Request_Type" name="Request_Type" scope="default" type="STRING"/>
+                            <property expression="//Req_Payload" name="req_template_ID" scope="default" type="STRING"/>
+                        </propertyGroup>
+                        <switch source="$ctx:System_Name">
+                            <case regex="UOL">
+                                <payloadFactory media-type="json">
+                                    <format>{&#xd;
+    "parameters": {&#xd;
+        "customer_id": "518531"&#xd;
+    },&#xd;
+    "bscs_params": {&#xd;
+        "sccode": "1",&#xd;
+        "submId": "1",&#xd;
+        "plcode": "1001",&#xd;
+        "rpcode": "1"&#xd;
+    }&#xd;
+}</format>
+                                    <args/>
+                                </payloadFactory>
+                                <sequence key="REST_API_Call_Seq"/>
+                            </case>
+                            <case regex="EB">
+                                <sequence key="gov:custom/sequences/childIdGeneratingSeq.xml"/>
+                                <payloadFactory media-type="json">
+                                    <format>$1</format>
+                                    <args>
+                                        <arg evaluator="xml" expression="$ctx:API_Request"/>
+                                    </args>
+                                </payloadFactory>
+                                <class description="SystemRequestLogs" name="com.knot.uol.utils.SystemRequestNewLog">
+                                    <property name="process" value="dynamicEBSequence"/>
+                                    <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+                                    <property expression="json-eval($)" name="requestPayload"/>
+                                    <property expression="get-property('SYNAPSE_REST_API')" name="apiName"/>
+                                    <property expression="$ctx:parentId" name="parentId"/>
+                                    <property expression="$ctx:processId" name="processId"/>
+                                    <property expression="$ctx:childId" name="childId"/>
+                                </class>
+                                <sequence key="EB_SOAP_Call_Seq"/>
+                                <class description="SystemResponseLogs" name="com.knot.uol.utils.SystemResponseUpdateLog">
+                                    <property expression="$ctx:parentId" name="parentId"/>
+                                    <property expression="$ctx:processId" name="processId"/>
+                                    <property expression="json-eval($)" name="responsePayload"/>
+                                    <property expression="$axis2:HTTP_SC" name="status"/>
+                                    <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+                                    <property expression="$ctx:childId" name="childId"/>
+                                </class>
+                                <log level="custom">
+                                    <property expression="json-eval($)" name="eb response data==>"/>
+                                    <property name="json-eval($.customerCreateResponse.customerNew.csId)" value="Q"/>
+                                </log>
+                            </case>
+                            <case regex="QUERY">
+                                <payloadFactory media-type="json">
+                                    <format>{&#xd;
+    "queryName": "$1",&#xd;
+    "parameters": {&#xd;
+        "customer_id":518531&#xd;
+&#xd;
+    }&#xd;
+}</format>
+                                    <args>
+                                        <arg evaluator="xml" expression="get-property('Endpoint')"/>
+                                    </args>
+                                </payloadFactory>
+                                <sequence key="Dynamic_Query_Call_Seq"/>
+                            </case>
+                            <case regex="NMS">
+                                <payloadFactory media-type="json">
+                                    <format>{&#xd;
+  "ApiName": "view-numbers",&#xd;
+  "channelName": "YourChannelNameValue",&#xd;
+  "pattern": "YourPatternValue",&#xd;
+  "status": "YourStatusValue",&#xd;
+  "msisdn": "YourMsisdnValue",&#xd;
+  "category": "YourCategoryValue"&#xd;
+}&#xd;
+</format>
+                                    <args/>
+                                </payloadFactory>
+                                <sequence key="NMS_Call_Seq"/>
+                            </case>
+                            <default/>
+                        </switch>
+                    </sequence>
+                </target>
+            </iterate>
+            <sequence key="AggregateResponsesSeq"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <sequence key="gov:custom/sequences/FaultSequence.xml"/>
+            <class description="SystemResponseLogs" name="com.knot.uol.utils.SystemResponseUpdateLog">
+                <property expression="$ctx:parentId" name="parentId"/>
+                <property expression="$ctx:processId" name="processId"/>
+                <property expression="json-eval($)" name="responsePayload"/>
+                <property expression="$axis2:HTTP_SC" name="status"/>
+                <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+                <property name="childId" value="Main"/>
+            </class>
+            <respond/>
+        </faultSequence>
+    </resource>
+</api>

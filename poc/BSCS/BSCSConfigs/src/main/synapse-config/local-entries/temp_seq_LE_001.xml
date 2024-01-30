@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localEntry key="temp_seq_LE_001" xmlns="http://ws.apache.org/ns/synapse">
+    <con:contractNewRequest xmlns:con="http://ericsson.com/services/ws_CMI_7/contractnew" xmlns:ses="http://ericsson.com/services/ws_CMI_7/sessionchange">
+        <!--You may enter the following 2 items in any order-->
+        <!--Optional:-->
+        <con:inputAttributes>
+            <!--You may enter the following 56 items in any order-->
+            <con:csId>{csId}</con:csId>
+            <!--sccode contract_all-->
+            <con:sccode>1</con:sccode>
+            <!--submid contract_all-->
+            <con:submId>1</con:submId>
+            <!--plcode contract_all-->
+            <con:plcode>1001</con:plcode>
+            <!--tmcode contract_all-->
+            <con:rpcode>11</con:rpcode>
+        </con:inputAttributes>
+        <!--Optional:-->
+        <con:sessionChangeRequest>
+            <!--Optional:-->
+            <ses:values>
+                <!--1 or more repetitions:-->
+                <ses:item>
+                    <!--You may enter the following 2 items in any order-->
+                    <ses:key>BU_ID</ses:key>
+                    <ses:value>{BUID_VAL}</ses:value>
+                </ses:item>
+            </ses:values>
+        </con:sessionChangeRequest>
+    </con:contractNewRequest>
+</localEntry>

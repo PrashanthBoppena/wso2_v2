@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="Dynamic_Query_Call_Seq" onError="FaultSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property description="dynamicQueryMediatorRequestPayload" expression="json-eval($)" name="dynamicQueryMediatorRequestPayload" scope="default" type="STRING"/>
+    <property description="apiregistryConfigPath" expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath" scope="default" type="STRING"/>
+    <property description="carbonHome" expression="get-property('system', 'carbon.home')" name="CarbonHome" scope="default" type="STRING"/>
+    <class description="dynamic QueryBuild" name="com.knot.uol.mediators.DynamicXMLQueryMediator"/>
+    <payloadFactory description="buildResponsePayload" media-type="json">
+        <format>$1</format>
+        <args>
+            <arg evaluator="json" expression="$ctx:dynamicQueryMediatorResponsePayload.response"/>
+        </args>
+    </payloadFactory>
+</sequence>

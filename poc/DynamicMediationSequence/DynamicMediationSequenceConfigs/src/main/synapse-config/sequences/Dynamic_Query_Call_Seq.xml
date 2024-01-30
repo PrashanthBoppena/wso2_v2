@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="Dynamic_Query_Call_Seq" onError="FaultSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property description="dynamicQueryMediatorRequestPayload" expression="json-eval($)" name="dynamicQueryMediatorRequestPayload" scope="default" type="STRING"/>
+    <property description="apiregistryConfigPath" expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath" scope="default" type="STRING"/>
+    <property description="carbonHome" expression="get-property('system', 'carbon.home')" name="CarbonHome" scope="default" type="STRING"/>
+    <property description="apiregistryConfigPath" expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath" scope="default" type="STRING"/>
+    <class description="com.uol.mediators.UOLRequestLogMediator" name="com.uol.mediators.UOLRequestLogMediator">
+        <property expression="$ctx:NIC" name="NIC"/>
+        <property expression="$ctx:sub_api_id" name="sub_api_id"/>
+        <property expression="$ctx:MSISDN" name="MSISDN"/>
+        <property expression="$ctx:csId" name="custid"/>
+        <property expression="$ctx:source_req_id" name="source_req_id"/>
+        <property expression="$ctx:channel" name="channel"/>
+        <property expression="$ctx:child_req_id" name="child_req_id"/>
+        <property expression="$ctx:sub_endpoint" name="api_name"/>
+        <property expression="$ctx:process_id" name="processId"/>
+        <property expression="$ctx:process_name" name="processName"/>
+        <property expression="$body/*" name="request"/>
+        <property expression="$ctx:logStatus" name="logStatus"/>
+        <property name="status" value="In-Progress"/>
+    </class>
+    <class description="dynamic QueryBuild" name="com.uol.mediators.query.DynamicXMLQueryMediator">
+        <property name="reqType" value="dynamicEBSeq"/>
+    </class>
+    <class description="UOLResponseLog" name="com.uol.mediators.UOLResponseLogMediator">
+        <property expression="$ctx:source_req_id" name="source_req_id"/>
+        <property expression="$ctx:child_req_id" name="child_req_id"/>
+        <property expression="$ctx:responsePayload" name="response"/>
+        <property expression="$ctx:statusCode" name="status"/>
+        <property expression="$ctx:logStatus" name="logStatus"/>
+    </class>
+    <payloadFactory description="buildResponsePayload" media-type="json">
+        <format>$1</format>
+        <args>
+            <arg evaluator="json" expression="$ctx:responsePayload"/>
+        </args>
+    </payloadFactory>
+</sequence>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/sample_test" name="SampleTest_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST GET">
+        <inSequence>
+            <payloadFactory media-type="json">
+                <format>&#xd;
+    {&#xd;
+        "color": "red",&#xd;
+        "value": "#f00"&#xd;
+    }</format>
+                <args/>
+            </payloadFactory>
+            <script language="js"><![CDATA[var log = mc.getServiceLog();
+                            var responses = mc.getPayloadJSON() || {} ;
+                            var eligibilitystatus = true;
+                  
+                            log.info("eligibilitystatus==> "+eligibilitystatus);
+                           
+							responses.eligibilitystatus=eligibilitystatus;
+                            mc.setPayloadJSON(responses); 
+                            
+                            //mc.setProperty("eligibilitystatus",eligibilitystatus);]]></script>
+            <sequence key="sampleSeq"/>
+            <log level="custom">
+                <property expression="get-property('transport', 'Content-Type')" name="get-property('transport', 'Content-Type')"/>
+            </log>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST GET" url-mapping="/1">
+        <inSequence>
+            <datamapper config="gov:datamapper/TMFORUM1.dmc" description="TMFORUM Mapping" inputSchema="gov:datamapper/TMFORUM1_inputSchema.json" inputType="JSON" outputSchema="gov:datamapper/TMFORUM1_outputSchema.json" outputType="JSON" xsltStyleSheet="gov:datamapper/TMFORUM1_xsltStyleSheet.xml"/>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST GET" url-mapping="/EC_Data">
+        <inSequence>
+            <script language="js"><![CDATA[var log = mc.getServiceLog();
+//var jsonData = mc.getProperty("requestPayload");
+
+//var json = JSON.parse(jsonData);
+var json =mc.getPayloadJSON();
+function setProperties(json, parentKey) {
+	for (var key in json) {
+		if (json.hasOwnProperty(key)) {
+			var value = json[key];
+
+			if (typeof value === 'object') {
+				// If the value is a nested JSON object, recursively iterate
+				setProperties(value, parentKey + key + '.');
+			} else {
+				// If the value is a leaf node, set the property
+				// var propertyName = parentKey + key;    parameters.addressRequest.adrLname
+				var propertyName = key;
+				var propertyValue = value.toString();
+				mc.setProperty(propertyName, propertyValue);
+				//log.info("Property set: " + propertyName + " = " + propertyValue);
+			}
+		}
+	}
+}
+
+// Set properties dynamically
+setProperties(json, '');]]></script>
+            <property description="Install_subscriber" expression="get-property('Install_subscriber')" name="InstallSubscriber" scope="default" type="OM"/>
+            <script language="js"><![CDATA[var log = mc.getServiceLog();   
+	var XMLRequest = mc.getProperty("InstallSubscriber");
+	//log.info("req_template in script "+ XMLRequest);
+	var srcRequest = XMLRequest.toString();
+	
+	// Extract placeholder keys from the  srcRequest
+	  var dynamicKeys = srcRequest.match(/{(.*?)}/g).map(function(key) 
+	  {
+	  return key.replace(/[{}]/g, '');
+	  });
+	 //     log.info("dynamic replaceble keys are-->"+dynamicKeys);       
+	// Replace placeholders with dynamically fetched values
+	  dynamicKeys.forEach(function(key) 
+	  {
+	   if (mc.getProperty(key)) {
+   //    log.info("key  are-->"+key+"::"+mc.getProperty(key));      
+	   srcRequest = srcRequest.replace("{" + key + "}", mc.getProperty(key));
+	  }
+	  });
+   //     log.info("templateString-->"+srcRequest);
+	mc.setPayloadXML(new XML(srcRequest));]]></script>
+            <property name="messageType" scope="axis2" type="STRING" value="application/xml"/>
+            <xslt key="conf:custom/EC/templates/ECPayloadProcessing.xslt" source="$body"/>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/callingSeq" name="SequenceCalling_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET">
+        <inSequence>
+            <property expression="get-property('file','driver')" name="driver" scope="default" type="STRING"/>
+            <property expression="get-property('file','url')" name="url" scope="default" type="STRING"/>
+            <property expression="get-property('file','user')" name="user" scope="default" type="STRING"/>
+            <property expression="get-property('file','password')" name="password" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="get-property('file','driver')" name="driver"/>
+                <property expression="get-property('file','url')" name="url"/>
+                <property expression="get-property('file','user')" name="user"/>
+                <property expression="get-property('file','password')" name="password"/>
+            </log>
+            <sequence key="DBReportSeq"/>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

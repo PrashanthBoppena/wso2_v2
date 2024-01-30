@@ -1,0 +1,11 @@
+---
+key: "BSCS_Sample_Dynamic_API-1.0.0"
+name : "BSCS_Sample_Dynamic_API"
+displayName : "BSCS_Sample_Dynamic_API"
+description: "Sample API"
+version: "1.0.0"
+serviceUrl: "https://{MI_HOST}:{MI_PORT}/BSCS/GenericApi"
+definitionType: "OAS3"
+securityType: "BASIC"
+mutualSSLEnabled: false
+apiId : "null"

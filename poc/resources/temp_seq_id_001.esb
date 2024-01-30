@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esb:EsbDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb">
+  <server type="TEMPLATE_SEQUENCE">
+    <children xsi:type="esb:Template" name="temp_seq_id_001">
+      <child xsi:type="esb:Sequences" name="temp_seq_id_001">
+        <outputConnector>
+          <outgoingLink target="//@server/@children.0/@child/@mediatorFlow/@children.0/@inputConnector"/>
+        </outputConnector>
+        <inputConnector incomingLinks="//@server/@children.0/@child/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+        <mediatorFlow>
+          <children xsi:type="esb:PayloadFactoryMediator" payload="&lt;req:customerReadRequest xmlns:req=&quot;http://ericsson.com/services/ws_CIL_7&quot; xmlns:ses=&quot;http://ericsson.com/services/ws_CIL_7/sessionchange&quot;>&lt;!--You may enter the following 2 items in any order-->&lt;!--Optional:-->&lt;req:inputAttributes>&lt;!--You may enter the following 3 items in any order-->&lt;!--Optional:-->&lt;req:csId>$1&lt;/req:csId>&lt;!--Optional:-->&lt;req:csIdPub/>&lt;!--Optional:-->&lt;req:syncWithDb/>&lt;/req:inputAttributes>&lt;!--Optional:-->&lt;req:sessionChangeRequest>&lt;!--Optional:-->&lt;ses:values>&lt;!--1 or more repetitions:-->&lt;ses:item>&lt;!--You may enter the following 2 items in any order-->&lt;ses:key>BU_ID&lt;/ses:key>&lt;ses:value>2&lt;/ses:value>&lt;/ses:item>&lt;/ses:values>&lt;/req:sessionChangeRequest>&lt;/req:customerReadRequest>">
+            <payloadKey prettyName="Sequence Key" keyName="Sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            <args argumentType="Expression">
+              <argumentExpression propertyValue="$func:csId" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </args>
+            <inputConnector incomingLinks="//@server/@children.0/@child/@outputConnector/@outgoingLink"/>
+            <outputConnector>
+              <outgoingLink target="//@server/@children.0/@child/@inputConnector"/>
+            </outputConnector>
+          </children>
+        </mediatorFlow>
+        <onError prettyName="OnError sequence Key" keyName="OnError sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+      </child>
+      <parameters name="csId" defaultValue=""/>
+      <onError filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+    </children>
+  </server>
+</esb:EsbDiagram>

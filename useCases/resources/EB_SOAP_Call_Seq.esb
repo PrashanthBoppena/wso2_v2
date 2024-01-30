@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esb:EsbDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb">
+  <server type="SEQUENCE">
+    <children xsi:type="esb:Sequences" name="EB_SOAP_Call_Seq">
+      <commentsList> &lt;log level=&quot;custom&quot;>
+&lt;property expression=&quot;get-property($ctx:req_template_ID)&quot; name=&quot;req_template data==>&quot;/>
+&lt;/log>  </commentsList>
+      <outputConnector>
+        <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
+      </outputConnector>
+      <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.7/@outputConnector/@outgoingLink"/>
+      <mediatorFlow>
+        <children xsi:type="esb:PropertyMediator" value="2" newPropertyName="BUID_VAL">
+          <inputConnector incomingLinks="//@server/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.1/@inputConnector"/>
+          </outputConnector>
+          <valueExpression prettyName="Property Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+        </children>
+        <children xsi:type="esb:PropertyMediator" propertyDataType="OM" valueType="EXPRESSION" newPropertyName="req_template">
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.2/@inputConnector"/>
+            <commentMediators commentText=" &lt;log level=&quot;custom&quot;>&#xA;&lt;property expression=&quot;get-property($ctx:req_template_ID)&quot; name=&quot;req_template data==>&quot;/>&#xA;&lt;/log>  "/>
+          </outputConnector>
+          <valueExpression propertyValue="get-property($ctx:req_template_ID)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+        </children>
+        <children xsi:type="esb:ScriptMediator" scriptType="INLINE" scriptBody="var log = mc.getServiceLog();   &#xA;&#x9;var XMLRequest = mc.getProperty(&quot;req_template&quot;);&#xA;&#x9;log.info(&quot;req_template in script &quot;+ XMLRequest);&#xA;&#x9;var srcRequest = XMLRequest.toString();&#xA;&#x9;&#xA;&#x9;// Extract placeholder keys from the  srcRequest&#xA;&#x9;  var dynamicKeys = srcRequest.match(/{(.*?)}/g).map(function(key) &#xA;&#x9;  {&#xA;&#x9;  return key.replace(/[{}]/g, '');&#xA;&#x9;  });&#xA;&#x9; //     log.info(&quot;dynamic replaceble keys are-->&quot;+dynamicKeys);       &#xA;&#x9;// Replace placeholders with dynamically fetched values&#xA;&#x9;  dynamicKeys.forEach(function(key) &#xA;&#x9;  {&#xA;&#x9;   if (mc.getProperty(key)) {&#xA;   //    log.info(&quot;key  are-->&quot;+key+&quot;::&quot;+mc.getProperty(key));      &#xA;&#x9;   srcRequest = srcRequest.replace(&quot;{&quot; + key + &quot;}&quot;, mc.getProperty(key));&#xA;&#x9;  }&#xA;&#x9;  });&#xA;   //     log.info(&quot;templateString-->&quot;+srcRequest);&#xA;&#x9;mc.setPayloadXML(new XML(srcRequest));">
+          <scriptDynamicKey prettyName="" propertyName="dynamic key" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.3/@inputConnector"/>
+          </outputConnector>
+          <scriptStaticKey prettyName="Script Key" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+        </children>
+        <children xsi:type="esb:PropertyMediator" description="reqData" valueType="EXPRESSION" newPropertyName="reqData">
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.2/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.4/@inputConnector"/>
+          </outputConnector>
+          <valueExpression propertyValue="$body/*" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+        </children>
+        <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=", ">
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.3/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.5/@inputConnector"/>
+          </outputConnector>
+          <properties propertyName="req_template prepared data==>" propertyValueType="EXPRESSION" propertyValue="">
+            <propertyExpression propertyValue="$body/*" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          </properties>
+        </children>
+        <children xsi:type="esb:PayloadFactoryMediator" payload="&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;>&#xA;&lt;soapenv:Header>&#xA;&lt;wsse:Security soapenv:mustUnderstand=&quot;1&quot; xmlns:wsse=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&quot; xmlns:wsu=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd&quot;>&#xA; &lt;wsse:UsernameToken wsu:Id=&quot;UsernameToken-4041E3749487CEEDA416735096455611&quot;>&#xA;&#x9;&lt;wsse:Username>ADMX&lt;/wsse:Username>&#xA;&#x9;&lt;wsse:Password Type=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText&quot;>ADMX&lt;/wsse:Password>&#xA;&#x9;&lt;wsse:Nonce EncodingType=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary&quot;>qGELBcPOuTVG3N9euZozew==&lt;/wsse:Nonce>&#xA;&#x9;&lt;wsu:Created>2023-01-12T07:47:25.554Z&lt;/wsu:Created>&#xA; &lt;/wsse:UsernameToken>&#xA;&lt;/wsse:Security>&#xA;&lt;/soapenv:Header>&#x9;&#x9;&#xA;&lt;soapenv:Body>&#xA;${ctx.reqData}&#xA;&lt;/soapenv:Body>&#xA;&lt;/soapenv:Envelope>" templateEngine="Freemarker">
+          <payloadKey prettyName="Sequence Key" keyName="Sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.4/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.6/@inputConnector"/>
+          </outputConnector>
+        </children>
+        <children xsi:type="esb:CallMediator">
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.5/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.7/@inputConnector"/>
+          </outputConnector>
+          <endpointOutputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.6/@mediatorFlow/@children.0/@inputConnector"/>
+          </endpointOutputConnector>
+          <mediatorFlow>
+            <children xsi:type="esb:AddressEndPoint" format="soap11" URI="$FILE:BSCSKnotServerURL">
+              <reliableMessagingPolicy prettyName="ReliableMessagingPolicy Key" keyName="ReliableMessagingPolicy Key" keyValue="/default/key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+              <securityPolicy prettyName="SecurityPolicy Key" keyName="SecurityPolicy Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+              <inboundPolicy prettyName="inboundPolicy Key" keyName="inboundPolicy Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+              <outboundPolicy prettyName="obPolicy Key" keyName="obPolicy Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+              <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.6/@endpointOutputConnector/@outgoingLink"/>
+            </children>
+          </mediatorFlow>
+          <endpointRegistrykey prettyName="Endpoint Key" keyName="Endpoint Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          <sourceXPath prettyName="Endpoint XPath" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+        </children>
+        <children xsi:type="esb:PropertyMediator" propertyName="messageType" propertyScope="axis2" value="application/json">
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.6/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@inputConnector"/>
+          </outputConnector>
+          <valueExpression prettyName="Property Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+        </children>
+      </mediatorFlow>
+      <onError prettyName="OnError sequence Key" keyName="OnError sequence Key" keyValue="FaultSequence" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+    </children>
+  </server>
+</esb:EsbDiagram>

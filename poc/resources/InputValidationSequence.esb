@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esb:EsbDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb">
+  <server type="SEQUENCE">
+    <children xsi:type="esb:Sequences" name="InputValidationSequence">
+      <commentsList> &lt;propertyGroup>
+        &lt;property expression=&quot;json-eval($.req_id)&quot; name=&quot;req_id&quot; scope=&quot;default&quot; type=&quot;STRING&quot;/>
+        &lt;property expression=&quot;json-eval($.MSISDN)&quot; name=&quot;msisdn&quot; scope=&quot;default&quot; type=&quot;STRING&quot;/>
+        &lt;property expression=&quot;json-eval($.template_id)&quot; name=&quot;template_id&quot; scope=&quot;default&quot; type=&quot;STRING&quot;/>
+    &lt;/propertyGroup>  </commentsList>
+      <commentsList> Validate cust_name </commentsList>
+      <commentsList> Validate msisdn </commentsList>
+      <commentsList> Validate Receiver MSISDN </commentsList>
+      <commentsList> Validate template_id </commentsList>
+      <outputConnector>
+        <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
+      </outputConnector>
+      <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.3/@outputConnector/@outgoingLink"/>
+      <mediatorFlow>
+        <children xsi:type="esb:FilterMediator" regex="^\s*$">
+          <inputConnector incomingLinks="//@server/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.1/@inputConnector"/>
+            <commentMediators commentText=" Validate msisdn "/>
+          </outputConnector>
+          <passOutputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@filterContainer/@passContainer/@mediatorFlow/@children.0/@inputConnector"/>
+          </passOutputConnector>
+          <failOutputConnector/>
+          <xpath prettyName="Filter Source XPath" propertyName="filterSourceXpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          <source propertyValue="$ctx:req_id" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          <filterContainer>
+            <passContainer>
+              <mediatorFlow>
+                <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=", ">
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@passOutputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@filterContainer/@passContainer/@mediatorFlow/@children.1/@inputConnector"/>
+                  </outputConnector>
+                  <properties propertyName="log req_id" propertyValueType="EXPRESSION" propertyValue="">
+                    <propertyExpression propertyValue="$ctx:req_id" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                  </properties>
+                </children>
+                <children xsi:type="esb:PayloadFactoryMediator" payload="{&#xD;&#xA;  &quot;status&quot;: 400,&#xD;&#xA;  &quot;message&quot;: &quot;Bad Request&quot;,&#xD;&#xA; &quot;error&quot;:{&#xD;&#xA;&#x9;&#x9;&quot;msg&quot;:&quot;Invalid req_id.&quot;&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;" mediaType="text">
+                  <payloadKey prettyName="Sequence Key" keyName="Sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                  <args argumentType="Expression">
+                    <argumentExpression propertyValue="$ctx:ERROR_MESSAGE" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                  </args>
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@filterContainer/@passContainer/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@filterContainer/@passContainer/@mediatorFlow/@children.2/@inputConnector"/>
+                  </outputConnector>
+                </children>
+                <children xsi:type="esb:PropertyMediator" valueType="EXPRESSION" newPropertyName="response">
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@filterContainer/@passContainer/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@filterContainer/@passContainer/@mediatorFlow/@children.3/@inputConnector"/>
+                  </outputConnector>
+                  <valueExpression propertyValue="json-eval($)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                </children>
+                <children xsi:type="esb:DSSMediator" description="write errors into api logs" serviceName="NotificationsDS" availableDataServices="NotificationsDS">
+                  <operations operationName="updateApiLogHandler">
+                    <DSSPrperties propertyName="response" propertyValueType="EXPRESSION">
+                      <propertyExpression propertyName="response" propertyValue="$ctx:response" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    </DSSPrperties>
+                    <DSSPrperties propertyName="process_id" propertyValueType="EXPRESSION">
+                      <propertyExpression propertyName="process_id" propertyValue="$ctx:step1_id" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    </DSSPrperties>
+                  </operations>
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@filterContainer/@passContainer/@mediatorFlow/@children.2/@outputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@filterContainer/@passContainer/@mediatorFlow/@children.4/@inputConnector"/>
+                  </outputConnector>
+                </children>
+                <children xsi:type="esb:PayloadFactoryMediator" payload="{&#xD;&#xA;  &quot;status&quot;: 400,&#xD;&#xA;  &quot;message&quot;: &quot;Bad Request&quot;,&#xD;&#xA; &quot;error&quot;:{&#xD;&#xA;&#x9;&#x9;&quot;msg&quot;:&quot;Invalid req_id.&quot;&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;" mediaType="json">
+                  <payloadKey prettyName="Sequence Key" keyName="Sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@filterContainer/@passContainer/@mediatorFlow/@children.3/@outputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@filterContainer/@passContainer/@mediatorFlow/@children.5/@inputConnector"/>
+                  </outputConnector>
+                </children>
+                <children xsi:type="esb:PropertyMediator" description="set statuc code" propertyName="HTTP_SC" propertyScope="axis2" value="400">
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@filterContainer/@passContainer/@mediatorFlow/@children.4/@outputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@filterContainer/@passContainer/@mediatorFlow/@children.6/@inputConnector"/>
+                  </outputConnector>
+                  <valueExpression prettyName="Property Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                </children>
+                <children xsi:type="esb:RespondMediator">
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@filterContainer/@passContainer/@mediatorFlow/@children.5/@outputConnector/@outgoingLink"/>
+                  <outputConnector/>
+                </children>
+              </mediatorFlow>
+            </passContainer>
+            <failContainer>
+              <mediatorFlow/>
+            </failContainer>
+          </filterContainer>
+        </children>
+        <children xsi:type="esb:FilterMediator" regex="[1-9]{7}">
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.2/@inputConnector"/>
+            <commentMediators commentText=" Validate Receiver MSISDN "/>
+          </outputConnector>
+          <passOutputConnector/>
+          <failOutputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.1/@filterContainer/@failContainer/@mediatorFlow/@children.0/@inputConnector"/>
+          </failOutputConnector>
+          <xpath prettyName="Filter Source XPath" propertyName="filterSourceXpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          <source propertyValue="json-eval($ctx:request.Sender_MSISDN)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          <filterContainer>
+            <passContainer>
+              <mediatorFlow/>
+            </passContainer>
+            <failContainer>
+              <mediatorFlow>
+                <children xsi:type="esb:PayloadFactoryMediator" payload="{&#xD;&#xA;  &quot;status&quot;: 400,&#xD;&#xA;  &quot;message&quot;: &quot;Bad Request&quot;,&#xD;&#xA; &quot;error&quot;:{&#xD;&#xA;&#x9;&#x9;&quot;msg&quot;:&quot;Invalid Sender MSISDN number.&quot;&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;" mediaType="text">
+                  <payloadKey prettyName="Sequence Key" keyName="Sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.1/@failOutputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.1/@filterContainer/@failContainer/@mediatorFlow/@children.1/@inputConnector"/>
+                  </outputConnector>
+                </children>
+                <children xsi:type="esb:PropertyMediator" description="response" valueType="EXPRESSION" newPropertyName="response">
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.1/@filterContainer/@failContainer/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.1/@filterContainer/@failContainer/@mediatorFlow/@children.2/@inputConnector"/>
+                  </outputConnector>
+                  <valueExpression propertyValue="json-eval($)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                </children>
+                <children xsi:type="esb:DSSMediator" description="write errors into api logs" serviceName="NotificationsDS" availableDataServices="NotificationsDS">
+                  <operations operationName="updateApiLogHandler">
+                    <DSSPrperties propertyName="response" propertyValueType="EXPRESSION">
+                      <propertyExpression propertyName="response" propertyValue="$ctx:response" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    </DSSPrperties>
+                    <DSSPrperties propertyName="process_id" propertyValueType="EXPRESSION">
+                      <propertyExpression propertyName="process_id" propertyValue="$ctx:step1_id" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    </DSSPrperties>
+                  </operations>
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.1/@filterContainer/@failContainer/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.1/@filterContainer/@failContainer/@mediatorFlow/@children.3/@inputConnector"/>
+                  </outputConnector>
+                </children>
+                <children xsi:type="esb:PayloadFactoryMediator" payload="{&#xD;&#xA;  &quot;status&quot;: 400,&#xD;&#xA;  &quot;message&quot;: &quot;Bad Request&quot;,&#xD;&#xA; &quot;error&quot;:{&#xD;&#xA;&#x9;&#x9;&quot;msg&quot;:&quot;Invalid Sender MSISDN number.&quot;&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;" mediaType="json">
+                  <payloadKey prettyName="Sequence Key" keyName="Sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.1/@filterContainer/@failContainer/@mediatorFlow/@children.2/@outputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.1/@filterContainer/@failContainer/@mediatorFlow/@children.4/@inputConnector"/>
+                  </outputConnector>
+                </children>
+                <children xsi:type="esb:PropertyMediator" description="set statuc code" propertyName="HTTP_SC" propertyScope="axis2" value="400">
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.1/@filterContainer/@failContainer/@mediatorFlow/@children.3/@outputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.1/@filterContainer/@failContainer/@mediatorFlow/@children.5/@inputConnector"/>
+                  </outputConnector>
+                  <valueExpression prettyName="Property Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                </children>
+                <children xsi:type="esb:RespondMediator">
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.1/@filterContainer/@failContainer/@mediatorFlow/@children.4/@outputConnector/@outgoingLink"/>
+                  <outputConnector/>
+                </children>
+              </mediatorFlow>
+            </failContainer>
+          </filterContainer>
+        </children>
+        <children xsi:type="esb:FilterMediator" regex="[1-9]{7}">
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.3/@inputConnector"/>
+            <commentMediators commentText=" Validate template_id "/>
+          </outputConnector>
+          <passOutputConnector/>
+          <failOutputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.2/@filterContainer/@failContainer/@mediatorFlow/@children.0/@inputConnector"/>
+          </failOutputConnector>
+          <xpath prettyName="Filter Source XPath" propertyName="filterSourceXpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          <source propertyValue="json-eval($ctx:request.Receiver_MSISDN)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          <filterContainer>
+            <passContainer>
+              <mediatorFlow/>
+            </passContainer>
+            <failContainer>
+              <mediatorFlow>
+                <children xsi:type="esb:PayloadFactoryMediator" payload="{&#xD;&#xA;  &quot;status&quot;: 400,&#xD;&#xA;  &quot;message&quot;: &quot;Bad Request&quot;,&#xD;&#xA; &quot;error&quot;:{&#xD;&#xA;&#x9;&#x9;&quot;msg&quot;:&quot;Invalid Sender MSISDN number.&quot;&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;" mediaType="text">
+                  <payloadKey prettyName="Sequence Key" keyName="Sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.2/@failOutputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.2/@filterContainer/@failContainer/@mediatorFlow/@children.1/@inputConnector"/>
+                  </outputConnector>
+                </children>
+                <children xsi:type="esb:PropertyMediator" description="response" valueType="EXPRESSION" newPropertyName="response">
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.2/@filterContainer/@failContainer/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.2/@filterContainer/@failContainer/@mediatorFlow/@children.2/@inputConnector"/>
+                  </outputConnector>
+                  <valueExpression propertyValue="json-eval($)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                </children>
+                <children xsi:type="esb:DSSMediator" description="write errors into api logs" serviceName="NotificationsDS" availableDataServices="NotificationsDS">
+                  <operations operationName="updateApiLogHandler">
+                    <DSSPrperties propertyName="response" propertyValueType="EXPRESSION">
+                      <propertyExpression propertyName="response" propertyValue="$ctx:response" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    </DSSPrperties>
+                    <DSSPrperties propertyName="process_id" propertyValueType="EXPRESSION">
+                      <propertyExpression propertyName="process_id" propertyValue="$ctx:step1_id" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    </DSSPrperties>
+                  </operations>
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.2/@filterContainer/@failContainer/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.2/@filterContainer/@failContainer/@mediatorFlow/@children.3/@inputConnector"/>
+                  </outputConnector>
+                </children>
+                <children xsi:type="esb:PayloadFactoryMediator" payload="{&#xD;&#xA;  &quot;status&quot;: 400,&#xD;&#xA;  &quot;message&quot;: &quot;Bad Request&quot;,&#xD;&#xA; &quot;error&quot;:{&#xD;&#xA;&#x9;&#x9;&quot;msg&quot;:&quot;Invalid MSISDN number.&quot;&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;" mediaType="json">
+                  <payloadKey prettyName="Sequence Key" keyName="Sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.2/@filterContainer/@failContainer/@mediatorFlow/@children.2/@outputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.2/@filterContainer/@failContainer/@mediatorFlow/@children.4/@inputConnector"/>
+                  </outputConnector>
+                </children>
+                <children xsi:type="esb:PropertyMediator" description="set statuc code" propertyName="HTTP_SC" propertyScope="axis2" value="400">
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.2/@filterContainer/@failContainer/@mediatorFlow/@children.3/@outputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.2/@filterContainer/@failContainer/@mediatorFlow/@children.5/@inputConnector"/>
+                  </outputConnector>
+                  <valueExpression prettyName="Property Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                </children>
+                <children xsi:type="esb:RespondMediator">
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.2/@filterContainer/@failContainer/@mediatorFlow/@children.4/@outputConnector/@outgoingLink"/>
+                  <outputConnector/>
+                </children>
+              </mediatorFlow>
+            </failContainer>
+          </filterContainer>
+        </children>
+        <children xsi:type="esb:FilterMediator" regex="^\s*$">
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.2/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@inputConnector"/>
+          </outputConnector>
+          <passOutputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.3/@filterContainer/@passContainer/@mediatorFlow/@children.0/@inputConnector"/>
+          </passOutputConnector>
+          <failOutputConnector/>
+          <xpath prettyName="Filter Source XPath" propertyName="filterSourceXpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          <source propertyValue="$ctx:template_id" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          <filterContainer>
+            <passContainer>
+              <mediatorFlow>
+                <children xsi:type="esb:PayloadFactoryMediator" payload="{&#xD;&#xA;  &quot;status&quot;: 400,&#xD;&#xA;  &quot;message&quot;: &quot;Bad Request&quot;,&#xD;&#xA; &quot;error&quot;:{&#xD;&#xA;&#x9;&#x9;&quot;msg&quot;:&quot;Invalid Template_ID.&quot;&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;" mediaType="text">
+                  <payloadKey prettyName="Sequence Key" keyName="Sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                  <args argumentType="Expression">
+                    <argumentExpression propertyValue="$ctx:ERROR_MESSAGE" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                  </args>
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.3/@passOutputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.3/@filterContainer/@passContainer/@mediatorFlow/@children.1/@inputConnector"/>
+                  </outputConnector>
+                </children>
+                <children xsi:type="esb:PropertyMediator" valueType="EXPRESSION" newPropertyName="response">
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.3/@filterContainer/@passContainer/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.3/@filterContainer/@passContainer/@mediatorFlow/@children.2/@inputConnector"/>
+                  </outputConnector>
+                  <valueExpression propertyValue="json-eval($)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                </children>
+                <children xsi:type="esb:DSSMediator" description="write errors into api logs" serviceName="NotificationsDS" availableDataServices="NotificationsDS">
+                  <operations operationName="updateApiLogHandler">
+                    <DSSPrperties propertyName="response" propertyValueType="EXPRESSION">
+                      <propertyExpression propertyName="response" propertyValue="$ctx:response" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    </DSSPrperties>
+                    <DSSPrperties propertyName="process_id" propertyValueType="EXPRESSION">
+                      <propertyExpression propertyName="process_id" propertyValue="$ctx:step1_id" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    </DSSPrperties>
+                  </operations>
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.3/@filterContainer/@passContainer/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.3/@filterContainer/@passContainer/@mediatorFlow/@children.3/@inputConnector"/>
+                  </outputConnector>
+                </children>
+                <children xsi:type="esb:PayloadFactoryMediator" payload="{&#xD;&#xA;  &quot;status&quot;: 400,&#xD;&#xA;  &quot;message&quot;: &quot;Bad Request&quot;,&#xD;&#xA; &quot;error&quot;:{&#xD;&#xA;&#x9;&#x9;&quot;msg&quot;:&quot;Invalid Template_ID.&quot;&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;" mediaType="json">
+                  <payloadKey prettyName="Sequence Key" keyName="Sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.3/@filterContainer/@passContainer/@mediatorFlow/@children.2/@outputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.3/@filterContainer/@passContainer/@mediatorFlow/@children.4/@inputConnector"/>
+                  </outputConnector>
+                </children>
+                <children xsi:type="esb:PropertyMediator" description="set statuc code" propertyName="HTTP_SC" propertyScope="axis2" value="400">
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.3/@filterContainer/@passContainer/@mediatorFlow/@children.3/@outputConnector/@outgoingLink"/>
+                  <outputConnector>
+                    <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.3/@filterContainer/@passContainer/@mediatorFlow/@children.5/@inputConnector"/>
+                  </outputConnector>
+                  <valueExpression prettyName="Property Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                </children>
+                <children xsi:type="esb:RespondMediator">
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.3/@filterContainer/@passContainer/@mediatorFlow/@children.4/@outputConnector/@outgoingLink"/>
+                  <outputConnector/>
+                </children>
+              </mediatorFlow>
+            </passContainer>
+            <failContainer>
+              <mediatorFlow/>
+            </failContainer>
+          </filterContainer>
+        </children>
+      </mediatorFlow>
+      <onError prettyName="OnError sequence Key" keyName="OnError sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+    </children>
+  </server>
+</esb:EsbDiagram>

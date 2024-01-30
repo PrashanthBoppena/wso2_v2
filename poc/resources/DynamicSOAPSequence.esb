@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esb:EsbDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb">
+  <server type="SEQUENCE">
+    <children xsi:type="esb:Sequences" name="DynamicEBSequence">
+      <commentsList> Construct the complete SOAP request dynamically </commentsList>
+      <commentsList> Log the constructed dynamic SOAP envelope </commentsList>
+      <outputConnector>
+        <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
+      </outputConnector>
+      <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
+      <mediatorFlow>
+        <children xsi:type="esb:LogMediator" description="req" logLevel="FULL" logSeparator=", ">
+          <inputConnector incomingLinks="//@server/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.1/@inputConnector"/>
+          </outputConnector>
+        </children>
+        <children xsi:type="esb:ScriptMediator" scriptType="INLINE" scriptBody="// Logic to construct the dynamic SOAP envelope based on incoming parameters&#xA;        var dynamicSOAPEnvelope = '&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:ws=&quot;http://ericsson.com/services/ws_CIL_7&quot; xmlns:ses=&quot;http://ericsson.com/services/ws_CIL_7&quot;>' +&#xA;            '&lt;soapenv:Header>' +&#xA;                '&lt;wsse:Security soapenv:mustUnderstand=&quot;1&quot; xmlns:wsse=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&quot; xmlns:wsu=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd&quot;>' +&#xA;                    '&lt;wsse:UsernameToken wsu:Id=&quot;UsernameToken-05E5B20EFB7524EEE216852580645311&quot;>' +&#xA;                        '&lt;wsse:Username>ADMX&lt;/wsse:Username>' +&#xA;                        '&lt;wsse:Password Type=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText&quot;>ADMX&lt;/wsse:Password>' +&#xA;                    '&lt;/wsse:UsernameToken>' +&#xA;                '&lt;/wsse:Security>' +&#xA;            '&lt;/soapenv:Header>' +&#xA;            '&lt;soapenv:Body>' +&#xA;                '$1' +  // Placeholder for dynamic body content&#xA;            '&lt;/soapenv:Body>' +&#xA;        '&lt;/soapenv:Envelope>';&#xA; &#xA;                    // Send the SOAP request to a specified endpoint&#xA;            mc.setPayloadXML(new XML(dynamicSOAPEnvelope));&#xA;            mc.setProperty(&quot;SOAPAction&quot;, &quot;customerRead&quot;); // Set your SOAP action&#xA;            mc.setProperty(&quot;ContentType&quot;, &quot;text/xml&quot;);&#xA;&#xA;            // Set the endpoint URL&#xA;            mc.setProperty(&quot;To&quot;, &quot;http://172.16.110.237:4080/wsi/services&quot;);&#xA;&#xA;            // Optionally, set other HTTP headers if needed&#xA;            //mc.setProperty(&quot;SomeOtherHeader&quot;, &quot;HeaderValue&quot;);&#xA;&#xA;            // Log the constructed SOAP request for debugging purposes&#xA;            //mc.getEnvelope().getBody().getFirstElement().toString();">
+          <scriptDynamicKey prettyName="" propertyName="dynamic key" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@inputConnector"/>
+            <commentMediators commentText=" Log the constructed dynamic SOAP envelope "/>
+          </outputConnector>
+          <scriptStaticKey prettyName="Script Key" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+        </children>
+      </mediatorFlow>
+      <onError prettyName="OnError sequence Key" keyName="OnError sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+    </children>
+  </server>
+</esb:EsbDiagram>

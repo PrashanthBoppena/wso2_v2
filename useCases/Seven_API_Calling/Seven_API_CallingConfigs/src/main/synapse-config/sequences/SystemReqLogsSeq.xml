@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="SystemReqLogsSeq" onError="FaultSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <script description="process ID generate" language="js"><![CDATA[var uuid = java.util.UUID.randomUUID().toString();
+         mc.setProperty("processId", uuid);]]></script>
+    <propertyGroup description="req params">
+        <property expression="get-property('MessageID')" name="uuid" scope="default" type="STRING"/>
+        <property expression="substring-after(get-property('uuid'), 'urn:uuid:')" name="reqId" scope="default" type="STRING"/>
+        <property expression="json-eval($)" name="requestPayload" scope="default" type="STRING"/>
+        <property expression="get-property('SYNAPSE_REST_API')" name="apiName" scope="default" type="STRING"/>
+        <property expression="$ctx:REST_METHOD" name="httpMethod" scope="default" type="STRING"/>
+        <property expression="json-eval($ctx:request.system)" name="system" scope="default" type="STRING"/>
+    </propertyGroup>
+    <propertyGroup description="UOL Logs params">
+        <property expression="get-property('file','UOLLogDriver')" name="uolLogDriver" scope="default" type="STRING"/>
+        <property expression="get-property('file','UOLLogurl')" name="uolLogUrl" scope="default" type="STRING"/>
+        <property expression="get-property('file','UOLLoguser')" name="uolLogUser" scope="default" type="STRING"/>
+        <property expression="get-property('file','UOLLogpassword')" name="uolLogPassword" scope="default" type="STRING"/>
+    </propertyGroup>
+    <class description="ReqLog" name="com.knot.uol.newLog.NewSystemRequest"/>
+</sequence>

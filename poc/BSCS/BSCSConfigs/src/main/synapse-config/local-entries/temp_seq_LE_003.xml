@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localEntry key="temp_seq_LE_003" xmlns="http://ws.apache.org/ns/synapse">
+    <req:customerReadRequest xmlns:req="http://ericsson.com/services/ws_CIL_7" xmlns:ses="http://ericsson.com/services/ws_CIL_7/sessionchange">
+        <!--You may enter the following 2 items in any order-->
+        <!--Optional:-->
+        <req:inputAttributes>
+            <!--You may enter the following 3 items in any order-->
+            <!--Optional:-->
+            <req:csId>{csId}</req:csId>
+            <!--Optional:-->
+            <req:csIdPub/>
+            <!--Optional:-->
+            <req:syncWithDb/>
+        </req:inputAttributes>
+        <!--Optional:-->
+        <req:sessionChangeRequest>
+            <!--Optional:-->
+            <ses:values>
+                <!--1 or more repetitions:-->
+                <ses:item>
+                    <!--You may enter the following 2 items in any order-->
+                    <ses:key>BU_ID</ses:key>
+                    <ses:value>2</ses:value>
+                </ses:item>
+            </ses:values>
+        </req:sessionChangeRequest>
+    </req:customerReadRequest>
+</localEntry>

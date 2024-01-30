@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint name="GreetingUOLTeamEP" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="get" uri-template="http://172.16.110.118:8285/greet">
+        <timeout>
+            <duration>1000</duration>
+            <responseAction>fault</responseAction>
+        </timeout>
+        <suspendOnFailure>
+            <initialDuration>1000</initialDuration>
+            <progressionFactor>1.0</progressionFactor>
+        </suspendOnFailure>
+        <markForSuspension>
+            <retriesBeforeSuspension>1</retriesBeforeSuspension>
+            <retryDelay>1000</retryDelay>
+        </markForSuspension>
+    </http>
+</endpoint>

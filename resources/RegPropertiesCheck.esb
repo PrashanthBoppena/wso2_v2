@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esb:EsbDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb">
+  <server type="API">
+    <children xsi:type="esb:SynapseAPI" apiName="RegPropertiesCheck" context="/Registry">
+      <resources allowGet="true">
+        <inputConnector/>
+        <outputConnector>
+          <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@inputConnector"/>
+          <commentMediators commentText="  &lt;log level=&quot;custom&quot;>&#xA;                &lt;property expression=&quot;get-property('registry','gov:/custom/keyValue.properties')&quot; name=&quot;keyValueData&quot;/>&#xA;                &lt;property expression=&quot;get-property('registry','gov:/custom/JsonProperties.json')&quot; name=&quot;JsonData&quot;/>&#xA;                &lt;property expression=&quot;get-property('registry','gov:/custom/xmlProperties.xml')&quot; name=&quot;xmlProp&quot;/>&#xA;            &lt;/log>&#xA;            &lt;payloadFactory media-type=&quot;xml&quot;>&#xA;                &lt;format>&#xA;                    &lt;Data xmlns=&quot;&quot;>$1&lt;/Data>&#xA;                &lt;/format>&#xA;                &lt;args>&#xA;                    &lt;arg evaluator=&quot;xml&quot; expression=&quot;get-property('registry','gov:/custom/xmlProperties.xml')&quot;/>&#xA;                &lt;/args>&#xA;            &lt;/payloadFactory>&#xA;            &lt;log>&#xA;                &lt;property expression=&quot;//user&quot; name=&quot;user&quot;/>&#xA;            &lt;/log>  &#xA;            &lt;dblookup>&#xA;                &lt;connection>&#xA;                    &lt;pool>&#xA;                        &lt;driver key=&quot;conf:/repository/esb/driver.txt&quot;/>&#xA;                        &lt;url key=&quot;conf:/repository/esb/url.txt&quot;/>&#xA;                        &lt;user key=&quot;conf:/repository/esb/username.txt&quot;/>&#xA;                        &lt;password key=&quot;conf:/repository/esb/password.txt&quot;/>&#xA;                    &lt;/pool>&#xA;                &lt;/connection>&#xA;                &lt;statement>&#xA;                    &lt;sql>&lt;![CDATA[select id, name, email, country, company from customers]]>&lt;/sql>&#xA;                    &lt;result column=&quot;2&quot; name=&quot;Name&quot;/>&#xA;                &lt;/statement>&#xA;            &lt;/dblookup> "/>
+        </outputConnector>
+        <outSequenceOutputConnector/>
+        <faultInputConnector/>
+        <container>
+          <sequenceAndEndpointContainer>
+            <mediatorFlow>
+              <children xsi:type="esb:PropertyMediator" value="E:\keyValue.properties" newPropertyName="CONFIG_FILE">
+                <inputConnector incomingLinks="//@server/@children.0/@resources.0/@outputConnector/@outgoingLink"/>
+                <outputConnector>
+                  <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@inputConnector"/>
+                </outputConnector>
+                <valueExpression prettyName="Property Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+              </children>
+              <children xsi:type="esb:PropertyMediator" valueType="EXPRESSION" newPropertyName="property1">
+                <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+                <outputConnector>
+                  <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.2/@inputConnector"/>
+                </outputConnector>
+                <valueExpression propertyValue="get-property('conf:CONFIG_FILE', 'property1')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+              </children>
+              <children xsi:type="esb:PropertyMediator" valueType="EXPRESSION" newPropertyName="property2">
+                <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
+                <outputConnector>
+                  <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.3/@inputConnector"/>
+                  <commentMediators commentText=" Your sequence logic here "/>
+                </outputConnector>
+                <valueExpression propertyValue="get-property('conf:CONFIG_FILE', 'property2')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+              </children>
+              <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=", ">
+                <commentsList>  &lt;property expression=&quot;get-property('registry','gov:/custom/keyValue.properties','property1')&quot; name=&quot;property1&quot;/>  </commentsList>
+                <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.2/@outputConnector/@outgoingLink"/>
+                <outputConnector>
+                  <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.4/@inputConnector"/>
+                </outputConnector>
+                <properties propertyName="Property1" propertyValueType="EXPRESSION" propertyValue="">
+                  <propertyExpression propertyValue="get-property('property1')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                </properties>
+                <properties propertyName="Property2" propertyValueType="EXPRESSION" propertyValue="">
+                  <propertyExpression propertyValue="get-property('property2')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                </properties>
+              </children>
+              <children xsi:type="esb:DBReportMediator" isRegistryBasedDriverConfig="true" isRegistryBasedUrlConfig="true" isRegistryBasedUserConfig="true" isRegistryBasedPassConfig="true">
+                <sqlStatements queryString="delete from customers where id=790"/>
+                <registryBasedDriverConfigKey keyValue="conf:/repository/esb/driver.txt" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                <registryBasedUrlConfigKey keyValue="conf:/repository/esb/url.txt" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                <registryBasedUserConfigKey keyValue="conf:/repository/esb/username.txt" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                <registryBasedPassConfigKey keyValue="conf:/repository/esb/password.txt" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.3/@outputConnector/@outgoingLink"/>
+                <outputConnector>
+                  <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.5/@inputConnector"/>
+                </outputConnector>
+              </children>
+              <children xsi:type="esb:RespondMediator">
+                <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.4/@outputConnector/@outgoingLink"/>
+                <outputConnector/>
+              </children>
+            </mediatorFlow>
+          </sequenceAndEndpointContainer>
+          <faultContainer>
+            <mediatorFlow/>
+          </faultContainer>
+        </container>
+        <inSequenceKey prettyName="In Sequence Reference" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+        <outSequenceKey prettyName="Out Sequence Reference" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+        <faultSequenceKey prettyName="Fault Sequence Reference" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+      </resources>
+    </children>
+  </server>
+</esb:EsbDiagram>

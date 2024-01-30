@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/fault-seq-test" name="FaultSeqTest_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST GET">
+        <inSequence>
+            <!-- <log description="Out Log" level="custom">
+                        <property expression="$ctx:SYNAPSE_REST_API" name="REST_API"/>
+                        <property expression="json-eval($)" name="Output"/>
+                        <property expression="get-property('MessageID')" name="Message_ID"/>
+                        <property expression="$axis2:HTTP_SC" name="Status_Code"/>
+                        <property expression="$axis2:HTTP_SC_DESC" name="Status_Desc"/>
+                    </log>  -->
+            <property description="Input_payload" expression="json-eval($)" name="INPUT_PAYLOAD" scope="default" type="STRING"/>
+            <log description="In Log" level="custom">
+                <property expression="json-eval($)" name="Input"/>
+                <property expression="get-property('MessageID')" name="Message_ID"/>
+            </log>
+            <call>
+                <endpoint key="GreetingUOLTeamEP"/>
+            </call>
+            <log level="custom">
+                <property expression="$axis2:HTTP_SC" name="STATUS_CODE"/>
+                <property expression="json-eval($)" name="output"/>
+            </log>
+            <switch source="$axis2:HTTP_SC">
+                <case regex="200">
+                    <property description="Output_Response" expression="json-eval($)" name="OUTPUT_RESPONSE" scope="default" type="STRING"/>
+                    <sequence key="DBReportSeq"/>
+                    <respond/>
+                </case>
+                <case regex="400">
+                    <sequence key="StatusCode_400_Seq"/>
+                </case>
+                <case regex="401">
+                    <sequence key="StatusCode_401_Seq"/>
+                </case>
+                <case regex="403">
+                    <sequence key="StatusCode_403_Seq"/>
+                </case>
+                <case regex="405">
+                    <sequence key="StatusCode_405_Seq"/>
+                </case>
+                <default>
+                    <log>
+                        <property name="calling" value="Default case"/>
+                    </log>
+                    <sequence key="FaultSequence"/>
+                </default>
+            </switch>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

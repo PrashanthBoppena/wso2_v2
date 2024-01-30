@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="MultilanguageSequence" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/MultilanguageSequence.xml</file>
+    </artifact>
+    <artifact name="MultiLanguageSupport_API" groupId="com.knot.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/MultiLanguageSupport_API.xml</file>
+    </artifact>
+    <artifact name="MultiLanguageSupport_API_swagger" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/MultiLanguageSupport_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="MultiLanguageSupport_API_metadata" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/MultiLanguageSupport_API_metadata.yaml</file>
+    </artifact>
+</artifacts>

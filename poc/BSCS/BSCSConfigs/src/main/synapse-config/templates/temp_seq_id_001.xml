@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="temp_seq_id_001" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter defaultValue="" isMandatory="false" name="csId"/>
+    <sequence>
+        <payloadFactory media-type="xml">
+            <format>
+                <req:customerReadRequest xmlns:req="http://ericsson.com/services/ws_CIL_7" xmlns:ses="http://ericsson.com/services/ws_CIL_7/sessionchange">
+                    <!--You may enter the following 2 items in any order-->
+                    <!--Optional:-->
+                    <req:inputAttributes>
+                        <!--You may enter the following 3 items in any order-->
+                        <!--Optional:-->
+                        <req:csId>$1</req:csId>
+                        <!--Optional:-->
+                        <req:csIdPub/>
+                        <!--Optional:-->
+                        <req:syncWithDb/>
+                    </req:inputAttributes>
+                    <!--Optional:-->
+                    <req:sessionChangeRequest>
+                        <!--Optional:-->
+                        <ses:values>
+                            <!--1 or more repetitions:-->
+                            <ses:item>
+                                <!--You may enter the following 2 items in any order-->
+                                <ses:key>BU_ID</ses:key>
+                                <ses:value>2</ses:value>
+                            </ses:item>
+                        </ses:values>
+                    </req:sessionChangeRequest>
+                </req:customerReadRequest>
+            </format>
+            <args>
+                <arg evaluator="xml" expression="$func:csId"/>
+            </args>
+        </payloadFactory>
+    </sequence>
+</template>

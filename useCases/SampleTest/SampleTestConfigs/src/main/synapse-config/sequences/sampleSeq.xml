@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="sampleSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <payloadFactory media-type="json" template-type="freemarker">
+        <format><![CDATA[[
+    {
+        "src_req_id": "${args.arg1}",
+        "host": "${trp.Host}",
+        "basePath": "${ctx.REST_FULL_REQUEST_PATH}",
+        "schemes": [
+            "${ctx.TRANSPORT_IN_NAME}"
+        ],
+        "consumes": [
+            "${args.arg2}"
+        ],
+        "produces": [
+            "${args.arg3}"
+        ]
+    }
+]]]></format>
+        <args>
+            <arg evaluator="xml" expression="get-property('MessageID')"/>
+            <arg evaluator="xml" expression="get-property('transport', 'Content-Type')"/>
+            <arg evaluator="xml" expression="get-property('transport', 'Content-Type')"/>
+        </args>
+    </payloadFactory>
+</sequence>

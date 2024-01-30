@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="BSCSAddressReadSeq" onError="FaultSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <payloadFactory media-type="xml">
+        <format>
+            <soapenv:Envelope xmlns:add="http://ericsson.com/services/ws_CIL_6/addressread" xmlns:ses="http://ericsson.com/services/ws_CIL_6/sessionchange" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                <soapenv:Header>
+                    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+                        <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+                            <wsse:Username>ADMX</wsse:Username>
+                            <wsse:Password>ADMX</wsse:Password>
+                        </wsse:UsernameToken>
+                    </wsse:Security>
+                </soapenv:Header>
+                <soapenv:Body>
+                    <add:addressReadRequest>
+                        <!--You may enter the following 2 items in any order-->
+                        <!--Optional:-->
+                        <add:inputAttributes>
+                            <!--You may enter the following 3 items in any order-->
+                            <!--Optional:-->
+                            <add:csId>$1</add:csId>
+                        </add:inputAttributes>
+                        <!--Optional:-->
+                        <add:sessionChangeRequest>
+                            <!--Optional:-->
+                            <ses:values>
+                                <!--1 or more repetitions:-->
+                                <ses:item>
+                                    <!--You may enter the following 2 items in any order-->
+                                    <ses:key>BU_ID</ses:key>
+                                    <ses:value>2</ses:value>
+                                </ses:item>
+                            </ses:values>
+                        </add:sessionChangeRequest>
+                    </add:addressReadRequest>
+                </soapenv:Body>
+            </soapenv:Envelope>
+        </format>
+        <args>
+            <arg evaluator="xml" expression="//csId"/>
+        </args>
+    </payloadFactory>
+    <header name="Action" scope="default" value="urn:addressRead"/>
+    <call>
+        <endpoint>
+            <address format="soap11" uri="$FILE:AddressReadEP">
+                <suspendOnFailure>
+                    <initialDuration>-1</initialDuration>
+                    <progressionFactor>-1</progressionFactor>
+                    <maximumDuration>0</maximumDuration>
+                </suspendOnFailure>
+                <markForSuspension>
+                    <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                </markForSuspension>
+            </address>
+        </endpoint>
+    </call>
+    <log level="custom">
+        <property expression="get-property('file','AddressReadEP')" name="Service_URL"/>
+    </log>
+    <property expression="get-property('file','AddressReadEP')" name="Service_URL" scope="default" type="STRING"/>
+</sequence>

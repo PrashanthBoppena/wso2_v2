@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="APIReqHandlerUpdateSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <dataServiceCall description="write response into api logs" serviceName="NotificationEngineDS">
+        <operations type="single">
+            <operation name="updateApiLogHandler">
+                <param evaluator="xml" expression="$ctx:response" name="response"/>
+                <param name="status" value="success"/>
+                <param evaluator="xml" expression="$ctx:process_id" name="process_id"/>
+            </operation>
+        </operations>
+        <source type="inline"/>
+        <target type="body"/>
+    </dataServiceCall>
+</sequence>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esb:EsbDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb">
+  <server type="PROXY">
+    <children xsi:type="esb:ProxyService" name="PSVFileProcessingProxyService" transports="vfs">
+      <outputConnector>
+        <outgoingLink target="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@inputConnector"/>
+      </outputConnector>
+      <inputConnector/>
+      <faultInputConnector/>
+      <outSequenceOutputConnector/>
+      <serviceParameters name="transport.PollInterval" value="15"/>
+      <serviceParameters name="transport.vfs.FileURI" value="file:/E:/EI/created-csv/in"/>
+      <serviceParameters name="transport.vfs.ContentType" value="text/plain"/>
+      <serviceParameters name="transport.vfs.ActionAfterProcess" value="MOVE"/>
+      <serviceParameters name="transport.vfs.MoveAfterFailure" value="file:/E:/EI/created-csv/Failure"/>
+      <serviceParameters name="transport.vfs.ActionAfterFailure" value="MOVE"/>
+      <serviceParameters name="transport.vfs.FileNamePattern" value=".*.txt"/>
+      <serviceParameters name="transport.vfs.MoveAfterProcess" value="file:/E:/EI/created-csv/out"/>
+      <container>
+        <sequenceAndEndpointContainer>
+          <mediatorFlow>
+            <children xsi:type="esb:PropertyMediator" valueType="EXPRESSION" newPropertyName="payload">
+              <inputConnector incomingLinks="//@server/@children.0/@outputConnector/@outgoingLink"/>
+              <outputConnector>
+                <outgoingLink target="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@inputConnector"/>
+              </outputConnector>
+              <valueExpression propertyValue="$body/*" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+            </children>
+            <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=", ">
+              <inputConnector incomingLinks="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+              <outputConnector>
+                <outgoingLink target="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.2/@inputConnector"/>
+              </outputConnector>
+              <properties propertyName="FileData" propertyValueType="EXPRESSION" propertyValue="">
+                <propertyExpression propertyValue="$ctx:payload" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+              </properties>
+            </children>
+            <children xsi:type="esb:ScriptMediator" scriptType="INLINE" scriptBody="var payload = mc.getPayloadXML();&#xA;&#x9;&#x9;var log = mc.getServiceLog();&#xA;        // Split payload by lines&#xA;        &#xA;        var lines = payload.toString().split(&quot;\n&quot;);&#xA;&#x9;&#x9;&#xA;        // Extract header and data&#xA;        var header = lines[0].split(&quot;|&quot;);&#xA;        &#xA;        var dataArray = [];&#xA;&#xA;        // Iterate over data lines&#xA;        for (var i = 1; i &lt; lines.length; i++) {&#xA;            var data = lines[i].split(&quot;|&quot;);&#xA;            var dataObject = {};&#xA;&#xA;            // Create JSON object with header as keys and data as values&#xA;            for (var j = 0; j &lt; header.length; j++) {&#xA;                dataObject[header[j]] = data[j];&#xA;            }&#xA;&#xA;            dataArray.push(dataObject);&#xA;        }&#xA;&#xA;        // Create JSON array&#xA;        var jsonArray = JSON.stringify(dataArray);&#xA;&#xA;        // Set the transformed JSON array as the new payload&#xA;        mc.setPayloadJSON(jsonArray);">
+              <scriptDynamicKey prettyName="" propertyName="dynamic key" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+              <inputConnector incomingLinks="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
+              <outputConnector>
+                <outgoingLink target="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.3/@inputConnector"/>
+              </outputConnector>
+              <scriptStaticKey prettyName="Script Key" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </children>
+            <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=", ">
+              <inputConnector incomingLinks="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.2/@outputConnector/@outgoingLink"/>
+              <outputConnector/>
+              <properties propertyName="FormattedResponse==>" propertyValueType="EXPRESSION" propertyValue="">
+                <propertyExpression propertyValue="json-eval($)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+              </properties>
+            </children>
+          </mediatorFlow>
+        </sequenceAndEndpointContainer>
+        <faultContainer>
+          <mediatorFlow/>
+        </faultContainer>
+      </container>
+      <inSequenceKey prettyName="In Sequence Reference" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+      <inSequenceOnError prettyName="In Sequence On Error Reference" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A6578700000000177040000000174001D6170706C69636174696F6E2F766E642E77736F322E73657175656E63657878"/>
+      <outSequenceKey prettyName="Out Sequence Reference" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+      <outSequenceOnError prettyName="Out Sequence On Error Reference" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A6578700000000177040000000174001D6170706C69636174696F6E2F766E642E77736F322E73657175656E63657878"/>
+      <faultSequenceKey prettyName="Fault Sequence Reference" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+      <faultSequenceOnError prettyName="Fault Sequence On Error Reference" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A6578700000000177040000000174001D6170706C69636174696F6E2F766E642E77736F322E73657175656E63657878"/>
+      <endpointKey prettyName="Endpoint Reference" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+      <wsdlKey prettyName="WSDL Reference" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A657870000000017704000000017400146170706C69636174696F6E2F7773646C2B786D6C7878"/>
+      <wsdlEndpoint prettyName="WSDL Endpoint" keyName="endpoint" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A657870000000017704000000017400146170706C69636174696F6E2F7773646C2B786D6C7878"/>
+      <OnError prettyName="On Error Sequence Reference" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+    </children>
+  </server>
+</esb:EsbDiagram>

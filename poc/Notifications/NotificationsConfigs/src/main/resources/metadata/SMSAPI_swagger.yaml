@@ -1,0 +1,13 @@
+openapi: 3.0.1
+info:
+  title: SMSAPI
+  description: API Definition of SMSAPI
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/send-sms
+paths:
+  /:
+    post:
+      responses:
+        default:
+          description: Default response

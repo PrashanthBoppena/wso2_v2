@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="EBFaultSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <payloadFactory media-type="json">
+        <format>{&#xd;
+"ERROR_CODE":$1,&#xd;
+"ERROR_MESSAGE":$2&#xd;
+"ERROR_DETAIL":$3,&#xd;
+"ERROR_EXCEPTION":$4,&#xd;
+"MESSAGE_ID":$5&#xd;
+&#xd;
+}</format>
+        <args>
+            <arg evaluator="xml" expression="get-property('ERROR_CODE')"/>
+            <arg evaluator="xml" expression="get-property('ERROR_MESSAGE')"/>
+            <arg evaluator="xml" expression="get-property('ERROR_DETAIL')"/>
+            <arg evaluator="xml" expression="get-property('ERROR_EXCEPTION')"/>
+            <arg evaluator="xml" expression="get-property('MessageID')"/>
+        </args>
+    </payloadFactory>
+    <!--    <class description="SystemResponseLogs" name="com.knot.uol.utils.SystemResponseUpdateLog">
+        <property expression="$ctx:parentId" name="parentId"/>
+        <property expression="$ctx:processId" name="processId"/>
+        <property expression="json-eval($)" name="responsePayload"/>
+        <property expression="$axis2:HTTP_SC" name="status"/>
+        <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+        <property expression="$ctx:childId" name="childId"/>
+    </class>  -->
+    <respond/>
+</sequence>

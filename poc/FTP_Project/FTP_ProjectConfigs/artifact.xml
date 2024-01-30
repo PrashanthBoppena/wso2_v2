@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="MAHInputProxyService" groupId="com.example.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/MAHInputProxyService.xml</file>
+    </artifact>
+    <artifact name="MAHInputProxyService_proxy_metadata" groupId="com.example.proxy-service.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/MAHInputProxyService_proxy_metadata.yaml</file>
+    </artifact>
+    <artifact name="MAHSuccessProxyService" groupId="com.example.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/MAHSuccessProxyService.xml</file>
+    </artifact>
+    <artifact name="MAHSuccessProxyService_proxy_metadata" groupId="com.example.proxy-service.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/MAHSuccessProxyService_proxy_metadata.yaml</file>
+    </artifact>
+    <artifact name="MAHFailureProxyService" groupId="com.example.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/MAHFailureProxyService.xml</file>
+    </artifact>
+    <artifact name="MAHFailureProxyService_proxy_metadata" groupId="com.example.proxy-service.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/MAHFailureProxyService_proxy_metadata.yaml</file>
+    </artifact>
+    <artifact name="writeFTPLogsSequence" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/writeFTPLogsSequence.xml</file>
+    </artifact>
+    <artifact name="updateFTPLogsSequence" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/updateFTPLogsSequence.xml</file>
+    </artifact>
+    <artifact name="FaultSequence" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/FaultSequence.xml</file>
+    </artifact>
+    <artifact name="FileDetailsCaptureSequence" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/FileDetailsCaptureSequence.xml</file>
+    </artifact>
+    <artifact name="sampleSecurityAPI" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/sampleSecurityAPI.xml</file>
+    </artifact>
+    <artifact name="sampleSecurityAPI_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/sampleSecurityAPI_swagger.yaml</file>
+    </artifact>
+    <artifact name="sampleSecurityAPI_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/sampleSecurityAPI_metadata.yaml</file>
+    </artifact>
+</artifacts>

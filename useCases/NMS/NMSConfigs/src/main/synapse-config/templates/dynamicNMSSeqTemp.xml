@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="dynamicNMSSeqTemp" onError="faultSeq" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter defaultValue="" isMandatory="false" name="ApiName"/>
+    <parameter defaultValue="" isMandatory="false" name="channelName"/>
+    <parameter defaultValue="" isMandatory="false" name="status"/>
+    <parameter defaultValue="" isMandatory="false" name="pattern"/>
+    <parameter defaultValue="" isMandatory="false" name="msisdn"/>
+    <parameter defaultValue="" isMandatory="false" name="category"/>
+    <sequence>
+        <log>
+            <property name="logEntry" value="dynamicNMSSeqTemplate EntryPoint "/>
+        </log>
+        <property expression="get-property('OMSystemConfigs')" name="OmSystemConfigs" scope="default" type="OM"/>
+        <switch description="routes based on ApiName form NB systems" source="$func:ApiName">
+            <case regex="view-numbers">
+                <log separator=",,">
+                    <property name="view-numbers" value="ENTERED INTO==> view-numbers SWITCH CASE"/>
+                </log>
+                <propertyGroup>
+                    <property expression="$ctx:OmSystemConfigs/*[local-name()='host']" name="uri.var.host" scope="default" type="STRING"/>
+                    <property expression="$func:channelName" name="uri.var.channel" scope="default" type="STRING"/>
+                    <property expression="$func:category" name="uri.var.category" scope="default" type="STRING"/>
+                    <property expression="$func:ApiName" name="uri.var.ApiName" scope="default" type="STRING"/>
+                </propertyGroup>
+                <call>
+                    <endpoint key="view-numbers_EP"/>
+                </call>
+            </case>
+            <case regex="activate-number">
+                <log>
+                    <property name="activate-number" value="entered into activate-number switch case"/>
+                </log>
+                <propertyGroup>
+                    <property expression="$ctx:OmSystemConfigs/*[local-name()='host']" name="uri.var.host" scope="default" type="STRING"/>
+                    <property expression="$func:ApiName" name="uri.var.ApiName" scope="default" type="STRING"/>
+                </propertyGroup>
+                <call>
+                    <endpoint key="activate-number_EP"/>
+                </call>
+            </case>
+            <case regex="deactivate-number">
+                <log>
+                    <property name="deactivate-number" value="entered into deactivate-number switch case"/>
+                </log>
+                <propertyGroup>
+                    <property expression="$ctx:OmSystemConfigs/*[local-name()='host']" name="uri.var.host" scope="default" type="STRING"/>
+                    <property expression="$func:ApiName" name="uri.var.ApiName" scope="default" type="STRING"/>
+                </propertyGroup>
+                <call>
+                    <endpoint key="deactivate-number_EP"/>
+                </call>
+            </case>
+            <case regex="number-release">
+                <log>
+                    <property name="number-release" value="entered into number==>number-release switch Case"/>
+                </log>
+                <propertyGroup>
+                    <property expression="$ctx:OmSystemConfigs/*[local-name()='host']" name="uri.var.host" scope="default" type="STRING"/>
+                    <property expression="$func:channelName" name="uri.var.channel" scope="default" type="STRING"/>
+                    <property expression="$func:msisdn" name="uri.var.msisdn" scope="default" type="STRING"/>
+                    <property expression="$func:ApiName" name="uri.var.ApiName" scope="default" type="STRING"/>
+                </propertyGroup>
+                <call>
+                    <endpoint key="number-release_EP"/>
+                </call>
+            </case>
+            <case regex="number-lock">
+                <log>
+                    <property name="number-lock" value="entered into==> number-lock switch case"/>
+                </log>
+                <propertyGroup>
+                    <property expression="$ctx:OmSystemConfigs/*[local-name()='host']" name="uri.var.host" scope="default" type="STRING"/>
+                    <property expression="$func:channelName" name="uri.var.channel" scope="default" type="STRING"/>
+                    <property expression="$func:msisdn" name="uri.var.msisdn" scope="default" type="STRING"/>
+                    <property expression="$func:ApiName" name="uri.var.ApiName" scope="default" type="STRING"/>
+                    <property expression="$func:status" name="uri.var.status" scope="default" type="STRING"/>
+                </propertyGroup>
+                <call>
+                    <endpoint key="number-lock_EP"/>
+                </call>
+            </case>
+            <case regex="pattern-list">
+                <log>
+                    <property name="pattern-list" value="entered into==> pattern-list switch case"/>
+                </log>
+                <propertyGroup>
+                    <property expression="$ctx:OmSystemConfigs/*[local-name()='host']" name="uri.var.host" scope="default" type="STRING"/>
+                    <property expression="$func:channelName" name="uri.var.channel" scope="default" type="STRING"/>
+                    <property expression="$func:ApiName" name="uri.var.ApiName" scope="default" type="STRING"/>
+                    <property expression="$func:pattern" name="uri.var.pattern" scope="default" type="STRING"/>
+                </propertyGroup>
+                <call>
+                    <endpoint key="pattern-list_EP"/>
+                </call>
+            </case>
+            <default>
+                <log>
+                    <property name="FINALLY" value="ENTERED INTO==>DEFAULT CASE"/>
+                </log>
+                <payloadFactory media-type="json" template-type="freemarker">
+                    <format><![CDATA[{
+"defaultCase":"no API: ${payload.ApiName} is found in NMS system"
+
+}]]></format>
+                    <args/>
+                </payloadFactory>
+            </default>
+        </switch>
+        <filter regex="200" source="$axis2:HTTP_SC">
+            <then>
+                <payloadFactory media-type="json">
+                    <format>{&#xd;
+"validateStatus":true,&#xd;
+"NMS_Response":$1&#xd;
+&#xd;
+}</format>
+                    <args>
+                        <arg evaluator="json" expression="$"/>
+                    </args>
+                </payloadFactory>
+            </then>
+            <else>
+                <payloadFactory media-type="json">
+                    <format>{&#xd;
+"validateStatus":false,&#xd;
+"NMS_Response":$1&#xd;
+&#xd;
+}</format>
+                    <args/>
+                </payloadFactory>
+            </else>
+        </filter>
+        <respond/>
+    </sequence>
+</template>

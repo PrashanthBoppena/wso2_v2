@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="BSCS_SOAP_Proxy_Call" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <property description="LE" expression="get-property('temp_seq_LE_001')" name="LE" scope="default" type="OM"/>
+            <property name="messageType" scope="axis2" type="STRING" value="application/xml"/>
+            <property name="csId" scope="default" type="STRING" value="518531"/>
+            <xslt key="conf:custom/path/csIdReplaceXSLT.xslt">
+                <property expression="get-property('csId')" name="csId"/>
+            </xslt>
+            <payloadFactory media-type="xml" template-type="freemarker">
+                <format><![CDATA[${ctx.LE}]]></format>
+                <args/>
+            </payloadFactory>
+            <log level="custom">
+                <property expression="get-property('registry','conf:/repository/esb/csIdReplaceXSLT.xml')" name="XSLTLOG"/>
+            </log>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </target>
+</proxy>

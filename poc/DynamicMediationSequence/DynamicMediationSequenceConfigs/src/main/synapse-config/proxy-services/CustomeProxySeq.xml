@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="CustomeProxySeq" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <!-- Handle any other sequences or mediation after the iteration if needed -->
+            <!-- Aggregate all API responses -->
+            <!-- Continue with further processing using the aggregated response -->
+            <property expression="json-eval($)" name="API_Request" scope="default" type="STRING"/>
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+    "queryName": "GET_SUB_APIS",&#xd;
+    "parameters": {&#xd;&#xd;
+        "sub_api_id":"Test_Api"&#xd;
+    }&#xd;
+}</format>
+                <args/>
+            </payloadFactory>
+            <call description="DynamicQueryCall">
+                <endpoint>
+                    <http method="post" uri-template="$FILE:dynamicQueryCall">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </http>
+                </endpoint>
+            </call>
+            <payloadFactory description="buildPayload" media-type="json">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="json" expression="$.response"/>
+                </args>
+            </payloadFactory>
+            <property expression="$body" name="CallMediatorResponse" scope="default" type="STRING"/>
+            <class name="com.uol.mediators.DynamicSeqMediator"/>
+            <log level="full"/>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </target>
+</proxy>

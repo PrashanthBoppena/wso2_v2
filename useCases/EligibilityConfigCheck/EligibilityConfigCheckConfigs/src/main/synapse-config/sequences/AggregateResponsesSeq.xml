@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="AggregateResponsesSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <aggregate id="dynamicMediationItrAgg1">
+        <completeCondition>
+            <messageCount max="-1" min="-1"/>
+        </completeCondition>
+        <onComplete aggregateElementType="root" expression="json-eval($)">
+            <class description="SystemResponseLogs" name="com.knot.uol.utils.SystemResponseUpdateLog">
+                <property expression="$ctx:parentId" name="parentId"/>
+                <property expression="$ctx:processId" name="processId"/>
+                <property expression="json-eval($)" name="responsePayload"/>
+                <property expression="$axis2:HTTP_SC" name="status"/>
+                <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+                <property name="childId" value="Main"/>
+            </class>
+            <property action="remove" name="parentId" scope="transport"/>
+            <respond/>
+        </onComplete>
+    </aggregate>
+</sequence>

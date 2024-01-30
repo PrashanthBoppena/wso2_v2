@@ -1,0 +1,15 @@
+<datasource>
+    <name>MySQLConnectionSMS</name>
+    <description>MySQL Connection</description>
+    <jndiConfig useDataSourceFactory="false">
+        <name>MySQLConnectionSMS</name>
+    </jndiConfig>
+    <definition type="RDBMS">
+        <configuration>
+            <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
+            <url>jdbc:mysql://localhost:3306/notifications?useSSL=false</url>
+            <username>root</username>
+            <password>Pashi@13</password>
+        </configuration>
+    </definition>
+</datasource>

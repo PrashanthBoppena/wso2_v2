@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="PSVFileProcessing_2ProxyService" startOnLoad="true" transports="vfs" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <property expression="$body/*" name="payload" scope="default" type="STRING"/>
+            <property expression="get-property('transport', 'FILE_PATH')" name="mahFilePath" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="$ctx:payload" name="FileData"/>
+            </log>
+            <class name="com.uol.PayloadToJSONConverter">
+                <property expression="$body/*" name="fileBody"/>
+            </class>
+            <log level="custom">
+                <property expression="$ctx:processedData" name="FormattedResponse==>"/>
+            </log>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </target>
+    <parameter name="transport.PollInterval">15</parameter>
+    <parameter name="transport.vfs.FileURI">file:/E:/EI/created-csv/in</parameter>
+    <parameter name="transport.vfs.ContentType">text/plain</parameter>
+    <parameter name="transport.vfs.ActionAfterProcess">MOVE</parameter>
+    <parameter name="transport.vfs.MoveAfterFailure">file:/E:/EI/created-csv/Failure</parameter>
+    <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
+    <parameter name="transport.vfs.FileNamePattern">.*.txt</parameter>
+    <parameter name="transport.vfs.MoveAfterProcess">file:/E:/EI/created-csv/out</parameter>
+</proxy>

@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "parameters": {
+            "type": "object",
+            "oneOf": [
+                {
+                    "required": ["customer_id"],
+                    "properties": {
+                        "cust_id": {"type": "string", "minLength": 6}
+                    }
+                },
+                {
+                    "required": ["NIC"],
+                    "properties": {
+                        "NIC": {"type": "string", "minLength": 1}
+                    }
+                },
+                {
+                    "required": ["passport"],
+                    "properties": {
+                        "passport": {"type": "string", "minLength": 1}
+                    }
+                }
+            ]
+        }
+    },
+    "required": ["parameters"]
+}

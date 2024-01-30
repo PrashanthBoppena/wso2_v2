@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="DynamicEBCallingProxy" groupId="com.knot.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/DynamicEBCallingProxy.xml</file>
+    </artifact>
+    <artifact name="DynamicEBCallingProxy_proxy_metadata" groupId="com.knot.proxy-service.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/DynamicEBCallingProxy_proxy_metadata.yaml</file>
+    </artifact>
+</artifacts>

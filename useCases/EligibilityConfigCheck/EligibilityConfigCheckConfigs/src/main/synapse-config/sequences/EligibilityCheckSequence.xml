@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="EligibilityCheckSequence" onError="FaultSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <sequence key="gov:custom/sequences/CommonAPIPropertiesCollectionSeq.xml"/>
+    <sequence key="gov:custom/sequences/parentIdGenerateSeq.xml"/>
+    <class description="SystemRequestLogs" name="com.knot.uol.utils.SystemRequestNewLog">
+        <property name="process" value="IterateEligibilityCheckAPI"/>
+        <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+        <property expression="$ctx:requestPayload" name="requestPayload"/>
+        <property expression="$ctx:SYNAPSE_REST_API" name="apiName"/>
+        <property expression="$ctx:parentId" name="parentId"/>
+        <property name="childId" value="Main"/>
+    </class>
+    <property expression="$ctx:parentId" name="parentId" scope="transport" type="STRING"/>
+    <call description="DynamicQueryCall">
+        <endpoint>
+            <http method="post" uri-template="$FILE:dynamicQueryCall">
+                <suspendOnFailure>
+                    <initialDuration>-1</initialDuration>
+                    <progressionFactor>-1</progressionFactor>
+                    <maximumDuration>0</maximumDuration>
+                </suspendOnFailure>
+                <markForSuspension>
+                    <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                </markForSuspension>
+            </http>
+        </endpoint>
+    </call>
+    <payloadFactory description="buildPayload" media-type="json">
+        <format>$1</format>
+        <args>
+            <arg evaluator="json" expression="$.response"/>
+        </args>
+    </payloadFactory>
+    <property description="count enable flags" expression="json-eval($.length())" name="EnableFlagCount" scope="default" type="STRING"/>
+    <log description="log the Enableflag Count" level="custom">
+        <property expression="get-property('EnableFlagCount')" name="CountWith1==>"/>
+    </log>
+    <iterate description="IterateonEachObject" expression="json-eval($)" id="eligibility_check_2" sequential="true">
+        <target>
+            <sequence>
+                <propertyGroup description="db configs">
+                    <property expression="//Process_ID" name="processId" scope="default" type="STRING"/>
+                    <property expression="//Process_Name" name="process" scope="default" type="STRING"/>
+                    <property expression="//Endpoint" name="endpoint" scope="default" type="STRING"/>
+                    <property expression="//HTTP_Method" name="HTTP_Method" scope="default" type="STRING"/>
+                    <property expression="//System_Name" name="System_Name" scope="default" type="STRING"/>
+                </propertyGroup>
+                <sequence key="gov:custom/sequences/childIdGeneratingSeq.xml"/>
+                <class description="SystemRequestLogs" name="com.knot.uol.utils.SystemRequestNewLog">
+                    <property expression="$ctx:process" name="process"/>
+                    <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+                    <property expression="json-eval($)" name="requestPayload"/>
+                    <property expression="fn:concat(get-property('file','hostAdd'),$ctx:endpoint)" name="apiName"/>
+                    <property expression="$ctx:parentId" name="parentId"/>
+                    <property expression="$ctx:processId" name="processId"/>
+                    <property expression="$ctx:childId" name="childId"/>
+                </class>
+                <sequence key="REST_API_Call_Seq"/>
+                <class description="SystemResponseLogs" name="com.knot.uol.utils.SystemResponseUpdateLog">
+                    <property expression="$ctx:parentId" name="parentId"/>
+                    <property expression="$ctx:processId" name="processId"/>
+                    <property expression="json-eval($)" name="responsePayload"/>
+                    <property expression="$axis2:HTTP_SC" name="status"/>
+                    <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+                    <property expression="$ctx:childId" name="childId"/>
+                </class>
+            </sequence>
+        </target>
+    </iterate>
+    <payloadFactory media-type="json">
+        <format>{&#xd;
+"$1":$2&#xd;
+}</format>
+        <args>
+            <arg evaluator="xml" expression="$ctx:process"/>
+            <arg evaluator="json" expression="$"/>
+        </args>
+    </payloadFactory>
+    <aggregate id="eligibility_check_2">
+        <correlateOn expression="$body"/>
+        <completeCondition timeout="6000">
+            <messageCount max="{get-property('EnableFlagCount')}" min="0"/>
+        </completeCondition>
+        <onComplete aggregateElementType="root" expression="json-eval($)">
+            <script language="js"><![CDATA[var log = mc.getServiceLog();
+                            var responses = mc.getPayloadJSON();
+                            var eligibilitystatus = true;
+                            for(var i=0; i<responses.length; i++){
+                            	 for(var key in responses[i]){
+                            		var validateStatus=responses[i][key].validateStatus;
+                            		/*  log.info("process==> "+key);
+                            		log.info("dot notation==> "+validateStatus); */
+                            		if (validateStatus === false){
+                            			
+                            			eligibilitystatus = false;
+                            			break;
+                            		}
+                            	} 
+                    			if (eligibilitystatus === false) {
+            						break;
+        						}                	
+                            	
+                            	
+                            }   
+                            /*log.info("eligibilitystatus==> "+eligibilitystatus);
+                            responses.push({ "eligibilitystatus": eligibilitystatus });
+                            mc.setPayloadJSON(responses); */
+                            
+                            mc.setProperty("eligibilitystatus",eligibilitystatus);]]></script>
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+"eligibilitystatus":$2,&#xd;
+"response":$1&#xd;
+}</format>
+                <args>
+                    <arg evaluator="json" expression="$"/>
+                    <arg evaluator="xml" expression="$ctx:eligibilitystatus"/>
+                </args>
+            </payloadFactory>
+            <class description="SystemResponseLogs" name="com.knot.uol.utils.SystemResponseUpdateLog">
+                <property expression="$ctx:parentId" name="parentId"/>
+                <property expression="json-eval($)" name="responsePayload"/>
+                <property name="status" value="Completed"/>
+                <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+                <property name="childId" value="Main"/>
+            </class>
+            <property action="remove" description="remove parentId from $trp" name="parentId" scope="transport"/>
+            <respond/>
+        </onComplete>
+    </aggregate>
+</sequence>

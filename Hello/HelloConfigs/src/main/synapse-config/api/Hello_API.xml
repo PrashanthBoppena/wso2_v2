@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/greeting" name="Hello_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/{name}">
+        <inSequence>
+            <log level="custom">
+                <property expression="$ctx:uri.var.name" name="name"/>
+                <property expression="$ctx:query.param.id" name="ID"/>
+            </log>
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+"Name":$1,&#xd;
+"ID":$2&#xd;
+&#xd;
+}</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:uri.var.name"/>
+                    <arg evaluator="xml" expression="$ctx:query.param.id"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

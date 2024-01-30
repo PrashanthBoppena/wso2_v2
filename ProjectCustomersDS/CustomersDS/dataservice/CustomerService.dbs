@@ -1,0 +1,78 @@
+<data transports="http https" serviceGroup="" serviceNamespace="" name="CustomerService">
+  <description />
+  <config id="ProjectDatasource">
+    <property name="driverClassName">com.mysql.jdbc.Driver</property>
+    <property name="url">jdbc:mysql://localhost:3306/project</property>
+    <property name="username">root</property>
+    <property name="password">Pashi@13</property>
+  </config>
+  <resource path="/getAll" method="GET">
+    <description />
+    <call-query href="getAllSQL" />
+  </resource>
+  <resource path="/getByID/{id}" method="GET">
+    <description />
+    <call-query href="getByIDSQL">
+      <with-param name="id" query-param="id" />
+    </call-query>
+  </resource>
+  <query id="getByIDSQL" useConfig="ProjectDatasource">
+    <sql>SELECT * FROM project.customers where id=:id</sql>
+    <param type="IN" name="id" optional="false" paramType="SCALAR" sqlType="INTEGER" />
+    <result outputType="json" useColumnNumbers="true">{ "Customers":
+      {"Customer":[
+        {"CustomerID":"$1",                       
+         "Details": {
+          "CustomerAddress":"$2",
+          "CustomerEmail":"$3",
+          "CustomerLocation":"$4",
+          "CustomerName":"$5"
+         }
+        }                 
+      ]
+    }           
+}
+</result>
+  </query>
+  <query id="getAllSQL" useConfig="ProjectDatasource">
+    <sql>SELECT * FROM project.customers</sql>
+    <result outputType="json" useColumnNumbers="true">{ "Customers":
+      {"Customer":[
+        {"CustomerID":"$1",                       
+         "Details": {
+          "CustomerAddress":"$2",
+          "CustomerEmail":"$3",
+          "CustomerLocation":"$4",
+          "CustomerName":"$5"
+         }
+        }                 
+      ]
+    }           
+}</result>
+  </query>
+  <query id="AddCustomerSQL" useConfig="ProjectDatasource">
+    <sql>insert into customers (id, name, email, country, company) values(:id, :name, :email, :country, :company)</sql>
+    <param type="IN" name="id" optional="false" paramType="SCALAR" sqlType="INTEGER" />
+    <param type="IN" name="name" optional="false" paramType="SCALAR" sqlType="STRING" />
+    <param type="IN" name="email" optional="false" paramType="SCALAR" sqlType="STRING" />
+    <param type="IN" name="country" optional="false" paramType="SCALAR" sqlType="STRING" />
+    <param type="IN" name="company" optional="false" paramType="SCALAR" sqlType="STRING" />
+    <result outputType="json" useColumnNumbers="true">{ "Customers":
+      {"Customer":[
+        {"CustomerID":"$1",                       
+         "Details": {
+          "CustomerAddress":"$2",
+          "CustomerEmail":"$3",
+          "CustomerLocation":"$4",
+          "CustomerName":"$5"
+         }
+        }                 
+      ]
+    }           
+}</result>
+  </query>
+  <resource path="/addCustomer" method="POST">
+    <description />
+    <call-query href="AddCustomerSQL" />
+  </resource>
+</data>

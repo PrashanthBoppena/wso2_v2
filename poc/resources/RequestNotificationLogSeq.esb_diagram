@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_EcVeIBiiEe60TY6DacrEMQ" type="Esb" name="RequestNotificationLogSeq" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_Ec0mUBiiEe60TY6DacrEMQ" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_Ec0mVRiiEe60TY6DacrEMQ" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_KDZeYBjQEe60TY6DacrEMQ" type="3614">
+        <children xmi:type="notation:Node" xmi:id="_KDbTkBjQEe60TY6DacrEMQ" type="3615">
+          <children xmi:type="notation:DecorationNode" xmi:id="_KDbTlRjQEe60TY6DacrEMQ" type="7035">
+            <children xmi:type="notation:Node" xmi:id="_KDiBQBjQEe60TY6DacrEMQ" type="3513">
+              <children xmi:type="notation:DecorationNode" xmi:id="_KDiBRRjQEe60TY6DacrEMQ" type="5180"/>
+              <children xmi:type="notation:Node" xmi:id="_KDkdgBjQEe60TY6DacrEMQ" type="3079">
+                <styles xmi:type="notation:DescriptionStyle" xmi:id="_KDkdgRjQEe60TY6DacrEMQ"/>
+                <styles xmi:type="notation:FontStyle" xmi:id="_KDkdghjQEe60TY6DacrEMQ" fontName="Segoe UI"/>
+                <styles xmi:type="notation:LineStyle" xmi:id="_KDkdgxjQEe60TY6DacrEMQ"/>
+                <element xmi:type="esb:DBReportMediatorInputConnector" href="RequestNotificationLogSeq.esb#//@server/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KDkdhBjQEe60TY6DacrEMQ" x="-6" y="-5"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_KDlEkBjQEe60TY6DacrEMQ" type="3080">
+                <styles xmi:type="notation:DescriptionStyle" xmi:id="_KDlEkRjQEe60TY6DacrEMQ"/>
+                <styles xmi:type="notation:FontStyle" xmi:id="_KDlEkhjQEe60TY6DacrEMQ" fontName="Segoe UI"/>
+                <styles xmi:type="notation:LineStyle" xmi:id="_KDlEkxjQEe60TY6DacrEMQ"/>
+                <element xmi:type="esb:DBReportMediatorOutputConnector" href="RequestNotificationLogSeq.esb#//@server/@children.0/@mediatorFlow/@children.0/@outputConnector"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KDlElBjQEe60TY6DacrEMQ" x="64" y="-9"/>
+              </children>
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_KDiBQRjQEe60TY6DacrEMQ"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_KDiBQhjQEe60TY6DacrEMQ" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_KDiBQxjQEe60TY6DacrEMQ"/>
+              <element xmi:type="esb:DBReportMediator" href="RequestNotificationLogSeq.esb#//@server/@children.0/@mediatorFlow/@children.0"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KDiBRBjQEe60TY6DacrEMQ" x="25" y="89" width="84" height="115"/>
+            </children>
+            <styles xmi:type="notation:TitleStyle" xmi:id="_KDbTlhjQEe60TY6DacrEMQ" showTitle="true"/>
+          </children>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_KDbTkRjQEe60TY6DacrEMQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_KDbTkhjQEe60TY6DacrEMQ" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_KDbTkxjQEe60TY6DacrEMQ"/>
+          <element xmi:type="esb:MediatorFlow" href="RequestNotificationLogSeq.esb#//@server/@children.0/@mediatorFlow"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KDbTlBjQEe60TY6DacrEMQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_KDbTlxjQEe60TY6DacrEMQ" type="3616">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_KDbTmBjQEe60TY6DacrEMQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_KDbTmRjQEe60TY6DacrEMQ" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_KDbTmhjQEe60TY6DacrEMQ"/>
+          <element xmi:type="esb:SequencesInputConnector" href="RequestNotificationLogSeq.esb#//@server/@children.0/@inputConnector"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KDbTmxjQEe60TY6DacrEMQ" x="-11" y="-9"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_KDb6oBjQEe60TY6DacrEMQ" type="3617">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_KDb6oRjQEe60TY6DacrEMQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_KDb6ohjQEe60TY6DacrEMQ" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_KDb6oxjQEe60TY6DacrEMQ"/>
+          <element xmi:type="esb:SequencesOutputConnector" href="RequestNotificationLogSeq.esb#//@server/@children.0/@outputConnector"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KDb6pBjQEe60TY6DacrEMQ" x="-11" y="-9"/>
+        </children>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_KDZeYRjQEe60TY6DacrEMQ"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_KDZeYhjQEe60TY6DacrEMQ" fontName="Segoe UI"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_KDZeYxjQEe60TY6DacrEMQ"/>
+        <element xmi:type="esb:Sequences" href="RequestNotificationLogSeq.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KDZeZBjQEe60TY6DacrEMQ" width="195" height="125"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_Ec0mURiiEe60TY6DacrEMQ"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Ec0mUhiiEe60TY6DacrEMQ" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_Ec0mUxiiEe60TY6DacrEMQ"/>
+    <element xmi:type="esb:EsbServer" href="RequestNotificationLogSeq.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ec0mVBiiEe60TY6DacrEMQ"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_EcVeIRiiEe60TY6DacrEMQ"/>
+  <element xmi:type="esb:EsbDiagram" href="RequestNotificationLogSeq.esb#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_KDx44BjQEe60TY6DacrEMQ" type="4001" source="_KDb6oBjQEe60TY6DacrEMQ" target="_KDkdgBjQEe60TY6DacrEMQ" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_KDx44RjQEe60TY6DacrEMQ" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="RequestNotificationLogSeq.esb#//@server/@children.0/@outputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KDx44hjQEe60TY6DacrEMQ" points="[6, 9, 0, -1]$[0, 5, -6, -5]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_KD1jQBjQEe60TY6DacrEMQ" type="4001" source="_KDlEkBjQEe60TY6DacrEMQ" target="_KDbTlxjQEe60TY6DacrEMQ" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_KD1jQRjQEe60TY6DacrEMQ" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="RequestNotificationLogSeq.esb#//@server/@children.0/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KD1jQhjQEe60TY6DacrEMQ" points="[-11, -2, 65, 8]$[-65, -9, 11, 1]"/>
+  </edges>
+</notation:Diagram>

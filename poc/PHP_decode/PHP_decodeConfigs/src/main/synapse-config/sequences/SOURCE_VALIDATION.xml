@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="SOURCE_VALIDATION" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <script language="js"><![CDATA[var source = mc.getProperty('source');
+            var result;
+            
+            if (source != null && source !== '') {
+                result = 0;
+            } else {
+                result = 1;
+            }]]></script>
+</sequence>

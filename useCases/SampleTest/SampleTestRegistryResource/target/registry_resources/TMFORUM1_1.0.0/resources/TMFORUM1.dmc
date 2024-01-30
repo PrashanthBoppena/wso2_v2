@@ -1,0 +1,52 @@
+map_S_root_S_root = function(){ 
+var outputroot={};
+
+var count_i_AggRes_f48b6797_e718_42fd_bb69_5d2b35516cba = 0;
+var count_i_item_4f8b4a0c_1822_4a28_84d9_d8d649e185c1_i_AggRes_f48b6797_e718_42fd_bb69_5d2b35516cba = 0;
+outputroot =  {};
+outputroot.customerReadResponse =  {};
+outputroot.addressReadResponse =  {};
+outputroot.contractReadResponse =  {};
+outputroot.contractReadResponse.contracts =  {};
+outputroot.contractReadResponse.contracts.item =  [];
+
+for(i_AggRes_f48b6797_e718_42fd_bb69_5d2b35516cba in inputroot.AggRes){
+var count_i_item_4f8b4a0c_1822_4a28_84d9_d8d649e185c1 = 0;
+outputroot.customerReadResponse.csId = inputroot.AggRes[i_AggRes_f48b6797_e718_42fd_bb69_5d2b35516cba].customerReadResponse.csId;
+outputroot.customerReadResponse.csIdPub = inputroot.AggRes[i_AggRes_f48b6797_e718_42fd_bb69_5d2b35516cba].customerReadResponse.csIdPub;
+outputroot.customerReadResponse.csCode = inputroot.AggRes[i_AggRes_f48b6797_e718_42fd_bb69_5d2b35516cba].customerReadResponse.csCode;
+outputroot.addressReadResponse.adrNationality = inputroot.AggRes[i_AggRes_f48b6797_e718_42fd_bb69_5d2b35516cba].addressReadResponse.adrNationality;
+outputroot.addressReadResponse.adrNationalityPub = inputroot.AggRes[i_AggRes_f48b6797_e718_42fd_bb69_5d2b35516cba].addressReadResponse.adrNationalityPub;
+
+for(i_item_4f8b4a0c_1822_4a28_84d9_d8d649e185c1 in inputroot.AggRes[i_AggRes_f48b6797_e718_42fd_bb69_5d2b35516cba].contractReadResponse.contracts.item){
+outputroot.contractReadResponse.contracts.item[count_i_item_4f8b4a0c_1822_4a28_84d9_d8d649e185c1] =  {};
+outputroot.contractReadResponse.contracts.item[count_i_item_4f8b4a0c_1822_4a28_84d9_d8d649e185c1].contractTypeId = inputroot.AggRes[i_AggRes_f48b6797_e718_42fd_bb69_5d2b35516cba].contractReadResponse.contracts.item[i_item_4f8b4a0c_1822_4a28_84d9_d8d649e185c1].contractTypeId;
+outputroot.contractReadResponse.contracts.item[count_i_item_4f8b4a0c_1822_4a28_84d9_d8d649e185c1].buId = inputroot.AggRes[i_AggRes_f48b6797_e718_42fd_bb69_5d2b35516cba].contractReadResponse.contracts.item[i_item_4f8b4a0c_1822_4a28_84d9_d8d649e185c1].buId;
+outputroot.contractReadResponse.contracts.item[count_i_item_4f8b4a0c_1822_4a28_84d9_d8d649e185c1].coStatus = inputroot.AggRes[i_AggRes_f48b6797_e718_42fd_bb69_5d2b35516cba].contractReadResponse.contracts.item[i_item_4f8b4a0c_1822_4a28_84d9_d8d649e185c1].coStatus;
+outputroot.contractReadResponse.contracts.item[count_i_item_4f8b4a0c_1822_4a28_84d9_d8d649e185c1].csCode = inputroot.AggRes[i_AggRes_f48b6797_e718_42fd_bb69_5d2b35516cba].contractReadResponse.contracts.item[i_item_4f8b4a0c_1822_4a28_84d9_d8d649e185c1].csCode;
+outputroot.contractReadResponse.contracts.item[count_i_item_4f8b4a0c_1822_4a28_84d9_d8d649e185c1].dirnum = inputroot.AggRes[i_AggRes_f48b6797_e718_42fd_bb69_5d2b35516cba].contractReadResponse.contracts.item[i_item_4f8b4a0c_1822_4a28_84d9_d8d649e185c1].dirnum;
+
+count_i_item_4f8b4a0c_1822_4a28_84d9_d8d649e185c1++;
+count_i_item_4f8b4a0c_1822_4a28_84d9_d8d649e185c1_i_AggRes_f48b6797_e718_42fd_bb69_5d2b35516cba++;
+}
+
+count_i_AggRes_f48b6797_e718_42fd_bb69_5d2b35516cba++;
+}
+return outputroot;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

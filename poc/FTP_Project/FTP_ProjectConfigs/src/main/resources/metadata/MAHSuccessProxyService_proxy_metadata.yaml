@@ -1,0 +1,10 @@
+---
+key: "MAHSuccessProxyService_proxy-1.0.0"
+name : "MAHSuccessProxyService"
+displayName : "MAHSuccessProxyService"
+description: "Sample Proxy Service"
+version: "1.0.0"
+serviceUrl: "https://{MI_HOST}:{MI_PORT}/services/MAHSuccessProxyService"
+definitionType: "WSDL1"
+securityType: "BASIC"
+mutualSSLEnabled: false

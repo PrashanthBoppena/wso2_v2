@@ -1,0 +1,10 @@
+---
+key: "FileToM1Server_proxy-1.0.0"
+name : "FileToM1Server"
+displayName : "FileToM1Server"
+description: "Sample Proxy Service"
+version: "1.0.0"
+serviceUrl: "https://{MI_HOST}:{MI_PORT}/services/FileToM1Server"
+definitionType: "WSDL1"
+securityType: "BASIC"
+mutualSSLEnabled: false

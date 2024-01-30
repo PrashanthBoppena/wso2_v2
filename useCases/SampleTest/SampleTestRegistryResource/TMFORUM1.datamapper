@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datamapper:DataMapperRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:datamapper="http:///org/wso2/developerstudio/eclipse/gmf/datamapper">
+  <input>
+    <treeNode name="root" schemaDataType="OBJECT" level="1">
+      <node name="AggRes" level="2">
+        <node name="customerReadResponse" schemaDataType="OBJECT" level="3">
+          <node name="csId" schemaDataType="NUMBER" level="4">
+            <properties key="type" value="number"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/customerReadResponse/csId"/>
+            <properties key="nullable" value="false"/>
+            <outNode>
+              <outgoingLink inNode="//@output/@treeNode.0/@node.0/@node.0/@inNode"/>
+            </outNode>
+            <inNode/>
+          </node>
+          <node name="csIdPub" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/customerReadResponse/csIdPub"/>
+            <properties key="nullable" value="false"/>
+            <outNode>
+              <outgoingLink inNode="//@output/@treeNode.0/@node.0/@node.1/@inNode"/>
+            </outNode>
+            <inNode/>
+          </node>
+          <node name="csCode" schemaDataType="NUMBER" level="4">
+            <properties key="type" value="number"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/customerReadResponse/csCode"/>
+            <properties key="nullable" value="false"/>
+            <outNode>
+              <outgoingLink inNode="//@output/@treeNode.0/@node.0/@node.2/@inNode"/>
+            </outNode>
+            <inNode/>
+          </node>
+          <node name="csStatus" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/customerReadResponse/csStatus"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="csStatusDate" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/customerReadResponse/csStatusDate"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="csActivationDate" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/customerReadResponse/csActivationDate"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="csLevelCode" schemaDataType="NUMBER" level="4">
+            <properties key="type" value="number"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/customerReadResponse/csLevelCode"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="paymentResp" schemaDataType="BOOLEAN" level="4">
+            <properties key="type" value="boolean"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/customerReadResponse/paymentResp"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="prgCode" schemaDataType="NUMBER" level="4">
+            <properties key="type" value="number"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/customerReadResponse/prgCode"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="rpcode" schemaDataType="NUMBER" level="4">
+            <properties key="type" value="number"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/customerReadResponse/rpcode"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="rpcodePub" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/customerReadResponse/rpcodePub"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="tradeCode" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/customerReadResponse/tradeCode"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="costId" schemaDataType="NUMBER" level="4">
+            <properties key="type" value="number"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/customerReadResponse/costId"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="costCodePub" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/customerReadResponse/costCodePub"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="csPassword" schemaDataType="NUMBER" level="4">
+            <properties key="type" value="number"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/customerReadResponse/csPassword"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <properties key="type" value="object"/>
+          <properties key="id" value="http://wso2jsonschema.org/AggRes/0/customerReadResponse"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="addressReadResponse" schemaDataType="OBJECT" level="3">
+          <node name="adrNationality" schemaDataType="NUMBER" level="4">
+            <properties key="type" value="number"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/addressReadResponse/adrNationality"/>
+            <properties key="nullable" value="false"/>
+            <outNode>
+              <outgoingLink inNode="//@output/@treeNode.0/@node.1/@node.0/@inNode"/>
+            </outNode>
+            <inNode/>
+          </node>
+          <node name="adrNationalityPub" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/addressReadResponse/adrNationalityPub"/>
+            <properties key="nullable" value="false"/>
+            <outNode>
+              <outgoingLink inNode="//@output/@treeNode.0/@node.1/@node.1/@inNode"/>
+            </outNode>
+            <inNode/>
+          </node>
+          <node name="adrEmployee" schemaDataType="BOOLEAN" level="4">
+            <properties key="type" value="boolean"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/addressReadResponse/adrEmployee"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="csId" schemaDataType="NUMBER" level="4">
+            <properties key="type" value="number"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/addressReadResponse/csId"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="csIdPub" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/addressReadResponse/csIdPub"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="countryId" schemaDataType="NUMBER" level="4">
+            <properties key="type" value="number"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/addressReadResponse/countryId"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="countryIdPub" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/addressReadResponse/countryIdPub"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <properties key="type" value="object"/>
+          <properties key="id" value="http://wso2jsonschema.org/AggRes/0/addressReadResponse"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="contractReadResponse" schemaDataType="OBJECT" level="3">
+          <node name="contracts" schemaDataType="OBJECT" level="4">
+            <node name="item" level="5">
+              <node name="contractTypeId" schemaDataType="NUMBER" level="6">
+                <properties key="type" value="number"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/contractTypeId"/>
+                <properties key="nullable" value="false"/>
+                <outNode>
+                  <outgoingLink inNode="//@output/@treeNode.0/@node.2/@node.0/@node.0/@node.0/@inNode"/>
+                </outNode>
+                <inNode/>
+              </node>
+              <node name="buId" schemaDataType="NUMBER" level="6">
+                <properties key="type" value="number"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/buId"/>
+                <properties key="nullable" value="false"/>
+                <outNode>
+                  <outgoingLink inNode="//@output/@treeNode.0/@node.2/@node.0/@node.0/@node.1/@inNode"/>
+                </outNode>
+                <inNode/>
+              </node>
+              <node name="coStatus" schemaDataType="NUMBER" level="6">
+                <properties key="type" value="number"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/coStatus"/>
+                <properties key="nullable" value="false"/>
+                <outNode>
+                  <outgoingLink inNode="//@output/@treeNode.0/@node.2/@node.0/@node.0/@node.2/@inNode"/>
+                </outNode>
+                <inNode/>
+              </node>
+              <node name="csCode" schemaDataType="NUMBER" level="6">
+                <properties key="type" value="number"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/csCode"/>
+                <properties key="nullable" value="false"/>
+                <outNode>
+                  <outgoingLink inNode="//@output/@treeNode.0/@node.2/@node.0/@node.0/@node.3/@inNode"/>
+                </outNode>
+                <inNode/>
+              </node>
+              <node name="dirnum" schemaDataType="NUMBER" level="6">
+                <properties key="type" value="number"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/dirnum"/>
+                <properties key="nullable" value="false"/>
+                <outNode>
+                  <outgoingLink inNode="//@output/@treeNode.0/@node.2/@node.0/@node.0/@node.4/@inNode"/>
+                </outNode>
+                <inNode/>
+              </node>
+              <node name="adrLname" schemaDataType="STRING" level="6">
+                <properties key="type" value="string"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrLname"/>
+                <properties key="nullable" value="false"/>
+                <outNode/>
+                <inNode/>
+              </node>
+              <node name="adrStreet" schemaDataType="STRING" level="6">
+                <properties key="type" value="string"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrStreet"/>
+                <properties key="nullable" value="false"/>
+                <outNode/>
+                <inNode/>
+              </node>
+              <node name="adrStreetno" schemaDataType="NUMBER" level="6">
+                <properties key="type" value="number"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrStreetno"/>
+                <properties key="nullable" value="false"/>
+                <outNode/>
+                <inNode/>
+              </node>
+              <node name="adrZip" schemaDataType="NUMBER" level="6">
+                <properties key="type" value="number"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrZip"/>
+                <properties key="nullable" value="false"/>
+                <outNode/>
+                <inNode/>
+              </node>
+              <node name="adrCity" schemaDataType="STRING" level="6">
+                <properties key="type" value="string"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrCity"/>
+                <properties key="nullable" value="false"/>
+                <outNode/>
+                <inNode/>
+              </node>
+              <node name="submId" schemaDataType="NUMBER" level="6">
+                <properties key="type" value="number"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/submId"/>
+                <properties key="nullable" value="false"/>
+                <outNode/>
+                <inNode/>
+              </node>
+              <node name="plcode" schemaDataType="NUMBER" level="6">
+                <properties key="type" value="number"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/plcode"/>
+                <properties key="nullable" value="false"/>
+                <outNode/>
+                <inNode/>
+              </node>
+              <node name="externalind" schemaDataType="BOOLEAN" level="6">
+                <properties key="type" value="boolean"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/externalind"/>
+                <properties key="nullable" value="false"/>
+                <outNode/>
+                <inNode/>
+              </node>
+              <node name="rpcode" schemaDataType="NUMBER" level="6">
+                <properties key="type" value="number"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/rpcode"/>
+                <properties key="nullable" value="false"/>
+                <outNode/>
+                <inNode/>
+              </node>
+              <node name="coActivated" schemaDataType="STRING" level="6">
+                <properties key="type" value="string"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/coActivated"/>
+                <properties key="nullable" value="false"/>
+                <outNode/>
+                <inNode/>
+              </node>
+              <node name="hlcode" schemaDataType="NUMBER" level="6">
+                <properties key="type" value="number"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/hlcode"/>
+                <properties key="nullable" value="false"/>
+                <outNode/>
+                <inNode/>
+              </node>
+              <node name="coId" schemaDataType="NUMBER" level="6">
+                <properties key="type" value="number"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/coId"/>
+                <properties key="nullable" value="false"/>
+                <outNode/>
+                <inNode/>
+              </node>
+              <node name="coIdPub" schemaDataType="STRING" level="6">
+                <properties key="type" value="string"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/coIdPub"/>
+                <properties key="nullable" value="false"/>
+                <outNode/>
+                <inNode/>
+              </node>
+              <node name="csId" schemaDataType="NUMBER" level="6">
+                <properties key="type" value="number"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/csId"/>
+                <properties key="nullable" value="false"/>
+                <outNode/>
+                <inNode/>
+              </node>
+              <node name="csIdPub" schemaDataType="STRING" level="6">
+                <properties key="type" value="string"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/csIdPub"/>
+                <properties key="nullable" value="false"/>
+                <outNode/>
+                <inNode/>
+              </node>
+              <node name="currentDn" schemaDataType="BOOLEAN" level="6">
+                <properties key="type" value="boolean"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/currentDn"/>
+                <properties key="nullable" value="false"/>
+                <outNode/>
+                <inNode/>
+              </node>
+              <node name="paymentResp" schemaDataType="STRING" level="6">
+                <properties key="type" value="string"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/paymentResp"/>
+                <properties key="nullable" value="false"/>
+                <outNode/>
+                <inNode/>
+              </node>
+              <node name="csContrResp" schemaDataType="STRING" level="6">
+                <properties key="type" value="string"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/csContrResp"/>
+                <properties key="nullable" value="false"/>
+                <outNode/>
+                <inNode/>
+              </node>
+              <node name="paymentMethodInd" schemaDataType="STRING" level="6">
+                <properties key="type" value="string"/>
+                <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/paymentMethodInd"/>
+                <properties key="nullable" value="false"/>
+                <outNode/>
+                <inNode/>
+              </node>
+              <properties key="type" value="array"/>
+              <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item"/>
+              <properties key="items_id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0"/>
+              <properties key="items_type" value="object"/>
+              <properties key="nullable" value="false"/>
+              <properties key="properties_id" value="{contractTypeId={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/contractTypeId, type=number}, buId={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/buId, type=number}, coStatus={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/coStatus, type=number}, csCode={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/csCode, type=number}, dirnum={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/dirnum, type=number}, adrLname={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrLname, type=string}, adrStreet={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrStreet, type=string}, adrStreetno={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrStreetno, type=number}, adrZip={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrZip, type=number}, adrCity={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrCity, type=string}, submId={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/submId, type=number}, plcode={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/plcode, type=number}, externalind={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/externalind, type=boolean}, rpcode={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/rpcode, type=number}, coActivated={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/coActivated, type=string}, hlcode={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/hlcode, type=number}, coId={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/coId, type=number}, coIdPub={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/coIdPub, type=string}, csId={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/csId, type=number}, csIdPub={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/csIdPub, type=string}, currentDn={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/currentDn, type=boolean}, paymentResp={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/paymentResp, type=string}, csContrResp={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/csContrResp, type=string}, paymentMethodInd={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/paymentMethodInd, type=string}}"/>
+              <outNode/>
+              <inNode/>
+            </node>
+            <properties key="type" value="object"/>
+            <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts"/>
+            <properties key="nullable" value="false"/>
+            <properties key="properties_id" value="{item={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item, type=array, items=[{id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0, type=object, properties={contractTypeId={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/contractTypeId, type=number}, buId={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/buId, type=number}, coStatus={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/coStatus, type=number}, csCode={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/csCode, type=number}, dirnum={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/dirnum, type=number}, adrLname={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrLname, type=string}, adrStreet={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrStreet, type=string}, adrStreetno={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrStreetno, type=number}, adrZip={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrZip, type=number}, adrCity={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrCity, type=string}, submId={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/submId, type=number}, plcode={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/plcode, type=number}, externalind={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/externalind, type=boolean}, rpcode={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/rpcode, type=number}, coActivated={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/coActivated, type=string}, hlcode={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/hlcode, type=number}, coId={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/coId, type=number}, coIdPub={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/coIdPub, type=string}, csId={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/csId, type=number}, csIdPub={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/csIdPub, type=string}, currentDn={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/currentDn, type=boolean}, paymentResp={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/paymentResp, type=string}, csContrResp={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/csContrResp, type=string}, paymentMethodInd={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/paymentMethodInd, type=string}}}]}}"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <properties key="type" value="object"/>
+          <properties key="id" value="http://wso2jsonschema.org/AggRes/0/contractReadResponse"/>
+          <properties key="nullable" value="false"/>
+          <properties key="properties_id" value="{csId={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/csId, type=number}, csIdPub={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/csIdPub, type=string}, csCode={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/csCode, type=number}, csStatus={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/csStatus, type=string}, csStatusDate={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/csStatusDate, type=string}, csActivationDate={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/csActivationDate, type=string}, csLevelCode={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/csLevelCode, type=number}, paymentResp={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/paymentResp, type=boolean}, prgCode={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/prgCode, type=number}, rpcode={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/rpcode, type=number}, rpcodePub={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/rpcodePub, type=string}, tradeCode={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/tradeCode, type=string}, costId={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/costId, type=number}, costCodePub={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/costCodePub, type=string}, csPassword={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/csPassword, type=number}}"/>
+          <properties key="properties_id" value="{adrNationality={id=http://wso2jsonschema.org/AggRes/0/addressReadResponse/adrNationality, type=number}, adrNationalityPub={id=http://wso2jsonschema.org/AggRes/0/addressReadResponse/adrNationalityPub, type=string}, adrEmployee={id=http://wso2jsonschema.org/AggRes/0/addressReadResponse/adrEmployee, type=boolean}, csId={id=http://wso2jsonschema.org/AggRes/0/addressReadResponse/csId, type=number}, csIdPub={id=http://wso2jsonschema.org/AggRes/0/addressReadResponse/csIdPub, type=string}, countryId={id=http://wso2jsonschema.org/AggRes/0/addressReadResponse/countryId, type=number}, countryIdPub={id=http://wso2jsonschema.org/AggRes/0/addressReadResponse/countryIdPub, type=string}}"/>
+          <properties key="properties_id" value="{contracts={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts, type=object, properties={item={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item, type=array, items=[{id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0, type=object, properties={contractTypeId={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/contractTypeId, type=number}, buId={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/buId, type=number}, coStatus={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/coStatus, type=number}, csCode={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/csCode, type=number}, dirnum={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/dirnum, type=number}, adrLname={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrLname, type=string}, adrStreet={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrStreet, type=string}, adrStreetno={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrStreetno, type=number}, adrZip={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrZip, type=number}, adrCity={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrCity, type=string}, submId={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/submId, type=number}, plcode={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/plcode, type=number}, externalind={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/externalind, type=boolean}, rpcode={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/rpcode, type=number}, coActivated={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/coActivated, type=string}, hlcode={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/hlcode, type=number}, coId={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/coId, type=number}, coIdPub={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/coIdPub, type=string}, csId={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/csId, type=number}, csIdPub={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/csIdPub, type=string}, currentDn={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/currentDn, type=boolean}, paymentResp={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/paymentResp, type=string}, csContrResp={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/csContrResp, type=string}, paymentMethodInd={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/paymentMethodInd, type=string}}}]}}}}"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <properties key="type" value="array"/>
+        <properties key="id" value="http://wso2jsonschema.org/AggRes"/>
+        <properties key="items_id" value="http://wso2jsonschema.org/AggRes/0"/>
+        <properties key="items_type" value="object"/>
+        <properties key="nullable" value="false"/>
+        <properties key="properties_id" value="{customerReadResponse={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse, type=object, properties={csId={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/csId, type=number}, csIdPub={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/csIdPub, type=string}, csCode={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/csCode, type=number}, csStatus={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/csStatus, type=string}, csStatusDate={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/csStatusDate, type=string}, csActivationDate={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/csActivationDate, type=string}, csLevelCode={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/csLevelCode, type=number}, paymentResp={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/paymentResp, type=boolean}, prgCode={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/prgCode, type=number}, rpcode={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/rpcode, type=number}, rpcodePub={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/rpcodePub, type=string}, tradeCode={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/tradeCode, type=string}, costId={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/costId, type=number}, costCodePub={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/costCodePub, type=string}, csPassword={id=http://wso2jsonschema.org/AggRes/0/customerReadResponse/csPassword, type=number}}}, addressReadResponse={id=http://wso2jsonschema.org/AggRes/0/addressReadResponse, type=object, properties={adrNationality={id=http://wso2jsonschema.org/AggRes/0/addressReadResponse/adrNationality, type=number}, adrNationalityPub={id=http://wso2jsonschema.org/AggRes/0/addressReadResponse/adrNationalityPub, type=string}, adrEmployee={id=http://wso2jsonschema.org/AggRes/0/addressReadResponse/adrEmployee, type=boolean}, csId={id=http://wso2jsonschema.org/AggRes/0/addressReadResponse/csId, type=number}, csIdPub={id=http://wso2jsonschema.org/AggRes/0/addressReadResponse/csIdPub, type=string}, countryId={id=http://wso2jsonschema.org/AggRes/0/addressReadResponse/countryId, type=number}, countryIdPub={id=http://wso2jsonschema.org/AggRes/0/addressReadResponse/countryIdPub, type=string}}}, contractReadResponse={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse, type=object, properties={contracts={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts, type=object, properties={item={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item, type=array, items=[{id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0, type=object, properties={contractTypeId={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/contractTypeId, type=number}, buId={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/buId, type=number}, coStatus={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/coStatus, type=number}, csCode={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/csCode, type=number}, dirnum={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/dirnum, type=number}, adrLname={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrLname, type=string}, adrStreet={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrStreet, type=string}, adrStreetno={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrStreetno, type=number}, adrZip={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrZip, type=number}, adrCity={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/adrCity, type=string}, submId={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/submId, type=number}, plcode={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/plcode, type=number}, externalind={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/externalind, type=boolean}, rpcode={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/rpcode, type=number}, coActivated={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/coActivated, type=string}, hlcode={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/hlcode, type=number}, coId={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/coId, type=number}, coIdPub={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/coIdPub, type=string}, csId={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/csId, type=number}, csIdPub={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/csIdPub, type=string}, currentDn={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/currentDn, type=boolean}, paymentResp={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/paymentResp, type=string}, csContrResp={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/csContrResp, type=string}, paymentMethodInd={id=http://wso2jsonschema.org/AggRes/0/contractReadResponse/contracts/item/0/paymentMethodInd, type=string}}}]}}}}}}"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <properties key="type" value="object"/>
+      <properties key="$schema" value="http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#"/>
+      <properties key="id" value="http://wso2jsonschema.org"/>
+      <properties key="nullable" value="false"/>
+      <outNode/>
+      <inNode/>
+    </treeNode>
+  </input>
+  <output>
+    <treeNode name="root" schemaDataType="OBJECT" level="1">
+      <node name="customerReadResponse" schemaDataType="OBJECT" level="2">
+        <node name="csId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/customerReadResponse/csId"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.0/@node.0/@outNode/@outgoingLink.0"/>
+        </node>
+        <node name="csIdPub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/customerReadResponse/csIdPub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.0/@node.1/@outNode/@outgoingLink.0"/>
+        </node>
+        <node name="csCode" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/customerReadResponse/csCode"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.0/@node.2/@outNode/@outgoingLink.0"/>
+        </node>
+        <properties key="type" value="object"/>
+        <properties key="id" value="http://wso2jsonschema.org/customerReadResponse"/>
+        <properties key="nullable" value="false"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <node name="addressReadResponse" schemaDataType="OBJECT" level="2">
+        <node name="adrNationality" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/addressReadResponse/adrNationality"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.1/@node.0/@outNode/@outgoingLink.0"/>
+        </node>
+        <node name="adrNationalityPub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/addressReadResponse/adrNationalityPub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.1/@node.1/@outNode/@outgoingLink.0"/>
+        </node>
+        <properties key="type" value="object"/>
+        <properties key="id" value="http://wso2jsonschema.org/addressReadResponse"/>
+        <properties key="nullable" value="false"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <node name="contractReadResponse" schemaDataType="OBJECT" level="2">
+        <node name="contracts" schemaDataType="OBJECT" level="3">
+          <node name="item" level="4">
+            <node name="contractTypeId" schemaDataType="NUMBER" level="5">
+              <properties key="type" value="number"/>
+              <properties key="id" value="http://wso2jsonschema.org/contractReadResponse/contracts/item/0/contractTypeId"/>
+              <properties key="nullable" value="false"/>
+              <outNode/>
+              <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.2/@node.0/@node.0/@node.0/@outNode/@outgoingLink.0"/>
+            </node>
+            <node name="buId" schemaDataType="NUMBER" level="5">
+              <properties key="type" value="number"/>
+              <properties key="id" value="http://wso2jsonschema.org/contractReadResponse/contracts/item/0/buId"/>
+              <properties key="nullable" value="false"/>
+              <outNode/>
+              <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.2/@node.0/@node.0/@node.1/@outNode/@outgoingLink.0"/>
+            </node>
+            <node name="coStatus" schemaDataType="NUMBER" level="5">
+              <properties key="type" value="number"/>
+              <properties key="id" value="http://wso2jsonschema.org/contractReadResponse/contracts/item/0/coStatus"/>
+              <properties key="nullable" value="false"/>
+              <outNode/>
+              <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.2/@node.0/@node.0/@node.2/@outNode/@outgoingLink.0"/>
+            </node>
+            <node name="csCode" schemaDataType="NUMBER" level="5">
+              <properties key="type" value="number"/>
+              <properties key="id" value="http://wso2jsonschema.org/contractReadResponse/contracts/item/0/csCode"/>
+              <properties key="nullable" value="false"/>
+              <outNode/>
+              <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.2/@node.0/@node.0/@node.3/@outNode/@outgoingLink.0"/>
+            </node>
+            <node name="dirnum" schemaDataType="NUMBER" level="5">
+              <properties key="type" value="number"/>
+              <properties key="id" value="http://wso2jsonschema.org/contractReadResponse/contracts/item/0/dirnum"/>
+              <properties key="nullable" value="false"/>
+              <outNode/>
+              <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.2/@node.0/@node.0/@node.4/@outNode/@outgoingLink.0"/>
+            </node>
+            <properties key="type" value="array"/>
+            <properties key="id" value="http://wso2jsonschema.org/contractReadResponse/contracts/item"/>
+            <properties key="items_id" value="http://wso2jsonschema.org/contractReadResponse/contracts/item/0"/>
+            <properties key="items_type" value="object"/>
+            <properties key="nullable" value="false"/>
+            <properties key="properties_id" value="{contractTypeId={id=http://wso2jsonschema.org/contractReadResponse/contracts/item/0/contractTypeId, type=number}, buId={id=http://wso2jsonschema.org/contractReadResponse/contracts/item/0/buId, type=number}, coStatus={id=http://wso2jsonschema.org/contractReadResponse/contracts/item/0/coStatus, type=number}, csCode={id=http://wso2jsonschema.org/contractReadResponse/contracts/item/0/csCode, type=number}, dirnum={id=http://wso2jsonschema.org/contractReadResponse/contracts/item/0/dirnum, type=number}}"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <properties key="type" value="object"/>
+          <properties key="id" value="http://wso2jsonschema.org/contractReadResponse/contracts"/>
+          <properties key="nullable" value="false"/>
+          <properties key="properties_id" value="{item={id=http://wso2jsonschema.org/contractReadResponse/contracts/item, type=array, items=[{id=http://wso2jsonschema.org/contractReadResponse/contracts/item/0, type=object, properties={contractTypeId={id=http://wso2jsonschema.org/contractReadResponse/contracts/item/0/contractTypeId, type=number}, buId={id=http://wso2jsonschema.org/contractReadResponse/contracts/item/0/buId, type=number}, coStatus={id=http://wso2jsonschema.org/contractReadResponse/contracts/item/0/coStatus, type=number}, csCode={id=http://wso2jsonschema.org/contractReadResponse/contracts/item/0/csCode, type=number}, dirnum={id=http://wso2jsonschema.org/contractReadResponse/contracts/item/0/dirnum, type=number}}}]}}"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <properties key="type" value="object"/>
+        <properties key="id" value="http://wso2jsonschema.org/contractReadResponse"/>
+        <properties key="nullable" value="false"/>
+        <properties key="properties_id" value="{csId={id=http://wso2jsonschema.org/customerReadResponse/csId, type=number}, csIdPub={id=http://wso2jsonschema.org/customerReadResponse/csIdPub, type=string}, csCode={id=http://wso2jsonschema.org/customerReadResponse/csCode, type=number}}"/>
+        <properties key="properties_id" value="{adrNationality={id=http://wso2jsonschema.org/addressReadResponse/adrNationality, type=number}, adrNationalityPub={id=http://wso2jsonschema.org/addressReadResponse/adrNationalityPub, type=string}}"/>
+        <properties key="properties_id" value="{contracts={id=http://wso2jsonschema.org/contractReadResponse/contracts, type=object, properties={item={id=http://wso2jsonschema.org/contractReadResponse/contracts/item, type=array, items=[{id=http://wso2jsonschema.org/contractReadResponse/contracts/item/0, type=object, properties={contractTypeId={id=http://wso2jsonschema.org/contractReadResponse/contracts/item/0/contractTypeId, type=number}, buId={id=http://wso2jsonschema.org/contractReadResponse/contracts/item/0/buId, type=number}, coStatus={id=http://wso2jsonschema.org/contractReadResponse/contracts/item/0/coStatus, type=number}, csCode={id=http://wso2jsonschema.org/contractReadResponse/contracts/item/0/csCode, type=number}, dirnum={id=http://wso2jsonschema.org/contractReadResponse/contracts/item/0/dirnum, type=number}}}]}}}}"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <properties key="type" value="object"/>
+      <properties key="$schema" value="http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#"/>
+      <properties key="id" value="http://wso2jsonschema.org"/>
+      <properties key="nullable" value="false"/>
+      <outNode/>
+      <inNode/>
+    </treeNode>
+  </output>
+</datamapper:DataMapperRoot>

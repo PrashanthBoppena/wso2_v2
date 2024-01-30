@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="SMSHandlerSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <dataServiceCall description="smse logs" serviceName="NotificationEngineDS">
+        <operations type="single">
+            <operation name="SMSLogHandler">
+                <param evaluator="xml" expression="$ctx:req_id" name="req_id"/>
+                <param evaluator="xml" expression="$ctx:r_msisdn" name="msisdn"/>
+                <param evaluator="xml" expression="$ctx:request" name="request"/>
+                <param name="response" value="null"/>
+                <param name="status" value="Inprocess"/>
+            </operation>
+        </operations>
+        <source type="inline"/>
+        <target type="body"/>
+    </dataServiceCall>
+</sequence>

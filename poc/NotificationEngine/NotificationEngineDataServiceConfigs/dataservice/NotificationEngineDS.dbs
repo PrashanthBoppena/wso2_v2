@@ -1,0 +1,128 @@
+<data name="NotificationEngineDS" serviceNamespace="" serviceGroup="" transports="http https">
+    <description>Notification System logs </description>
+
+
+  <config id="MySQLConnection">
+    <property name="driverClassName">com.mysql.cj.jdbc.Driver</property>
+    <property name="url">jdbc:mysql://localhost:3306/notifications?useSSL=false</property>
+    <property name="username">root</property>
+    <property name="password">Pashi@13</property>
+  </config>
+  
+    <query id="ReadAllTemplatesQuery" useConfig="MySQLConnection">
+    <sql>SELECT template_id, template_name, language_id, is_dynamic, template_content, parameters, is_enabled, updated_on FROM notificationtemplates</sql>
+    <result outputType="json" useColumnNumbers="true">{
+  "Notifications":{
+    "Notification":[{
+      "template_id":"$1",
+      "template_name":"$2",
+      "language_id":"$3",
+      "is_dynamic":"$4",
+      "template_content":"$5",
+      "parameters":"$6",
+      "is_enabled":"$7",
+      "updated_on":"$8"
+    }
+    ]}
+}</result>
+  </query>
+  <query id="ReadTemplateByIdQuery" useConfig="MySQLConnection">
+    <sql>SELECT template_id, template_name, language_id, is_dynamic, template_content, parameters, is_enabled, updated_on FROM notificationtemplates where template_id=:id</sql>
+    <param name="id" sqlType="STRING" paramType="SCALAR" />
+    <result outputType="json" useColumnNumbers="true">{
+ 
+    "Notification":{
+      "template_id":"$1",
+      "template_name":"$2",
+      "language_id":"$3",
+      "is_dynamic":"$4",
+      "template_content":"$5",
+      "parameters":"$6",
+      "is_enabled":"$7",
+      "updated_on":"$8"
+    }
+    
+}</result>
+  </query>
+  <query id="ApiLogsQuery" useConfig="MySQLConnection">
+    <sql>insert into SYS_REQ_LOG_HANDLER 
+(req_id,process_id, process, system_name, api_name, request, http_method, response, status, updated_on) 
+values (:req_id,:process_id,:process,:system,:api_name,:request,:http_method,:response,:status, CURRENT_TIMESTAMP);</sql>
+    <param type="IN" name="req_id" sqlType="STRING" paramType="SCALAR" optional="false" />
+    <param type="IN" name="process_id" sqlType="STRING" paramType="SCALAR" optional="false" />
+    <param type="IN" name="process" sqlType="STRING" paramType="SCALAR" optional="false" />
+    <param type="IN" name="system" sqlType="STRING" paramType="SCALAR" optional="false" />
+    <param type="IN" name="api_name" sqlType="STRING" paramType="SCALAR" optional="false" />
+    <param type="IN" name="http_method" sqlType="STRING" paramType="SCALAR" optional="false" />
+    <param type="IN" name="response" sqlType="STRING" paramType="SCALAR" optional="false" />
+    <param type="IN" name="status" sqlType="STRING" paramType="SCALAR" optional="false" />
+    <param type="IN" name="request" sqlType="STRING" paramType="SCALAR" optional="false" />
+  </query>
+    <query id="updateApiLogsQuery" useConfig="MySQLConnection">
+    <sql>update SYS_REQ_LOG_HANDLER set response=?,status=?, updated_on=current_timestamp() where process_id=?</sql>
+    <param name="response" sqlType="STRING" paramType="SCALAR" />
+    <param name="status" sqlType="STRING" paramType="SCALAR" />
+    <param name="process_id" sqlType="STRING" paramType="SCALAR" />
+  </query>
+  <query id="SMSLogsQuery" useConfig="MySQLConnection">
+    <sql>insert into sms_smse_log (req_id, msisdn, request, response, status, updated_on) 
+values(:req_id,:msisdn,:request,:response,:status,current_timestamp());</sql>
+    <param type="IN" name="req_id" sqlType="STRING" paramType="SCALAR" optional="false" />
+    <param type="IN" name="msisdn" sqlType="STRING" paramType="SCALAR" optional="false" />
+    <param type="IN" name="request" sqlType="STRING" paramType="SCALAR" optional="false" />
+    <param type="IN" name="response" sqlType="STRING" paramType="SCALAR" optional="false" />
+    <param type="IN" name="status" sqlType="STRING" paramType="SCALAR" optional="false" />
+  </query>
+
+  <query id="updateSMSLogsQuery" useConfig="MySQLConnection">
+    <sql>update sms_smse_log set response = ?,status=?, updated_on=current_timestamp() where req_id=?</sql>
+    <param name="response" sqlType="STRING" paramType="SCALAR" />
+    <param name="status" sqlType="STRING" paramType="SCALAR" />
+    <param name="req_id" sqlType="STRING" paramType="SCALAR" />
+  </query>
+  <operation name="ReadTemplateById" returnRequestStatus="true">
+    <call-query href="ReadTemplateByIdQuery">
+      <with-param name="id" query-param="id" />
+    </call-query>
+  </operation>
+  <operation name="ApiLogHandler" returnRequestStatus="true">
+    <call-query href="ApiLogsQuery">
+      <with-param name="req_id" query-param="req_id" />
+      <with-param name="process_id" query-param="process_id" />
+      <with-param name="process" query-param="process" />
+      <with-param name="system" query-param="system" />
+      <with-param name="api_name" query-param="api_name" />
+      <with-param name="request" query-param="request" />
+      <with-param name="http_method" query-param="http_method" />
+      <with-param name="response" query-param="response" />
+      <with-param name="status" query-param="status" />
+    </call-query>
+  </operation>
+  <operation name="SMSLogHandler" disableStreaming="true">
+    <call-query href="SMSLogsQuery">
+      <with-param name="req_id" query-param="req_id" />
+      <with-param name="msisdn" query-param="msisdn" />
+      <with-param name="request" query-param="request" />
+      <with-param name="response" query-param="response" />
+      <with-param name="status" query-param="status" />
+    </call-query>
+  </operation>
+  <operation name="updateApiLogHandler">
+    <call-query href="updateApiLogsQuery">
+      <with-param name="response" query-param="response" />
+      <with-param name="status" query-param="status" />
+      <with-param name="process_id" query-param="process_id" />
+    </call-query>
+  </operation>
+  <operation name="updateSMSLogHandler" returnRequestStatus="true">
+    <call-query href="updateSMSLogsQuery">
+      <with-param name="response" query-param="response" />
+      <with-param name="req_id" query-param="req_id" />
+      <with-param name="status" query-param="status" />
+    </call-query>
+  </operation>
+
+
+
+    
+</data>

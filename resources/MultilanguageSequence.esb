@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esb:EsbDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb">
+  <server type="SEQUENCE">
+    <children xsi:type="esb:Sequences" name="MultilanguageSequence">
+      <commentsList> Extract the language from the request </commentsList>
+      <commentsList> &lt;property name=&quot;Accept-Language&quot; expression=&quot;$trp:Accept-Language&quot; scope=&quot;transport&quot;/>  </commentsList>
+      <commentsList> Set the default language if not provided </commentsList>
+      <commentsList> Load the language-specific resource bundle </commentsList>
+      <commentsList> Perform the multilanguage processing </commentsList>
+      <outputConnector>
+        <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
+      </outputConnector>
+      <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.2/@outputConnector/@outgoingLink"/>
+      <mediatorFlow>
+        <children xsi:type="esb:PropertyMediator" valueType="EXPRESSION" newPropertyName="language">
+          <inputConnector incomingLinks="//@server/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.1/@inputConnector"/>
+            <commentMediators commentText=" Load the language-specific resource bundle "/>
+          </outputConnector>
+          <valueExpression propertyValue="fn:substring-before($ctx:Accept-Language, ',')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+        </children>
+        <children xsi:type="esb:PropertyMediator" valueType="EXPRESSION" newPropertyName="ResourceBundle">
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.2/@inputConnector"/>
+            <commentMediators commentText=" Perform the multilanguage processing "/>
+          </outputConnector>
+          <valueExpression propertyValue="get-property('registry','gov:/custom/$ctx:language.properties')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+        </children>
+        <children xsi:type="esb:SwitchMediator">
+          <sourceXpath propertyValue="$ctx:language" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          <caseBranches caseRegex="en">
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.2/@switchContainer/@switchCaseParentContainer/@switchCaseContainer.0/@mediatorFlow/@children.0/@inputConnector"/>
+          </caseBranches>
+          <caseBranches caseRegex="fr">
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.2/@switchContainer/@switchCaseParentContainer/@switchCaseContainer.1/@mediatorFlow/@children.0/@inputConnector"/>
+          </caseBranches>
+          <defaultBranch>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.2/@switchContainer/@switchDefaultParentContainer/@switchDefaultContainer/@mediatorFlow/@children.0/@inputConnector"/>
+          </defaultBranch>
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@inputConnector"/>
+          </outputConnector>
+          <switchContainer>
+            <switchCaseParentContainer>
+              <switchCaseContainer>
+                <mediatorFlow>
+                  <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=", ">
+                    <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.2/@caseBranches.0/@outgoingLink"/>
+                    <outputConnector/>
+                    <properties propertyName="message" propertyValueType="EXPRESSION" propertyValue="">
+                      <propertyExpression propertyValue="get-property('ResourceBundle', 'key.en')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    </properties>
+                  </children>
+                </mediatorFlow>
+              </switchCaseContainer>
+              <switchCaseContainer>
+                <mediatorFlow>
+                  <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=", ">
+                    <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.2/@caseBranches.1/@outgoingLink"/>
+                    <outputConnector/>
+                    <properties propertyName="message" propertyValueType="EXPRESSION" propertyValue="">
+                      <propertyExpression propertyValue="get-property('ResourceBundle', 'key.fr')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    </properties>
+                  </children>
+                </mediatorFlow>
+              </switchCaseContainer>
+            </switchCaseParentContainer>
+            <switchDefaultParentContainer>
+              <switchDefaultContainer>
+                <mediatorFlow>
+                  <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=", ">
+                    <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.2/@defaultBranch/@outgoingLink"/>
+                    <outputConnector/>
+                    <properties propertyName="message" propertyValueType="EXPRESSION" propertyValue="">
+                      <propertyExpression propertyValue="get-property('ResourceBundle', 'key.default')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    </properties>
+                  </children>
+                </mediatorFlow>
+              </switchDefaultContainer>
+            </switchDefaultParentContainer>
+          </switchContainer>
+        </children>
+      </mediatorFlow>
+      <onError prettyName="OnError sequence Key" keyName="OnError sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+    </children>
+  </server>
+</esb:EsbDiagram>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_REv9EJo8Ee62Obp2aOAVMw" type="Esb" name="customerValidationSequence" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_VnSUIJo8Ee62Obp2aOAVMw" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_Vnw1QJo8Ee62Obp2aOAVMw" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_XPdL0Jo8Ee62Obp2aOAVMw" type="3614">
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_XPdL0Zo8Ee62Obp2aOAVMw"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_XPdL0po8Ee62Obp2aOAVMw" fontName="Segoe UI"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_XPdL05o8Ee62Obp2aOAVMw"/>
+        <element xmi:type="esb:Sequences" href="customerValidationSequence.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XPdL1Jo8Ee62Obp2aOAVMw" width="195" height="125"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_VnSUIZo8Ee62Obp2aOAVMw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_VnSUIpo8Ee62Obp2aOAVMw" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_VnSUI5o8Ee62Obp2aOAVMw"/>
+    <element xmi:type="esb:EsbServer" href="customerValidationSequence.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VnSUJJo8Ee62Obp2aOAVMw"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_REv9EZo8Ee62Obp2aOAVMw"/>
+  <element xmi:type="esb:EsbDiagram" href="customerValidationSequence.esb#/"/>
+</notation:Diagram>

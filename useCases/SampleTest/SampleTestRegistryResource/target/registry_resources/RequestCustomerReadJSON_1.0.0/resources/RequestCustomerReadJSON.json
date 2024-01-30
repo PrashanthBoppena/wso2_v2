@@ -1,0 +1,90 @@
+{
+    "AggRes": [
+        {
+            "customerReadResponse": {
+                "csId": 518531,
+                "csIdPub": "CUST0000110880",
+                "csCode": 1.400759,
+                "csStatus": "a",
+                "csStatusDate": "2021-10-29T14:44:56+05:30",
+                "csActivationDate": "2021-10-29T14:44:56+05:30",
+                "csLevelCode": 0,
+                "paymentResp": true,
+                "prgCode": 3,
+                "rpcode": 11,
+                "rpcodePub": "GSTFP",
+                "tradeCode": "TELCO",
+                "costId": 1,
+                "costCodePub": "DEFCOSTCTR",
+                "csPassword": 123456
+            },
+            "addressReadResponse": {
+                "adrNationality": 80,
+                "adrNationalityPub": "DEU",
+                "adrEmployee": false,
+                "csId": 518531,
+                "csIdPub": "CUST0000110880",
+                "countryId": 80,
+                "countryIdPub": "DEU"
+            },
+            "contractReadResponse": {
+                "contracts": {
+                    "item": [
+                        {
+                            "contractTypeId": 1,
+                            "buId": 2,
+                            "coStatus": 2,
+                            "csCode": 1.400759,
+                            "dirnum": 555706950026,
+                            "adrLname": "jahnavi",
+                            "adrStreet": "xxxxxxx",
+                            "adrStreetno": 414,
+                            "adrZip": 99994,
+                            "adrCity": "8incline colony",
+                            "submId": 1,
+                            "plcode": 1001,
+                            "externalind": false,
+                            "rpcode": 3,
+                            "coActivated": "2021-10-29",
+                            "hlcode": 2,
+                            "coId": 512653,
+                            "coIdPub": "CONTR0000111111",
+                            "csId": 518531,
+                            "csIdPub": "CUST0000110880",
+                            "currentDn": true,
+                            "paymentResp": "X",
+                            "csContrResp": "X",
+                            "paymentMethodInd": "H"
+                        },
+                        {
+                            "contractTypeId": 1,
+                            "buId": 2,
+                            "coStatus": 2,
+                            "csCode": 1.400759,
+                            "dirnum": 55509950135,
+                            "adrLname": "jahnavi",
+                            "adrStreet": "xxxxxxx",
+                            "adrStreetno": 414,
+                            "adrZip": 99994,
+                            "adrCity": "8incline colony",
+                            "submId": 1,
+                            "plcode": 1001,
+                            "externalind": false,
+                            "rpcode": 3,
+                            "coActivated": "2023-12-08",
+                            "hlcode": 2,
+                            "coId": 83106,
+                            "coIdPub": "CONTR0000111536",
+                            "csId": 518531,
+                            "csIdPub": "CUST0000110880",
+                            "currentDn": true,
+                            "paymentResp": "X",
+                            "csContrResp": "X",
+                            "paymentMethodInd": "H"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="SMS_SYSTEM_CALL_SEQ" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <propertyGroup description="save the input details">
+        <property expression="json-eval($)" name="request" scope="default" type="STRING"/>
+        <property expression="json-eval($.Sender_MSISDN)" name="s_msisdn" scope="default" type="STRING"/>
+        <property expression="json-eval($.Receiver_MSISDN)" name="r_msisdn" scope="default" type="STRING"/>
+        <property expression="json-eval($.message)" name="message" scope="default" type="STRING"/>
+        <property expression="json-eval($.req_id)" name="req_id" scope="default" type="STRING"/>
+        <property expression="json-eval($.system)" name="system" scope="default" type="STRING"/>
+    </propertyGroup>
+    <log description="mock ser call" level="custom">
+        <property name="mock ser===>" value="Calling"/>
+    </log>
+    <!-- Call the SMSE dataservice to write the request data into DB -->
+    <dataServiceCall description="smse logs" serviceName="NotificationsDS">
+        <operations type="single">
+            <operation name="smseLogHandler">
+                <param evaluator="xml" expression="$ctx:req_id" name="req_id"/>
+                <param evaluator="xml" expression="$ctx:r_msisdn" name="msisdn"/>
+                <param evaluator="xml" expression="$ctx:request" name="request"/>
+                <param name="response" value="null"/>
+                <param name="status" value="null"/>
+            </operation>
+        </operations>
+        <source type="inline"/>
+        <target type="body"/>
+    </dataServiceCall>
+    <!-- Call the backend service comes here -->
+    <call>
+        <endpoint>
+            <http method="post" uri-template="http://172.16.110.118:8285/mock_api">
+                <suspendOnFailure>
+                    <initialDuration>-1</initialDuration>
+                    <progressionFactor>-1</progressionFactor>
+                    <maximumDuration>0</maximumDuration>
+                </suspendOnFailure>
+                <markForSuspension>
+                    <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                </markForSuspension>
+            </http>
+        </endpoint>
+    </call>
+    <propertyGroup description="response store">
+        <property expression="$axis2:HTTP_SC" name="status_code" scope="default" type="STRING"/>
+        <property expression="json-eval($)" name="response" scope="default" type="STRING"/>
+        <property expression="$axis2:HTTP_SC_DESC" name="status_desc" scope="default" type="STRING"/>
+    </propertyGroup>
+    <dataServiceCall description="write smse response to DB smse logs" serviceName="NotificationsDS">
+        <operations type="single">
+            <operation name="updateSMSLogHandler">
+                <param evaluator="xml" expression="$ctx:response" name="response"/>
+                <param evaluator="xml" expression="$ctx:req_id" name="req_id"/>
+                <param evaluator="xml" expression="$ctx:status_code" name="status"/>
+            </operation>
+        </operations>
+        <source type="inline"/>
+        <target type="body"/>
+    </dataServiceCall>
+    <payloadFactory description="building response" media-type="json">
+        <format>{&#xd;
+    "requestId": "$1",&#xd;
+    "status": "$2",&#xd;
+    "message": "$3",&#xd;
+    "error": {&#xd;
+        "Msg": "$4"&#xd;
+    }&#xd;
+}</format>
+        <args>
+            <arg evaluator="xml" expression="$ctx:req_id"/>
+            <arg evaluator="xml" expression="$ctx:status_code"/>
+            <arg evaluator="xml" expression="$ctx:status_desc"/>
+            <arg evaluator="xml" expression="get-property('ERROR_MESSAGE')"/>
+        </args>
+    </payloadFactory>
+    <log description="res log" level="custom">
+        <property expression="json-eval($)" name="Res log====>"/>
+    </log>
+    <property description="catch response" expression="json-eval($)" name="response" scope="default" type="STRING"/>
+</sequence>

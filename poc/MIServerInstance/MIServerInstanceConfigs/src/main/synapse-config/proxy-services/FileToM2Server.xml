@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="FileToM2Server" startOnLoad="true" transports="vfs" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <property expression="get-property('transport', 'FILE_NAME')" name="transport.vfs.ReplyFileName" scope="transport" type="STRING"/>
+            <property name="OUT_ONLY" scope="default" type="STRING" value="true"/>
+            <send>
+                <endpoint>
+                    <address uri="vfs:file:/E:/EI/created-csv/MIInstanceCheck/M2_In">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>1</progressionFactor>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </address>
+                </endpoint>
+            </send>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </target>
+    <parameter name="transport.PollInterval">15</parameter>
+    <parameter name="transport.vfs.FileURI">file:/E:/EI/created-csv/MIInstanceCheck/M1</parameter>
+    <parameter name="transport.vfs.ContentType">text/plain</parameter>
+    <parameter name="transport.vfs.ActionAfterProcess">NONE</parameter>
+    <parameter name="transport.vfs.MoveAfterFailure">file:/E:/EI/created-csv/MIInstanceCheck/Failure</parameter>
+    <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
+    <parameter name="transport.vfs.FileNamePattern">.*\.*</parameter>
+</proxy>

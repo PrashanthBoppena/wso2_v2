@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="CommonAPISeqPropertiesCollectionSeq" onError="FaultSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <script description="process ID generate" language="js"><![CDATA[var uuid = java.util.UUID.randomUUID().toString();
+         mc.setProperty("processId", uuid);]]></script>
+    <propertyGroup description="req params">
+        <property expression="get-property('MessageID')" name="uuid" scope="default" type="STRING"/>
+        <property expression="substring-after(get-property('uuid'), 'urn:uuid:')" name="reqId" scope="default" type="STRING"/>
+        <property expression="json-eval($)" name="requestPayload" scope="default" type="STRING"/>
+        <property expression="get-property('SYNAPSE_REST_API')" name="apiName" scope="default" type="STRING"/>
+        <property expression="$ctx:REST_METHOD" name="httpMethod" scope="default" type="STRING"/>
+        <property expression="json-eval($ctx:request.system)" name="system" scope="default" type="STRING"/>
+    </propertyGroup>
+</sequence>

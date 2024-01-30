@@ -1,0 +1,53 @@
+openapi: 3.0.1
+info:
+  title: SendNotification_API
+  description: API Definition of SendNotification_API
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/Notification
+paths:
+  /SendNotification:
+    post:
+      requestBody:
+        description: Sample Payload
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payload:
+                  type: object
+        required: false
+      responses:
+        default:
+          description: Default response
+  /SendStaticNotification:
+    post:
+      requestBody:
+        description: Sample Payload
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payload:
+                  type: object
+        required: false
+      responses:
+        default:
+          description: Default response
+  /Queue/SendNotification:
+    post:
+      requestBody:
+        description: Sample Payload
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payload:
+                  type: object
+        required: false
+      responses:
+        default:
+          description: Default response

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="Gender_API" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/Gender_API.xml</file>
+    </artifact>
+    <artifact name="Gender_API_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/Gender_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="Gender_API_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/Gender_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="processingMaleSeq" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/processingMaleSeq.xml</file>
+    </artifact>
+    <artifact name="logErrorHandlerSeq" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/logErrorHandlerSeq.xml</file>
+    </artifact>
+    <artifact name="faultSeq" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/faultSeq.xml</file>
+    </artifact>
+    <artifact name="customErrorHandlerSeq" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/customErrorHandlerSeq.xml</file>
+    </artifact>
+</artifacts>

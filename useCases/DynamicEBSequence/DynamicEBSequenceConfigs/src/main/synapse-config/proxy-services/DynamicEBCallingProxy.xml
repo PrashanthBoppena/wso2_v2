@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="DynamicEBCallingProxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <property expression="$body/*" name="body" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="$ctx:body//cus:customerReadRequest" name="InputBody==>"/>
+            </log>
+            <property name="username" scope="default" type="STRING" value="ADMX"/>
+            <property name="password" scope="default" type="STRING" value="ADMX"/>
+            <payloadFactory media-type="xml">
+                <format>
+                    <soapenv:Envelope xmlns:cus="http://ericsson.com/services/ws_CIL_6/customerread" xmlns:ses="http://ericsson.com/services/ws_CIL_6/sessionchange" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                        <soapenv:Header>
+                            <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+                                <wsse:UsernameToken wsu:Id="UsernameToken-C2B8629610C6994FB816919959456931">
+                                    <wsse:Username>$1</wsse:Username>
+                                    <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">$2</wsse:Password>
+                                </wsse:UsernameToken>
+                            </wsse:Security>
+                        </soapenv:Header>
+                        <soapenv:Body>
+							$3
+                        </soapenv:Body>
+                    </soapenv:Envelope>
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('username')"/>
+                    <arg evaluator="xml" expression="get-property('password')"/>
+                    <arg evaluator="xml" expression="$ctx:body//cus:customerReadRequest"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </target>
+</proxy>

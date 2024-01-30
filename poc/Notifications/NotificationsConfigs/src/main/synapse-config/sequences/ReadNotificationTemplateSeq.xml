@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="ReadNotificationTemplateSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <dataServiceCall serviceName="NotificationsDS">
+        <operations type="single">
+            <operation name="getBasedonId">
+                <param evaluator="xml" expression="$ctx:template_id" name="id"/>
+            </operation>
+        </operations>
+        <source type="inline"/>
+        <target type="body"/>
+    </dataServiceCall>
+</sequence>

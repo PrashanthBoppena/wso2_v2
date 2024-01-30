@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esb:EsbDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb">
+  <server type="SEQUENCE">
+    <children xsi:type="esb:Sequences" name="GeneratePDFSequence">
+      <outputConnector>
+        <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
+      </outputConnector>
+      <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+      <mediatorFlow>
+        <children xsi:type="esb:ScriptMediator" scriptType="INLINE" scriptBody="var bodyContent = mc.getPayloadXML().toString(); // Assuming the body content is in XML format&#xA;    &#xA;    var FopFactory = Packages.org.apache.fop.apps.FopFactory;&#xA;    var MimeConstants = Packages.org.apache.xmlgraphics.util.MimeConstants;&#xA;    var ByteArrayOutputStream = Packages.java.io.ByteArrayOutputStream;&#xA;&#xA;    // Create FopFactory instance&#xA;    var fopFactory = FopFactory.newInstance();&#xA;&#xA;    // Create ByteArrayOutputStream to hold the generated PDF content&#xA;    var outputStream = new ByteArrayOutputStream();&#xA;&#xA;    // Create Fop instance&#xA;    var fop = fopFactory.newFop(MimeConstants.MIME_PDF, outputStream);&#xA;&#xA;    // Transform the body content to PDF&#xA;    var transformer = mc.getEnvironment().getXSLTTransformerFactory().newTransformer();&#xA;    var source = new javax.xml.transform.stream.StreamSource(new java.io.StringReader(bodyContent));&#xA;    var result = new javax.xml.transform.sax.SAXResult(fop.getDefaultHandler());&#xA;&#xA;    transformer.transform(source, result);&#xA;&#xA;    // Get the generated PDF content as a byte array&#xA;    var pdfContent = outputStream.toByteArray();&#xA;&#xA;    // Set the PDF content as the response payload&#xA;    mc.setPayloadXML(new org.apache.axiom.om.impl.llom.OMTextImpl(new org.apache.axiom.om.util.StAXParserConfiguration(), new java.io.ByteArrayInputStream(pdfContent), false));&#xA;&#xA;    // Set the appropriate Content-Type header&#xA;    mc.setProperty('TRANSPORT_HEADERS', {'Content-Type': 'application/pdf'});">
+          <scriptDynamicKey prettyName="" propertyName="dynamic key" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          <inputConnector incomingLinks="//@server/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@inputConnector"/>
+          </outputConnector>
+          <scriptStaticKey prettyName="Script Key" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+        </children>
+      </mediatorFlow>
+      <onError prettyName="OnError sequence Key" keyName="OnError sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+    </children>
+  </server>
+</esb:EsbDiagram>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="KYC_Calling_API" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/KYC_Calling_API.xml</file>
+    </artifact>
+    <artifact name="KYC_Calling_API_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/KYC_Calling_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="KYC_Calling_API_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/KYC_Calling_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="MSISDN_Validation_API" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/MSISDN_Validation_API.xml</file>
+    </artifact>
+    <artifact name="MSISDN_Validation_API_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/MSISDN_Validation_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="MSISDN_Validation_API_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/MSISDN_Validation_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="MAH_Status_API" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/MAH_Status_API.xml</file>
+    </artifact>
+    <artifact name="MAH_Status_API_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/MAH_Status_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="MAH_Status_API_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/MAH_Status_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="Pending_Request_API" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/Pending_Request_API.xml</file>
+    </artifact>
+    <artifact name="Pending_Request_API_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/Pending_Request_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="Pending_Request_API_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/Pending_Request_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="/Deposit_API" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/Deposit_API.xml</file>
+    </artifact>
+    <artifact name="/Deposit_API_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/Deposit_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="/Deposit_API_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/Deposit_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="Advance_API" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/Advance_API.xml</file>
+    </artifact>
+    <artifact name="Advance_API_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/Advance_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="Advance_API_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/Advance_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="Barring_API" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/Barring_API.xml</file>
+    </artifact>
+    <artifact name="Barring_API_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/Barring_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="Barring_API_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/Barring_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="Deposite_API" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/Deposite_API.xml</file>
+    </artifact>
+    <artifact name="Deposite_API_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/Deposite_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="Deposite_API_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/Deposite_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="Clone_Aggregate_API" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/Clone_Aggregate_API.xml</file>
+    </artifact>
+    <artifact name="Clone_Aggregate_API_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/Clone_Aggregate_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="Clone_Aggregate_API_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/Clone_Aggregate_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="faultSequence" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/faultSequence.xml</file>
+    </artifact>
+    <artifact name="PROPERTlOADER" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/PROPERTlOADER.xml</file>
+    </artifact>
+    <artifact name="PROPERTlOADER_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/PROPERTlOADER_swagger.yaml</file>
+    </artifact>
+    <artifact name="PROPERTlOADER_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/PROPERTlOADER_metadata.yaml</file>
+    </artifact>
+    <artifact name="SystemReqLogsSeq" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/SystemReqLogsSeq.xml</file>
+    </artifact>
+    <artifact name="SystemResLogsSeq" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/SystemResLogsSeq.xml</file>
+    </artifact>
+    <artifact name="GenericRestAPICallSeq" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/GenericRestAPICallSeq.xml</file>
+    </artifact>
+</artifacts>

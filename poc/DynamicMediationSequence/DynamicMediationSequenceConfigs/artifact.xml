@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="Dynamic_EB_Sequence_v1" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/Dynamic_EB_Sequence_v1.xml</file>
+    </artifact>
+    <artifact name="Dynamic_EC_Sequence_v1" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/Dynamic_EC_Sequence_v1.xml</file>
+    </artifact>
+    <artifact name="Dynamic_EDA_Sequence_v1" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/Dynamic_EDA_Sequence_v1.xml</file>
+    </artifact>
+    <artifact name="Dynamic_AAA_Sequence_v1" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/Dynamic_AAA_Sequence_v1.xml</file>
+    </artifact>
+    <artifact name="Dynamic_PCRF_Sequence_v1" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/Dynamic_PCRF_Sequence_v1.xml</file>
+    </artifact>
+    <artifact name="Dynamic_NMS_Sequence_v1" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/Dynamic_NMS_Sequence_v1.xml</file>
+    </artifact>
+    <artifact name="Dynamic_Query_Processing_Sequence_v1" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/Dynamic_Query_Processing_Sequence_v1.xml</file>
+    </artifact>
+    <artifact name="FaultSequence" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/FaultSequence.xml</file>
+    </artifact>
+    <artifact name="EligibilityConfigCheck_API" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/EligibilityConfigCheck_API.xml</file>
+    </artifact>
+    <artifact name="EligibilityConfigCheck_API_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/EligibilityConfigCheck_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="EligibilityConfigCheck_API_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/EligibilityConfigCheck_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="Dynamic_Query_Call_Seq" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/Dynamic_Query_Call_Seq.xml</file>
+    </artifact>
+    <artifact name="REST_API_Call_Seq" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/REST_API_Call_Seq.xml</file>
+    </artifact>
+    <artifact name="NBCreateCustomerAPI" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/NBCreateCustomerAPI.xml</file>
+    </artifact>
+    <artifact name="CustomeProxySeq" groupId="com.example.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/CustomeProxySeq.xml</file>
+    </artifact>
+    <artifact name="createCustomerSeqApi" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/createCustomerSeqApi.xml</file>
+    </artifact>
+    <artifact name="createCustomerSeqApi_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/createCustomerSeqApi_swagger.yaml</file>
+    </artifact>
+    <artifact name="createCustomerSeqApi_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/createCustomerSeqApi_metadata.yaml</file>
+    </artifact>
+    <artifact name="DynamicNMSSeqTemplate" groupId="com.example.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/DynamicNMSSeqTemplate.xml</file>
+    </artifact>
+    <artifact name="activate-number_EP" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/activate-number_EP.xml</file>
+    </artifact>
+    <artifact name="deactivate-number_EP" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/deactivate-number_EP.xml</file>
+    </artifact>
+    <artifact name="number-lock_EP" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/number-lock_EP.xml</file>
+    </artifact>
+    <artifact name="number-release_EP" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/number-release_EP.xml</file>
+    </artifact>
+    <artifact name="pattern-list_EP" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/pattern-list_EP.xml</file>
+    </artifact>
+    <artifact name="view-numbers_EP" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/view-numbers_EP.xml</file>
+    </artifact>
+    <artifact name="faultSeq" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/faultSeq.xml</file>
+    </artifact>
+    <artifact name="dynamicSBSequence" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/dynamicSBSequence.xml</file>
+    </artifact>
+    <artifact name="RecallProcessSeqApi" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/RecallProcessSeqApi.xml</file>
+    </artifact>
+    <artifact name="RecallProcessSeqApi_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/RecallProcessSeqApi_swagger.yaml</file>
+    </artifact>
+    <artifact name="RecallProcessSeqApi_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/RecallProcessSeqApi_metadata.yaml</file>
+    </artifact>
+    <artifact name="dynamic_propvariable_setupSEQ" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/dynamic_propvariable_setupSEQ.xml</file>
+    </artifact>
+</artifacts>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="DBReportSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <propertyGroup>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE" scope="default" type="STRING"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE" scope="default" type="STRING"/>
+        <property expression="$axis2:HTTP_SC" name="STATUS_CODE" scope="default" type="STRING"/>
+        <property expression="$axis2:HTTP_SC_DESC" name="STATUS_DESC" scope="default" type="STRING"/>
+    </propertyGroup>
+    <dbreport>
+        <connection>
+            <pool>
+                <driver>com.mysql.jdbc.Driver</driver>
+                <url>jdbc:mysql://localhost:3306/training</url>
+                <user>root</user>
+                <password>Pashi@13</password>
+            </pool>
+        </connection>
+        <statement>
+            <sql><![CDATA[insert into bscs_faultseq (time,service_url, error_code, error_message, status_code, status_desc, input_payload, output_response) values (sysdate(),?,?,?,?,?,?,?);]]></sql>
+            <parameter expression="$ctx:SYNAPSE_REST_API" type="VARCHAR"/>
+            <parameter expression="$ctx:ERROR_CODE" type="VARCHAR"/>
+            <parameter expression="$ctx:ERROR_MESSAGE" type="VARCHAR"/>
+            <parameter expression="$ctx:STATUS_CODE" type="VARCHAR"/>
+            <parameter expression="$ctx:STATUS_DESC" type="VARCHAR"/>
+            <parameter expression="$ctx:INPUT_PAYLOAD" type="CHAR"/>
+            <parameter expression="$ctx:OUTPUT_RESPONSE" type="CHAR"/>
+        </statement>
+    </dbreport>
+</sequence>

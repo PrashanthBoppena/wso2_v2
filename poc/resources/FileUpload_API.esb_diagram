@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_gbBj8JJvEe6OMKe8eymfXw" type="Esb" name="FileUpload_API" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_gcCQkJJvEe6OMKe8eymfXw" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_gcC3oJJvEe6OMKe8eymfXw" type="7001">
+      <children xmi:type="notation:Shape" xmi:id="_gtcwsJJvEe6OMKe8eymfXw" type="3668" fontName="Segoe UI">
+        <children xmi:type="notation:BasicCompartment" xmi:id="_gtdXwJJvEe6OMKe8eymfXw" type="7044">
+          <children xmi:type="notation:Node" xmi:id="_gto98JJvEe6OMKe8eymfXw" type="3669">
+            <children xmi:type="notation:Node" xmi:id="_gt8f8JJvEe6OMKe8eymfXw" type="3670">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_gt8f8ZJvEe6OMKe8eymfXw"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_gt8f8pJvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_gt8f85JvEe6OMKe8eymfXw"/>
+              <element xmi:type="esb:APIResourceInputConnector" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@inputConnector"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gt8f9JJvEe6OMKe8eymfXw" x="86" y="-11"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_gt9HAJJvEe6OMKe8eymfXw" type="3671">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_gt9HAZJvEe6OMKe8eymfXw"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_gt9HApJvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_gt9HA5JvEe6OMKe8eymfXw"/>
+              <element xmi:type="esb:APIResourceOutputConnector" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@outputConnector"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gt9HBJJvEe6OMKe8eymfXw" x="86" y="-23"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_gt9HBZJvEe6OMKe8eymfXw" type="3730">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_gt9HBpJvEe6OMKe8eymfXw"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_gt9HB5JvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_gt9HCJJvEe6OMKe8eymfXw"/>
+              <element xmi:type="esb:APIResourceOutSequenceOutputConnector" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@outSequenceOutputConnector"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gt9HCZJvEe6OMKe8eymfXw" x="110" y="-11"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_gt9uEJJvEe6OMKe8eymfXw" type="3672">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_gt9uEZJvEe6OMKe8eymfXw"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_gt9uEpJvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_gt9uE5JvEe6OMKe8eymfXw"/>
+              <element xmi:type="esb:APIResourceFaultInputConnector" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@faultInputConnector"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gt9uFJJvEe6OMKe8eymfXw" x="86" y="7"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_gt9uFZJvEe6OMKe8eymfXw" type="3673">
+              <children xmi:type="notation:Node" xmi:id="_guEbwJJvEe6OMKe8eymfXw" type="3487">
+                <children xmi:type="notation:Node" xmi:id="_guGQ8JJvEe6OMKe8eymfXw" type="3608">
+                  <children xmi:type="notation:DecorationNode" xmi:id="_guG4AJJvEe6OMKe8eymfXw" type="7034">
+                    <children xmi:type="notation:Node" xmi:id="_guercJJvEe6OMKe8eymfXw" type="3742">
+                      <children xmi:type="notation:Node" xmi:id="_guvxMJJvEe6OMKe8eymfXw" type="3743">
+                        <styles xmi:type="notation:DescriptionStyle" xmi:id="_guvxMZJvEe6OMKe8eymfXw"/>
+                        <styles xmi:type="notation:FontStyle" xmi:id="_guvxMpJvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+                        <styles xmi:type="notation:LineStyle" xmi:id="_guvxM5JvEe6OMKe8eymfXw"/>
+                        <element xmi:type="esb:CallMediatorInputConnector" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@inputConnector"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_guvxNJJvEe6OMKe8eymfXw" x="-6" y="-5"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_guwYQJJvEe6OMKe8eymfXw" type="3744">
+                        <styles xmi:type="notation:DescriptionStyle" xmi:id="_guwYQZJvEe6OMKe8eymfXw"/>
+                        <styles xmi:type="notation:FontStyle" xmi:id="_guwYQpJvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+                        <styles xmi:type="notation:LineStyle" xmi:id="_guwYQ5JvEe6OMKe8eymfXw"/>
+                        <element xmi:type="esb:CallMediatorOutputConnector" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@outputConnector"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_guwYRJJvEe6OMKe8eymfXw" x="-11" y="-9"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_guwYRZJvEe6OMKe8eymfXw" type="3745">
+                        <styles xmi:type="notation:DescriptionStyle" xmi:id="_guwYRpJvEe6OMKe8eymfXw"/>
+                        <styles xmi:type="notation:FontStyle" xmi:id="_guwYR5JvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+                        <styles xmi:type="notation:LineStyle" xmi:id="_guwYSJJvEe6OMKe8eymfXw"/>
+                        <element xmi:type="esb:CallMediatorEndpointOutputConnector" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@endpointOutputConnector"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_guwYSZJvEe6OMKe8eymfXw"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_guw_UJJvEe6OMKe8eymfXw" type="3746">
+                        <children xmi:type="notation:DecorationNode" xmi:id="_guxmYJJvEe6OMKe8eymfXw" type="7047">
+                          <children xmi:type="notation:Node" xmi:id="_gvKA4JJvEe6OMKe8eymfXw" type="3610">
+                            <children xmi:type="notation:DecorationNode" xmi:id="_gvKA5ZJvEe6OMKe8eymfXw" type="5199"/>
+                            <children xmi:type="notation:Node" xmi:id="_gvpJEJJvEe6OMKe8eymfXw" type="3030">
+                              <styles xmi:type="notation:DescriptionStyle" xmi:id="_gvpJEZJvEe6OMKe8eymfXw"/>
+                              <styles xmi:type="notation:FontStyle" xmi:id="_gvpJEpJvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+                              <styles xmi:type="notation:LineStyle" xmi:id="_gvpJE5JvEe6OMKe8eymfXw"/>
+                              <element xmi:type="esb:AddressEndPointInputConnector" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
+                              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gvpJFJJvEe6OMKe8eymfXw"/>
+                            </children>
+                            <styles xmi:type="notation:DescriptionStyle" xmi:id="_gvKA4ZJvEe6OMKe8eymfXw"/>
+                            <styles xmi:type="notation:FontStyle" xmi:id="_gvKA4pJvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+                            <styles xmi:type="notation:LineStyle" xmi:id="_gvKA45JvEe6OMKe8eymfXw"/>
+                            <element xmi:type="esb:AddressEndPoint" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.0"/>
+                            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gvKA5JJvEe6OMKe8eymfXw" x="5" y="103"/>
+                          </children>
+                          <styles xmi:type="notation:TitleStyle" xmi:id="_guxmYZJvEe6OMKe8eymfXw" showTitle="true"/>
+                        </children>
+                        <styles xmi:type="notation:DescriptionStyle" xmi:id="_guw_UZJvEe6OMKe8eymfXw"/>
+                        <styles xmi:type="notation:FontStyle" xmi:id="_guw_UpJvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+                        <styles xmi:type="notation:LineStyle" xmi:id="_guw_U5JvEe6OMKe8eymfXw"/>
+                        <element xmi:type="esb:MediatorFlow" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_guw_VJJvEe6OMKe8eymfXw"/>
+                      </children>
+                      <styles xmi:type="notation:DescriptionStyle" xmi:id="_guercZJvEe6OMKe8eymfXw"/>
+                      <styles xmi:type="notation:FontStyle" xmi:id="_guercpJvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+                      <styles xmi:type="notation:LineStyle" xmi:id="_guerc5JvEe6OMKe8eymfXw"/>
+                      <element xmi:type="esb:CallMediator" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_guerdJJvEe6OMKe8eymfXw" x="25" y="95" width="170" height="100"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_gwEm4JJvEe6OMKe8eymfXw" type="3739">
+                      <children xmi:type="notation:DecorationNode" xmi:id="_gwFN8JJvEe6OMKe8eymfXw" type="5209"/>
+                      <children xmi:type="notation:Node" xmi:id="_gwdBYJJvEe6OMKe8eymfXw" type="3740">
+                        <styles xmi:type="notation:DescriptionStyle" xmi:id="_gwdBYZJvEe6OMKe8eymfXw"/>
+                        <styles xmi:type="notation:FontStyle" xmi:id="_gwdBYpJvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+                        <styles xmi:type="notation:LineStyle" xmi:id="_gwdBY5JvEe6OMKe8eymfXw"/>
+                        <element xmi:type="esb:RespondMediatorInputConnector" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@inputConnector"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gwdBZJJvEe6OMKe8eymfXw" x="-6" y="-5"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_gwdocJJvEe6OMKe8eymfXw" type="3741">
+                        <styles xmi:type="notation:DescriptionStyle" xmi:id="_gwdocZJvEe6OMKe8eymfXw"/>
+                        <styles xmi:type="notation:FontStyle" xmi:id="_gwdocpJvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+                        <styles xmi:type="notation:LineStyle" xmi:id="_gwdoc5JvEe6OMKe8eymfXw"/>
+                        <element xmi:type="esb:RespondMediatorOutputConnector" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@outputConnector"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gwdodJJvEe6OMKe8eymfXw" x="64" y="-9"/>
+                      </children>
+                      <styles xmi:type="notation:DescriptionStyle" xmi:id="_gwEm4ZJvEe6OMKe8eymfXw"/>
+                      <styles xmi:type="notation:FontStyle" xmi:id="_gwEm4pJvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+                      <styles xmi:type="notation:LineStyle" xmi:id="_gwEm45JvEe6OMKe8eymfXw"/>
+                      <element xmi:type="esb:RespondMediator" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gwEm5JJvEe6OMKe8eymfXw" x="235" y="95" width="84" height="115"/>
+                    </children>
+                    <styles xmi:type="notation:TitleStyle" xmi:id="_guG4AZJvEe6OMKe8eymfXw" showTitle="true"/>
+                  </children>
+                  <styles xmi:type="notation:DescriptionStyle" xmi:id="_guGQ8ZJvEe6OMKe8eymfXw"/>
+                  <styles xmi:type="notation:FontStyle" xmi:id="_guGQ8pJvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+                  <styles xmi:type="notation:LineStyle" xmi:id="_guGQ85JvEe6OMKe8eymfXw"/>
+                  <element xmi:type="esb:MediatorFlow" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_guGQ9JJvEe6OMKe8eymfXw"/>
+                </children>
+                <styles xmi:type="notation:DescriptionStyle" xmi:id="_guEbwZJvEe6OMKe8eymfXw"/>
+                <styles xmi:type="notation:FontStyle" xmi:id="_guEbwpJvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+                <styles xmi:type="notation:LineStyle" xmi:id="_guEbw5JvEe6OMKe8eymfXw"/>
+                <element xmi:type="esb:ProxyServiceSequenceAndEndpointContainer" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_guEbxJJvEe6OMKe8eymfXw"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_guEbxZJvEe6OMKe8eymfXw" type="3488">
+                <styles xmi:type="notation:DescriptionStyle" xmi:id="_guEbxpJvEe6OMKe8eymfXw"/>
+                <styles xmi:type="notation:FontStyle" xmi:id="_guEbx5JvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+                <styles xmi:type="notation:LineStyle" xmi:id="_guEbyJJvEe6OMKe8eymfXw"/>
+                <element xmi:type="esb:ProxyServiceFaultContainer" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@container/@faultContainer"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_guEbyZJvEe6OMKe8eymfXw"/>
+              </children>
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_gt9uFpJvEe6OMKe8eymfXw"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_gt9uF5JvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_gt9uGJJvEe6OMKe8eymfXw"/>
+              <element xmi:type="esb:ProxyServiceContainer" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@container"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gt9uGZJvEe6OMKe8eymfXw"/>
+            </children>
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_gto98ZJvEe6OMKe8eymfXw"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_gto98pJvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+            <styles xmi:type="notation:LineStyle" xmi:id="_gto985JvEe6OMKe8eymfXw"/>
+            <element xmi:type="esb:APIResource" href="FileUpload_API.esb#//@server/@children.0/@resources.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gto99JJvEe6OMKe8eymfXw" width="300" height="400"/>
+          </children>
+        </children>
+        <element xmi:type="esb:SynapseAPI" href="FileUpload_API.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gtcwsZJvEe6OMKe8eymfXw" width="640" height="500"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_gcCQkZJvEe6OMKe8eymfXw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_gcCQkpJvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_gcCQk5JvEe6OMKe8eymfXw"/>
+    <element xmi:type="esb:EsbServer" href="FileUpload_API.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gcCQlJJvEe6OMKe8eymfXw"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_gbBj8ZJvEe6OMKe8eymfXw"/>
+  <element xmi:type="esb:EsbDiagram" href="FileUpload_API.esb#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_gwvVQJJvEe6OMKe8eymfXw" type="4001" source="_gt9HAJJvEe6OMKe8eymfXw" target="_guvxMJJvEe6OMKe8eymfXw" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_gwvVQZJvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@outputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gwvVQpJvEe6OMKe8eymfXw" points="[6, 5, -5, 0]$[5, 0, -6, -5]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_gw2qAJJvEe6OMKe8eymfXw" type="4001" source="_guwYQJJvEe6OMKe8eymfXw" target="_gwdBYJJvEe6OMKe8eymfXw" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_gw2qAZJvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gw2qApJvEe6OMKe8eymfXw" points="[-11, 0, -6, 0]$[1, 0, 6, 0]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_gyQYMJJvEe6OMKe8eymfXw" type="4001" source="_guwYRZJvEe6OMKe8eymfXw" target="_gvpJEJJvEe6OMKe8eymfXw" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_gyQYMZJvEe6OMKe8eymfXw" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="FileUpload_API.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@endpointOutputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gyQYMpJvEe6OMKe8eymfXw" points="[2, 9, -31, -110]$[31, 114, -2, -5]"/>
+  </edges>
+</notation:Diagram>

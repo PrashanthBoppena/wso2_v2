@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="SystemResLogsSeq" onError="FaultSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <propertyGroup description="UOL Logs params">
+        <property expression="get-property('file','UOLLogDriver')" name="uolLogDriver" scope="default" type="STRING"/>
+        <property expression="get-property('file','UOLLogurl')" name="uolLogUrl" scope="default" type="STRING"/>
+        <property expression="get-property('file','UOLLoguser')" name="uolLogUser" scope="default" type="STRING"/>
+        <property expression="get-property('file','UOLLogpassword')" name="uolLogPassword" scope="default" type="STRING"/>
+    </propertyGroup>
+    <class description="ResponseLog" name="com.knot.uol.updateLog.UpdateSystemRequest"/>
+</sequence>

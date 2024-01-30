@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="BscsReportUpdateLogSequence" onError="FaultSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <dbreport>
+        <connection>
+            <pool>
+                <dsName>MysqlConJNDI1</dsName>
+            </pool>
+        </connection>
+        <statement>
+            <sql><![CDATA[update wso2.bscsreqloghandler set ResponsePayload=?, Status=? where ProcessId=?
+
+]]></sql>
+            <parameter expression="$ctx:ResponsePayload" type="VARCHAR"/>
+            <parameter expression="$axis2:HTTP_SC" type="VARCHAR"/>
+            <parameter expression="$ctx:ProcessId" type="VARCHAR"/>
+        </statement>
+    </dbreport>
+</sequence>

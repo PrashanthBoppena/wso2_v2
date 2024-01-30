@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="SMSHandlerUpdateSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <dataServiceCall description="write smse response to DB smse logs" serviceName="NotificationEngineDS">
+        <operations type="single">
+            <operation name="updateSMSLogHandler">
+                <param evaluator="xml" expression="$ctx:response" name="response"/>
+                <param evaluator="xml" expression="$ctx:req_id" name="req_id"/>
+                <param evaluator="xml" expression="$ctx:status_code" name="status"/>
+            </operation>
+        </operations>
+        <source type="inline"/>
+        <target type="body"/>
+    </dataServiceCall>
+</sequence>

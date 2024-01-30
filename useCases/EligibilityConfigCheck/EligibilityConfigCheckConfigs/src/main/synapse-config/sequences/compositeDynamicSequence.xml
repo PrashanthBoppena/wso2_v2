@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="compositeDynamicSequence" onError="FaultSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <propertyGroup>
+        <property expression="json-eval($)" name="requestPayload" scope="default" type="STRING"/>
+    </propertyGroup>
+    <!-- setting the json data as property and value  -->
+    <script description="setting properties dynamically" language="js"><![CDATA[var log = mc.getServiceLog();
+var jsonData = mc.getProperty("requestPayload");
+
+var json = JSON.parse(jsonData);
+
+function setProperties(json, parentKey) {
+	for (var key in json) {
+		if (json.hasOwnProperty(key)) {
+			var value = json[key];
+
+			if (typeof value === 'object') {
+				// If the value is a nested JSON object, recursively iterate
+				setProperties(value, parentKey + key + '.');
+			} else {
+				// If the value is a leaf node, set the property
+				// var propertyName = parentKey + key;    parameters.addressRequest.adrLname
+				var propertyName = key;
+				var propertyValue = value.toString();
+				mc.setProperty(propertyName, propertyValue);
+				//log.info("Property set: " + propertyName + " = " + propertyValue);
+			}
+		}
+	}
+}
+
+// Set properties dynamically
+setProperties(json, '');]]></script>
+    <log level="custom">
+        <property expression="$ctx:Endpoint" name="$ctx:Endpoint===>"/>
+    </log>
+    <switch source="$ctx:System_Name">
+        <case regex="UOL">
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+  "ApiName": "view-numbers",&#xd;
+  "channelName": "YourChannelNameValue",&#xd;
+  "pattern": "YourPatternValue",&#xd;
+  "status": "YourStatusValue",&#xd;
+  "msisdn": "YourMsisdnValue",&#xd;
+  "category": "YourCategoryValue"&#xd;
+}&#xd;
+</format>
+                <args>
+                    <arg value="default"/>
+                </args>
+            </payloadFactory>
+            <sequence key="REST_API_Call_Seq"/>
+            <property expression="json-eval($)" name="UOL_Response" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="$ctx:UOL_Response" name="UOL_Response==>"/>
+            </log>
+        </case>
+        <case regex="EB">
+            <sequence key="EB_SOAP_Call_Seq"/>
+            <property expression="json-eval($)" name="EB_Response" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="$ctx:EB_Response" name="EB_Response==>"/>
+            </log>
+        </case>
+        <case regex="QUERY">
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+    "queryName": "",&#xd;
+    "parameters": {&#xd;
+        "customer_id":518531&#xd;
+&#xd;
+    }&#xd;
+}</format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('Endpoint')"/>
+                </args>
+            </payloadFactory>
+            <sequence key="Dynamic_Query_Call_Seq"/>
+            <property expression="json-eval($)" name="Query_Response" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="$ctx:Query_Response" name="Query_Response==>"/>
+            </log>
+        </case>
+        <case regex="NMS">
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+  "ApiName": "view-numbers",&#xd;
+  "channelName": "YourChannelNameValue",&#xd;
+  "pattern": "YourPatternValue",&#xd;
+  "status": "YourStatusValue",&#xd;
+  "msisdn": "YourMsisdnValue",&#xd;
+  "category": "YourCategoryValue"&#xd;
+}&#xd;
+</format>
+                <args/>
+            </payloadFactory>
+            <sequence key="NMS_Call_Seq"/>
+            <property expression="json-eval($)" name="NMS_Response" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="$ctx:NMS_Response" name="NMS_Response==>"/>
+            </log>
+        </case>
+        <default>
+            <log level="custom">
+                <property name="ExecutingDefault==>" value="ExecutingDefault"/>
+            </log>
+        </default>
+    </switch>
+</sequence>

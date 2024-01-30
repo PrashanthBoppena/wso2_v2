@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/Registry" name="RegPropertiesCheck" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET">
+        <inSequence>
+            <!--  <log level="custom">
+                <property expression="get-property('registry','gov:/custom/keyValue.properties')" name="keyValueData"/>
+                <property expression="get-property('registry','gov:/custom/JsonProperties.json')" name="JsonData"/>
+                <property expression="get-property('registry','gov:/custom/xmlProperties.xml')" name="xmlProp"/>
+            </log>
+            <payloadFactory media-type="xml">
+                <format>
+                    <Data xmlns="">$1</Data>
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('registry','gov:/custom/xmlProperties.xml')"/>
+                </args>
+            </payloadFactory>
+            <log>
+                <property expression="//user" name="user"/>
+            </log>  
+            <dblookup>
+                <connection>
+                    <pool>
+                        <driver key="conf:/repository/esb/driver.txt"/>
+                        <url key="conf:/repository/esb/url.txt"/>
+                        <user key="conf:/repository/esb/username.txt"/>
+                        <password key="conf:/repository/esb/password.txt"/>
+                    </pool>
+                </connection>
+                <statement>
+                    <sql><![CDATA[select id, name, email, country, company from customers]]></sql>
+                    <result column="2" name="Name"/>
+                </statement>
+            </dblookup> -->
+            <property name="CONFIG_FILE" scope="default" type="STRING" value="E:\keyValue.properties"/>
+            <property expression="get-property('conf:CONFIG_FILE', 'property1')" name="property1" scope="default" type="STRING"/>
+            <property expression="get-property('conf:CONFIG_FILE', 'property2')" name="property2" scope="default" type="STRING"/>
+            <!-- Your sequence logic here -->
+            <log level="custom">
+                <property expression="get-property('property1')" name="Property1"/>
+                <property expression="get-property('property2')" name="Property2"/>
+                <!--  <property expression="get-property('registry','gov:/custom/keyValue.properties','property1')" name="property1"/>  -->
+            </log>
+            <dbreport>
+                <connection>
+                    <pool>
+                        <driver key="conf:/repository/esb/driver.txt"/>
+                        <url key="conf:/repository/esb/url.txt"/>
+                        <user key="conf:/repository/esb/username.txt"/>
+                        <password key="conf:/repository/esb/password.txt"/>
+                    </pool>
+                </connection>
+                <statement>
+                    <sql><![CDATA[delete from customers where id=790]]></sql>
+                </statement>
+            </dbreport>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

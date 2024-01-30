@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_d4zQAExsEe6qrdp8A7oITw" type="Esb" name="ServerToServerFTP" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_jJj_AExsEe6qrdp8A7oITw" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_jKOtYExsEe6qrdp8A7oITw" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_oEbWgExsEe6qrdp8A7oITw" type="3001">
+        <children xmi:type="notation:DecorationNode" xmi:id="_oEb9kExsEe6qrdp8A7oITw" type="5003"/>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_oEbWgUxsEe6qrdp8A7oITw"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_oEbWgkxsEe6qrdp8A7oITw" fontName="Segoe UI"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_oEbWg0xsEe6qrdp8A7oITw"/>
+        <element xmi:type="esb:ProxyService" href="ServerToServerFTP.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oEbWhExsEe6qrdp8A7oITw" width="300" height="400"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_jJj_AUxsEe6qrdp8A7oITw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jJj_AkxsEe6qrdp8A7oITw" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_jJj_A0xsEe6qrdp8A7oITw"/>
+    <element xmi:type="esb:EsbServer" href="ServerToServerFTP.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jJj_BExsEe6qrdp8A7oITw"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_d4zQAUxsEe6qrdp8A7oITw"/>
+  <element xmi:type="esb:EsbDiagram" href="ServerToServerFTP.esb#/"/>
+</notation:Diagram>

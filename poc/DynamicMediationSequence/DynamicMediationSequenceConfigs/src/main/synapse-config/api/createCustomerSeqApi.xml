@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/uol/composite/createCustomerDetails" name="createCustomerSeqApi" xmlns="http://ws.apache.org/ns/synapse">
+    <resource faultSequence="FaultSequence" methods="POST">
+        <inSequence>
+            <log level="custom">
+                <property expression="get-property('source_req_id')" name="source request id==>"/>
+            </log>
+            <property name="messageType" scope="axis2" type="STRING" value="application/xml"/>
+            <payloadFactory media-type="json">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="xml" expression="$body//request//*" xmlns:ns="http://org.apache.synapse/xsd"/>
+                </args>
+            </payloadFactory>
+            <sequence key="dynamicSBSequence"/>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+    </resource>
+</api>

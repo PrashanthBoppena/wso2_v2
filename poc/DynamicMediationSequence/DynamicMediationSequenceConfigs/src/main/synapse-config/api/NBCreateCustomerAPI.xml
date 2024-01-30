@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/uol/nb/createCustomer" name="NBCreateCustomerAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource faultSequence="FaultSequence" methods="POST">
+        <inSequence>
+            <!-- Handle any other sequences or mediation after the iteration if needed -->
+            <!-- Aggregate all API responses -->
+            <!-- Continue with further processing using the aggregated response -->
+            <sequence key="dynamic_propvariable_setupSEQ"/>
+            <property description="apiRegistryConfigs" expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath" scope="default" type="STRING"/>
+            <property description="compositeEndpoint" name="compositeEndpoint" scope="default" type="STRING" value="createCustomerDetails"/>
+            <property expression="get-property('MessageID')" name="source_req_id" scope="default" type="STRING"/>
+            <property name="sub_api_id" scope="default" type="STRING" value="customer_onboarding"/>
+            <class description="com.uol.mediators.UOLRequestLogMediator" name="com.uol.mediators.UOLRequestLogMediator">
+                <property expression="$ctx:NIC" name="NIC"/>
+                <property expression="$ctx:sub_api_id" name="sub_api_id"/>
+                <property expression="$ctx:MSISDN" name="MSISDN"/>
+                <property expression="$ctx:csId" name="custid"/>
+                <property expression="$ctx:source_req_id" name="source_req_id"/>
+                <property expression="$ctx:NIC" name="channel"/>
+                <property expression="$ctx:source_req_id" name="child_req_id"/>
+                <property expression="get-property('REST_URL_PREFIX')" name="host_address"/>
+                <property expression="fn:concat(get-property('REST_URL_PREFIX'),get-property('REST_FULL_REQUEST_PATH'))" name="api_name"/>
+                <property name="processId" value="0"/>
+                <property name="processName" value="Intial Call"/>
+                <property name="logStatus" value="1"/>
+                <property expression="$body/*" name="request"/>
+                <property name="status" value="in-progress"/>
+            </class>
+            <class description="com.uol.mediators.DynamicRestSeqMediator" name="com.uol.mediators.DynamicRestSeqMediator">
+                <property expression="$ctx:sub_api_id" name="subApiId"/>
+                <property expression="get-property('MessageID')" name="sourceRequestID"/>
+            </class>
+            <payloadFactory description="buildResponsePayload" media-type="json">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:xmlResponse"/>
+                </args>
+            </payloadFactory>
+            <class description="UOLResponseLog" name="com.uol.mediators.UOLResponseLogMediator">
+                <property expression="$ctx:source_req_id" name="source_req_id"/>
+                <property expression="$ctx:source_req_id" name="child_req_id"/>
+                <property expression="json-eval($)" name="response"/>
+                <property expression="$ctx:statusCode" name="status"/>
+                <property name="logStatus" value="1"/>
+            </class>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+    </resource>
+</api>

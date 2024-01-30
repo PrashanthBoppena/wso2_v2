@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esb:EsbDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb">
+  <server type="SEQUENCE">
+    <children xsi:type="esb:Sequences" name="sysReqLogHandlerSeq">
+      <commentsList> Check for null values and set default values if needed 
+    &lt;filter xmlns:ns=&quot;http://org.apache.synapse/xsd&quot; source=&quot;$ctx:req_id&quot; regex=&quot;false&quot;>
+        &lt;then>
+            &lt;property name=&quot;req_id&quot; value=&quot;DEFAULT_REQ_ID&quot; scope=&quot;default&quot; type=&quot;STRING&quot;/>
+        &lt;/then>
+    &lt;/filter>
+    &lt;filter xmlns:ns=&quot;http://org.apache.synapse/xsd&quot; source=&quot;$ctx:process_id&quot; regex=&quot;false&quot;>
+        &lt;then>
+            &lt;property name=&quot;process_id&quot; value=&quot;DEFAULT_process_ID&quot; scope=&quot;default&quot; type=&quot;STRING&quot;/>
+        &lt;/then>
+    &lt;/filter>
+        &lt;filter xmlns:ns=&quot;http://org.apache.synapse/xsd&quot; source=&quot;$ctx:process&quot; regex=&quot;false&quot;>
+        &lt;then>
+            &lt;property name=&quot;process&quot; value=&quot;DEFAULT_process&quot; scope=&quot;default&quot; type=&quot;STRING&quot;/>
+        &lt;/then>
+    &lt;/filter>
+        &lt;filter xmlns:ns=&quot;http://org.apache.synapse/xsd&quot; source=&quot;$ctx:system&quot; regex=&quot;false&quot;>
+        &lt;then>
+            &lt;property name=&quot;system&quot; value=&quot;DEFAULT_system&quot; scope=&quot;default&quot; type=&quot;STRING&quot;/>
+        &lt;/then>
+    &lt;/filter> </commentsList>
+      <outputConnector>
+        <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
+      </outputConnector>
+      <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
+      <mediatorFlow>
+        <children xsi:type="esb:FilterMediator" regex="false">
+          <inputConnector incomingLinks="//@server/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.1/@inputConnector"/>
+          </outputConnector>
+          <passOutputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@filterContainer/@passContainer/@mediatorFlow/@children.0/@inputConnector"/>
+          </passOutputConnector>
+          <failOutputConnector/>
+          <xpath prettyName="Filter Source XPath" propertyName="filterSourceXpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          <source propertyValue="get-property('process')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400026E7374001D687474703A2F2F6F72672E6170616368652E73796E617073652F78736478"/>
+          <filterContainer>
+            <passContainer>
+              <mediatorFlow>
+                <children xsi:type="esb:PropertyMediator" value="DEFAULT_process" newPropertyName="process">
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@passOutputConnector/@outgoingLink"/>
+                  <outputConnector/>
+                  <valueExpression prettyName="Property Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                </children>
+              </mediatorFlow>
+            </passContainer>
+            <failContainer>
+              <mediatorFlow/>
+            </failContainer>
+          </filterContainer>
+        </children>
+        <children xsi:type="esb:DSSMediator" description="Input write ApiLogHandler" serviceName="NotificationsDS" availableDataServices="NotificationsDS">
+          <operations operationName="ApiLogHandler">
+            <DSSPrperties propertyName="req_id" propertyValueType="EXPRESSION">
+              <propertyExpression propertyName="req_id" propertyValue="$ctx:req_id" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </DSSPrperties>
+            <DSSPrperties propertyName="process_id" propertyValueType="EXPRESSION">
+              <propertyExpression propertyName="process_id" propertyValue="$ctx:process_id" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </DSSPrperties>
+            <DSSPrperties propertyName="process" propertyValue="testing">
+              <propertyExpression prettyName="Property Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+            </DSSPrperties>
+            <DSSPrperties propertyName="system" propertyValueType="EXPRESSION">
+              <propertyExpression propertyName="system" propertyValue="$ctx:system" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </DSSPrperties>
+            <DSSPrperties propertyName="api_name" propertyValueType="EXPRESSION">
+              <propertyExpression propertyName="api_name" propertyValue="get-property('SYNAPSE_REST_API')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </DSSPrperties>
+            <DSSPrperties propertyName="request" propertyValueType="EXPRESSION">
+              <propertyExpression propertyName="request" propertyValue="$ctx:request" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </DSSPrperties>
+            <DSSPrperties propertyName="http_method" propertyValueType="EXPRESSION">
+              <propertyExpression propertyName="http_method" propertyValue="$ctx:REST_METHOD" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </DSSPrperties>
+            <DSSPrperties propertyName="response" propertyValue="null">
+              <propertyExpression prettyName="Property Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+            </DSSPrperties>
+            <DSSPrperties propertyName="status" propertyValue="InProcess">
+              <propertyExpression prettyName="Property Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+            </DSSPrperties>
+          </operations>
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@inputConnector"/>
+          </outputConnector>
+        </children>
+      </mediatorFlow>
+      <onError prettyName="OnError sequence Key" keyName="OnError sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+    </children>
+  </server>
+</esb:EsbDiagram>

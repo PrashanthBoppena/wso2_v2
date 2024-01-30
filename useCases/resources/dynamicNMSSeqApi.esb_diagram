@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_I-QCsKIhEe68U4N_GkAErg" type="Esb" name="dynamicNMSSeqApi" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_I_cVgKIhEe68U4N_GkAErg" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_I_exwKIhEe68U4N_GkAErg" type="7001">
+      <children xmi:type="notation:Shape" xmi:id="_JWMooKIhEe68U4N_GkAErg" type="3668" fontName="Segoe UI">
+        <children xmi:type="notation:BasicCompartment" xmi:id="_JWNPsKIhEe68U4N_GkAErg" type="7044">
+          <children xmi:type="notation:Node" xmi:id="_JWVykKIhEe68U4N_GkAErg" type="3669">
+            <children xmi:type="notation:Node" xmi:id="_JWYO0KIhEe68U4N_GkAErg" type="3670">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_JWYO0aIhEe68U4N_GkAErg"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_JWYO0qIhEe68U4N_GkAErg" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_JWYO06IhEe68U4N_GkAErg"/>
+              <element xmi:type="esb:APIResourceInputConnector" href="dynamicNMSSeqApi.esb#//@server/@children.0/@resources.0/@inputConnector"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JWYO1KIhEe68U4N_GkAErg" x="86" y="-11"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_JWY14KIhEe68U4N_GkAErg" type="3671">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_JWY14aIhEe68U4N_GkAErg"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_JWY14qIhEe68U4N_GkAErg" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_JWY146IhEe68U4N_GkAErg"/>
+              <element xmi:type="esb:APIResourceOutputConnector" href="dynamicNMSSeqApi.esb#//@server/@children.0/@resources.0/@outputConnector"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JWY15KIhEe68U4N_GkAErg" x="86" y="-23"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_JWY15aIhEe68U4N_GkAErg" type="3730">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_JWY15qIhEe68U4N_GkAErg"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_JWY156IhEe68U4N_GkAErg" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_JWY16KIhEe68U4N_GkAErg"/>
+              <element xmi:type="esb:APIResourceOutSequenceOutputConnector" href="dynamicNMSSeqApi.esb#//@server/@children.0/@resources.0/@outSequenceOutputConnector"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JWY16aIhEe68U4N_GkAErg" x="110" y="-11"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_JWZc8KIhEe68U4N_GkAErg" type="3672">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_JWZc8aIhEe68U4N_GkAErg"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_JWZc8qIhEe68U4N_GkAErg" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_JWZc86IhEe68U4N_GkAErg"/>
+              <element xmi:type="esb:APIResourceFaultInputConnector" href="dynamicNMSSeqApi.esb#//@server/@children.0/@resources.0/@faultInputConnector"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JWZc9KIhEe68U4N_GkAErg" x="86" y="7"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_JWZc9aIhEe68U4N_GkAErg" type="3673">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_JWZc9qIhEe68U4N_GkAErg"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_JWZc96IhEe68U4N_GkAErg" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_JWZc-KIhEe68U4N_GkAErg"/>
+              <element xmi:type="esb:ProxyServiceContainer" href="dynamicNMSSeqApi.esb#//@server/@children.0/@resources.0/@container"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JWZc-aIhEe68U4N_GkAErg"/>
+            </children>
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_JWVykaIhEe68U4N_GkAErg"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_JWVykqIhEe68U4N_GkAErg" fontName="Segoe UI"/>
+            <styles xmi:type="notation:LineStyle" xmi:id="_JWVyk6IhEe68U4N_GkAErg"/>
+            <element xmi:type="esb:APIResource" href="dynamicNMSSeqApi.esb#//@server/@children.0/@resources.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JWVylKIhEe68U4N_GkAErg" width="300" height="400"/>
+          </children>
+        </children>
+        <element xmi:type="esb:SynapseAPI" href="dynamicNMSSeqApi.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JWMooaIhEe68U4N_GkAErg" width="640" height="500"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_I_cVgaIhEe68U4N_GkAErg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_I_cVgqIhEe68U4N_GkAErg" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_I_cVg6IhEe68U4N_GkAErg"/>
+    <element xmi:type="esb:EsbServer" href="dynamicNMSSeqApi.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_I_cVhKIhEe68U4N_GkAErg"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_I-QCsaIhEe68U4N_GkAErg"/>
+  <element xmi:type="esb:EsbDiagram" href="dynamicNMSSeqApi.esb#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_JbxFIKIhEe68U4N_GkAErg" type="4001" source="_JWY14KIhEe68U4N_GkAErg" target="_JahH8KIhEe68U4N_GkAErg" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_JbxFIaIhEe68U4N_GkAErg" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="dynamicNMSSeqApi.esb#//@server/@children.0/@resources.0/@outputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_JbxFIqIhEe68U4N_GkAErg" points="[6, 5, -5, 0]$[5, 0, -6, -5]"/>
+  </edges>
+</notation:Diagram>

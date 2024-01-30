@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esb:EsbDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb">
+  <server type="SEQUENCE">
+    <children xsi:type="esb:Sequences" name="EBFaultSequence">
+      <commentsList>    &lt;class description=&quot;SystemResponseLogs&quot; name=&quot;com.knot.uol.utils.SystemResponseUpdateLog&quot;>
+        &lt;property expression=&quot;$ctx:parentId&quot; name=&quot;parentId&quot;/>
+        &lt;property expression=&quot;$ctx:processId&quot; name=&quot;processId&quot;/>
+        &lt;property expression=&quot;json-eval($)&quot; name=&quot;responsePayload&quot;/>
+        &lt;property expression=&quot;$axis2:HTTP_SC&quot; name=&quot;status&quot;/>
+        &lt;property expression=&quot;get-property('file','apiRegistryConfigs')&quot; name=&quot;apiregistryConfigPath&quot;/>
+        &lt;property expression=&quot;$ctx:childId&quot; name=&quot;childId&quot;/>
+    &lt;/class>  </commentsList>
+      <outputConnector>
+        <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
+      </outputConnector>
+      <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
+      <mediatorFlow>
+        <children xsi:type="esb:PayloadFactoryMediator" payload="{&#xD;&#xA;&quot;ERROR_CODE&quot;:$1,&#xD;&#xA;&quot;ERROR_MESSAGE&quot;:$2&#xD;&#xA;&quot;ERROR_DETAIL&quot;:$3,&#xD;&#xA;&quot;ERROR_EXCEPTION&quot;:$4,&#xD;&#xA;&quot;MESSAGE_ID&quot;:$5&#xD;&#xA;&#xD;&#xA;}" mediaType="json">
+          <payloadKey prettyName="Sequence Key" keyName="Sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          <args argumentType="Expression">
+            <argumentExpression propertyValue="get-property('ERROR_CODE')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          </args>
+          <args argumentType="Expression">
+            <argumentExpression propertyValue="get-property('ERROR_MESSAGE')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          </args>
+          <args argumentType="Expression">
+            <argumentExpression propertyValue="get-property('ERROR_DETAIL')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          </args>
+          <args argumentType="Expression">
+            <argumentExpression propertyValue="get-property('ERROR_EXCEPTION')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          </args>
+          <args argumentType="Expression">
+            <argumentExpression propertyValue="get-property('MessageID')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+          </args>
+          <inputConnector incomingLinks="//@server/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.1/@inputConnector"/>
+            <commentMediators commentText="    &lt;class description=&quot;SystemResponseLogs&quot; name=&quot;com.knot.uol.utils.SystemResponseUpdateLog&quot;>&#xA;        &lt;property expression=&quot;$ctx:parentId&quot; name=&quot;parentId&quot;/>&#xA;        &lt;property expression=&quot;$ctx:processId&quot; name=&quot;processId&quot;/>&#xA;        &lt;property expression=&quot;json-eval($)&quot; name=&quot;responsePayload&quot;/>&#xA;        &lt;property expression=&quot;$axis2:HTTP_SC&quot; name=&quot;status&quot;/>&#xA;        &lt;property expression=&quot;get-property('file','apiRegistryConfigs')&quot; name=&quot;apiregistryConfigPath&quot;/>&#xA;        &lt;property expression=&quot;$ctx:childId&quot; name=&quot;childId&quot;/>&#xA;    &lt;/class>  "/>
+          </outputConnector>
+        </children>
+        <children xsi:type="esb:RespondMediator">
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@inputConnector"/>
+          </outputConnector>
+        </children>
+      </mediatorFlow>
+      <onError prettyName="OnError sequence Key" keyName="OnError sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+    </children>
+  </server>
+</esb:EsbDiagram>

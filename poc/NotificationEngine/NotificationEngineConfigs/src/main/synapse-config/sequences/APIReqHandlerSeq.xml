@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="APIReqHandlerSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <dataServiceCall description="Request write ApiLogHandler" serviceName="NotificationEngineDS">
+        <operations type="single">
+            <operation name="ApiLogHandler">
+                <param evaluator="xml" expression="$ctx:req_id" name="req_id"/>
+                <param evaluator="xml" expression="$ctx:process_id" name="process_id"/>
+                <param name="process" value="testing"/>
+                <param evaluator="xml" expression="$ctx:system" name="system"/>
+                <param evaluator="xml" expression="get-property('SYNAPSE_REST_API')" name="api_name"/>
+                <param evaluator="xml" expression="$ctx:request" name="request"/>
+                <param evaluator="xml" expression="$ctx:REST_METHOD" name="http_method"/>
+                <param name="response" value="null"/>
+                <param name="status" value="InProcess"/>
+            </operation>
+        </operations>
+        <source type="inline"/>
+        <target type="body"/>
+    </dataServiceCall>
+</sequence>

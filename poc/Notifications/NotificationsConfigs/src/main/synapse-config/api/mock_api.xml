@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/mock_api" name="mock_api" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST">
+        <inSequence>
+            <payloadFactory description="build static mesg" media-type="json">
+                <format>{&#xd;
+  "status":"200",&#xd;
+  "message": "success"&#xd;
+}&#xd;
+</format>
+                <args/>
+            </payloadFactory>
+            <filter regex="true" source="$ctx:req_id" xmlns:ns="http://org.apache.synapse/xsd">
+                <then>
+                    <log level="custom">
+                        <property name="true" value="req id is there"/>
+                    </log>
+                </then>
+                <else>
+                    <log level="custom">
+                        <property name="false" value="req id is null"/>
+                    </log>
+                </else>
+            </filter>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

@@ -1,0 +1,13 @@
+openapi: 3.0.1
+info:
+  title: Gender_API
+  description: API Definition of Gender_API
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/gender
+paths:
+  /:
+    get:
+      responses:
+        default:
+          description: Default response

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_WUPwYEsiEe6wPuvTntB65g" type="Esb" name="FTPtoAnotherServerSequence" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_WUm8wEsiEe6wPuvTntB65g" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_WUm8xUsiEe6wPuvTntB65g" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_-CTaAEsiEe6wPuvTntB65g" type="3614">
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_-CTaAUsiEe6wPuvTntB65g"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_-CTaAksiEe6wPuvTntB65g" fontName="Segoe UI"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_-CTaA0siEe6wPuvTntB65g"/>
+        <element xmi:type="esb:Sequences" href="FTPtoAnotherServerSequence.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-CTaBEsiEe6wPuvTntB65g" width="195" height="125"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_WUm8wUsiEe6wPuvTntB65g"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_WUm8wksiEe6wPuvTntB65g" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_WUm8w0siEe6wPuvTntB65g"/>
+    <element xmi:type="esb:EsbServer" href="FTPtoAnotherServerSequence.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WUm8xEsiEe6wPuvTntB65g"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_WUPwYUsiEe6wPuvTntB65g"/>
+  <element xmi:type="esb:EsbDiagram" href="FTPtoAnotherServerSequence.esb#/"/>
+</notation:Diagram>

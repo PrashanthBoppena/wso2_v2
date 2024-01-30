@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/nms" name="dynamicNMSSeqApi" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST">
+        <inSequence>
+            <call-template onError="faultSeq" target="dynamicNMSSeqTemp">
+                <with-param name="ApiName" value="{json-eval($.ApiName)}"/>
+                <with-param name="channelName" value="{json-eval($.channelName)}"/>
+                <with-param name="pattern" value="{json-eval($.pattern)}"/>
+                <with-param name="status" value="{json-eval($.status)}"/>
+                <with-param name="msisdn" value="{json-eval($.msisdn)}"/>
+                <with-param name="category" value="{json-eval($.category)}"/>
+            </call-template>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esb:EsbDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb">
+  <server type="SEQUENCE">
+    <children xsi:type="esb:Sequences" name="FileWriteFromBody">
+      <outputConnector>
+        <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
+      </outputConnector>
+      <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+      <mediatorFlow>
+        <children xsi:type="esb:CloudConnectorOperation" description="write" configRef="FILE_CONNECTION_1" connectorName="file" operationName="write" cloudConnectorName="file">
+          <inputConnector incomingLinks="//@server/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@inputConnector"/>
+          </outputConnector>
+          <connectorParameters parameterName="filePath" templateParameterType="Expression" parameterValue="fn:concat('/',$ctx:FileName)">
+            <parameterExpression propertyValue="fn:concat('/',$ctx:FileName)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportsDynamicXPaths="true"/>
+          </connectorParameters>
+          <connectorParameters parameterName="contentOrExpression" templateParameterType="Expression" parameterValue="$ctx:Content">
+            <parameterExpression propertyValue="$ctx:Content" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportsDynamicXPaths="true"/>
+          </connectorParameters>
+          <connectorParameters parameterName="encoding" parameterValue="">
+            <parameterExpression prettyName="parameter expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportsDynamicXPaths="true"/>
+          </connectorParameters>
+          <connectorParameters parameterName="mimeType" parameterValue="Automatic">
+            <parameterExpression propertyValue="Automatic" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportsDynamicXPaths="true"/>
+          </connectorParameters>
+          <connectorParameters parameterName="compress" parameterValue="false">
+            <parameterExpression propertyValue="false" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportsDynamicXPaths="true"/>
+          </connectorParameters>
+          <connectorParameters parameterName="writeMode" parameterValue="Create New">
+            <parameterExpression propertyValue="Create New" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportsDynamicXPaths="true"/>
+          </connectorParameters>
+          <connectorParameters parameterName="appendPosition" parameterValue="">
+            <parameterExpression prettyName="parameter expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportsDynamicXPaths="true"/>
+          </connectorParameters>
+          <connectorParameters parameterName="enableStreaming" parameterValue="false">
+            <parameterExpression propertyValue="false" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportsDynamicXPaths="true"/>
+          </connectorParameters>
+          <connectorParameters parameterName="appendNewLine" parameterValue="false">
+            <parameterExpression propertyValue="false" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportsDynamicXPaths="true"/>
+          </connectorParameters>
+          <connectorParameters parameterName="enableLock" parameterValue="false">
+            <parameterExpression propertyValue="false" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportsDynamicXPaths="true"/>
+          </connectorParameters>
+          <connectorParameters parameterName="includeResultTo" parameterValue="Message Body">
+            <parameterExpression propertyValue="Message Body" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportsDynamicXPaths="true"/>
+          </connectorParameters>
+          <connectorParameters parameterName="resultPropertyName" parameterValue="">
+            <parameterExpression prettyName="parameter expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportsDynamicXPaths="true"/>
+          </connectorParameters>
+          <connectorParameters parameterName="updateLastModified" parameterValue="true">
+            <parameterExpression propertyValue="true" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportsDynamicXPaths="true"/>
+          </connectorParameters>
+          <newConfig prettyName="Sequence Key" keyName="Sequence Key" keyValue="Create New Configuration" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+        </children>
+      </mediatorFlow>
+      <onError prettyName="OnError sequence Key" keyName="OnError sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+    </children>
+  </server>
+</esb:EsbDiagram>

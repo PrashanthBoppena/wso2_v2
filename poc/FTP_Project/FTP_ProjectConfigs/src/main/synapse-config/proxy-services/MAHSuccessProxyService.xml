@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="MAHSuccessProxyService" startOnLoad="true" transports="vfs" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <sequence key="FileDetailsCaptureSequence"/>
+            <sequence key="updateFTPLogsSequence"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </target>
+    <parameter name="transport.PollInterval">15</parameter>
+    <parameter name="transport.vfs.FileURI">sftp://bscsr17:Bscs%402020@172.16.110.237/home/bscsr17/WSO2Test/MAH/SUCCESS?sftpPathFromRoot=true</parameter>
+    <parameter name="transport.vfs.ContentType">text/plain</parameter>
+    <parameter name="transport.vfs.ActionAfterProcess">MOVE</parameter>
+    <parameter name="transport.vfs.MoveAfterFailure">file:E:\EI\created-csv\MAH\SUCCESS</parameter>
+    <parameter name="transport.vfs.ActionAfterFailure">MOVE</parameter>
+    <parameter name="transport.vfs.FileNamePattern">.*\.*</parameter>
+    <parameter name="transport.vfs.MoveAfterProcess">file:E:\EI\created-csv\MAH\SUCCESS</parameter>
+</proxy>

@@ -1,0 +1,17 @@
+openapi: 3.0.1
+info:
+  title: BSCS_SOAP_API_Call
+  description: API Definition of BSCS_SOAP_API_Call
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/bscs_api_call
+paths:
+  /:
+    get:
+      responses:
+        default:
+          description: Default response
+    post:
+      responses:
+        default:
+          description: Default response

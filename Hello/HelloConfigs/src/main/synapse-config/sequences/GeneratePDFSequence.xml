@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="GeneratePDFSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <script language="js"><![CDATA[var bodyContent = mc.getPayloadXML().toString(); // Assuming the body content is in XML format
+    
+    var FopFactory = Packages.org.apache.fop.apps.FopFactory;
+    var MimeConstants = Packages.org.apache.xmlgraphics.util.MimeConstants;
+    var ByteArrayOutputStream = Packages.java.io.ByteArrayOutputStream;
+
+    // Create FopFactory instance
+    var fopFactory = FopFactory.newInstance();
+
+    // Create ByteArrayOutputStream to hold the generated PDF content
+    var outputStream = new ByteArrayOutputStream();
+
+    // Create Fop instance
+    var fop = fopFactory.newFop(MimeConstants.MIME_PDF, outputStream);
+
+    // Transform the body content to PDF
+    var transformer = mc.getEnvironment().getXSLTTransformerFactory().newTransformer();
+    var source = new javax.xml.transform.stream.StreamSource(new java.io.StringReader(bodyContent));
+    var result = new javax.xml.transform.sax.SAXResult(fop.getDefaultHandler());
+
+    transformer.transform(source, result);
+
+    // Get the generated PDF content as a byte array
+    var pdfContent = outputStream.toByteArray();
+
+    // Set the PDF content as the response payload
+    mc.setPayloadXML(new org.apache.axiom.om.impl.llom.OMTextImpl(new org.apache.axiom.om.util.StAXParserConfiguration(), new java.io.ByteArrayInputStream(pdfContent), false));
+
+    // Set the appropriate Content-Type header
+    mc.setProperty('TRANSPORT_HEADERS', {'Content-Type': 'application/pdf'});]]></script>
+</sequence>

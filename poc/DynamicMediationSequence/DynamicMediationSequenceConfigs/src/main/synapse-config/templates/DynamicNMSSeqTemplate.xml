@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="DynamicNMSSeqTemplate" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter defaultValue="" isMandatory="false" name="ApiName"/>
+    <sequence>
+        <property expression="get-property('OMSystemConfigs')" name="OmSystemConfigs" scope="default" type="OM"/>
+        <switch description="routes based on ApiName form NB systems" source="$func:ApiName">
+            <case regex="view-numbers">
+                <propertyGroup>
+                    <property expression="$ctx:OmSystemConfigs/*[local-name()='host']" name="uri.var.host" scope="default" type="STRING"/>
+                    <property expression="$func:ApiName" name="uri.var.ApiName" scope="default" type="STRING"/>
+                </propertyGroup>
+                <call>
+                    <endpoint key="view-numbers_EP"/>
+                </call>
+            </case>
+            <case regex="activate-number">
+                <propertyGroup>
+                    <property expression="$ctx:OmSystemConfigs/*[local-name()='host']" name="uri.var.host" scope="default" type="STRING"/>
+                    <property expression="$func:ApiName" name="uri.var.ApiName" scope="default" type="STRING"/>
+                </propertyGroup>
+                <call>
+                    <endpoint key="activate-number_EP"/>
+                </call>
+            </case>
+            <case regex="deactivate-number">
+                <propertyGroup>
+                    <property expression="$ctx:OmSystemConfigs/*[local-name()='host']" name="uri.var.host" scope="default" type="STRING"/>
+                    <property expression="$func:ApiName" name="uri.var.ApiName" scope="default" type="STRING"/>
+                </propertyGroup>
+                <call>
+                    <endpoint key="deactivate-number_EP"/>
+                </call>
+            </case>
+            <case regex="number-release">
+                <propertyGroup>
+                    <property expression="$ctx:OmSystemConfigs/*[local-name()='host']" name="uri.var.host" scope="default" type="STRING"/>
+                    <property expression="$func:channelName" name="uri.var.channel" scope="default" type="STRING"/>
+                    <property expression="$func:msisdn" name="uri.var.msisdn" scope="default" type="STRING"/>
+                    <property expression="$func:ApiName" name="uri.var.ApiName" scope="default" type="STRING"/>
+                </propertyGroup>
+                <call>
+                    <endpoint key="number-release_EP"/>
+                </call>
+            </case>
+            <case regex="number-lock">
+                <propertyGroup>
+                    <property expression="$ctx:OmSystemConfigs/*[local-name()='host']" name="uri.var.host" scope="default" type="STRING"/>
+                    <property expression="$func:channelName" name="uri.var.channel" scope="default" type="STRING"/>
+                    <property expression="$func:msisdn" name="uri.var.msisdn" scope="default" type="STRING"/>
+                    <property expression="$func:ApiName" name="uri.var.ApiName" scope="default" type="STRING"/>
+                    <property expression="$func:status" name="uri.var.status" scope="default" type="STRING"/>
+                </propertyGroup>
+                <call>
+                    <endpoint key="number-lock_EP"/>
+                </call>
+            </case>
+            <case regex="pattern-list">
+                <propertyGroup>
+                    <property expression="$ctx:OmSystemConfigs/*[local-name()='host']" name="uri.var.host" scope="default" type="STRING"/>
+                    <property expression="$func:channelName" name="uri.var.channel" scope="default" type="STRING"/>
+                    <property expression="$func:ApiName" name="uri.var.ApiName" scope="default" type="STRING"/>
+                    <property expression="$func:pattern" name="uri.var.pattern" scope="default" type="STRING"/>
+                </propertyGroup>
+                <call>
+                    <endpoint key="pattern-list_EP"/>
+                </call>
+            </case>
+            <default>
+                <payloadFactory media-type="json" template-type="freemarker">
+                    <format><![CDATA[{
+"defaultCase":"no API: ${payload.ApiName} is found in NMS system"
+
+}]]></format>
+                    <args/>
+                </payloadFactory>
+            </default>
+        </switch>
+        <payloadFactory media-type="json">
+            <format>$1</format>
+            <args>
+                <arg evaluator="json" expression="$"/>
+            </args>
+        </payloadFactory>
+    </sequence>
+</template>

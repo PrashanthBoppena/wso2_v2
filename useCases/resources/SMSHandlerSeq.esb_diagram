@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_DFZy0K7AEe6wlIziGcYFnQ" type="Esb" name="SMSHandlerSeq" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_DGYDMK7AEe6wlIziGcYFnQ" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_DGYDNa7AEe6wlIziGcYFnQ" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_DMggYK7AEe6wlIziGcYFnQ" type="3614">
+        <children xmi:type="notation:Node" xmi:id="_DMhugK7AEe6wlIziGcYFnQ" type="3615">
+          <children xmi:type="notation:DecorationNode" xmi:id="_DMhuha7AEe6wlIziGcYFnQ" type="7035">
+            <children xmi:type="notation:Node" xmi:id="_DMocMK7AEe6wlIziGcYFnQ" type="3794">
+              <children xmi:type="notation:DecorationNode" xmi:id="_DMocNa7AEe6wlIziGcYFnQ" type="5217"/>
+              <children xmi:type="notation:Node" xmi:id="_DMq4cK7AEe6wlIziGcYFnQ" type="3795">
+                <styles xmi:type="notation:DescriptionStyle" xmi:id="_DMq4ca7AEe6wlIziGcYFnQ"/>
+                <styles xmi:type="notation:FontStyle" xmi:id="_DMq4cq7AEe6wlIziGcYFnQ" fontName="Segoe UI"/>
+                <styles xmi:type="notation:LineStyle" xmi:id="_DMq4c67AEe6wlIziGcYFnQ"/>
+                <element xmi:type="esb:DSSMediatorInputConnector" href="SMSHandlerSeq.esb#//@server/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DMq4dK7AEe6wlIziGcYFnQ" x="-6" y="-5"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_DMq4da7AEe6wlIziGcYFnQ" type="3796">
+                <styles xmi:type="notation:DescriptionStyle" xmi:id="_DMq4dq7AEe6wlIziGcYFnQ"/>
+                <styles xmi:type="notation:FontStyle" xmi:id="_DMq4d67AEe6wlIziGcYFnQ" fontName="Segoe UI"/>
+                <styles xmi:type="notation:LineStyle" xmi:id="_DMq4eK7AEe6wlIziGcYFnQ"/>
+                <element xmi:type="esb:DSSMediatorOutputConnector" href="SMSHandlerSeq.esb#//@server/@children.0/@mediatorFlow/@children.0/@outputConnector"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DMq4ea7AEe6wlIziGcYFnQ" x="64" y="-9"/>
+              </children>
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_DMocMa7AEe6wlIziGcYFnQ"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_DMocMq7AEe6wlIziGcYFnQ" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_DMocM67AEe6wlIziGcYFnQ"/>
+              <element xmi:type="esb:DSSMediator" href="SMSHandlerSeq.esb#//@server/@children.0/@mediatorFlow/@children.0"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DMocNK7AEe6wlIziGcYFnQ" x="25" y="90" width="84" height="112"/>
+            </children>
+            <styles xmi:type="notation:TitleStyle" xmi:id="_DMhuhq7AEe6wlIziGcYFnQ" showTitle="true"/>
+          </children>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_DMhuga7AEe6wlIziGcYFnQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_DMhugq7AEe6wlIziGcYFnQ" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_DMhug67AEe6wlIziGcYFnQ"/>
+          <element xmi:type="esb:MediatorFlow" href="SMSHandlerSeq.esb#//@server/@children.0/@mediatorFlow"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DMhuhK7AEe6wlIziGcYFnQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_DMhuh67AEe6wlIziGcYFnQ" type="3616">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_DMhuiK7AEe6wlIziGcYFnQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_DMhuia7AEe6wlIziGcYFnQ" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_DMhuiq7AEe6wlIziGcYFnQ"/>
+          <element xmi:type="esb:SequencesInputConnector" href="SMSHandlerSeq.esb#//@server/@children.0/@inputConnector"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DMhui67AEe6wlIziGcYFnQ" x="-11" y="-9"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_DMiVkK7AEe6wlIziGcYFnQ" type="3617">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_DMiVka7AEe6wlIziGcYFnQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_DMiVkq7AEe6wlIziGcYFnQ" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_DMiVk67AEe6wlIziGcYFnQ"/>
+          <element xmi:type="esb:SequencesOutputConnector" href="SMSHandlerSeq.esb#//@server/@children.0/@outputConnector"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DMiVlK7AEe6wlIziGcYFnQ" x="-11" y="-9"/>
+        </children>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_DMggYa7AEe6wlIziGcYFnQ"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_DMggYq7AEe6wlIziGcYFnQ" fontName="Segoe UI"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_DMggY67AEe6wlIziGcYFnQ"/>
+        <element xmi:type="esb:Sequences" href="SMSHandlerSeq.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DMggZK7AEe6wlIziGcYFnQ" width="195" height="125"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_DGYDMa7AEe6wlIziGcYFnQ"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_DGYDMq7AEe6wlIziGcYFnQ" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_DGYDM67AEe6wlIziGcYFnQ"/>
+    <element xmi:type="esb:EsbServer" href="SMSHandlerSeq.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DGYDNK7AEe6wlIziGcYFnQ"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_DFaZ4K7AEe6wlIziGcYFnQ"/>
+  <element xmi:type="esb:EsbDiagram" href="SMSHandlerSeq.esb#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_DMyNMK7AEe6wlIziGcYFnQ" type="4001" source="_DMiVkK7AEe6wlIziGcYFnQ" target="_DMq4cK7AEe6wlIziGcYFnQ" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_DMyNMa7AEe6wlIziGcYFnQ" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="SMSHandlerSeq.esb#//@server/@children.0/@outputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_DMyNMq7AEe6wlIziGcYFnQ" points="[6, 9, 0, -1]$[0, 5, -6, -5]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_DM1QgK7AEe6wlIziGcYFnQ" type="4001" source="_DMq4da7AEe6wlIziGcYFnQ" target="_DMhuh67AEe6wlIziGcYFnQ" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_DM1Qga7AEe6wlIziGcYFnQ" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="SMSHandlerSeq.esb#//@server/@children.0/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_DM1Qgq7AEe6wlIziGcYFnQ" points="[-11, -2, 65, 8]$[-65, -9, 11, 1]"/>
+  </edges>
+</notation:Diagram>

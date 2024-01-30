@@ -1,0 +1,10 @@
+---
+key: "SMS_System_Call_Proxy_proxy-1.0.0"
+name : "SMS_System_Call_Proxy"
+displayName : "SMS_System_Call_Proxy"
+description: "Sample Proxy Service"
+version: "1.0.0"
+serviceUrl: "https://{MI_HOST}:{MI_PORT}/services/SMS_System_Call_Proxy"
+definitionType: "WSDL1"
+securityType: "BASIC"
+mutualSSLEnabled: false

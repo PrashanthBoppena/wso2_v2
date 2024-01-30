@@ -1,0 +1,38 @@
+openapi: 3.0.1
+info:
+  title: InvokeNotifications_API
+  description: API Definition of InvokeNotifications_API
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/SMS
+paths:
+  /Dynamic:
+    post:
+      requestBody:
+        description: Sample Payload
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payload:
+                  type: object
+        required: false
+      responses:
+        default:
+          description: Default response
+  /Static:
+    post:
+      requestBody:
+        description: Sample Payload
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payload:
+                  type: object
+        required: false
+      responses:
+        default:
+          description: Default response

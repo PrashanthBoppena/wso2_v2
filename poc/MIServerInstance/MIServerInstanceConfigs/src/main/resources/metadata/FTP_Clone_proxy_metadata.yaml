@@ -1,0 +1,10 @@
+---
+key: "FTP_Clone_proxy-1.0.0"
+name : "FTP_Clone"
+displayName : "FTP_Clone"
+description: "Sample Proxy Service"
+version: "1.0.0"
+serviceUrl: "https://{MI_HOST}:{MI_PORT}/services/FTP_Clone"
+definitionType: "WSDL1"
+securityType: "BASIC"
+mutualSSLEnabled: false

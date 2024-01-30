@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/procedure_call" name="ProcedureCall_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET">
+        <inSequence>
+            <dblookup>
+                <connection>
+                    <pool>
+                        <driver>com.mysql.cj.jdbc.Driver</driver>
+                        <url>jdbc:mysql://localhost:3306/notifications?useSSL=false</url>
+                        <user>root</user>
+                        <password>Pashi@13</password>
+                    </pool>
+                </connection>
+                <statement>
+                    <sql><![CDATA[CALL `notifications`.`get_test_data`();]]></sql>
+                    <result column="request" name="message"/>
+                </statement>
+            </dblookup>
+            <log level="custom">
+                <property expression="$ctx:message" name="Log"/>
+            </log>
+            <payloadFactory media-type="json">
+                <format>"$1"</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:message"/>
+                </args>
+            </payloadFactory>
+            <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

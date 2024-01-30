@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/customer_data" name="OracleConnection_getCustData" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET">
+        <inSequence>
+            <dblookup>
+                <connection>
+                    <pool>
+                        <driver>oracle.jdbc.driver.OracleDriver</driver>
+                        <url>jdbc:oracle:thin:@172.16.110.237:1521/bscsr17</url>
+                        <user>sysadm</user>
+                        <password>SYSADM2020</password>
+                    </pool>
+                </connection>
+                <statement>
+                    <sql><![CDATA[select * from customer_all where customer_id=518531]]></sql>
+                    <result column="3" name="message"/>
+                </statement>
+            </dblookup>
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+"message":$1&#xd;
+}</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:message"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

@@ -1,0 +1,10 @@
+---
+key: "PSVFileProcessing_2ProxyService_proxy-1.0.0"
+name : "PSVFileProcessing_2ProxyService"
+displayName : "PSVFileProcessing_2ProxyService"
+description: "Sample Proxy Service"
+version: "1.0.0"
+serviceUrl: "https://{MI_HOST}:{MI_PORT}/services/PSVFileProcessing_2ProxyService"
+definitionType: "WSDL1"
+securityType: "BASIC"
+mutualSSLEnabled: false

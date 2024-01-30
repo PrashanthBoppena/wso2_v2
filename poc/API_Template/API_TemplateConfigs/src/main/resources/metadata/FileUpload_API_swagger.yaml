@@ -1,0 +1,13 @@
+openapi: 3.0.1
+info:
+  title: FileUpload_API
+  description: API Definition of FileUpload_API
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/upload-file
+paths:
+  /:
+    post:
+      responses:
+        default:
+          description: Default response

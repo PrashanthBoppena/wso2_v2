@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="FileDetailsCaptureSequence" onError="FaultSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <propertyGroup>
+        <property expression="fn:concat('test-', get-property('transport', 'FILE_PATH'))" name="File" scope="default" type="STRING"/>
+        <property expression="get-property('MessageID')" name="uuid" scope="default" type="STRING"/>
+        <property expression="substring-after(get-property('uuid'), 'urn:uuid:')" name="req_id" scope="default" type="STRING"/>
+        <property expression="$trp:FILE_NAME" name="filename" scope="default" type="STRING"/>
+        <property expression="$body/*" name="payload" scope="default" type="STRING"/>
+        <property expression="substring-before(get-property('filename'), '.')" name="operation" scope="default" type="STRING"/>
+    </propertyGroup>
+    <log level="custom">
+        <property expression="$ctx:filename" name="$trp:FILE_NAME"/>
+    </log>
+    <log level="custom">
+        <property expression="get-property('transport', 'FILE_NAME')" name="get-property('transport', 'FILE_NAME')"/>
+    </log>
+    <log level="custom">
+        <property expression="$ctx:operation" name="operation"/>
+    </log>
+    <log level="custom">
+        <property expression="get-property('req_id')" name="MessageID"/>
+    </log>
+    <log level="custom">
+        <property expression="get-property('payload')" name="ExtractedData"/>
+    </log>
+    <log level="custom">
+        <property expression="get-property('File')" name="ExtractedData"/>
+    </log>
+</sequence>

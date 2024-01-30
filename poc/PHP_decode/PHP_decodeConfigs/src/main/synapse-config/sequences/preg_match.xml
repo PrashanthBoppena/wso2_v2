@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="preg_match" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <script language="js"><![CDATA[var sysconfig_result = mc.getProperty('sysconfig_result');
+            
+            while (sysconfig_result.next()) {
+                var ID = sysconfig_result.getString('ID');
+                var Configuration_Item = sysconfig_result.getString('Configuration_Item');
+                var Value = sysconfig_result.getString('Value');
+                
+                if (Configuration_Item.match(/^MERCHANT_PASSWORD.*/)) {
+                    mc.setProperty('merchant_password', Value);
+                }
+                if (Configuration_Item.match(/^MERCHANT_ID.*/)) {
+                    mc.setProperty('merchant_id', Value);
+                }
+                if (Configuration_Item.match(/^ACQUIRE_ID.*/)) {
+                    mc.setProperty('acquire_id', Value);
+                }
+                if (Configuration_Item.match(/^PAYMENT_FILE_LOCAL_DIRECTORY.*/)) {
+                    mc.setProperty('payment_file_directory', Value);
+                }
+                if (Configuration_Item.match(/^PAYMENT_FILE_REMOTE_DIRECTORY.*/)) {
+                    mc.setProperty('payment_file_ftp_directory', Value);
+                }
+                if (Configuration_Item.match(/^PAYMENT_FILE_LOCAL_BACKUP.*/)) {
+                    mc.setProperty('payment_file_backup', Value);
+                }
+                if (Configuration_Item.match(/^IT_APPS_BSCS_API_GW_USER.*/)) {
+                    mc.setProperty('apigw_user', Value);
+                }
+                if (Configuration_Item.match(/^IT_APPS_BSCS_API_GW_PASS.*/)) {
+                    mc.setProperty('apigw_pass', Value);
+                }
+                if (Configuration_Item.match(/^PAYMENT_FILE_REMOTE_IP.*/)) {
+                    mc.setProperty('payment_ftp_ipaddress', Value);
+                }
+                if (Configuration_Item.match(/^PAYMENT_FILE_REMOTE_USER.*/)) {
+                    mc.setProperty('payment_ftp_user', Value);
+                }
+                if (Configuration_Item.match(/^PAYMENT_FILE_REMOTE_PASS.*/)) {
+                    mc.setProperty('payment_ftp_pass', Value);
+                }
+                if (Configuration_Item.match(/^SELFCARE_ORIGINATING_ADDRESS.*/)) {
+                    mc.setProperty('self_originating_address', Value);
+                }
+                if (Configuration_Item.match(/^ORDER_ID_VALIDITY.*/)) {
+                    mc.setProperty('order_id_session_timeout', Value);
+                }
+                if (Configuration_Item.match(/^PACKAGE_ORIGINATING_ADDRESS.*/)) {
+                    mc.setProperty('package_originating_address', Value);
+                }
+                if (Configuration_Item.match(/^PromoStartDate.*/)) {
+                    mc.setProperty('promo_start_date', Value);
+                }
+                if (Configuration_Item.match(/^PromoendDate.*/)) {
+                    mc.setProperty('promo_end_date', Value);
+                }
+                if (Configuration_Item.match(/^VoicePromoStartDate.*/)) {
+                    mc.setProperty('promo_start_date_voice', Value);
+                }
+                if (Configuration_Item.match(/^VoicePromoendDate.*/)) {
+                    mc.setProperty('promo_end_date_voice', Value);
+                }
+                if (Configuration_Item.match(/^promopercent_pre.*/)) {
+                    mc.setProperty('promopercent', Value);
+                }
+                if (Configuration_Item.match(/^promopercent_post.*/)) {
+                    mc.setProperty('promopercent_post', Value);
+                }
+                if (Configuration_Item.match(/^RAASTAS_TAX.*/)) {
+                    mc.setProperty('raastas_tax', Value);
+                }
+                if (Configuration_Item.match(/^RAASTAS_MAXAMT.*/)) {
+                    mc.setProperty('raastas_max', Value);
+                }
+                if (Configuration_Item.match(/^RAASTAS_DAILY_TX_LIMIT.*/)) {
+                    mc.setProperty('raastas_max_tx_limit', Value);
+                }
+                if (Configuration_Item.match(/^DAILY_RAASTAS_MAXAMT.*/)) {
+                    mc.setProperty('raastas_max_daily_limit', Value);
+                }
+            }
+            
+            sysconfig_result.close();]]></script>
+</sequence>

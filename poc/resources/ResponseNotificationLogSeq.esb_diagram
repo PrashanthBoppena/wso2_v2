@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_isPyUBiiEe60TY6DacrEMQ" type="Esb" name="ResponseNotificationLogSeq" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_is2PQBiiEe60TY6DacrEMQ" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_is22UBiiEe60TY6DacrEMQ" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_iwjqkBiiEe60TY6DacrEMQ" type="3614">
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_iwjqkRiiEe60TY6DacrEMQ"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_iwjqkhiiEe60TY6DacrEMQ" fontName="Segoe UI"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_iwjqkxiiEe60TY6DacrEMQ"/>
+        <element xmi:type="esb:Sequences" href="ResponseNotificationLogSeq.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iwjqlBiiEe60TY6DacrEMQ" width="195" height="125"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_is2PQRiiEe60TY6DacrEMQ"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_is2PQhiiEe60TY6DacrEMQ" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_is2PQxiiEe60TY6DacrEMQ"/>
+    <element xmi:type="esb:EsbServer" href="ResponseNotificationLogSeq.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_is2PRBiiEe60TY6DacrEMQ"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_isPyURiiEe60TY6DacrEMQ"/>
+  <element xmi:type="esb:EsbDiagram" href="ResponseNotificationLogSeq.esb#/"/>
+</notation:Diagram>

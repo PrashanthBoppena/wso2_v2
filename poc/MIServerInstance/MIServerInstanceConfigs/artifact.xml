@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="FileToM1Server" groupId="com.example.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/FileToM1Server.xml</file>
+    </artifact>
+    <artifact name="FileToM1Server_proxy_metadata" groupId="com.example.proxy-service.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/FileToM1Server_proxy_metadata.yaml</file>
+    </artifact>
+    <artifact name="FileToM2Server" groupId="com.example.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/FileToM2Server.xml</file>
+    </artifact>
+    <artifact name="FileToM2Server_proxy_metadata" groupId="com.example.proxy-service.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/FileToM2Server_proxy_metadata.yaml</file>
+    </artifact>
+    <artifact name="FTP_Clone" groupId="com.example.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/FTP_Clone.xml</file>
+    </artifact>
+    <artifact name="FTP_Clone_proxy_metadata" groupId="com.example.proxy-service.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/FTP_Clone_proxy_metadata.yaml</file>
+    </artifact>
+    <artifact name="PSVFileProcessingProxyService" groupId="com.example.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/PSVFileProcessingProxyService.xml</file>
+    </artifact>
+    <artifact name="PSVFileProcessingProxyService_proxy_metadata" groupId="com.example.proxy-service.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/PSVFileProcessingProxyService_proxy_metadata.yaml</file>
+    </artifact>
+    <artifact name="PSVFileProcessing_2ProxyService" groupId="com.example.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/PSVFileProcessing_2ProxyService.xml</file>
+    </artifact>
+    <artifact name="PSVFileProcessing_2ProxyService_proxy_metadata" groupId="com.example.proxy-service.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/PSVFileProcessing_2ProxyService_proxy_metadata.yaml</file>
+    </artifact>
+</artifacts>

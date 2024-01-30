@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esb:EsbDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb">
+  <server type="SEQUENCE">
+    <children xsi:type="esb:Sequences" name="DBReportSeq">
+      <outputConnector>
+        <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
+      </outputConnector>
+      <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
+      <mediatorFlow>
+        <children xsi:type="esb:PropertyGroupMediator">
+          <inputConnector incomingLinks="//@server/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.1/@inputConnector"/>
+          </outputConnector>
+          <properties propertyName="ERROR_CODE" valueType="EXPRESSION">
+            <inputConnector/>
+            <outputConnector/>
+            <valueExpression propertyValue="get-property('ERROR_CODE')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+          </properties>
+          <properties propertyName="ERROR_MESSAGE" valueType="EXPRESSION">
+            <inputConnector/>
+            <outputConnector/>
+            <valueExpression propertyValue="get-property('ERROR_MESSAGE')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+          </properties>
+          <properties valueType="EXPRESSION" newPropertyName="STATUS_CODE">
+            <inputConnector/>
+            <outputConnector/>
+            <valueExpression propertyValue="$axis2:HTTP_SC" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+          </properties>
+          <properties valueType="EXPRESSION" newPropertyName="STATUS_DESC">
+            <inputConnector/>
+            <outputConnector/>
+            <valueExpression propertyValue="$axis2:HTTP_SC_DESC" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+          </properties>
+        </children>
+        <children xsi:type="esb:DBReportMediator" connectionDbType="MYSQL" connectionDbDriver="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/training" connectionUsername="root" connectionPassword="Pashi@13">
+          <sqlStatements queryString="insert into bscs_faultseq (time,service_url, error_code, error_message, status_code, status_desc, input_payload, output_response) values (sysdate(),?,?,?,?,?,?,?);">
+            <parameters dataType="VARCHAR" valueLiteral="default">
+              <valueExpression propertyValue="$ctx:Service_URL" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </parameters>
+            <parameters dataType="VARCHAR" valueLiteral="default">
+              <valueExpression propertyValue="$ctx:ERROR_CODE" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </parameters>
+            <parameters dataType="VARCHAR" valueLiteral="default">
+              <valueExpression propertyValue="$ctx:ERROR_MESSAGE" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </parameters>
+            <parameters dataType="VARCHAR" valueLiteral="default">
+              <valueExpression propertyValue="$ctx:STATUS_CODE" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </parameters>
+            <parameters dataType="VARCHAR" valueLiteral="default">
+              <valueExpression propertyValue="$ctx:STATUS_DESC" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </parameters>
+            <parameters valueLiteral="default">
+              <valueExpression propertyValue="$ctx:INPUT_PAYLOAD" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </parameters>
+            <parameters valueLiteral="default">
+              <valueExpression propertyValue="$ctx:OUTPUT_RESPONSE" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+            </parameters>
+          </sqlStatements>
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@inputConnector"/>
+          </outputConnector>
+        </children>
+      </mediatorFlow>
+      <onError prettyName="OnError sequence Key" keyName="OnError sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+    </children>
+  </server>
+</esb:EsbDiagram>

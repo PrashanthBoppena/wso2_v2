@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/process/retry" name="RecallProcessSeqApi" xmlns="http://ws.apache.org/ns/synapse">
+    <resource faultSequence="FaultSequence" methods="POST">
+        <inSequence>
+            <sequence key="dynamic_propvariable_setupSEQ"/>
+            <property description="apiRegistryConfigs" expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath" scope="default" type="STRING"/>
+            <property description="compositeEndpoint" expression="$ctx:apiName" name="compositeEndpoint" scope="default" type="STRING"/>
+            <property description="sourceRequestID" expression="$ctx:sourceRequestID" name="sourceRequestID" scope="default" type="STRING"/>
+            <class name="com.uol.mediators.RetryFlowMediator">
+                <property expression="$ctx:sourceRequestID" name="sourceRequestID"/>
+            </class>
+            <payloadFactory description="buildResponsePayload" media-type="json">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:xmlResponse"/>
+                </args>
+            </payloadFactory>
+            <class description="UOLResponseLog" name="com.uol.mediators.UOLResponseLogMediator">
+                <property expression="$ctx:source_req_id" name="source_req_id"/>
+                <property expression="$ctx:source_req_id" name="child_req_id"/>
+                <property expression="json-eval($)" name="response"/>
+                <property expression="$ctx:statusCode" name="status"/>
+            </class>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+    </resource>
+</api>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/validate_customer" name="CustomerValidation_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST GET">
+        <inSequence>
+            <filter regex="false" source="boolean($trp:parentId)">
+                <then>
+                    <log description="parentId null" level="custom">
+                        <property name="Log" value="This call is Main call"/>
+                    </log>
+                    <sequence key="gov:custom/sequences/parentIdGenerateSeq.xml"/>
+                    <property description="childId" name="childId" scope="default" type="STRING" value="Main"/>
+                </then>
+                <else>
+                    <log description="parent Id from $trp" level="custom">
+                        <property name="Log" value="This call is child call having parent Id"/>
+                        <property expression="$trp:parentId" name="log parentId header==>"/>
+                    </log>
+                    <property description="parentId" expression="$trp:parentId" name="parentId" scope="default" type="STRING"/>
+                    <sequence key="gov:custom/sequences/childIdGeneratingSeq.xml"/>
+                    <property action="remove" description="make $trp parentId null" name="parentId" scope="transport"/>
+                </else>
+            </filter>
+            <sequence key="gov:custom/sequences/CommonAPIPropertiesCollectionSeq.xml"/>
+            <class description="SystemRequestLogs" name="com.knot.uol.utils.SystemRequestNewLog">
+                <property name="process" value="customerValidation(KYC)"/>
+                <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+                <property expression="json-eval($)" name="requestPayload"/>
+                <property expression="get-property('SYNAPSE_REST_API')" name="apiName"/>
+                <property expression="$ctx:parentId" name="parentId"/>
+                <property expression="$ctx:processId" name="processId"/>
+                <property expression="$ctx:childId" name="childId"/>
+            </class>
+            <validate cache-schema="true" source="json-eval($)">
+                <schema key="conf:bscsReqsValidations/customer/Customer_Validation_Schema.json"/>
+                <on-fail>
+                    <log description="Validation Log"/>
+                    <payloadFactory description="Invalid Input Response" media-type="json">
+                        <format>{&#xd;
+	"validateStatus":false&#xd;
+    "ERROR": "INVALID INPUTS",&#xd;
+    "Message": "Please Give the Customer_ID, or NIC ,or passport"&#xd;
+}</format>
+                        <args/>
+                    </payloadFactory>
+                    <class description="SystemResponseLogs" name="com.knot.uol.utils.SystemResponseUpdateLog">
+                        <property expression="$ctx:parentId" name="parentId"/>
+                        <property expression="$ctx:processId" name="processId"/>
+                        <property expression="json-eval($)" name="responsePayload"/>
+                        <property expression="$axis2:HTTP_SC" name="status"/>
+                        <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+                        <property expression="$ctx:childId" name="childId"/>
+                    </class>
+                    <respond description="Responds for Fault Input"/>
+                </on-fail>
+            </validate>
+            <sequence key="gov:custom/sequences/CommonAPIPropertiesCollectionSeq.xml"/>
+            <propertyGroup description="Getting Properties From Request Payload">
+                <property expression="json-eval($.parameters.customer_id)" name="cust_id" scope="default" type="STRING"/>
+                <property expression="json-eval($.parameters.NIC)" name="NIC" scope="default" type="STRING"/>
+                <property expression="json-eval($.parameters.passport)" name="passport" scope="default" type="STRING"/>
+                <property expression="json-eval($)" name="requestPayload" scope="default" type="STRING"/>
+            </propertyGroup>
+            <script description="SETTING THE QUERY NAME" language="js"><![CDATA[var cust_id = mc.getProperty('cust_id'); 
+var NIC = mc.getProperty('NIC'); 
+var passport = mc.getProperty('passport'); 
+var sqlQuery = ""; 
+if (cust_id) {  
+sqlQuery = "customer_id"; 
+} else if (NIC) { 
+sqlQuery = "NIC"; 
+} else if (passport) { 
+sqlQuery = "passport"; 
+} 
+mc.setProperty('queryName', sqlQuery);]]></script>
+            <log description="queryName">
+                <property expression="$ctx:queryName" name="queryName"/>
+                <property expression="json-eval($.parameters)" name="Parameters"/>
+            </log>
+            <payloadFactory description="Dynamic Query Payload" media-type="json">
+                <format>{&#xd;
+    "queryName": "customer_id",&#xd;
+    "parameters": {&#xd;
+   		"customer_id": "518531"&#xd;
+    }&#xd;
+}</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:queryName"/>
+                    <arg evaluator="json" expression="$.parameters"/>
+                    <arg evaluator="json" expression="$.bscs_params"/>
+                </args>
+            </payloadFactory>
+            <propertyGroup description="BSCS Properties">
+                <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath" scope="default" type="STRING"/>
+                <property expression="json-eval($)" name="dynamicQueryMediatorRequestPayload" scope="default" type="STRING"/>
+            </propertyGroup>
+            <class description="Dynamic Query" name="com.knot.uol.mediators.DynamicXMLQueryMediator"/>
+            <propertyGroup>
+                <property expression="$ctx:dynamicQueryMediatorResponsePayload" name="responsePayload" scope="default" type="STRING"/>
+                <property expression="json-eval($ctx:dynamicQueryMediatorResponsePayload.response.length())" name="responseObjLength" scope="default" type="STRING"/>
+            </propertyGroup>
+            <log description="Debug Before Filter" level="custom">
+                <property expression="json-eval($ctx:responsePayload.response)" name="Response"/>
+                <property expression="$ctx:responseObjLength" name="json-eval($ctx:dynamicQueryMediatorResponsePayload.response.length())"/>
+            </log>
+            <filter regex="0" source="$ctx:responseObjLength">
+                <then>
+                    <payloadFactory description="NO Customer Response." media-type="json">
+                        <format>{&#xd;
+	"validateStatus":false,&#xd;
+    "ERROR": {&#xd;
+        "Message": "The Given Customer Is Invalid Based on Input [customer_id ] or [NIC] or [passport]"&#xd;
+    }&#xd;
+}</format>
+                        <args>
+                            <arg evaluator="xml" expression="$ctx:responsePayload"/>
+                        </args>
+                    </payloadFactory>
+                </then>
+                <else>
+                    <payloadFactory media-type="json">
+                        <format>{&#xd;
+	"validateStatus":true,&#xd;
+    "Response": $1&#xd;
+    &#xd;
+}</format>
+                        <args>
+                            <arg evaluator="json" expression="$ctx:dynamicQueryMediatorResponsePayload.response"/>
+                        </args>
+                    </payloadFactory>
+                </else>
+            </filter>
+            <class description="SystemResponseLogs" name="com.knot.uol.utils.SystemResponseUpdateLog">
+                <property expression="$ctx:parentId" name="parentId"/>
+                <property expression="$ctx:processId" name="processId"/>
+                <property expression="json-eval($)" name="responsePayload"/>
+                <property expression="$axis2:HTTP_SC" name="status"/>
+                <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+                <property expression="$ctx:childId" name="childId"/>
+            </class>
+            <respond description="Responds after Calling End Point."/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <sequence key="gov:custom/sequences/FaultSequence.xml"/>
+            <class description="SystemResponseLogs" name="com.knot.uol.utils.SystemResponseUpdateLog">
+                <property expression="$ctx:parentId" name="parentId"/>
+                <property expression="$ctx:processId" name="processId"/>
+                <property expression="json-eval($)" name="responsePayload"/>
+                <property expression="$axis2:HTTP_SC" name="status"/>
+                <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+                <property expression="$ctx:childId" name="childId"/>
+            </class>
+            <respond/>
+        </faultSequence>
+    </resource>
+</api>

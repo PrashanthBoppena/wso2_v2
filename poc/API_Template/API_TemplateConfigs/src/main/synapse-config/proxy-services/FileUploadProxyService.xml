@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="FileUploadProxyService" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <property expression="//FILE/@filename" name="filename" scope="default" type="STRING"/>
+            <property expression="//FILE/text()" name="fileContent" scope="default" type="STRING"/>
+            <property expression="fn:concat('test-', get-property('transport', 'FILE_PATH'))" name="File" scope="default" type="STRING"/>
+            <property expression="base64Decode(get-property('fileContent'))" name="decodedContent" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="get-property('filename')" name="Extracted Filename"/>
+            </log>
+            <log level="custom">
+                <property expression="get-property('decodedContent')" name="Extracted Filecontent"/>
+            </log>
+            <property expression="$trp:Content-Type" name="content_type" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="get-property('content_type')" name="Content-Type"/>
+            </log>
+            <enrich>
+                <source clone="true" property="decodedContent" type="property"/>
+                <target type="body"/>
+            </enrich>
+            <!-- <payloadFactory media-type="xml">
+                <format>
+                    <data xmlns="">$1</data>
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('decodedContent')"/>
+                </args>
+            </payloadFactory>   -->
+            <header expression="fn:concat('vfs:sftp://bscsr17:Bscs%402020@172.16.110.237/home/bscsr17/WSO2Test/', get-property('filename'),'?sftpPathFromRoot=true')" name="To" scope="default"/>
+            <property name="HTTP_METHOD" scope="axis2" type="STRING" value="POST"/>
+            <property name="messageType" scope="axis2" type="STRING" value="application/octet-stream"/>
+            <call>
+                <endpoint>
+                    <default>
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>1</progressionFactor>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </default>
+                </endpoint>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </target>
+</proxy>

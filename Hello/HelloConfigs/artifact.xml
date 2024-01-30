@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="Hello_API" groupId="com.knot.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/Hello_API.xml</file>
+    </artifact>
+    <artifact name="Hello_API_swagger" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/Hello_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="Hello_API_metadata" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/Hello_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="AddressRead_API" groupId="com.knot.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/AddressRead_API.xml</file>
+    </artifact>
+    <artifact name="AddressRead_API_swagger" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/AddressRead_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="AddressRead_API_metadata" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/AddressRead_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="RegPropertiesCheck" groupId="com.knot.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/RegPropertiesCheck.xml</file>
+    </artifact>
+    <artifact name="RegPropertiesCheck_swagger" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/RegPropertiesCheck_swagger.yaml</file>
+    </artifact>
+    <artifact name="RegPropertiesCheck_metadata" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/RegPropertiesCheck_metadata.yaml</file>
+    </artifact>
+    <artifact name="sample-local-entry" groupId="com.knot.local-entry" version="1.0.0" type="synapse/local-entry" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/local-entries/sample-local-entry.xml</file>
+    </artifact>
+    <artifact name="Local-entries-check" groupId="com.knot.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/Local-entries-check.xml</file>
+    </artifact>
+    <artifact name="Local-entries-check_swagger" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/Local-entries-check_swagger.yaml</file>
+    </artifact>
+    <artifact name="Local-entries-check_metadata" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/Local-entries-check_metadata.yaml</file>
+    </artifact>
+    <artifact name="GeneratePDFSequence" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/GeneratePDFSequence.xml</file>
+    </artifact>
+    <artifact name="SequenceCalling_API" groupId="com.knot.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/SequenceCalling_API.xml</file>
+    </artifact>
+    <artifact name="SequenceCalling_API_swagger" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/SequenceCalling_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="SequenceCalling_API_metadata" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/SequenceCalling_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="DBReportSeq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/DBReportSeq.xml</file>
+    </artifact>
+    <artifact name="BSCSAddressReadSeq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/BSCSAddressReadSeq.xml</file>
+    </artifact>
+    <artifact name="FaultSequence" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/FaultSequence.xml</file>
+    </artifact>
+</artifacts>

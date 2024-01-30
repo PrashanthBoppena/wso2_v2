@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="NotificationInputValidationSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <enrich>
+        <source clone="true" property="request" type="property"/>
+        <target type="body"/>
+    </enrich>
+    <log level="custom">
+        <property expression="json-eval($)" name="Validation input"/>
+    </log>
+    <validate cache-schema="true" source="json-eval($)">
+        <schema key="conf:endpoints/NotificationInputJSONSchema.json"/>
+        <on-fail>
+            <log description="LOG ERROR MESSAGE" level="custom">
+                <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+            </log>
+            <propertyGroup>
+                <property name="HTTP_SC" scope="axis2" type="STRING" value="400"/>
+            </propertyGroup>
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+"Status":400,&#xd;
+"Message":"Bad Request",&#xd;
+"Detail":"$1"&#xd;
+}</format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('ERROR_MESSAGE')"/>
+                </args>
+            </payloadFactory>
+            <enrich>
+                <source clone="true" type="body"/>
+                <target property="response" type="property"/>
+            </enrich>
+            <sequence key="APIReqHandlerUpdateSeq"/>
+            <payloadFactory media-type="json">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:response"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </on-fail>
+    </validate>
+</sequence>

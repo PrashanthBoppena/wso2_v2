@@ -1,0 +1,11 @@
+---
+key: "mock_api-1.0.0"
+name : "mock_api"
+displayName : "mock_api"
+description: "Sample API"
+version: "1.0.0"
+serviceUrl: "https://{MI_HOST}:{MI_PORT}/mock_api"
+definitionType: "OAS3"
+securityType: "BASIC"
+mutualSSLEnabled: false
+apiId : "null"

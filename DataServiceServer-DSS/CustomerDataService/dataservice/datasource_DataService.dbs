@@ -1,0 +1,90 @@
+<data transports="http https" serviceStatus="active" serviceNamespace="http://ws.wso2.org/dataservice" name="datasource_DataService" enableBoxcarring="true" enableBatchRequests="true" disableLegacyBoxcarringMode="false">
+  <description>single service for whole database</description>
+  <config id="default">
+    <property name="carbon_datasource_name">MySQLConnection</property>
+  </config>
+  <query id="select_all_customers_query" useConfig="default">
+    <sql>SELECT ID, Name, Email, Country, Company FROM customers</sql>
+    <result rowName="customers" element="customersCollection">
+      <element name="Company" xsdType="xs:string" column="Company" />
+      <element name="Email" xsdType="xs:string" column="Email" />
+      <element name="Country" xsdType="xs:string" column="Country" />
+      <element name="ID" xsdType="xs:integer" column="ID" />
+      <element name="Name" xsdType="xs:string" column="Name" />
+    </result>
+  </query>
+  <operation name="allCustomers">
+    <call-query href="select_all_customers_query" />
+  </operation>
+  <resource path="customers" method="GET">
+    <call-query href="select_all_customers_query" />
+  </resource>
+  <query id="getCustomerByNumberQuery" useConfig="default">
+    <sql>select ID, Name, Email, Country, Company from Customers where ID=:ID</sql>
+    <result rowName="Entry" element="Entries">
+      <element name="ID" xsdType="integer" column="ID" />
+      <element name="Name" xsdType="string" column="Name" />
+      <element name="Email" xsdType="string" column="Email" />
+      <element name="Country" xsdType="string" column="Country" />
+      <element name="Company" xsdType="string" column="Company" />
+    </result>
+    <param name="ID" sqlType="integer" />
+  </query>
+  <operation name="getCustomerByNumber">
+    <call-query href="getCustomerByNumberQuery">
+      <with-param name="ID" query-param="ID" />
+    </call-query>
+  </operation>
+  <query id="insert_customers_query" useConfig="default">
+    <sql>INSERT INTO customers(Company,Email,Country,ID,Name) VALUES(?,?,?,?,?)</sql>
+    <param type="IN" name="Company" sqlType="STRING" paramType="SCALAR" ordinal="1" />
+    <param type="IN" name="Email" sqlType="STRING" paramType="SCALAR" ordinal="2" />
+    <param type="IN" name="Country" sqlType="STRING" paramType="SCALAR" ordinal="3" />
+    <param type="IN" name="ID" sqlType="INTEGER" paramType="SCALAR" ordinal="4" />
+    <param type="IN" name="Name" sqlType="STRING" paramType="SCALAR" ordinal="5" />
+  </query>
+  <operation name="addCustomer" returnRequestStatus="true">
+    <call-query href="insert_customers_query">
+      <with-param name="Company" query-param="Company" />
+      <with-param name="Email" query-param="Email" />
+      <with-param name="Country" query-param="Country" />
+      <with-param name="ID" query-param="ID" />
+      <with-param name="Name" query-param="Name" />
+    </call-query>
+  </operation>
+  <resource path="customers" method="POST">
+    <call-query href="insert_customers_query">
+      <with-param name="Company" query-param="Company" />
+      <with-param name="Email" query-param="Email" />
+      <with-param name="Country" query-param="Country" />
+      <with-param name="ID" query-param="ID" />
+      <with-param name="Name" query-param="Name" />
+    </call-query>
+  </resource>
+  <query id="update_customers_query" useConfig="default">
+    <sql>UPDATE customers SET Company=?,Email=?,Country=?,Name=? WHERE ID=?</sql>
+    <param type="IN" name="Company" sqlType="STRING" paramType="SCALAR" ordinal="1" />
+    <param type="IN" name="Email" sqlType="STRING" paramType="SCALAR" ordinal="2" />
+    <param type="IN" name="Country" sqlType="STRING" paramType="SCALAR" ordinal="3" />
+    <param type="IN" name="Name" sqlType="STRING" paramType="SCALAR" ordinal="4" />
+    <param type="IN" name="ID" sqlType="INTEGER" paramType="SCALAR" ordinal="5" />
+  </query>
+  <resource path="customers" method="PUT">
+    <call-query href="update_customers_query">
+      <with-param name="Company" query-param="Company" />
+      <with-param name="Email" query-param="Email" />
+      <with-param name="Country" query-param="Country" />
+      <with-param name="Name" query-param="Name" />
+      <with-param name="ID" query-param="ID" />
+    </call-query>
+  </resource>
+  <query id="delete_customers_query" useConfig="default">
+    <sql>DELETE FROM customers WHERE ID=?</sql>
+    <param type="IN" name="ID" sqlType="INTEGER" paramType="SCALAR" ordinal="1" />
+  </query>
+  <resource path="customers" method="DELETE">
+    <call-query href="delete_customers_query">
+      <with-param name="ID" query-param="ID" />
+    </call-query>
+  </resource>
+</data>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="DynamicQueryCall_API" groupId="com.knot.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/DynamicQueryCall_API.xml</file>
+    </artifact>
+    <artifact name="DynamicQueryCall_API_swagger" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/DynamicQueryCall_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="DynamicQueryCall_API_metadata" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/DynamicQueryCall_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="FaultSequence" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/FaultSequence.xml</file>
+    </artifact>
+    <artifact name="CommonAPISeqPropertiesCollectionSeq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/CommonAPISeqPropertiesCollectionSeq.xml</file>
+    </artifact>
+</artifacts>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="EligibilityConfigCheck_API" groupId="com.knot.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/EligibilityConfigCheck_API.xml</file>
+    </artifact>
+    <artifact name="EligibilityConfigCheck_API_swagger" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/EligibilityConfigCheck_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="EligibilityConfigCheck_API_metadata" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/EligibilityConfigCheck_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="REST_API_Call_Seq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/REST_API_Call_Seq.xml</file>
+    </artifact>
+    <artifact name="EB_SOAP_Call_Seq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/EB_SOAP_Call_Seq.xml</file>
+    </artifact>
+    <artifact name="Dynamic_Query_Call_Seq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/Dynamic_Query_Call_Seq.xml</file>
+    </artifact>
+    <artifact name="DynamicMediation_API" groupId="com.knot.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/DynamicMediation_API.xml</file>
+    </artifact>
+    <artifact name="AggregateResponsesSeq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/AggregateResponsesSeq.xml</file>
+    </artifact>
+    <artifact name="EligibilityCheckSequence" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/EligibilityCheckSequence.xml</file>
+    </artifact>
+    <artifact name="customerValidationSequence" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/customerValidationSequence.xml</file>
+    </artifact>
+    <artifact name="CustomerValidation_API" groupId="com.knot.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/CustomerValidation_API.xml</file>
+    </artifact>
+    <artifact name="CustomerValidation_API_swagger" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/CustomerValidation_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="CustomerValidation_API_metadata" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/CustomerValidation_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="NMS_Call_Seq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/NMS_Call_Seq.xml</file>
+    </artifact>
+    <artifact name="compositeDynamicSequence" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/compositeDynamicSequence.xml</file>
+    </artifact>
+    <artifact name="dynamicSequenceCheck_API" groupId="com.knot.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/dynamicSequenceCheck_API.xml</file>
+    </artifact>
+    <artifact name="dynamicSequenceCheck_API_swagger" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/dynamicSequenceCheck_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="dynamicSequenceCheck_API_metadata" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/dynamicSequenceCheck_API_metadata.yaml</file>
+    </artifact>
+</artifacts>

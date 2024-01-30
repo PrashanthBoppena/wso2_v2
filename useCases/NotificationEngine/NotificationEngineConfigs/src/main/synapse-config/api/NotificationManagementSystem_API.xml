@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/notify" name="NotificationManagementSystem_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource faultSequence="FaultSequence" methods="POST GET">
+        <inSequence>
+            <property expression="json-eval($)" name="requestPayload" scope="default" type="STRING"/>
+            <sequence key="gov:custom/sequences/DynamicPropertySetterSequence_Script.xml"/>
+            <class name="com.knot.Datasource.NotificationDataSource">
+                <property expression="json-eval($ctx:requestPayload.templateId)" name="templateId"/>
+            </class>
+            <payloadFactory media-type="json">
+                <format>$1&#xd;
+</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:dbResponse"/>
+                </args>
+            </payloadFactory>
+            <filter regex="true" source="fn:string-length($body) > 0">
+                <then>
+                    <script description="dynamic params loading" language="js"><![CDATA[var log = mc.getServiceLog();
+          var jsonPayload = mc.getPayloadJSON();
+         //var jsonPayload = JSON.parse(mc.getProperty('request'));
+        
+         for (var key in jsonPayload) {
+            if (jsonPayload.hasOwnProperty(key)) {
+        		var trimmedKey = key.trim();
+        		var value = jsonPayload[key];
+        		var trimmedValue = value;
+        		mc.setProperty(trimmedKey, trimmedValue); 
+                //log.info(trimmedKey+"="+trimmedValue);
+            }
+         }]]></script>
+                    <filter regex="1" source="$ctx:isDynamic">
+                        <then>
+                            <script description="template building" language="js"><![CDATA[var log = mc.getServiceLog();
+            var message = mc.getProperty("templateContent");
+            var parameters = mc.getProperty("parameters").split(",");
+                   
+           
+            for (var i = 0; i < parameters.length; i++) {
+            var parameter = parameters[i].trim();
+            
+                
+             var placeholder = "$" + parameter + "$";
+             var propertyValue = mc.getProperty(parameter);
+    
+    		if (propertyValue !== null && propertyValue !== undefined) {
+       		 message = message.replace(placeholder, propertyValue);
+    			}
+            }
+            mc.setProperty("message",message);
+            log.info(message);]]></script>
+                        </then>
+                        <else>
+                            <property description="static message" expression="$ctx:templateContent" name="message" scope="default" type="STRING"/>
+                        </else>
+                    </filter>
+                </then>
+                <else>
+                    <payloadFactory media-type="json">
+                        <format>{&#xd;
+"CUSTOM_MESSAGE":"Db Response is Empty/Invalid Request!.."&#xd;
+}</format>
+                        <args/>
+                    </payloadFactory>
+                </else>
+            </filter>
+            <payloadFactory media-type="json" template-type="freemarker">
+                <format><![CDATA[{
+"Message":"${ctx.message}"
+}]]></format>
+                <args/>
+            </payloadFactory>
+            <store messageStore="NotificationsProducerMS"/>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+    </resource>
+</api>

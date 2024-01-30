@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_mvdwYFxfEe6MKMKeBpihpg" type="Esb" name="priority-outbound-service" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_mwhgUFxfEe6MKMKeBpihpg" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_mwiHYFxfEe6MKMKeBpihpg" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_nZMC0FxfEe6MKMKeBpihpg" type="3001">
+        <children xmi:type="notation:DecorationNode" xmi:id="_nZMC1VxfEe6MKMKeBpihpg" type="5003"/>
+        <children xmi:type="notation:Node" xmi:id="_nZQUQFxfEe6MKMKeBpihpg" type="3002">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_nZQUQVxfEe6MKMKeBpihpg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nZQUQlxfEe6MKMKeBpihpg" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_nZQUQ1xfEe6MKMKeBpihpg"/>
+          <element xmi:type="esb:ProxyOutputConnector" href="priority-outbound-service.esb#//@server/@children.0/@outputConnector"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nZQURFxfEe6MKMKeBpihpg" x="86" y="-23"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_nZQ7UFxfEe6MKMKeBpihpg" type="3003">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_nZQ7UVxfEe6MKMKeBpihpg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nZQ7UlxfEe6MKMKeBpihpg" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_nZQ7U1xfEe6MKMKeBpihpg"/>
+          <element xmi:type="esb:ProxyInputConnector" href="priority-outbound-service.esb#//@server/@children.0/@inputConnector"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nZQ7VFxfEe6MKMKeBpihpg" x="86" y="-11"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_nZRiYFxfEe6MKMKeBpihpg" type="3729">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_nZRiYVxfEe6MKMKeBpihpg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nZRiYlxfEe6MKMKeBpihpg" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_nZRiY1xfEe6MKMKeBpihpg"/>
+          <element xmi:type="esb:ProxyOutSequenceOutputConnector" href="priority-outbound-service.esb#//@server/@children.0/@outSequenceOutputConnector"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nZRiZFxfEe6MKMKeBpihpg" x="110" y="-11"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_nZRiZVxfEe6MKMKeBpihpg" type="3489">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_nZRiZlxfEe6MKMKeBpihpg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nZRiZ1xfEe6MKMKeBpihpg" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_nZRiaFxfEe6MKMKeBpihpg"/>
+          <element xmi:type="esb:ProxyFaultInputConnector" href="priority-outbound-service.esb#//@server/@children.0/@faultInputConnector"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nZRiaVxfEe6MKMKeBpihpg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_nZSJcFxfEe6MKMKeBpihpg" type="3486">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_nZSJcVxfEe6MKMKeBpihpg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nZSJclxfEe6MKMKeBpihpg" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_nZSJc1xfEe6MKMKeBpihpg"/>
+          <element xmi:type="esb:ProxyServiceContainer" href="priority-outbound-service.esb#//@server/@children.0/@container"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nZSJdFxfEe6MKMKeBpihpg"/>
+        </children>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_nZMC0VxfEe6MKMKeBpihpg"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_nZMC0lxfEe6MKMKeBpihpg" fontName="Segoe UI"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_nZMC01xfEe6MKMKeBpihpg"/>
+        <element xmi:type="esb:ProxyService" href="priority-outbound-service.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nZMC1FxfEe6MKMKeBpihpg" width="300" height="400"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_mwhgUVxfEe6MKMKeBpihpg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_mwhgUlxfEe6MKMKeBpihpg" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_mwhgU1xfEe6MKMKeBpihpg"/>
+    <element xmi:type="esb:EsbServer" href="priority-outbound-service.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mwhgVFxfEe6MKMKeBpihpg"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_mvdwYVxfEe6MKMKeBpihpg"/>
+  <element xmi:type="esb:EsbDiagram" href="priority-outbound-service.esb#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_naVSUFxfEe6MKMKeBpihpg" type="4001" source="_nZQUQFxfEe6MKMKeBpihpg" target="_naCXYFxfEe6MKMKeBpihpg" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_naVSUVxfEe6MKMKeBpihpg" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="priority-outbound-service.esb#//@server/@children.0/@outputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_naVSUlxfEe6MKMKeBpihpg" points="[6, 5, -5, 0]$[5, 0, -6, -5]"/>
+  </edges>
+</notation:Diagram>

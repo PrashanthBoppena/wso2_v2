@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/send-sms" name="SMSAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST">
+        <inSequence>
+            <script description="process ID generate" language="js"><![CDATA[var uuid = java.util.UUID.randomUUID().toString();
+         mc.setProperty("step1_id", uuid);]]></script>
+            <propertyGroup description="req params">
+                <property expression="get-property('MessageID')" name="uuid" scope="default" type="STRING"/>
+                <property expression="substring-after(get-property('uuid'), 'urn:uuid:')" name="req_id" scope="default" type="STRING"/>
+                <property expression="json-eval($)" name="request" scope="default" type="STRING"/>
+                <property expression="json-eval($.Sender_MSISDN)" name="s_msisdn" scope="default" type="STRING"/>
+                <property expression="json-eval($.Receiver_MSISDN)" name="r_msisdn" scope="default" type="STRING"/>
+                <property expression="json-eval($.template_id)" name="template_id" scope="default" type="STRING"/>
+                <property expression="json-eval($.system)" name="system" scope="default" type="STRING"/>
+                <property expression="get-property('SYNAPSE_REST_API')" name="api_name" scope="default" type="STRING"/>
+                <property expression="$ctx:REST_METHOD" name="http_method" scope="default" type="STRING"/>
+            </propertyGroup>
+            <!-- Calling the write Dataservice to inseert the request details -->
+            <log level="custom">
+                <property expression="get-property('request')" name="api input==>"/>
+                <property expression="$ctx:step1_id" name="step1_id"/>
+            </log>
+            <log description="==>validation" level="custom">
+                <property name="==>" value="validation seq"/>
+            </log>
+            <sequence key="InputValidationSequence"/>
+            <!-- Parameters loading into property mediators dynamically using js -->
+            <payloadFactory media-type="json">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:request"/>
+                </args>
+            </payloadFactory>
+            <log description="i/p parameters access" level="custom">
+                <property expression="json-eval($)" name="i/p params==>"/>
+            </log>
+            <script description="dynamic params loading" language="js"><![CDATA[var log = mc.getServiceLog();
+         var jsonPayload = mc.getPayloadJSON();
+         var parameters = jsonPayload.parameters;
+        
+         for (var key in parameters) {
+            if (parameters.hasOwnProperty(key)) {
+        		var trimmedKey = key.trim();
+        		var value = parameters[key];
+        		var trimmedValue = value.trim();
+        		mc.setProperty(trimmedKey, trimmedValue); 
+               /* log.info(value); */
+            }
+         }]]></script>
+            <!-- Logging the each field -->
+            <log description="lgging details">
+                <property expression="$ctx:name" name="name"/>
+                <property expression="$ctx:r_msisdn" name="r_msisdn"/>
+                <property expression="$ctx:template_id" name="template_id"/>
+                <property expression="$ctx:REST_METHOD" name="http_method"/>
+                <property expression="get-property('SYNAPSE_REST_API')" name="api_name"/>
+                <property expression="get-property('MessageID')" name="req_id"/>
+                <property expression="get-property('transport', 'From')" name="senderAddress"/>
+                <property expression="$url:From" name="Sender Address"/>
+                <property expression="get-property('axis2','REMOTE_ADDR')" name="ip address"/>
+            </log>
+            <!-- Call the Database to get message template based on id -->
+            <dataServiceCall description="ReadNotiTemplates from DB based on template_id" serviceName="NotificationsDS">
+                <operations type="single">
+                    <operation name="getBasedonId">
+                        <param evaluator="xml" expression="$ctx:template_id" name="id"/>
+                    </operation>
+                </operations>
+                <source type="inline"/>
+                <target type="body"/>
+            </dataServiceCall>
+            <filter description="DSS result validation" regex="true" source="fn:string-length($body) > 0">
+                <then>
+                    <propertyGroup description="catch DB response">
+                        <property expression="json-eval($.Notification.template_content)" name="template_content" scope="default" type="STRING"/>
+                        <property expression="json-eval($.Notification.parameters)" name="parameters" scope="default" type="STRING"/>
+                        <property expression="json-eval($.Notification.is_enabled)" name="is_enabled" scope="default" type="STRING"/>
+                        <property expression="json-eval($)" name="db_response" scope="default" type="STRING"/>
+                        <property expression="json-eval($.Notification.is_dynamic)" name="is_dynamic" scope="default" type="STRING"/>
+                    </propertyGroup>
+                    <log description="message" level="custom">
+                        <property expression="json-eval($.Notification.template_content)" name="Message==>"/>
+                        <property expression="$ctx:parameters" name="Parameters==>"/>
+                        <property expression="$ctx:is_enabled" name="is_enabled==>"/>
+                        <property expression="$ctx:is_dynamic" name="is_dynamic"/>
+                    </log>
+                    <!-- used the script mediator to change the message template with dynamic values -->
+                    <filter regex="1" source="$ctx:is_enabled">
+                        <then>
+                            <filter regex="true" source="$ctx:is_dynamic">
+                                <then>
+                                    <script language="js"><![CDATA[var log = mc.getServiceLog();
+            var message = mc.getProperty("template_content");
+            var parameters = mc.getProperty("parameters").split(",");
+                   
+           
+            for (var i = 0; i < parameters.length; i++) {
+            var parameter = parameters[i].trim();
+            
+            /* log.info(parameter);
+			log.info(mc.getProperty(parameter)); */
+                
+             var placeholder = "$" + parameter + "$";
+             var propertyValue = mc.getProperty(parameter);
+    
+    		if (propertyValue !== null && propertyValue !== undefined) {
+       		 message = message.replace(placeholder, propertyValue);
+    			}
+            }
+            mc.setProperty("message",message);
+            log.info(message);]]></script>
+                                </then>
+                                <else>
+                                    <property description="message" expression="$ctx:template_content" name="message" scope="default" type="STRING"/>
+                                </else>
+                            </filter>
+                            <!-- Build the message in a format as required for backend call -->
+                            <payloadFactory description="Build payload to mock " media-type="json">
+                                <format>{&#xd;
+    "Sender_MSISDN":"$1",&#xd;
+    "Receiver_MSISDN":"$2",&#xd;
+    "req_id":"$3",&#xd;
+    "system":"$4",&#xd;
+    "message":"$5"&#xd;
+&#xd;
+}</format>
+                                <args>
+                                    <arg evaluator="xml" expression="$ctx:s_msisdn"/>
+                                    <arg evaluator="xml" expression="$ctx:r_msisdn"/>
+                                    <arg evaluator="xml" expression="$ctx:req_id"/>
+                                    <arg evaluator="xml" expression="$ctx:system"/>
+                                    <arg evaluator="xml" expression="$ctx:message"/>
+                                </args>
+                            </payloadFactory>
+                            <store messageStore="NotificationsMS"/>
+                            <!-- sms call seq 
+                            <property description="Initiate asynchronus mediation flow" name="OUT_ONLY" scope="default" type="STRING" value="true"/>
+                            <call>
+                                <endpoint>
+                                    <address uri="rabbitmq:/SMSAPI?rabbitmq.server.host.name=localhost&amp;rabbitmq.server.port=5672&amp;rabbitmq.queue.name=NotificationsQueue&amp;rabbitmq.queue.route.key=myKey&amp;rabbitmq.exchange.name=NotificationsExchange">
+                                        <suspendOnFailure>
+                                            <initialDuration>-1</initialDuration>
+                                            <progressionFactor>1</progressionFactor>
+                                        </suspendOnFailure>
+                                        <markForSuspension>
+                                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                                        </markForSuspension>
+                                    </address>
+                                </endpoint>
+                            </call> -->
+                            <!-- message processing is done in other sequence 
+                            <sequence key="SMS_SYSTEM_CALL_SEQ"/>
+                             
+                            <dataServiceCall description="write response into api logs" serviceName="NotificationsDS">
+                                <operations type="single">
+                                    <operation name="updateApiLogHandler">
+                                        <param evaluator="xml" expression="$ctx:response" name="response"/>
+                                        <param name="status" value="success"/>
+                                        <param evaluator="xml" expression="$ctx:step1_id" name="process_id"/>
+                                    </operation>
+                                </operations>
+                                <source type="inline"/>
+                                <target type="body"/>
+                            </dataServiceCall>
+                            <payloadFactory media-type="json">
+                                <format>{&#xd;
+    "requestId": "$1",&#xd;
+    "status": "$2",&#xd;
+    "message": "$3",&#xd;
+    "error": {&#xd;
+        "Msg": "$4"&#xd;
+    }&#xd;
+	"scope":{&#xd;
+	"template":"$5",&#xd;
+	"msg":"$6"&#xd;
+	}&#xd;
+}</format>
+                                <args>
+                                    <arg evaluator="xml" expression="$ctx:req_id"/>
+                                    <arg evaluator="xml" expression="$ctx:status_code"/>
+                                    <arg evaluator="xml" expression="$ctx:status_desc"/>
+                                    <arg evaluator="xml" expression="get-property('ERROR_MESSAGE')"/>
+                                    <arg evaluator="xml" expression="$ctx:template_content"/>
+                                    <arg evaluator="xml" expression="$ctx:message"/>
+                                </args>
+                            </payloadFactory>
+                            <respond/> -->
+                            <respond/>
+                        </then>
+                        <else>
+                            <property description="status_code" name="status_code" scope="default" type="STRING" value="404"/>
+                            <!-- Build the response payload -->
+                            <payloadFactory description="NoMsg template from DB" media-type="json">
+                                <format>{&#xd;
+    "requestId": "$1",&#xd;
+    "status": "200",&#xd;
+    "message": "Not Found",&#xd;
+    "error": {&#xd;
+        "msg": "There is no message template for the given template id(is_enabled=0)."&#xd;
+    }&#xd;
+}</format>
+                                <args>
+                                    <arg evaluator="xml" expression="$ctx:req_id"/>
+                                </args>
+                            </payloadFactory>
+                            <property description="response for no data from DB" expression="json-eval($)" name="response" scope="default" type="STRING"/>
+                            <payloadFactory description="No Data from DB" media-type="json">
+                                <format>{&#xd;
+    "requestId": "$1",&#xd;
+    "status": "404",&#xd;
+    "message": "Not Found",&#xd;
+    "error": {&#xd;
+        "DB_ERROR": "Message Template is not there in DB(is_enabled=0)."&#xd;
+    }&#xd;
+}</format>
+                                <args>
+                                    <arg evaluator="xml" expression="$ctx:req_id"/>
+                                </args>
+                            </payloadFactory>
+                            <property description="set statuc code" name="HTTP_SC" scope="axis2" type="STRING" value="404"/>
+                            <respond/>
+                        </else>
+                    </filter>
+                </then>
+                <else>
+                    <payloadFactory description="No Data from DB" media-type="json">
+                        <format>{&#xd;
+    "requestId": "$1",&#xd;
+    "status": "400",&#xd;
+    "message": "Bad Request",&#xd;
+    "error": {&#xd;
+        "msg": "Input request is not valid or present in the db."&#xd;
+    }&#xd;
+}</format>
+                        <args>
+                            <arg evaluator="xml" expression="$ctx:req_id"/>
+                        </args>
+                    </payloadFactory>
+                    <property description="response for no data from DB" expression="json-eval($)" name="response" scope="default" type="STRING"/>
+                    <payloadFactory description="No Data from DB" media-type="json">
+                        <format>{&#xd;
+    "requestId": "$1",&#xd;
+    "status": "400",&#xd;
+    "message": "Bad Request",&#xd;
+    "error": {&#xd;
+        "DB_ERROR": "Input request is not valid or present in the db."&#xd;
+    }&#xd;
+}</format>
+                        <args>
+                            <arg evaluator="xml" expression="$ctx:req_id"/>
+                        </args>
+                    </payloadFactory>
+                    <property description="set statuc code" name="HTTP_SC" scope="axis2" type="STRING" value="400"/>
+                    <respond/>
+                </else>
+            </filter>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <log level="full"/>
+            <payloadFactory media-type="xml">
+                <format>
+                    <ErrorResponse>
+                        <ErrorCode>500</ErrorCode>
+                        <ErrorMessage>Error occurred while processing the message</ErrorMessage>
+                    </ErrorResponse>
+                </format>
+                <args/>
+            </payloadFactory>
+            <property name="HTTP_SC" scope="axis2" type="STRING" value="500"/>
+            <header action="remove" name="To" scope="default"/>
+            <property name="RESPONSE" scope="default" type="STRING" value="true"/>
+            <property action="remove" name="NO_ENTITY_BODY" scope="axis2"/>
+            <respond/>
+        </faultSequence>
+    </resource>
+</api>

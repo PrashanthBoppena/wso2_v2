@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="SendNotification_API" groupId="com.knot.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/SendNotification_API.xml</file>
+    </artifact>
+    <artifact name="SendNotification_API_swagger" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/SendNotification_API_swagger.yaml</file>
+    </artifact>
+    <artifact name="SendNotification_API_metadata" groupId="com.knot.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/SendNotification_API_metadata.yaml</file>
+    </artifact>
+    <artifact name="SMSSystemEP" groupId="com.knot.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/SMSSystemEP.xml</file>
+    </artifact>
+    <artifact name="NotificationsProducerMS" groupId="com.knot.message-store" version="1.0.0" type="synapse/message-store" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/message-stores/NotificationsProducerMS.xml</file>
+    </artifact>
+    <artifact name="NotificationsConsumerMP" groupId="com.knot.message-processors" version="1.0.0" type="synapse/message-processors" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/message-processors/NotificationsConsumerMP.xml</file>
+    </artifact>
+    <artifact name="BackendSMSSystemCallSeq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/BackendSMSSystemCallSeq.xml</file>
+    </artifact>
+    <artifact name="APIReqHandlerSeq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/APIReqHandlerSeq.xml</file>
+    </artifact>
+    <artifact name="SMSHandlerSeq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/SMSHandlerSeq.xml</file>
+    </artifact>
+    <artifact name="NotificationInputValidationSeq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/NotificationInputValidationSeq.xml</file>
+    </artifact>
+    <artifact name="APIReqHandlerUpdateSeq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/APIReqHandlerUpdateSeq.xml</file>
+    </artifact>
+    <artifact name="SMSHandlerUpdateSeq" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/SMSHandlerUpdateSeq.xml</file>
+    </artifact>
+    <artifact name="FaultSequence" groupId="com.knot.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/FaultSequence.xml</file>
+    </artifact>
+    <artifact name="NotificationProcessorMP" groupId="com.knot.message-processors" version="1.0.0" type="synapse/message-processors" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/message-processors/NotificationProcessorMP.xml</file>
+    </artifact>
+</artifacts>

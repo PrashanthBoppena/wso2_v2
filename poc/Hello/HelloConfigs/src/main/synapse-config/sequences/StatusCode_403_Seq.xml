@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="StatusCode_403_Seq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log description="LOG START EXECUTING 403 Seq " level="custom">
+        <property name="Handling =====>" value="Status code 403"/>
+    </log>
+    <log description="Error Logs" level="custom">
+        <property expression="$ctx:ERROR_CODE" name="ERROR_CODE"/>
+        <property expression="$ctx:ERROR_MESSAGE" name="ERROR_MESSAGE"/>
+        <!-- <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+         <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+        <property expression="get-property('ERROR_EXCEPTION')" name="ERROR_EXCEPTION"/>  -->
+    </log>
+    <property description="OUTPUT_RESPONSE" name="OUTPUT_RESPONSE" scope="default" type="STRING" value="you have no permission to view this site,take access from admin@knotsol.com !!"/>
+    <sequence key="DBReportSeq"/>
+    <payloadFactory description="Build payload with error information" media-type="json">
+        <format>{
+   "MESSAGE": "you have no permission to view this site,take access from admin@knotsol.com !!",
+   "REST_API": "$1",
+   "ERROR_CODE": $2,
+   "ERROR_MESSAGE": $3,
+   "ERROR_DETAIL": $4,
+   "ERROR_EXCEPTION": $5
+}</format>
+        <args>
+            <arg evaluator="xml" expression="$ctx:SYNAPSE_REST_API"/>
+            <arg evaluator="xml" expression="$ctx:ERROR_CODE"/>
+            <arg evaluator="xml" expression="$ctx:ERROR_MESSAGE"/>
+            <arg evaluator="xml" expression="$ctx:ERROR_DETAIL"/>
+            <arg evaluator="xml" expression="$ctx:ERROR_EXCEPTION"/>
+        </args>
+    </payloadFactory>
+    <respond/>
+</sequence>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="MSISDN_VALIDATION" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <script language="js"><![CDATA[var msisdn = mc.getProperty('msisdn');
+            if (msisdn.length === 7) {
+                msisdn = "960" + msisdn;
+            }
+            mc.setProperty('msisdn', msisdn);]]></script>
+</sequence>

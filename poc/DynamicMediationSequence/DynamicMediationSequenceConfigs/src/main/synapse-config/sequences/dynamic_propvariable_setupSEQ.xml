@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="dynamic_propvariable_setupSEQ" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <propertyGroup>
+        <property expression="json-eval($)" name="requestPayload" scope="default" type="STRING"/>
+    </propertyGroup>
+    <!-- setting the json data as property and value  -->
+    <script description="setting properties dynamically" language="js"><![CDATA[var log = mc.getServiceLog();
+var jsonData = mc.getProperty("requestPayload");
+
+var json = JSON.parse(jsonData);
+//log.info("json obj is==>"+json);
+function setProperties(json, parentKey) {
+	for (var key in json) {
+		if (json.hasOwnProperty(key)) {
+			var value = json[key];
+
+			if (typeof value === 'object') {
+				// If the value is a nested JSON object, recursively iterate
+				setProperties(value, parentKey + key + '.');
+			} else {
+				// If the value is a leaf node, set the property
+				// var propertyName = parentKey + key;    parameters.addressRequest.adrLname
+				var propertyName = key;
+				var propertyValue = value.toString();
+				mc.setProperty(propertyName, propertyValue);
+				//log.info("Property set: " + propertyName + " = " + propertyValue);
+			}
+		}
+	}
+}
+
+// Set properties dynamically
+setProperties(json, '');]]></script>
+</sequence>

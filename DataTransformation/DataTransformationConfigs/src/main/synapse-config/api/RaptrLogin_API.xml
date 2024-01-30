@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/login" name="RaptrLogin_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST">
+        <inSequence>
+            <datamapper config="gov:datamapper/InputMapping.dmc" inputSchema="gov:datamapper/InputMapping_inputSchema.json" inputType="XML" outputSchema="gov:datamapper/InputMapping_outputSchema.json" outputType="JSON" xsltStyleSheet="gov:datamapper/InputMapping_xsltStyleSheet.xml"/>
+            <call>
+                <endpoint key="RaptrLoginEP"/>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

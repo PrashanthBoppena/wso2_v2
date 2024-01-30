@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "Sender_MSISDN": {
+      "type": "string",
+      "minLength": 7,
+      "maxLength": 10,
+      "pattern": "^[0-9]+$"
+    },  
+    "Receiver_MSISDN": {
+      "type": "string",
+      "minLength": 7,
+      "maxLength": 10,
+      "pattern": "^[0-9]+$"
+    },
+    "req_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "system": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 20,
+      "pattern": "^[A-Za-z]+$"
+    },
+    "template_id": {
+      "type": "string",
+      "minLength": 1
+     }
+  },
+  "required": [
+    "Sender_MSISDN",
+    "Receiver_MSISDN",
+    "req_id",
+    "system",
+    "template_id"
+  ]
+}

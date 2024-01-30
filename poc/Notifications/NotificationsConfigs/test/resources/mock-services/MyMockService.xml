@@ -1,0 +1,57 @@
+<mock-service>
+    <service-name>SMS_System</service-name>
+    <port>1080</port>
+    <context>/notification</context>
+    <resources>
+        <resource>
+            <sub-context>/send</sub-context>
+            <method>POST</method>
+            <request>
+                <payload>
+                    <![CDATA[{&#13;
+  "$schema": "http://json-schema.org/draft-04/schema#",&#13;
+  "type": "object",&#13;
+  "properties": {&#13;
+    "Sender_MSISDN": {&#13;
+      "type": "string"&#13;
+    },&#13;
+    "Receiver_MSISDN": {&#13;
+      "type": "string"&#13;
+    },&#13;
+    "req_id": {&#13;
+      "type": "string"&#13;
+    },&#13;
+    "system": {&#13;
+      "type": "string"&#13;
+    },&#13;
+    "message": {&#13;
+      "type": "string"&#13;
+    }&#13;
+  },&#13;
+  "required": [&#13;
+    "Sender_MSISDN",&#13;
+    "Receiver_MSISDN",&#13;
+    "req_id",&#13;
+    "system",&#13;
+    "message"&#13;
+  ]&#13;
+}]]>
+                </payload>
+                <headers>
+                    <header name="Accept" value="application/json"/>
+                    <header name="user" value="guest"/>
+                    <header name="password" value="guest"/>
+                </headers>
+            </request>
+            <response>
+                <status-code>200</status-code>
+                <payload>
+                    <![CDATA[{&#13;
+"status":200,&#13;
+"message":"success"&#13;
+}]]>
+                </payload>
+            </response>
+        </resource>
+    </resources>
+</mock-service>

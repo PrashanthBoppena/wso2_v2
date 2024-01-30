@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="BackendSMSSystemInputJSONSchema" groupId="com.knot.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseIntegrator">
+        <item>
+            <file>BackendSMSSystemInputJSONSchema.json</file>
+            <path>/_system/config/endpoints</path>
+            <mediaType>application/json</mediaType>
+            <properties/>
+        </item>
+    </artifact>
+    <artifact name="NotificationInputJSONSchema" groupId="com.knot.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseIntegrator">
+        <item>
+            <file>NotificationInputJSONSchema.json</file>
+            <path>/_system/config/endpoints</path>
+            <mediaType>application/json</mediaType>
+            <properties/>
+        </item>
+    </artifact>
+</artifacts>

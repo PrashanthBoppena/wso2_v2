@@ -1,0 +1,13 @@
+openapi: 3.0.1
+info:
+  title: RaptrLogin_API
+  description: API Definition of RaptrLogin_API
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/login
+paths:
+  /:
+    post:
+      responses:
+        default:
+          description: Default response
