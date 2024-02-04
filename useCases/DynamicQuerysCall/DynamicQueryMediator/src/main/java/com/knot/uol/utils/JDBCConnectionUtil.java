@@ -75,7 +75,8 @@ public class JDBCConnectionUtil {
 			 connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 			System.out.println("query name::" + queryName);
 			// Prepare and execute the SQL query to retrieve query configuration based on
-			String sql = "SELECT * FROM training.dynamic_queries WHERE query_name = ?";
+//			String sql = "SELECT * FROM training.dynamic_queries WHERE query_name = ?";
+			String sql = "SELECT * FROM uol_api_registry.query_config WHERE query_name = ?";
 		    preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, queryName);
 		    resultSet = preparedStatement.executeQuery();
@@ -84,9 +85,9 @@ public class JDBCConnectionUtil {
 			while (resultSet.next()) {
 
 				queryConfig.setSystemName(resultSet.getString("db_system"));
-				queryConfig.setSchemaName(resultSet.getString("schema_name"));
-				queryConfig.addParameter(resultSet.getString("parameters"));
-				queryConfig.setPropertiesFile(queryConfigPath + resultSet.getString("propertiesFile"));
+				queryConfig.setSchemaName(resultSet.getString("query_schema"));
+				queryConfig.addParameter(resultSet.getString("params"));
+				queryConfig.setPropertiesFile(queryConfigPath + resultSet.getString("properties_path"));
 
 			}
 			System.out.println("queryConfig obj " + queryConfig.getPropertiesFile());

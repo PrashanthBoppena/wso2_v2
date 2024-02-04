@@ -1,0 +1,27 @@
+openapi: 3.0.1
+info:
+  title: customerRead_TMF
+  description: API Definition of customerRead_TMF
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/uol
+paths:
+  /customer-read:
+    get:
+      responses:
+        default:
+          description: Default response
+    post:
+      requestBody:
+        description: Sample Payload
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payload:
+                  type: object
+        required: false
+      responses:
+        default:
+          description: Default response

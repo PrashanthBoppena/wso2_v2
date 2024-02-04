@@ -1,0 +1,451 @@
+{
+  "$schema" : "http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#",
+  "outputType" : "JSON",
+  "id" : "http://wso2jsonschema.org",
+  "title" : "root",
+  "type" : "array",
+  "items" : [ {
+    "properties" : {
+      "id" : {
+        "id" : "http://wso2jsonschema.org/0/id",
+        "type" : "string"
+      },
+      "href" : {
+        "id" : "http://wso2jsonschema.org/0/href",
+        "type" : "string"
+      },
+      "name" : {
+        "id" : "http://wso2jsonschema.org/0/name",
+        "type" : "string"
+      },
+      "status" : {
+        "id" : "http://wso2jsonschema.org/0/status",
+        "type" : "string"
+      },
+      "statusReason" : {
+        "id" : "http://wso2jsonschema.org/0/statusReason",
+        "type" : "string"
+      },
+      "account" : {
+        "id" : "http://wso2jsonschema.org/0/account",
+        "type" : "array",
+        "items" : [ {
+          "id" : "http://wso2jsonschema.org/0/account/0",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "id" : "http://wso2jsonschema.org/0/account/0/id",
+              "type" : "string"
+            },
+            "href" : {
+              "id" : "http://wso2jsonschema.org/0/account/0/href",
+              "type" : "string"
+            },
+            "description" : {
+              "id" : "http://wso2jsonschema.org/0/account/0/description",
+              "type" : "string"
+            },
+            "name" : {
+              "id" : "http://wso2jsonschema.org/0/account/0/name",
+              "type" : "string"
+            }
+          },
+          "attributes" : {
+            "baseType" : {
+              "id" : "http://wso2jsonschema.org/0/account/0/baseType",
+              "type" : "string"
+            },
+            "schemaLocation" : {
+              "id" : "http://wso2jsonschema.org/0/account/0/schemaLocation",
+              "type" : "string"
+            },
+            "type" : {
+              "id" : "http://wso2jsonschema.org/0/account/0/type",
+              "type" : "string"
+            },
+            "referredType" : {
+              "id" : "http://wso2jsonschema.org/0/account/0/referredType",
+              "type" : "string"
+            }
+          }
+        } ]
+      },
+      "agreement" : {
+        "id" : "http://wso2jsonschema.org/0/agreement",
+        "type" : "array",
+        "items" : [ {
+          "id" : "http://wso2jsonschema.org/0/agreement/0",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "id" : "http://wso2jsonschema.org/0/agreement/0/id",
+              "type" : "string"
+            },
+            "href" : {
+              "id" : "http://wso2jsonschema.org/0/agreement/0/href",
+              "type" : "string"
+            },
+            "name" : {
+              "id" : "http://wso2jsonschema.org/0/agreement/0/name",
+              "type" : "string"
+            }
+          },
+          "attributes" : {
+            "baseType" : {
+              "id" : "http://wso2jsonschema.org/0/agreement/0/baseType",
+              "type" : "string"
+            },
+            "schemaLocation" : {
+              "id" : "http://wso2jsonschema.org/0/agreement/0/schemaLocation",
+              "type" : "string"
+            },
+            "type" : {
+              "id" : "http://wso2jsonschema.org/0/agreement/0/type",
+              "type" : "string"
+            },
+            "referredType" : {
+              "id" : "http://wso2jsonschema.org/0/agreement/0/referredType",
+              "type" : "string"
+            }
+          }
+        } ]
+      },
+      "characteristic" : {
+        "id" : "http://wso2jsonschema.org/0/characteristic",
+        "type" : "array",
+        "items" : [ {
+          "id" : "http://wso2jsonschema.org/0/characteristic/0",
+          "type" : "object",
+          "properties" : {
+            "name" : {
+              "id" : "http://wso2jsonschema.org/0/characteristic/0/name",
+              "type" : "string"
+            },
+            "valueType" : {
+              "id" : "http://wso2jsonschema.org/0/characteristic/0/valueType",
+              "type" : "string"
+            },
+            "value" : {
+              "id" : "http://wso2jsonschema.org/0/characteristic/0/value",
+              "type" : "string"
+            }
+          },
+          "attributes" : {
+            "baseType" : {
+              "id" : "http://wso2jsonschema.org/0/characteristic/0/baseType",
+              "type" : "string"
+            },
+            "schemaLocation" : {
+              "id" : "http://wso2jsonschema.org/0/characteristic/0/schemaLocation",
+              "type" : "string"
+            },
+            "type" : {
+              "id" : "http://wso2jsonschema.org/0/characteristic/0/type",
+              "type" : "string"
+            }
+          }
+        } ]
+      },
+      "contactMedium" : {
+        "id" : "http://wso2jsonschema.org/0/contactMedium",
+        "type" : "array",
+        "items" : [ {
+          "id" : "http://wso2jsonschema.org/0/contactMedium/0",
+          "type" : "object",
+          "properties" : {
+            "mediumType" : {
+              "id" : "http://wso2jsonschema.org/0/contactMedium/0/mediumType",
+              "type" : "string"
+            },
+            "preferred" : {
+              "id" : "http://wso2jsonschema.org/0/contactMedium/0/preferred",
+              "type" : "boolean"
+            },
+            "characteristic" : {
+              "id" : "http://wso2jsonschema.org/0/contactMedium/0/characteristic",
+              "type" : "object",
+              "properties" : {
+                "city" : {
+                  "id" : "http://wso2jsonschema.org/0/contactMedium/0/characteristic/city",
+                  "type" : "string"
+                },
+                "contactType" : {
+                  "id" : "http://wso2jsonschema.org/0/contactMedium/0/characteristic/contactType",
+                  "type" : "string"
+                },
+                "country" : {
+                  "id" : "http://wso2jsonschema.org/0/contactMedium/0/characteristic/country",
+                  "type" : "string"
+                },
+                "emailAddress" : {
+                  "id" : "http://wso2jsonschema.org/0/contactMedium/0/characteristic/emailAddress",
+                  "type" : "string"
+                },
+                "faxNumber" : {
+                  "id" : "http://wso2jsonschema.org/0/contactMedium/0/characteristic/faxNumber",
+                  "type" : "string"
+                },
+                "phoneNumber" : {
+                  "id" : "http://wso2jsonschema.org/0/contactMedium/0/characteristic/phoneNumber",
+                  "type" : "string"
+                },
+                "postCode" : {
+                  "id" : "http://wso2jsonschema.org/0/contactMedium/0/characteristic/postCode",
+                  "type" : "string"
+                },
+                "socialNetworkId" : {
+                  "id" : "http://wso2jsonschema.org/0/contactMedium/0/characteristic/socialNetworkId",
+                  "type" : "string"
+                },
+                "stateOrProvince" : {
+                  "id" : "http://wso2jsonschema.org/0/contactMedium/0/characteristic/stateOrProvince",
+                  "type" : "string"
+                },
+                "street1" : {
+                  "id" : "http://wso2jsonschema.org/0/contactMedium/0/characteristic/street1",
+                  "type" : "string"
+                },
+                "street2" : {
+                  "id" : "http://wso2jsonschema.org/0/contactMedium/0/characteristic/street2",
+                  "type" : "string"
+                }
+              },
+              "attributes" : {
+                "baseType" : {
+                  "id" : "http://wso2jsonschema.org/0/contactMedium/0/characteristic/baseType",
+                  "type" : "string"
+                },
+                "schemaLocation" : {
+                  "id" : "http://wso2jsonschema.org/0/contactMedium/0/characteristic/schemaLocation",
+                  "type" : "string"
+                },
+                "type" : {
+                  "id" : "http://wso2jsonschema.org/0/contactMedium/0/characteristic/type",
+                  "type" : "string"
+                }
+              }
+            },
+            "validFor" : {
+              "id" : "http://wso2jsonschema.org/0/contactMedium/0/validFor",
+              "type" : "object",
+              "properties" : {
+                "endDateTime" : {
+                  "id" : "http://wso2jsonschema.org/0/contactMedium/0/validFor/endDateTime",
+                  "type" : "string"
+                },
+                "startDateTime" : {
+                  "id" : "http://wso2jsonschema.org/0/contactMedium/0/validFor/startDateTime",
+                  "type" : "string"
+                }
+              }
+            }
+          },
+          "attributes" : {
+            "baseType" : {
+              "id" : "http://wso2jsonschema.org/0/contactMedium/0/baseType",
+              "type" : "string"
+            },
+            "schemaLocation" : {
+              "id" : "http://wso2jsonschema.org/0/contactMedium/0/schemaLocation",
+              "type" : "string"
+            },
+            "type" : {
+              "id" : "http://wso2jsonschema.org/0/contactMedium/0/type",
+              "type" : "string"
+            }
+          }
+        } ]
+      },
+      "creditProfile" : {
+        "id" : "http://wso2jsonschema.org/0/creditProfile",
+        "type" : "array",
+        "items" : [ {
+          "id" : "http://wso2jsonschema.org/0/creditProfile/0",
+          "type" : "object",
+          "properties" : {
+            "creditProfileDate" : {
+              "id" : "http://wso2jsonschema.org/0/creditProfile/0/creditProfileDate",
+              "type" : "string"
+            },
+            "creditRiskRating" : {
+              "id" : "http://wso2jsonschema.org/0/creditProfile/0/creditRiskRating",
+              "type" : "number"
+            },
+            "creditScore" : {
+              "id" : "http://wso2jsonschema.org/0/creditProfile/0/creditScore",
+              "type" : "number"
+            },
+            "validFor" : {
+              "id" : "http://wso2jsonschema.org/0/creditProfile/0/validFor",
+              "type" : "object",
+              "properties" : {
+                "endDateTime" : {
+                  "id" : "http://wso2jsonschema.org/0/creditProfile/0/validFor/endDateTime",
+                  "type" : "string"
+                },
+                "startDateTime" : {
+                  "id" : "http://wso2jsonschema.org/0/creditProfile/0/validFor/startDateTime",
+                  "type" : "string"
+                }
+              }
+            }
+          },
+          "attributes" : {
+            "baseType" : {
+              "id" : "http://wso2jsonschema.org/0/creditProfile/0/baseType",
+              "type" : "string"
+            },
+            "schemaLocation" : {
+              "id" : "http://wso2jsonschema.org/0/creditProfile/0/schemaLocation",
+              "type" : "string"
+            },
+            "type" : {
+              "id" : "http://wso2jsonschema.org/0/creditProfile/0/type",
+              "type" : "string"
+            }
+          }
+        } ]
+      },
+      "engagedParty" : {
+        "id" : "http://wso2jsonschema.org/0/engagedParty",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "id" : "http://wso2jsonschema.org/0/engagedParty/id",
+            "type" : "string"
+          },
+          "href" : {
+            "id" : "http://wso2jsonschema.org/0/engagedParty/href",
+            "type" : "string"
+          },
+          "name" : {
+            "id" : "http://wso2jsonschema.org/0/engagedParty/name",
+            "type" : "string"
+          },
+          "role" : {
+            "id" : "http://wso2jsonschema.org/0/engagedParty/role",
+            "type" : "string"
+          }
+        },
+        "attributes" : {
+          "baseType" : {
+            "id" : "http://wso2jsonschema.org/0/engagedParty/baseType",
+            "type" : "string"
+          },
+          "schemaLocation" : {
+            "id" : "http://wso2jsonschema.org/0/engagedParty/schemaLocation",
+            "type" : "string"
+          },
+          "type" : {
+            "id" : "http://wso2jsonschema.org/0/engagedParty/type",
+            "type" : "string"
+          },
+          "referredType" : {
+            "id" : "http://wso2jsonschema.org/0/engagedParty/referredType",
+            "type" : "string"
+          }
+        }
+      },
+      "paymentMethod" : {
+        "id" : "http://wso2jsonschema.org/0/paymentMethod",
+        "type" : "array",
+        "items" : [ {
+          "id" : "http://wso2jsonschema.org/0/paymentMethod/0",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "id" : "http://wso2jsonschema.org/0/paymentMethod/0/id",
+              "type" : "string"
+            },
+            "href" : {
+              "id" : "http://wso2jsonschema.org/0/paymentMethod/0/href",
+              "type" : "string"
+            },
+            "name" : {
+              "id" : "http://wso2jsonschema.org/0/paymentMethod/0/name",
+              "type" : "string"
+            }
+          },
+          "attributes" : {
+            "baseType" : {
+              "id" : "http://wso2jsonschema.org/0/paymentMethod/0/baseType",
+              "type" : "string"
+            },
+            "schemaLocation" : {
+              "id" : "http://wso2jsonschema.org/0/paymentMethod/0/schemaLocation",
+              "type" : "string"
+            },
+            "type" : {
+              "id" : "http://wso2jsonschema.org/0/paymentMethod/0/type",
+              "type" : "string"
+            },
+            "referredType" : {
+              "id" : "http://wso2jsonschema.org/0/paymentMethod/0/referredType",
+              "type" : "string"
+            }
+          }
+        } ]
+      },
+      "relatedParty" : {
+        "id" : "http://wso2jsonschema.org/0/relatedParty",
+        "type" : "array",
+        "items" : [ {
+          "id" : "http://wso2jsonschema.org/0/relatedParty/0",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "id" : "http://wso2jsonschema.org/0/relatedParty/0/id",
+              "type" : "string"
+            },
+            "href" : {
+              "id" : "http://wso2jsonschema.org/0/relatedParty/0/href",
+              "type" : "string"
+            },
+            "name" : {
+              "id" : "http://wso2jsonschema.org/0/relatedParty/0/name",
+              "type" : "string"
+            },
+            "role" : {
+              "id" : "http://wso2jsonschema.org/0/relatedParty/0/role",
+              "type" : "string"
+            }
+          },
+          "attributes" : {
+            "baseType" : {
+              "id" : "http://wso2jsonschema.org/0/relatedParty/0/baseType",
+              "type" : "string"
+            },
+            "schemaLocation" : {
+              "id" : "http://wso2jsonschema.org/0/relatedParty/0/schemaLocation",
+              "type" : "string"
+            },
+            "type" : {
+              "id" : "http://wso2jsonschema.org/0/relatedParty/0/type",
+              "type" : "string"
+            },
+            "referredType" : {
+              "id" : "http://wso2jsonschema.org/0/relatedParty/0/referredType",
+              "type" : "string"
+            }
+          }
+        } ]
+      },
+      "validFor" : {
+        "id" : "http://wso2jsonschema.org/0/validFor",
+        "type" : "object",
+        "properties" : {
+          "endDateTime" : {
+            "id" : "http://wso2jsonschema.org/0/validFor/endDateTime",
+            "type" : "string"
+          },
+          "startDateTime" : {
+            "id" : "http://wso2jsonschema.org/0/validFor/startDateTime",
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "id" : "http://wso2jsonschema.org/0",
+    "type" : "object"
+  } ]
+}

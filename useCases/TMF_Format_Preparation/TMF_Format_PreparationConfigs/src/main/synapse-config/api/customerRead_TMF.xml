@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/uol" name="customerRead_TMF" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST GET" url-mapping="/customer-read">
+        <inSequence>
+            <property expression="json-eval($)" name="API_Request" scope="default" type="STRING"/>
+            <property expression="get-property('query.param.fields')" name="fields" scope="default" type="STRING"/>
+            <propertyGroup description="BSCS Properties">
+                <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath" scope="default" type="STRING"/>
+                <property expression="json-eval($)" name="dynamicQueryMediatorRequestPayload" scope="default" type="STRING"/>
+            </propertyGroup>
+            <class description="Dynamic Query" name="com.knot.uol.mediators.DynamicXMLQueryMediator"/>
+            <!--        <log level="custom">
+                <property expression="$ctx:dynamicQueryMediatorResponsePayload" name="dynamicQueryMediatorResponsePayload"/>
+            </log> -->
+            <payloadFactory description="buildPayload" media-type="json">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="json" expression="$ctx:dynamicQueryMediatorResponsePayload.response"/>
+                </args>
+            </payloadFactory>
+            <log description="log the Enableflag Count" level="custom">
+                <property expression="get-property('query.param.fields')" name="get-property('query.param.fields')"/>
+            </log>
+            <script language="js"><![CDATA[var fields = mc.getProperty('fields');
+if (fields !== null && fields.trim() !== "" && fields.length() !== 0.0) {
+    var fieldsArray = fields.split(',');
+	var log = mc.getServiceLog();
+	log.info(fields.length());
+    var payload = mc.getPayloadJSON();
+	
+    var filteredPayload = [];
+
+    // Iterate through each item in the payload array
+    payload.forEach(function(item) {
+		//log.info(item.hasOwnProperty('process_name'));  working
+		//log.info(item['process_name']);				  working
+        // Iterate through each field specified in fieldsArray
+        fieldsArray.forEach(function(field) {
+            // Check if the current item has the specified field
+			//log.info(typeof item['process_name']);	
+			
+			//log.info(field.equals(item['process_name']));	
+            if (item.hasOwnProperty('process_name') && field.equals(item['process_name'])) {
+                // Add the item to the filteredPayload
+				//log.info(item.hasOwnProperty('process_name') && field.equals(item['process_name']));
+                filteredPayload.push(item);
+            }
+        });
+    });
+
+    mc.setPayloadJSON(filteredPayload);
+}]]></script>
+            <property expression="json-eval($.length())" name="dynamicMediationItrCount" scope="default" type="STRING"/>
+            <log description="log the Enableflag Count" level="custom">
+                <property expression="get-property('dynamicMediationItrCount')" name="dynamicMediationItrCount"/>
+            </log>
+            <iterate expression="//jsonElement" id="dynamicMediationItrAgg1" sequential="true">
+                <target>
+                    <sequence>
+                        <sequence key="gov:custom/sequences/DynamicPropertySetterSequence_Script.xml"/>
+                        <switch source="$ctx:system_name">
+                            <case regex="UOL"/>
+                            <case regex="EB">
+                                <sequence key="gov:custom/sequences/childIdGeneratingSeq.xml"/>
+                                <sequence key="gov:custom/sequences/EB_SOAP_Call_Seq.xml"/>
+                                <!--<log level="custom">
+                                    <property expression="json-eval($)" name="eb response data==>"/>
+                                </log>-->
+                            </case>
+                            <case regex="QUERY"/>
+                            <case regex="NMS"/>
+                            <default/>
+                        </switch>
+                    </sequence>
+                </target>
+            </iterate>
+            <aggregate id="dynamicMediationItrAgg1">
+                <completeCondition>
+                    <messageCount max="-1" min="-1"/>
+                </completeCondition>
+                <onComplete aggregateElementType="root" expression="json-eval($)">
+                    <script language="js"><![CDATA[var inputPayload = mc.getPayloadJSON();
+
+// Parse the JSON payload
+var jsonArray = JSON.parse(inputPayload);
+var log = mc.getServiceLog();
+// Create a new object to store the properties
+var newObject = {};
+
+// Iterate through the array and copy each object to the new object
+jsonArray.forEach(function (element) {
+    //var key = Object.keys(element)[0];
+	log.info(Object.keys(element)[0]);
+    newObject[key] = element[key];
+});
+
+// Convert the new object back to JSON
+var outputPayload = JSON.stringify(newObject);
+
+// Set the modified payload
+mc.setPayloadJSON(outputPayload);]]></script>
+                    <respond/>
+                </onComplete>
+            </aggregate>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

@@ -1,0 +1,45 @@
+map_S_root_S_root = function(){ 
+var outputroot={};
+
+var count_i_inputroot_f66b274f_e192_4a80_9b15_93db2e163f95 = 0;
+outputroot =  [];
+
+for(i_inputroot_f66b274f_e192_4a80_9b15_93db2e163f95 in inputroot){
+outputroot[count_i_inputroot_f66b274f_e192_4a80_9b15_93db2e163f95] =  {};
+outputroot[count_i_inputroot_f66b274f_e192_4a80_9b15_93db2e163f95].id = (inputroot[i_inputroot_f66b274f_e192_4a80_9b15_93db2e163f95].addressReadResponse.csId).toString();
+outputroot[count_i_inputroot_f66b274f_e192_4a80_9b15_93db2e163f95].account =  [];
+outputroot[count_i_inputroot_f66b274f_e192_4a80_9b15_93db2e163f95].account[count_i_inputroot_f66b274f_e192_4a80_9b15_93db2e163f95] =  {};
+outputroot[count_i_inputroot_f66b274f_e192_4a80_9b15_93db2e163f95].account[count_i_inputroot_f66b274f_e192_4a80_9b15_93db2e163f95].attr_schemaLocation = inputroot[i_inputroot_f66b274f_e192_4a80_9b15_93db2e163f95].addressReadResponse.adrLname;
+outputroot[count_i_inputroot_f66b274f_e192_4a80_9b15_93db2e163f95].characteristic =  [];
+outputroot[count_i_inputroot_f66b274f_e192_4a80_9b15_93db2e163f95].characteristic[count_i_inputroot_f66b274f_e192_4a80_9b15_93db2e163f95] =  {};
+outputroot[count_i_inputroot_f66b274f_e192_4a80_9b15_93db2e163f95].characteristic[count_i_inputroot_f66b274f_e192_4a80_9b15_93db2e163f95].name = (inputroot[i_inputroot_f66b274f_e192_4a80_9b15_93db2e163f95].addressReadResponse.countryId).toString();
+outputroot[count_i_inputroot_f66b274f_e192_4a80_9b15_93db2e163f95].engagedParty =  {};
+outputroot[count_i_inputroot_f66b274f_e192_4a80_9b15_93db2e163f95].validFor =  {};
+
+count_i_inputroot_f66b274f_e192_4a80_9b15_93db2e163f95++;
+}
+return outputroot;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

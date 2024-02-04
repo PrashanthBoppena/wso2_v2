@@ -106,45 +106,45 @@
                 <scriptDynamicKey prettyName="" propertyName="dynamic key" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
                 <inputConnector incomingLinks="//@server/@children.0/@resources.2/@outputConnector/@outgoingLink"/>
                 <outputConnector>
+                  <outgoingLink target="//@server/@children.0/@resources.2/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@inputConnector"/>
+                </outputConnector>
+                <scriptStaticKey prettyName="Script Key" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+              </children>
+              <children xsi:type="esb:PropertyMediator" description="Install_subscriber" propertyDataType="OM" valueType="EXPRESSION" newPropertyName="InstallSubscriber">
+                <inputConnector incomingLinks="//@server/@children.0/@resources.2/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+                <outputConnector>
+                  <outgoingLink target="//@server/@children.0/@resources.2/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.2/@inputConnector"/>
+                </outputConnector>
+                <valueExpression propertyValue="get-property('Install_subscriber')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+              </children>
+              <children xsi:type="esb:ScriptMediator" scriptType="INLINE" scriptBody="var log = mc.getServiceLog();   &#xA;&#x9;var XMLRequest = mc.getProperty(&quot;InstallSubscriber&quot;);&#xA;&#x9;//log.info(&quot;req_template in script &quot;+ XMLRequest);&#xA;&#x9;var srcRequest = XMLRequest.toString();&#xA;&#x9;&#xA;&#x9;// Extract placeholder keys from the  srcRequest&#xA;&#x9;  var dynamicKeys = srcRequest.match(/{(.*?)}/g).map(function(key) &#xA;&#x9;  {&#xA;&#x9;  return key.replace(/[{}]/g, '');&#xA;&#x9;  });&#xA;&#x9; //     log.info(&quot;dynamic replaceble keys are-->&quot;+dynamicKeys);       &#xA;&#x9;// Replace placeholders with dynamically fetched values&#xA;&#x9;  dynamicKeys.forEach(function(key) &#xA;&#x9;  {&#xA;&#x9;   if (mc.getProperty(key)) {&#xA;   //    log.info(&quot;key  are-->&quot;+key+&quot;::&quot;+mc.getProperty(key));      &#xA;&#x9;   srcRequest = srcRequest.replace(&quot;{&quot; + key + &quot;}&quot;, mc.getProperty(key));&#xA;&#x9;  }&#xA;&#x9;  });&#xA;   //     log.info(&quot;templateString-->&quot;+srcRequest);&#xA;&#x9;mc.setPayloadXML(new XML(srcRequest));">
+                <scriptDynamicKey prettyName="" propertyName="dynamic key" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                <inputConnector incomingLinks="//@server/@children.0/@resources.2/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
+                <outputConnector>
                   <outgoingLink target="//@server/@children.0/@resources.2/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.3/@inputConnector"/>
                 </outputConnector>
                 <scriptStaticKey prettyName="Script Key" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
               </children>
-              <children xsi:type="esb:ScriptMediator" scriptType="INLINE" scriptBody="var log = mc.getServiceLog();   &#xA;&#x9;var XMLRequest = mc.getProperty(&quot;InstallSubscriber&quot;);&#xA;&#x9;//log.info(&quot;req_template in script &quot;+ XMLRequest);&#xA;&#x9;var srcRequest = XMLRequest.toString();&#xA;&#x9;&#xA;&#x9;// Extract placeholder keys from the  srcRequest&#xA;&#x9;  var dynamicKeys = srcRequest.match(/{(.*?)}/g).map(function(key) &#xA;&#x9;  {&#xA;&#x9;  return key.replace(/[{}]/g, '');&#xA;&#x9;  });&#xA;&#x9; //     log.info(&quot;dynamic replaceble keys are-->&quot;+dynamicKeys);       &#xA;&#x9;// Replace placeholders with dynamically fetched values&#xA;&#x9;  dynamicKeys.forEach(function(key) &#xA;&#x9;  {&#xA;&#x9;   if (mc.getProperty(key)) {&#xA;   //    log.info(&quot;key  are-->&quot;+key+&quot;::&quot;+mc.getProperty(key));      &#xA;&#x9;   srcRequest = srcRequest.replace(&quot;{&quot; + key + &quot;}&quot;, mc.getProperty(key));&#xA;&#x9;  }&#xA;&#x9;  });&#xA;   //     log.info(&quot;templateString-->&quot;+srcRequest);&#xA;&#x9;mc.setPayloadXML(new XML(srcRequest));">
-                <scriptDynamicKey prettyName="" propertyName="dynamic key" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
-                <inputConnector incomingLinks="//@server/@children.0/@resources.2/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.3/@outputConnector/@outgoingLink"/>
+              <children xsi:type="esb:PropertyMediator" propertyName="messageType" propertyScope="axis2" value="application/xml">
+                <inputConnector incomingLinks="//@server/@children.0/@resources.2/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.2/@outputConnector/@outgoingLink"/>
                 <outputConnector>
                   <outgoingLink target="//@server/@children.0/@resources.2/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.4/@inputConnector"/>
-                </outputConnector>
-                <scriptStaticKey prettyName="Script Key" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
-              </children>
-              <children xsi:type="esb:RespondMediator">
-                <inputConnector incomingLinks="//@server/@children.0/@resources.2/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.5/@outputConnector/@outgoingLink"/>
-                <outputConnector/>
-              </children>
-              <children xsi:type="esb:PropertyMediator" description="Install_subscriber" propertyDataType="OM" valueType="EXPRESSION" OM="get-property('Install_subscriber')" newPropertyName="InstallSubscriber">
-                <inputConnector incomingLinks="//@server/@children.0/@resources.2/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
-                <outputConnector>
-                  <outgoingLink target="//@server/@children.0/@resources.2/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@inputConnector"/>
-                </outputConnector>
-                <valueExpression prettyName="Property Expression" propertyName="expression" propertyValue="get-property('Install_subscriber')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
-              </children>
-              <children xsi:type="esb:PropertyMediator" propertyName="messageType" propertyScope="axis2" value="application/xml">
-                <inputConnector incomingLinks="//@server/@children.0/@resources.2/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
-                <outputConnector>
-                  <outgoingLink target="//@server/@children.0/@resources.2/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.5/@inputConnector"/>
                 </outputConnector>
                 <valueExpression prettyName="Property Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
               </children>
               <children xsi:type="esb:XSLTMediator">
-                <inputConnector incomingLinks="//@server/@children.0/@resources.2/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.4/@outputConnector/@outgoingLink"/>
+                <inputConnector incomingLinks="//@server/@children.0/@resources.2/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.3/@outputConnector/@outgoingLink"/>
                 <outputConnector>
-                  <outgoingLink target="//@server/@children.0/@resources.2/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.2/@inputConnector"/>
+                  <outgoingLink target="//@server/@children.0/@resources.2/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.5/@inputConnector"/>
                 </outputConnector>
-                <xsltStaticSchemaKey prettyName="XSLT Static Key" keyName="key" keyValue="conf:custom/EC/templates/ECPayloadProcessing.xslt" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A657870000000017704000000017400146170706C69636174696F6E2F78736C742B786D6C7878"/>
+                <xsltStaticSchemaKey keyValue="conf:custom/EC/templates/ECPayloadProcessing.xslt" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
                 <xsltDynamicSchemaKey prettyName="XSLT Dynamic Key" propertyName="key" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
                 <xsltKey prettyName="XSLT Key" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A657870000000017704000000017400146170706C69636174696F6E2F78736C742B786D6C7878"/>
-                <sourceXPath propertyName="source" propertyValue="$body" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                <sourceXPath propertyValue="$body" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+              </children>
+              <children xsi:type="esb:RespondMediator">
+                <inputConnector incomingLinks="//@server/@children.0/@resources.2/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.4/@outputConnector/@outgoingLink"/>
+                <outputConnector/>
               </children>
             </mediatorFlow>
           </sequenceAndEndpointContainer>

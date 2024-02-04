@@ -22,12 +22,19 @@
             <children xsi:type="esb:PropertyMediator" valueType="EXPRESSION" newPropertyName="payload">
               <inputConnector incomingLinks="//@server/@children.0/@outputConnector/@outgoingLink"/>
               <outputConnector>
-                <outgoingLink target="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.4/@inputConnector"/>
+                <outgoingLink target="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@inputConnector"/>
               </outputConnector>
               <valueExpression propertyValue="$body/*" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
             </children>
+            <children xsi:type="esb:PropertyMediator" valueType="EXPRESSION" newPropertyName="mahFilePath">
+              <inputConnector incomingLinks="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+              <outputConnector>
+                <outgoingLink target="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.2/@inputConnector"/>
+              </outputConnector>
+              <valueExpression propertyValue="get-property('transport', 'FILE_PATH')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+            </children>
             <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=", ">
-              <inputConnector incomingLinks="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.4/@outputConnector/@outgoingLink"/>
+              <inputConnector incomingLinks="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
               <outputConnector>
                 <outgoingLink target="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.3/@inputConnector"/>
               </outputConnector>
@@ -35,28 +42,21 @@
                 <propertyExpression propertyValue="$ctx:payload" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
               </properties>
             </children>
+            <children xsi:type="esb:ClassMediator" className="com.uol.PayloadToJSONConverter">
+              <properties propertyName="fileBody" propertyValueType="EXPRESSION">
+                <propertyExpression propertyValue="$body/*" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+              </properties>
+              <inputConnector incomingLinks="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.2/@outputConnector/@outgoingLink"/>
+              <outputConnector>
+                <outgoingLink target="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.4/@inputConnector"/>
+              </outputConnector>
+            </children>
             <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=", ">
               <inputConnector incomingLinks="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.3/@outputConnector/@outgoingLink"/>
               <outputConnector/>
               <properties propertyName="FormattedResponse==>" propertyValueType="EXPRESSION" propertyValue="">
                 <propertyExpression propertyValue="$ctx:processedData" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
               </properties>
-            </children>
-            <children xsi:type="esb:ClassMediator" className="com.uol.PayloadToJSONConverter">
-              <properties propertyName="fileBody" propertyValueType="EXPRESSION">
-                <propertyExpression prettyName="property expression" propertyName="expression" propertyValue="$body/*" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
-              </properties>
-              <inputConnector incomingLinks="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
-              <outputConnector>
-                <outgoingLink target="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.2/@inputConnector"/>
-              </outputConnector>
-            </children>
-            <children xsi:type="esb:PropertyMediator" valueType="EXPRESSION" newPropertyName="mahFilePath">
-              <inputConnector incomingLinks="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
-              <outputConnector>
-                <outgoingLink target="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@inputConnector"/>
-              </outputConnector>
-              <valueExpression prettyName="Property Expression" propertyName="expression" propertyValue="get-property('transport', 'FILE_PATH')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
             </children>
           </mediatorFlow>
         </sequenceAndEndpointContainer>
