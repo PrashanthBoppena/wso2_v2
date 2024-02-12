@@ -14,12 +14,117 @@
   <name>TMF_Format_PreparationCompositeExporter</name>
   <description>TMF_Format_PreparationCompositeExporter</description>
   <properties>
+    <com.example.resource_._TMF_ReadCust_DataMapperConfig_inputSchema>capp/EnterpriseServiceBus</com.example.resource_._TMF_ReadCust_DataMapperConfig_inputSchema>
+    <com.example.resource_._TMF_ReadCust_DataMapperConfig_outputSchema>capp/EnterpriseServiceBus</com.example.resource_._TMF_ReadCust_DataMapperConfig_outputSchema>
+    <com.example.resource_._TestConfig_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._TestConfig_xsltStyleSheet>
+    <com.example.resource_._NewConfig_inputSchema>capp/EnterpriseServiceBus</com.example.resource_._NewConfig_inputSchema>
+    <com.example.metadata_._customerAllRead_TMF_swagger>capp/EnterpriseServiceBus</com.example.metadata_._customerAllRead_TMF_swagger>
+    <com.example.resource_._TestConfig_outputSchema>capp/EnterpriseServiceBus</com.example.resource_._TestConfig_outputSchema>
+    <com.example.resource_._TestConfig>capp/EnterpriseServiceBus</com.example.resource_._TestConfig>
+    <com.example.metadata_._customerAllRead_TMF_metadata>capp/EnterpriseServiceBus</com.example.metadata_._customerAllRead_TMF_metadata>
+    <com.example.resource_._TestConfig_inputSchema>capp/EnterpriseServiceBus</com.example.resource_._TestConfig_inputSchema>
+    <com.example.resource_._NewConfig_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._NewConfig_xsltStyleSheet>
+    <com.example.resource_._NewConfig>capp/EnterpriseServiceBus</com.example.resource_._NewConfig>
+    <com.example.resource_._TMF_ReadCust_DataMapperConfig_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._TMF_ReadCust_DataMapperConfig_xsltStyleSheet>
+    <com.example.resource_._TMF_ReadCust_DataMapperConfig>capp/EnterpriseServiceBus</com.example.resource_._TMF_ReadCust_DataMapperConfig>
     <com.example.api_._customerRead_TMF>capp/EnterpriseServiceBus</com.example.api_._customerRead_TMF>
     <com.example.metadata_._customerRead_TMF_metadata>capp/EnterpriseServiceBus</com.example.metadata_._customerRead_TMF_metadata>
+    <com.example.api_._customerAllRead_TMF>capp/EnterpriseServiceBus</com.example.api_._customerAllRead_TMF>
     <com.example.metadata_._customerRead_TMF_swagger>capp/EnterpriseServiceBus</com.example.metadata_._customerRead_TMF_swagger>
     <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,datasource/datasource=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,synapse/metadata=yaml,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
+    <com.example.resource_._NewConfig_outputSchema>capp/EnterpriseServiceBus</com.example.resource_._NewConfig_outputSchema>
   </properties>
   <dependencies>
+    <dependency>
+      <groupId>com.example.resource</groupId>
+      <artifactId>NewConfig</artifactId>
+      <version>1.0.0</version>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.resource</groupId>
+      <artifactId>NewConfig_inputSchema</artifactId>
+      <version>1.0.0</version>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.resource</groupId>
+      <artifactId>NewConfig_outputSchema</artifactId>
+      <version>1.0.0</version>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.resource</groupId>
+      <artifactId>NewConfig_xsltStyleSheet</artifactId>
+      <version>1.0.0</version>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.resource</groupId>
+      <artifactId>TMF_ReadCust_DataMapperConfig</artifactId>
+      <version>1.0.0</version>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.resource</groupId>
+      <artifactId>TMF_ReadCust_DataMapperConfig_inputSchema</artifactId>
+      <version>1.0.0</version>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.resource</groupId>
+      <artifactId>TMF_ReadCust_DataMapperConfig_outputSchema</artifactId>
+      <version>1.0.0</version>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.resource</groupId>
+      <artifactId>TMF_ReadCust_DataMapperConfig_xsltStyleSheet</artifactId>
+      <version>1.0.0</version>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.resource</groupId>
+      <artifactId>TestConfig</artifactId>
+      <version>1.0.0</version>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.resource</groupId>
+      <artifactId>TestConfig_inputSchema</artifactId>
+      <version>1.0.0</version>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.resource</groupId>
+      <artifactId>TestConfig_outputSchema</artifactId>
+      <version>1.0.0</version>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.resource</groupId>
+      <artifactId>TestConfig_xsltStyleSheet</artifactId>
+      <version>1.0.0</version>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.metadata</groupId>
+      <artifactId>customerAllRead_TMF_metadata</artifactId>
+      <version>1.0.0</version>
+      <type>yaml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.metadata</groupId>
+      <artifactId>customerAllRead_TMF_swagger</artifactId>
+      <version>1.0.0</version>
+      <type>yaml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.api</groupId>
+      <artifactId>customerAllRead_TMF</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
     <dependency>
       <groupId>com.example.metadata</groupId>
       <artifactId>customerRead_TMF_metadata</artifactId>

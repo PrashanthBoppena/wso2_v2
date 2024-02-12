@@ -1,0 +1,56 @@
+map_S_root_S_root = function(){ 
+    var outputroot = [];
+
+    for (var i = 0; i < inputroot.length; i++) {
+        var data = inputroot[i];
+        var output = {};
+
+        // Process addressReadResponse
+        if (data.addressReadResponse) {
+            output.account = [{
+                baseType: (data.addressReadResponse.adrZip || "").toString(),
+                schemaLocation: (data.addressReadResponse.countryId || "").toString(),
+                type: data.addressReadResponse.adrCity || ""
+            }];
+            output.characteristic = [{
+                countryIdPub: data.addressReadResponse.countryIdPub || null
+            }];
+        }
+
+        // Process customerReadResponse
+        if (data.customerReadResponse) {
+            if (!output.account) output.account = [{}];
+            output.account[0].id = (data.customerReadResponse.csId || "").toString();
+            output.account[0].name = data.customerReadResponse.createdByUser || "";
+            if (!output.contactMedium) output.contactMedium = [{}];
+            output.contactMedium[0] = {
+                baseType: (data.customerReadResponse.csCode || "").toString(),
+                schemaLocation: data.customerReadResponse.csStatus || "",
+                characteristic: {
+                    baseType: (data.customerReadResponse.paymentResp || "").toString(),
+                    schemaLocation: (data.customerReadResponse.prgCode || "").toString(),
+                    type: (data.customerReadResponse.rpcode || "").toString()
+                }
+            };
+        }
+
+        // Process contractReadResponse
+        if (data.contractReadResponse) {
+            if (!output.characteristic) output.characteristic = [{}];
+            output.characteristic[0].submId = data.contractReadResponse.submId || null;
+            if (!output.contactMedium) output.contactMedium = [{}];
+            output.contactMedium[0].mediumType = (data.contractReadResponse.coId || "").toString();
+            output.contactMedium[0].characteristic = {
+                city: (data.contractReadResponse.rpcode || "").toString(),
+                country: data.contractReadResponse.coIdPub || ""
+            };
+        }
+
+        // Check if any data exists in output and push to outputroot
+        if (Object.keys(output).length > 0) {
+            outputroot.push(output);
+        }
+    }
+
+    return outputroot;
+};

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/uol2" name="customerAllRead_TMF" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST GET" url-mapping="/customer-all-read">
+        <inSequence>
+            <iterate expression="//jsonElement" id="customerAllTMF" sequential="true">
+                <target>
+                    <sequence>
+                        <sequence key="gov:custom/sequences/DynamicPropertySetterSequence_Script.xml"/>
+                        <property expression="json-eval($)" name="API_Request" scope="default" type="STRING"/>
+                        <property expression="get-property('query.param.fields')" name="fields" scope="default" type="STRING"/>
+                        <propertyGroup description="BSCS Properties">
+                            <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath" scope="default" type="STRING"/>
+                            <property expression="json-eval($)" name="dynamicQueryMediatorRequestPayload" scope="default" type="STRING"/>
+                        </propertyGroup>
+                        <class description="Dynamic Query" name="com.knot.uol.mediators.DynamicXMLQueryMediator"/>
+                        <!--        <log level="custom">
+                <property expression="$ctx:dynamicQueryMediatorResponsePayload" name="dynamicQueryMediatorResponsePayload"/>
+            </log> -->
+                        <log level="custom">
+                            <property expression="$ctx:dynamicQueryMediatorResponsePayload" name="$ctx:dynamicQueryMediatorResponsePayload"/>
+                        </log>
+                        <payloadFactory description="buildPayload" media-type="json">
+                            <format>$1</format>
+                            <args>
+                                <arg evaluator="json" expression="$ctx:dynamicQueryMediatorResponsePayload.response"/>
+                            </args>
+                        </payloadFactory>
+                        <log description="log the Enableflag Count" level="custom">
+                            <property expression="get-property('query.param.fields')" name="get-property('query.param.fields')"/>
+                        </log>
+                        <script language="js"><![CDATA[var fields = mc.getProperty('fields');
+if (fields !== null && fields.trim() !== "" && fields.length() !== 0.0) {
+    var fieldsArray = fields.split(',');
+    var log = mc.getServiceLog();
+   
+    var payload = mc.getPayloadJSON();
+
+    var filteredPayload = [];
+
+    payload.forEach(function(item) {
+        fieldsArray.forEach(function(field) {
+            if (item.hasOwnProperty('tmf_params')) {
+                var tmfParamsArray = item['tmf_params'].split(',');
+                tmfParamsArray.forEach(function(tmfParam) {
+					log.info(field.equals(tmfParam));						
+                    if (field.equals(tmfParam)) {
+						log.info(field.equals(tmfParam));
+                        filteredPayload.push(item);
+                    }
+                });
+            }
+        });
+    });
+
+    mc.setPayloadJSON(filteredPayload);
+}]]></script>
+                        <property expression="json-eval($.length())" name="dynamicMediationItrCount" scope="default" type="STRING"/>
+                        <log description="log the Enableflag Count" level="custom">
+                            <property expression="get-property('dynamicMediationItrCount')" name="dynamicMediationItrCount"/>
+                        </log>
+                        <iterate expression="//jsonElement" id="dynamicMediationItrAgg1" sequential="true">
+                            <target>
+                                <sequence>
+                                    <sequence key="gov:custom/sequences/DynamicPropertySetterSequence_Script.xml"/>
+                                    <switch source="$ctx:system_name">
+                                        <case regex="UOL"/>
+                                        <case regex="EB">
+                                            <sequence key="gov:custom/sequences/childIdGeneratingSeq.xml"/>
+                                            <sequence key="gov:custom/sequences/EB_SOAP_Call_Seq.xml"/>
+                                            <!--<log level="custom">
+                                    <property expression="json-eval($)" name="eb response data==>"/>
+                                </log>-->
+                                        </case>
+                                        <case regex="QUERY"/>
+                                        <case regex="NMS"/>
+                                        <default/>
+                                    </switch>
+                                </sequence>
+                            </target>
+                        </iterate>
+                        <aggregate id="dynamicMediationItrAgg1">
+                            <completeCondition>
+                                <messageCount max="-1" min="-1"/>
+                            </completeCondition>
+                            <onComplete aggregateElementType="root" expression="json-eval($)">
+                                <log level="custom">
+                                    <property expression="json-eval($)" name="Agg1Res==>"/>
+                                </log>
+                            </onComplete>
+                        </aggregate>
+                    </sequence>
+                </target>
+            </iterate>
+            <aggregate id="customerAllTMF">
+                <completeCondition>
+                    <messageCount max="-1" min="-1"/>
+                </completeCondition>
+                <onComplete aggregateElementType="root" expression="json-eval($)">
+                    <log level="custom">
+                        <property expression="json-eval($)" name="BeforeFinalScript===>"/>
+                    </log>
+                    <script language="js"><![CDATA[var log = mc.getServiceLog();
+var jsonArray = mc.getPayloadJSON();
+
+var listOfObjects = [];
+
+// Check if jsonArray is an array of arrays
+if (Array.isArray(jsonArray) && Array.isArray(jsonArray[0])) {
+    jsonArray.forEach(function(innerArray) {
+        var newObj = {};
+        innerArray.forEach(function(element) {
+            var currentKey = Object.keys(element)[0];
+            newObj[currentKey] = element[currentKey];
+        });
+        listOfObjects.push(newObj);
+    });
+} 
+// Check if jsonArray is a single array of objects
+else if (Array.isArray(jsonArray)) {
+    jsonArray.forEach(function(element) {
+        var newObj = {};
+        var currentKey = Object.keys(element)[0];
+        newObj[currentKey] = element[currentKey];
+        listOfObjects.push(newObj);
+    });
+}
+
+mc.setPayloadJSON(listOfObjects);]]></script>
+                    <log level="custom">
+                        <property expression="json-eval($)" name="AfterFinalScript===>"/>
+                    </log>
+                    <datamapper config="gov:datamapper/TMF_ReadCust_DataMapperConfig.dmc" inputSchema="gov:datamapper/TMF_ReadCust_DataMapperConfig_inputSchema.json" inputType="JSON" outputSchema="gov:datamapper/TMF_ReadCust_DataMapperConfig_outputSchema.json" outputType="JSON" xsltStyleSheet="gov:datamapper/TMF_ReadCust_DataMapperConfig_xsltStyleSheet.xml"/>
+                    <respond/>
+                </onComplete>
+            </aggregate>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

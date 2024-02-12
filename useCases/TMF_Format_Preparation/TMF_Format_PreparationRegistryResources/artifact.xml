@@ -1,31 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?><artifacts>
-    <artifact name="NewConfig" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+    <artifact name="TMF_ReadCust_DataMapperConfig" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
         <item>
-            <file>NewConfig.dmc</file>
+            <file>TMF_ReadCust_DataMapperConfig.dmc</file>
             <path>/_system/governance/datamapper</path>
             <mediaType>text/plain</mediaType>
             <properties/>
         </item>
     </artifact>
-    <artifact name="NewConfig_inputSchema" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+    <artifact name="TMF_ReadCust_DataMapperConfig_inputSchema" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
         <item>
-            <file>NewConfig_inputSchema.json</file>
+            <file>TMF_ReadCust_DataMapperConfig_inputSchema.json</file>
             <path>/_system/governance/datamapper</path>
             <mediaType>text/plain</mediaType>
             <properties/>
         </item>
     </artifact>
-    <artifact name="NewConfig_outputSchema" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+    <artifact name="TMF_ReadCust_DataMapperConfig_outputSchema" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
         <item>
-            <file>NewConfig_outputSchema.json</file>
+            <file>TMF_ReadCust_DataMapperConfig_outputSchema.json</file>
             <path>/_system/governance/datamapper</path>
             <mediaType>text/plain</mediaType>
             <properties/>
         </item>
     </artifact>
-    <artifact name="NewConfig_xsltStyleSheet" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+    <artifact name="TMF_ReadCust_DataMapperConfig_xsltStyleSheet" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
         <item>
-            <file>NewConfig_xsltStyleSheet.xml</file>
+            <file>TMF_ReadCust_DataMapperConfig_xsltStyleSheet.xml</file>
+            <path>/_system/governance/datamapper</path>
+            <mediaType>text/plain</mediaType>
+            <properties/>
+        </item>
+    </artifact>
+    <artifact name="TestConfig" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>TestConfig.dmc</file>
+            <path>/_system/governance/datamapper</path>
+            <mediaType>text/plain</mediaType>
+            <properties/>
+        </item>
+    </artifact>
+    <artifact name="TestConfig_inputSchema" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>TestConfig_inputSchema.json</file>
+            <path>/_system/governance/datamapper</path>
+            <mediaType>text/plain</mediaType>
+            <properties/>
+        </item>
+    </artifact>
+    <artifact name="TestConfig_outputSchema" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>TestConfig_outputSchema.json</file>
+            <path>/_system/governance/datamapper</path>
+            <mediaType>text/plain</mediaType>
+            <properties/>
+        </item>
+    </artifact>
+    <artifact name="TestConfig_xsltStyleSheet" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
+        <item>
+            <file>TestConfig_xsltStyleSheet.xml</file>
             <path>/_system/governance/datamapper</path>
             <mediaType>text/plain</mediaType>
             <properties/>

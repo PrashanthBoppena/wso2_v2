@@ -8,4 +8,13 @@
     <artifact name="customerRead_TMF_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
         <file>src/main/resources/metadata/customerRead_TMF_metadata.yaml</file>
     </artifact>
+    <artifact name="customerAllRead_TMF" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/customerAllRead_TMF.xml</file>
+    </artifact>
+    <artifact name="customerAllRead_TMF_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/customerAllRead_TMF_swagger.yaml</file>
+    </artifact>
+    <artifact name="customerAllRead_TMF_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/customerAllRead_TMF_metadata.yaml</file>
+    </artifact>
 </artifacts>

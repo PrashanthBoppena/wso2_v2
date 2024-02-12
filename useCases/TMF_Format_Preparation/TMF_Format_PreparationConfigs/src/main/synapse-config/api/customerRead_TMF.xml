@@ -2,8 +2,20 @@
 <api context="/uol" name="customerRead_TMF" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="POST GET" url-mapping="/customer-read">
         <inSequence>
+            <sequence key="gov:custom/sequences/DynamicPropertySetterSequence_Script.xml"/>
             <property expression="json-eval($)" name="API_Request" scope="default" type="STRING"/>
             <property expression="get-property('query.param.fields')" name="fields" scope="default" type="STRING"/>
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+    "queryName": "TMF_test_read_services",&#xd;
+    "parameters": {&#xd;
+   		"customer_id": "518531",&#xd;
+        "csId":"518531",&#xd;
+		"sub_api_id": "read_customer"&#xd;
+    }&#xd;
+}</format>
+                <args/>
+            </payloadFactory>
             <propertyGroup description="BSCS Properties">
                 <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath" scope="default" type="STRING"/>
                 <property expression="json-eval($)" name="dynamicQueryMediatorRequestPayload" scope="default" type="STRING"/>
@@ -12,6 +24,9 @@
             <!--        <log level="custom">
                 <property expression="$ctx:dynamicQueryMediatorResponsePayload" name="dynamicQueryMediatorResponsePayload"/>
             </log> -->
+            <log level="custom">
+                <property expression="$ctx:dynamicQueryMediatorResponsePayload" name="$ctx:dynamicQueryMediatorResponsePayload"/>
+            </log>
             <payloadFactory description="buildPayload" media-type="json">
                 <format>$1</format>
                 <args>
@@ -40,7 +55,7 @@ if (fields !== null && fields.trim() !== "" && fields.length() !== 0.0) {
 			//log.info(typeof item['process_name']);	
 			
 			//log.info(field.equals(item['process_name']));	
-            if (item.hasOwnProperty('process_name') && field.equals(item['process_name'])) {
+            if (item.hasOwnProperty('tmf_params') && field.equals(item['tmf_params'])) {
                 // Add the item to the filteredPayload
 				//log.info(item.hasOwnProperty('process_name') && field.equals(item['process_name']));
                 filteredPayload.push(item);
@@ -79,26 +94,20 @@ if (fields !== null && fields.trim() !== "" && fields.length() !== 0.0) {
                     <messageCount max="-1" min="-1"/>
                 </completeCondition>
                 <onComplete aggregateElementType="root" expression="json-eval($)">
-                    <script language="js"><![CDATA[var inputPayload = mc.getPayloadJSON();
+                    <script language="js"><![CDATA[var log = mc.getServiceLog();
+var jsonArray = mc.getPayloadJSON();
 
-// Parse the JSON payload
-var jsonArray = JSON.parse(inputPayload);
-var log = mc.getServiceLog();
-// Create a new object to store the properties
-var newObject = {};
+var newObj ={};
+jsonArray.forEach(function(element) {
+var currentKey = Object.keys(element)[0];
+newObj[currentKey] = element[currentKey];
 
-// Iterate through the array and copy each object to the new object
-jsonArray.forEach(function (element) {
-    //var key = Object.keys(element)[0];
-	log.info(Object.keys(element)[0]);
-    newObject[key] = element[key];
 });
-
-// Convert the new object back to JSON
-var outputPayload = JSON.stringify(newObject);
-
-// Set the modified payload
-mc.setPayloadJSON(outputPayload);]]></script>
+mc.setPayloadJSON(newObj);]]></script>
+                    <log level="custom">
+                        <property expression="json-eval($)" name="AggRes===>"/>
+                    </log>
+                    <datamapper config="gov:datamapper/TMF_ReadCust_DataMapperConfig.dmc" inputSchema="gov:datamapper/TMF_ReadCust_DataMapperConfig_inputSchema.json" inputType="JSON" outputSchema="gov:datamapper/TMF_ReadCust_DataMapperConfig_outputSchema.json" outputType="JSON" xsltStyleSheet="gov:datamapper/TMF_ReadCust_DataMapperConfig_xsltStyleSheet.xml"/>
                     <respond/>
                 </onComplete>
             </aggregate>

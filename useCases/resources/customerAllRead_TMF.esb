@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esb:EsbDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb">
+  <server type="API">
+    <children xsi:type="esb:SynapseAPI" apiName="customerAllRead_TMF" context="/uol2">
+      <resources urlStyle="URL_MAPPING" urlMapping="/customer-all-read" allowGet="true" allowPost="true">
+        <inputConnector/>
+        <outputConnector>
+          <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@inputConnector"/>
+        </outputConnector>
+        <outSequenceOutputConnector/>
+        <faultInputConnector/>
+        <container>
+          <sequenceAndEndpointContainer>
+            <mediatorFlow>
+              <children xsi:type="esb:IterateMediator" iterateID="customerAllTMF" sequentialMediation="true">
+                <iterateExpression propertyValue="//jsonElement" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                <attachPath propertyValue="." namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                <target>
+                  <sequenceKey prettyName="Sequence Key" keyName="sequence" keyValue="/default/sequence" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                  <endpointKey prettyName="Endpoint Key" keyName="endpoint" keyValue="/default/endpoint" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                </target>
+                <inputConnector incomingLinks="//@server/@children.0/@resources.0/@outputConnector/@outgoingLink"/>
+                <outputConnector>
+                  <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@inputConnector"/>
+                </outputConnector>
+                <targetOutputConnector>
+                  <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
+                </targetOutputConnector>
+                <mediatorFlow>
+                  <children xsi:type="esb:Sequence" name="gov:custom/sequences/DynamicPropertySetterSequence_Script.xml">
+                    <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@targetOutputConnector/@outgoingLink"/>
+                    <outputConnector>
+                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.1/@inputConnector"/>
+                    </outputConnector>
+                    <dynamicReferenceKey prettyName="Sequence Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    <staticReferenceKey prettyName="Sequence Key" keyName="Sequence Key" keyValue="gov:custom/sequences/DynamicPropertySetterSequence_Script.xml" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A6578700000000177040000000174001D6170706C69636174696F6E2F766E642E77736F322E73657175656E63657878"/>
+                  </children>
+                  <children xsi:type="esb:PropertyMediator" valueType="EXPRESSION" newPropertyName="API_Request">
+                    <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.0/@outputConnector.0/@outgoingLink"/>
+                    <outputConnector>
+                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.2/@inputConnector"/>
+                    </outputConnector>
+                    <valueExpression propertyValue="json-eval($)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                  </children>
+                  <children xsi:type="esb:PropertyMediator" valueType="EXPRESSION" newPropertyName="fields">
+                    <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
+                    <outputConnector>
+                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.3/@inputConnector"/>
+                    </outputConnector>
+                    <valueExpression propertyValue="get-property('query.param.fields')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                  </children>
+                  <children xsi:type="esb:PropertyGroupMediator" description="BSCS Properties">
+                    <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.2/@outputConnector/@outgoingLink"/>
+                    <outputConnector>
+                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.4/@inputConnector"/>
+                    </outputConnector>
+                    <properties valueType="EXPRESSION" newPropertyName="apiregistryConfigPath">
+                      <inputConnector/>
+                      <outputConnector/>
+                      <valueExpression propertyValue="get-property('file','apiRegistryConfigs')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                    </properties>
+                    <properties valueType="EXPRESSION" newPropertyName="dynamicQueryMediatorRequestPayload">
+                      <inputConnector/>
+                      <outputConnector/>
+                      <valueExpression propertyValue="json-eval($)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                    </properties>
+                  </children>
+                  <children xsi:type="esb:ClassMediator" description="Dynamic Query" className="com.knot.uol.mediators.DynamicXMLQueryMediator">
+                    <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.3/@outputConnector/@outgoingLink"/>
+                    <outputConnector>
+                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.5/@inputConnector"/>
+                      <commentMediators commentText="        &lt;log level=&quot;custom&quot;>&#xA;                &lt;property expression=&quot;$ctx:dynamicQueryMediatorResponsePayload&quot; name=&quot;dynamicQueryMediatorResponsePayload&quot;/>&#xA;            &lt;/log> "/>
+                    </outputConnector>
+                  </children>
+                  <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=", ">
+                    <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.4/@outputConnector/@outgoingLink"/>
+                    <outputConnector>
+                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.6/@inputConnector"/>
+                    </outputConnector>
+                    <properties propertyName="$ctx:dynamicQueryMediatorResponsePayload" propertyValueType="EXPRESSION" propertyValue="">
+                      <propertyExpression propertyValue="$ctx:dynamicQueryMediatorResponsePayload" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    </properties>
+                  </children>
+                  <children xsi:type="esb:PayloadFactoryMediator" description="buildPayload" payload="$1" mediaType="json">
+                    <payloadKey prettyName="Sequence Key" keyName="Sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    <args argumentType="Expression" evaluator="json">
+                      <argumentExpression propertyValue="json-eval($ctx:dynamicQueryMediatorResponsePayload.response)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    </args>
+                    <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.5/@outputConnector/@outgoingLink"/>
+                    <outputConnector>
+                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.7/@inputConnector"/>
+                    </outputConnector>
+                  </children>
+                  <children xsi:type="esb:LogMediator" description="log the Enableflag Count" logLevel="CUSTOM" logSeparator=", ">
+                    <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.6/@outputConnector/@outgoingLink"/>
+                    <outputConnector>
+                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.8/@inputConnector"/>
+                    </outputConnector>
+                    <properties propertyName="get-property('query.param.fields')" propertyValueType="EXPRESSION" propertyValue="">
+                      <propertyExpression propertyValue="get-property('query.param.fields')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    </properties>
+                  </children>
+                  <children xsi:type="esb:ScriptMediator" scriptType="INLINE" scriptBody="var fields = mc.getProperty('fields');&#xA;if (fields !== null &amp;&amp; fields.trim() !== &quot;&quot; &amp;&amp; fields.length() !== 0.0) {&#xA;    var fieldsArray = fields.split(',');&#xA;    var log = mc.getServiceLog();&#xA;   &#xA;    var payload = mc.getPayloadJSON();&#xA;&#xA;    var filteredPayload = [];&#xA;&#xA;    payload.forEach(function(item) {&#xA;        fieldsArray.forEach(function(field) {&#xA;            if (item.hasOwnProperty('tmf_params')) {&#xA;                var tmfParamsArray = item['tmf_params'].split(',');&#xA;                tmfParamsArray.forEach(function(tmfParam) {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;log.info(field.equals(tmfParam));&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xA;                    if (field.equals(tmfParam)) {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;log.info(field.equals(tmfParam));&#xA;                        filteredPayload.push(item);&#xA;                    }&#xA;                });&#xA;            }&#xA;        });&#xA;    });&#xA;&#xA;    mc.setPayloadJSON(filteredPayload);&#xA;}">
+                    <scriptDynamicKey prettyName="" propertyName="dynamic key" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.7/@outputConnector/@outgoingLink"/>
+                    <outputConnector>
+                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.9/@inputConnector"/>
+                    </outputConnector>
+                    <scriptStaticKey prettyName="Script Key" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                  </children>
+                  <children xsi:type="esb:PropertyMediator" valueType="EXPRESSION" newPropertyName="dynamicMediationItrCount">
+                    <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.8/@outputConnector/@outgoingLink"/>
+                    <outputConnector>
+                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.10/@inputConnector"/>
+                    </outputConnector>
+                    <valueExpression propertyValue="json-eval($.length())" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                  </children>
+                  <children xsi:type="esb:LogMediator" description="log the Enableflag Count" logLevel="CUSTOM" logSeparator=", ">
+                    <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.9/@outputConnector/@outgoingLink"/>
+                    <outputConnector>
+                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.11/@inputConnector"/>
+                    </outputConnector>
+                    <properties propertyName="dynamicMediationItrCount" propertyValueType="EXPRESSION" propertyValue="">
+                      <propertyExpression propertyValue="get-property('dynamicMediationItrCount')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    </properties>
+                  </children>
+                  <children xsi:type="esb:IterateMediator" iterateID="dynamicMediationItrAgg1" sequentialMediation="true">
+                    <iterateExpression propertyValue="//jsonElement" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                    <attachPath propertyValue="." namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                    <target>
+                      <sequenceKey prettyName="Sequence Key" keyName="sequence" keyValue="/default/sequence" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                      <endpointKey prettyName="Endpoint Key" keyName="endpoint" keyValue="/default/endpoint" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    </target>
+                    <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.10/@outputConnector/@outgoingLink"/>
+                    <outputConnector>
+                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.12/@inputConnector"/>
+                    </outputConnector>
+                    <targetOutputConnector>
+                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.11/@mediatorFlow/@children.0/@inputConnector"/>
+                    </targetOutputConnector>
+                    <mediatorFlow>
+                      <children xsi:type="esb:Sequence" name="gov:custom/sequences/DynamicPropertySetterSequence_Script.xml">
+                        <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.11/@targetOutputConnector/@outgoingLink"/>
+                        <outputConnector>
+                          <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.11/@mediatorFlow/@children.1/@inputConnector"/>
+                        </outputConnector>
+                        <dynamicReferenceKey prettyName="Sequence Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                        <staticReferenceKey prettyName="Sequence Key" keyName="Sequence Key" keyValue="gov:custom/sequences/DynamicPropertySetterSequence_Script.xml" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A6578700000000177040000000174001D6170706C69636174696F6E2F766E642E77736F322E73657175656E63657878"/>
+                      </children>
+                      <children xsi:type="esb:SwitchMediator">
+                        <sourceXpath propertyValue="$ctx:system_name" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                        <caseBranches caseRegex="UOL"/>
+                        <caseBranches caseRegex="EB">
+                          <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.11/@mediatorFlow/@children.1/@switchContainer/@switchCaseParentContainer/@switchCaseContainer.1/@mediatorFlow/@children.0/@inputConnector"/>
+                        </caseBranches>
+                        <caseBranches caseRegex="QUERY"/>
+                        <caseBranches caseRegex="NMS"/>
+                        <defaultBranch/>
+                        <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.11/@mediatorFlow/@children.0/@outputConnector.0/@outgoingLink"/>
+                        <outputConnector/>
+                        <switchContainer>
+                          <switchCaseParentContainer>
+                            <switchCaseContainer>
+                              <mediatorFlow/>
+                            </switchCaseContainer>
+                            <switchCaseContainer>
+                              <mediatorFlow>
+                                <children xsi:type="esb:Sequence" name="gov:custom/sequences/childIdGeneratingSeq.xml">
+                                  <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.11/@mediatorFlow/@children.1/@caseBranches.1/@outgoingLink"/>
+                                  <outputConnector>
+                                    <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.11/@mediatorFlow/@children.1/@switchContainer/@switchCaseParentContainer/@switchCaseContainer.1/@mediatorFlow/@children.1/@inputConnector"/>
+                                  </outputConnector>
+                                  <dynamicReferenceKey prettyName="Sequence Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                                  <staticReferenceKey prettyName="Sequence Key" keyName="Sequence Key" keyValue="gov:custom/sequences/childIdGeneratingSeq.xml" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A6578700000000177040000000174001D6170706C69636174696F6E2F766E642E77736F322E73657175656E63657878"/>
+                                </children>
+                                <children xsi:type="esb:Sequence" name="gov:custom/sequences/EB_SOAP_Call_Seq.xml">
+                                  <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.11/@mediatorFlow/@children.1/@switchContainer/@switchCaseParentContainer/@switchCaseContainer.1/@mediatorFlow/@children.0/@outputConnector.0/@outgoingLink"/>
+                                  <outputConnector>
+                                    <commentMediators commentText="&lt;log level=&quot;custom&quot;>&#xA;                                    &lt;property expression=&quot;json-eval($)&quot; name=&quot;eb response data==>&quot;/>&#xA;                                &lt;/log>"/>
+                                  </outputConnector>
+                                  <dynamicReferenceKey prettyName="Sequence Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                                  <staticReferenceKey prettyName="Sequence Key" keyName="Sequence Key" keyValue="gov:custom/sequences/EB_SOAP_Call_Seq.xml" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A6578700000000177040000000174001D6170706C69636174696F6E2F766E642E77736F322E73657175656E63657878"/>
+                                </children>
+                              </mediatorFlow>
+                            </switchCaseContainer>
+                            <switchCaseContainer>
+                              <mediatorFlow/>
+                            </switchCaseContainer>
+                            <switchCaseContainer>
+                              <mediatorFlow/>
+                            </switchCaseContainer>
+                          </switchCaseParentContainer>
+                          <switchDefaultParentContainer>
+                            <switchDefaultContainer>
+                              <mediatorFlow/>
+                            </switchDefaultContainer>
+                          </switchDefaultParentContainer>
+                        </switchContainer>
+                      </children>
+                    </mediatorFlow>
+                    <sequenceKey prettyName="Sequence Reference" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                  </children>
+                  <children xsi:type="esb:AggregateMediator" aggregateID="dynamicMediationItrAgg1">
+                    <correlationExpression prettyName="Correlation Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                    <completionMinMessagesExpression prettyName="completionMinMessagesExpression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    <completionMaxMessagesExpression prettyName="completionMaxMessagesExpression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.11/@outputConnector/@outgoingLink"/>
+                    <outputConnector/>
+                    <onCompleteOutputConnector>
+                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.12/@mediatorFlow/@children.0/@inputConnector"/>
+                    </onCompleteOutputConnector>
+                    <mediatorFlow>
+                      <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=", ">
+                        <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@mediatorFlow/@children.12/@onCompleteOutputConnector/@outgoingLink"/>
+                        <outputConnector/>
+                        <properties propertyName="Agg1Res==>" propertyValueType="EXPRESSION" propertyValue="">
+                          <propertyExpression propertyValue="json-eval($)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                        </properties>
+                      </children>
+                    </mediatorFlow>
+                    <aggregationExpression propertyValue="json-eval($)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                    <sequenceKey prettyName="Sequence Key" keyName="Sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                  </children>
+                </mediatorFlow>
+                <sequenceKey prettyName="Sequence Reference" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+              </children>
+              <children xsi:type="esb:AggregateMediator" aggregateID="customerAllTMF">
+                <correlationExpression prettyName="Correlation Expression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                <completionMinMessagesExpression prettyName="completionMinMessagesExpression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                <completionMaxMessagesExpression prettyName="completionMaxMessagesExpression" propertyName="expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+                <outputConnector/>
+                <onCompleteOutputConnector>
+                  <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@mediatorFlow/@children.0/@inputConnector"/>
+                </onCompleteOutputConnector>
+                <mediatorFlow>
+                  <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=", ">
+                    <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@onCompleteOutputConnector/@outgoingLink"/>
+                    <outputConnector>
+                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@mediatorFlow/@children.1/@inputConnector"/>
+                    </outputConnector>
+                    <properties propertyName="BeforeFinalScript===>" propertyValueType="EXPRESSION" propertyValue="">
+                      <propertyExpression propertyValue="json-eval($)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    </properties>
+                  </children>
+                  <children xsi:type="esb:ScriptMediator" scriptType="INLINE" scriptBody="var log = mc.getServiceLog();&#xA;var jsonArray = mc.getPayloadJSON();&#xA;&#xA;var listOfObjects = [];&#xA;&#xA;// Check if jsonArray is an array of arrays&#xA;if (Array.isArray(jsonArray) &amp;&amp; Array.isArray(jsonArray[0])) {&#xA;    jsonArray.forEach(function(innerArray) {&#xA;        var newObj = {};&#xA;        innerArray.forEach(function(element) {&#xA;            var currentKey = Object.keys(element)[0];&#xA;            newObj[currentKey] = element[currentKey];&#xA;        });&#xA;        listOfObjects.push(newObj);&#xA;    });&#xA;} &#xA;// Check if jsonArray is a single array of objects&#xA;else if (Array.isArray(jsonArray)) {&#xA;    jsonArray.forEach(function(element) {&#xA;        var newObj = {};&#xA;        var currentKey = Object.keys(element)[0];&#xA;        newObj[currentKey] = element[currentKey];&#xA;        listOfObjects.push(newObj);&#xA;    });&#xA;}&#xA;&#xA;mc.setPayloadJSON(listOfObjects);">
+                    <scriptDynamicKey prettyName="" propertyName="dynamic key" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+                    <outputConnector>
+                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@mediatorFlow/@children.2/@inputConnector"/>
+                    </outputConnector>
+                    <scriptStaticKey prettyName="Script Key" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                  </children>
+                  <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=", ">
+                    <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
+                    <outputConnector>
+                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@mediatorFlow/@children.3/@inputConnector"/>
+                    </outputConnector>
+                    <properties propertyName="AfterFinalScript===>" propertyValueType="EXPRESSION" propertyValue="">
+                      <propertyExpression propertyValue="json-eval($)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    </properties>
+                  </children>
+                  <children xsi:type="esb:DataMapperMediator" inputType="JSON" outputType="JSON">
+                    <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@mediatorFlow/@children.2/@outputConnector/@outgoingLink"/>
+                    <outputConnector>
+                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@mediatorFlow/@children.4/@inputConnector"/>
+                    </outputConnector>
+                    <configuration keyValue="gov:datamapper/TMF_ReadCust_DataMapperConfig.dmc" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    <InputSchema keyValue="gov:datamapper/TMF_ReadCust_DataMapperConfig_inputSchema.json" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    <outputSchema keyValue="gov:datamapper/TMF_ReadCust_DataMapperConfig_outputSchema.json" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    <xsltStyleSheet keyValue="gov:datamapper/TMF_ReadCust_DataMapperConfig_xsltStyleSheet.xml" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                  </children>
+                  <children xsi:type="esb:RespondMediator">
+                    <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@mediatorFlow/@children.3/@outputConnector/@outgoingLink"/>
+                    <outputConnector/>
+                  </children>
+                </mediatorFlow>
+                <aggregationExpression propertyValue="json-eval($)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>
+                <sequenceKey prettyName="Sequence Key" keyName="Sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+              </children>
+            </mediatorFlow>
+          </sequenceAndEndpointContainer>
+          <faultContainer>
+            <mediatorFlow/>
+          </faultContainer>
+        </container>
+        <inSequenceKey prettyName="In Sequence Reference" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+        <outSequenceKey prettyName="Out Sequence Reference" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+        <faultSequenceKey prettyName="Fault Sequence Reference" keyName="key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+      </resources>
+    </children>
+  </server>
+</esb:EsbDiagram>

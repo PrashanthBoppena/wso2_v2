@@ -1,0 +1,106 @@
+map_S_root_S_root = function(){ 
+var outputroot={};
+
+var count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029 = 0;
+outputroot =  [];
+
+for(i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029 in inputroot){
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029] =  {};
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].id = (inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].customerReadResponse.csId).toString();
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].href = (inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contractReadResponse.firstCsId).toString();
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].name = (inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].customerReadResponse.csPassword).toString();
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].status = (inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].customerReadResponse.listOfAssignments.item.completionStatus).toString();
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].statusReason = inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].customerReadResponse.csStatus;
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].account =  [];
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].account[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029] =  {};
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].account[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].id = (inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].customerReadResponse.csId).toString();
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].account[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].description = (inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].customerReadResponse.prgCode).toString();
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].agreement =  [];
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].agreement[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029] =  {};
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].agreement[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].id = (inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].customerReadResponse.csId).toString();
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].characteristic =  [];
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].characteristic[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029] =  {};
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].characteristic[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].value = (inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].customerReadResponse.costId).toString();
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contactMedium =  [];
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contactMedium[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029] =  {};
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contactMedium[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].mediumType = (inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].customerReadResponse.csUnbilledAmount.amount).toString();
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contactMedium[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].preferred = inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].customerReadResponse.rpcode;
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contactMedium[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].characteristic =  {};
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contactMedium[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].characteristic.city = inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].addressReadResponse.adrCity;
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contactMedium[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].characteristic.country = inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contractReadResponse.rpcodePub;
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contactMedium[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].characteristic.emailAddress = (inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].addressReadResponse.csId).toString();
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contactMedium[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].characteristic.faxNumber = (inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contractReadResponse.bmId).toString();
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contactMedium[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].characteristic.phoneNumber = (inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].customerReadResponse.csId).toString();
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contactMedium[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].characteristic.postCode = (inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].addressReadResponse.idtypeCode).toString();
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contactMedium[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].characteristic.socialNetworkId = (inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contractReadResponse.submId).toString();
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contactMedium[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].characteristic.stateOrProvince = (inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].addressReadResponse.adrNationality).toString();
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contactMedium[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].characteristic.street1 = (inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contractReadResponse.plcode).toString();
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contactMedium[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].characteristic.street2 = (inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contractReadResponse.sccode).toString();
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contactMedium[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].validFor =  {};
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].creditProfile =  [];
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].creditProfile[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029] =  {};
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].creditProfile[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].creditProfileDate = inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contractReadResponse.coLastStatusChangeDate;
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].creditProfile[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].creditRiskRating = inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].customerReadResponse.paymentRespId;
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].creditProfile[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].creditScore = inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].customerReadResponse.performCreditScoring;
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].creditProfile[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].validFor =  {};
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].engagedParty =  {};
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].engagedParty.role = inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].customerReadResponse.partyRoleAssignments.item.partyRoleShname;
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].relatedParty =  [];
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].relatedParty[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029] =  {};
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].relatedParty[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].role = inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].customerReadResponse.partyRoleAssignments.item.partyRoleDescription;
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].validFor =  {};
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].validFor.endDateTime = inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].customerReadResponse.csCreationDate;
+outputroot[count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].validFor.startDateTime = inputroot[i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029].contractReadResponse.coModdate;
+
+count_i_inputroot_5d4b34e5_0f0b_4011_8b4a_c35e70e43029++;
+}
+return outputroot;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

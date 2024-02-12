@@ -1,0 +1,1823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datamapper:DataMapperRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:datamapper="http:///org/wso2/developerstudio/eclipse/gmf/datamapper">
+  <input>
+    <treeNode name="root" level="1">
+      <node name="customerReadResponse" schemaDataType="OBJECT" level="2">
+        <node name="createdByUser" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/createdByUser"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="isIndividualOverdiscDisabled" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/isIndividualOverdiscDisabled"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="familyId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/familyId"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="listOfAssignments" schemaDataType="OBJECT" level="3">
+          <node name="item" schemaDataType="OBJECT" level="4">
+            <node name="familyId" schemaDataType="NUMBER" level="5">
+              <properties key="type" value="number"/>
+              <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments/item/familyId"/>
+              <properties key="nullable" value="false"/>
+              <outNode/>
+              <inNode/>
+            </node>
+            <node name="completionStatus" schemaDataType="NUMBER" level="5">
+              <properties key="type" value="number"/>
+              <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments/item/completionStatus"/>
+              <properties key="nullable" value="false"/>
+              <outNode>
+                <outgoingLink inNode="//@output/@treeNode.0/@node.3/@inNode"/>
+              </outNode>
+              <inNode/>
+            </node>
+            <node name="validFrom" schemaDataType="STRING" level="5">
+              <properties key="type" value="string"/>
+              <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments/item/validFrom"/>
+              <properties key="nullable" value="false"/>
+              <outNode/>
+              <inNode/>
+            </node>
+            <properties key="type" value="object"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments/item"/>
+            <properties key="nullable" value="false"/>
+            <properties key="properties_id" value="{familyId={id=http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments/item/familyId, type=number}, completionStatus={id=http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments/item/completionStatus, type=number}, validFrom={id=http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments/item/validFrom, type=string}}"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <properties key="type" value="object"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csId"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.0/@inNode"/>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.5/@node.4/@inNode"/>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.6/@node.4/@inNode"/>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.8/@node.5/@node.8/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="csIdPub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csIdPub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csCode" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csCode"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csStatus" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csStatus"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.4/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="csStatusDate" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csStatusDate"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csActivationDate" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csActivationDate"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csLevelCode" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csLevelCode"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="paymentResp" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/paymentResp"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="prgCode" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/prgCode"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.5/@node.6/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="rpcode" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/rpcode"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.8/@node.4/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="rpcodePub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/rpcodePub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="tradeCode" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/tradeCode"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="costId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/costId"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.7/@node.5/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="costCodePub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/costCodePub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csPassword" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csPassword"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.2/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="rsCode" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/rsCode"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="wpCode" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/wpCode"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csBillInformation" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csBillInformation"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="expectPayCurrencyId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/expectPayCurrencyId"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="expectPayCurrencyIdPub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/expectPayCurrencyIdPub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csConvratetypePayment" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csConvratetypePayment"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csConvratetypePaymentPub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csConvratetypePaymentPub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="refundCurrencyId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/refundCurrencyId"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="refundCurrencyIdPub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/refundCurrencyIdPub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csConvratetypeRefund" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csConvratetypeRefund"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csConvratetypeRefundPub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csConvratetypeRefundPub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csCrcheckAgreed" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csCrcheckAgreed"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csIncorporatedInd" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csIncorporatedInd"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csBillcycle" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csBillcycle"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csBillcycleDesc" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csBillcycleDesc"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csLimitTr1" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csLimitTr1"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csLimitTr1Pub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csLimitTr1Pub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csLimitTr2" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csLimitTr2"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csLimitTr2Pub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csLimitTr2Pub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csLimitTr3" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csLimitTr3"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csLimitTr3Pub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csLimitTr3Pub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csClimit" schemaDataType="OBJECT" level="3">
+          <node name="amount" schemaDataType="NUMBER" level="4">
+            <properties key="type" value="number"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csClimit/amount"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="currency" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csClimit/currency"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <properties key="type" value="object"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csClimit"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csContresp" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csContresp"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csDeposit" schemaDataType="OBJECT" level="3">
+          <node name="amount" schemaDataType="NUMBER" level="4">
+            <properties key="type" value="number"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csDeposit/amount"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="currency" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csDeposit/currency"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <properties key="type" value="object"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csDeposit"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csDunning" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csDunning"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csPrepayment" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csPrepayment"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csFcId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csFcId"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csFcIdPub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csFcIdPub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csCscurbalance" schemaDataType="OBJECT" level="3">
+          <node name="amount" schemaDataType="NUMBER" level="4">
+            <properties key="type" value="number"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csCscurbalance/amount"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="currency" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csCscurbalance/currency"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <properties key="type" value="object"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csCscurbalance"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csPrevbalance" schemaDataType="OBJECT" level="3">
+          <node name="amount" schemaDataType="NUMBER" level="4">
+            <properties key="type" value="number"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csPrevbalance/amount"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="currency" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csPrevbalance/currency"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <properties key="type" value="object"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csPrevbalance"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csUnbilledAmount" schemaDataType="OBJECT" level="3">
+          <node name="amount" schemaDataType="NUMBER" level="4">
+            <properties key="type" value="number"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csUnbilledAmount/amount"/>
+            <properties key="nullable" value="false"/>
+            <outNode>
+              <outgoingLink inNode="//@output/@treeNode.0/@node.8/@node.3/@inNode"/>
+            </outNode>
+            <inNode/>
+          </node>
+          <node name="currency" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csUnbilledAmount/currency"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <properties key="type" value="object"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csUnbilledAmount"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csInitPrepaidContrOwner" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csInitPrepaidContrOwner"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csCreationDate" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csCreationDate"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.13/@node.0/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="lastModificationUser" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/lastModificationUser"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="paymentRespId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/paymentRespId"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.9/@node.4/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="csPaymntRespCode" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/csPaymntRespCode"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="partyRoleAssignments" schemaDataType="OBJECT" level="3">
+          <node name="item" schemaDataType="OBJECT" level="4">
+            <node name="partyRoleId" schemaDataType="NUMBER" level="5">
+              <properties key="type" value="number"/>
+              <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item/partyRoleId"/>
+              <properties key="nullable" value="false"/>
+              <outNode/>
+              <inNode/>
+            </node>
+            <node name="partyRoleShname" schemaDataType="STRING" level="5">
+              <properties key="type" value="string"/>
+              <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item/partyRoleShname"/>
+              <properties key="nullable" value="false"/>
+              <outNode>
+                <outgoingLink inNode="//@output/@treeNode.0/@node.10/@node.7/@inNode"/>
+              </outNode>
+              <inNode/>
+            </node>
+            <node name="partyRoleName" schemaDataType="STRING" level="5">
+              <properties key="type" value="string"/>
+              <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item/partyRoleName"/>
+              <properties key="nullable" value="false"/>
+              <outNode/>
+              <inNode/>
+            </node>
+            <node name="partyRoleDescription" schemaDataType="STRING" level="5">
+              <properties key="type" value="string"/>
+              <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item/partyRoleDescription"/>
+              <properties key="nullable" value="false"/>
+              <outNode>
+                <outgoingLink inNode="//@output/@treeNode.0/@node.12/@node.7/@inNode"/>
+              </outNode>
+              <inNode/>
+            </node>
+            <properties key="type" value="object"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item"/>
+            <properties key="nullable" value="false"/>
+            <properties key="properties_id" value="{partyRoleId={id=http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item/partyRoleId, type=number}, partyRoleShname={id=http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item/partyRoleShname, type=string}, partyRoleName={id=http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item/partyRoleName, type=string}, partyRoleDescription={id=http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item/partyRoleDescription, type=string}}"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <properties key="type" value="object"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments"/>
+          <properties key="nullable" value="false"/>
+          <properties key="properties_id" value="{item={id=http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments/item, type=object, properties={familyId={id=http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments/item/familyId, type=number}, completionStatus={id=http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments/item/completionStatus, type=number}, validFrom={id=http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments/item/validFrom, type=string}}}}"/>
+          <properties key="properties_id" value="{amount={id=http://wso2jsonschema.org/0/customerReadResponse/csClimit/amount, type=number}, currency={id=http://wso2jsonschema.org/0/customerReadResponse/csClimit/currency, type=string}}"/>
+          <properties key="properties_id" value="{amount={id=http://wso2jsonschema.org/0/customerReadResponse/csDeposit/amount, type=number}, currency={id=http://wso2jsonschema.org/0/customerReadResponse/csDeposit/currency, type=string}}"/>
+          <properties key="properties_id" value="{amount={id=http://wso2jsonschema.org/0/customerReadResponse/csCscurbalance/amount, type=number}, currency={id=http://wso2jsonschema.org/0/customerReadResponse/csCscurbalance/currency, type=string}}"/>
+          <properties key="properties_id" value="{amount={id=http://wso2jsonschema.org/0/customerReadResponse/csPrevbalance/amount, type=number}, currency={id=http://wso2jsonschema.org/0/customerReadResponse/csPrevbalance/currency, type=string}}"/>
+          <properties key="properties_id" value="{amount={id=http://wso2jsonschema.org/0/customerReadResponse/csUnbilledAmount/amount, type=number}, currency={id=http://wso2jsonschema.org/0/customerReadResponse/csUnbilledAmount/currency, type=string}}"/>
+          <properties key="properties_id" value="{item={id=http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item, type=object, properties={partyRoleId={id=http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item/partyRoleId, type=number}, partyRoleShname={id=http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item/partyRoleShname, type=string}, partyRoleName={id=http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item/partyRoleName, type=string}, partyRoleDescription={id=http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item/partyRoleDescription, type=string}}}}"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="partyType" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/partyType"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="collInd" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/collInd"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="markedForRerating" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/markedForRerating"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="performCreditScoring" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse/performCreditScoring"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.9/@node.5/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <properties key="type" value="object"/>
+        <properties key="id" value="http://wso2jsonschema.org/0/customerReadResponse"/>
+        <properties key="nullable" value="false"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <node name="addressReadResponse" schemaDataType="OBJECT" level="2">
+        <node name="adrSeq" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/adrSeq"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="adrRoles" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/adrRoles"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="adrJurTaxOverridden" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/adrJurTaxOverridden"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="adrTempbillOverridden" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/adrTempbillOverridden"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="ttlId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/ttlId"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="ttlIdPub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/ttlIdPub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="adrLname" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/adrLname"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="adrStreet" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/adrStreet"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="adrStreetno" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/adrStreetno"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="adrZip" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/adrZip"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="adrCity" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/adrCity"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.8/@node.5/@node.3/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="lngCode" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/lngCode"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="lngCodePub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/lngCodePub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="adrUrgent" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/adrUrgent"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="adrForward" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/adrForward"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="idtypeCode" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/idtypeCode"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.8/@node.5/@node.9/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="adrSex" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/adrSex"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="adrCusttype" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/adrCusttype"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="masCode" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/masCode"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="masCodePub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/masCodePub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="adrNationality" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/adrNationality"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.8/@node.5/@node.11/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="adrNationalityPub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/adrNationalityPub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="adrEmployee" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/adrEmployee"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/csId"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.8/@node.5/@node.6/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="csIdPub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/csIdPub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="countryId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/countryId"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="countryIdPub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse/countryIdPub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <properties key="type" value="object"/>
+        <properties key="id" value="http://wso2jsonschema.org/0/addressReadResponse"/>
+        <properties key="nullable" value="false"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <node name="contractReadResponse" schemaDataType="OBJECT" level="2">
+        <node name="firstCsId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/firstCsId"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.1/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="firstCsIdPub" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/firstCsIdPub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/csId"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="csIdPub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/csIdPub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="contractTypeId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/contractTypeId"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="commonRefData" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/commonRefData"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="sccode" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/sccode"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.8/@node.5/@node.13/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="sccodePub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/sccodePub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="plcode" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/plcode"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.8/@node.5/@node.12/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="plcodePub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/plcodePub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="rpcode" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/rpcode"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="rpcodePub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/rpcodePub"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.8/@node.5/@node.5/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="storageMediums" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/storageMediums"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="coArchive" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/coArchive"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="coOpDir" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/coOpDir"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="coPstnDir" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/coPstnDir"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="coStatus" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/coStatus"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="coLastReason" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/coLastReason"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="coLastStatusChangeDate" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/coLastStatusChangeDate"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.9/@node.3/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="coModdate" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/coModdate"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.13/@node.1/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="coEntdate" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/coEntdate"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="currencyId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/currencyId"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="currencyIdPub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/currencyIdPub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="preratedTapRp" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/preratedTapRp"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="coNonexplServPaymentType" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/coNonexplServPaymentType"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="coSignedDate" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/coSignedDate"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="coId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/coId"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="coIdPub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/coIdPub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="submId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/submId"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.8/@node.5/@node.10/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="submIdPub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/submIdPub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="userinstallationAdr" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/userinstallationAdr"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="bmId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/bmId"/>
+          <properties key="nullable" value="false"/>
+          <outNode>
+            <outgoingLink inNode="//@output/@treeNode.0/@node.8/@node.5/@node.7/@inNode"/>
+          </outNode>
+          <inNode/>
+        </node>
+        <node name="bmIdPub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/bmIdPub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="notificationMediumId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/notificationMediumId"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="notificationMediumIdPub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/notificationMediumIdPub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="chargingPeriodAdjustmentReference" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/chargingPeriodAdjustmentReference"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="ivrLangId" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/ivrLangId"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="ivrLangIdPub" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/ivrLangIdPub"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="markedForRerating" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/markedForRerating"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="reratingSupported" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse/reratingSupported"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <properties key="type" value="object"/>
+        <properties key="id" value="http://wso2jsonschema.org/0/contractReadResponse"/>
+        <properties key="nullable" value="false"/>
+        <properties key="properties_id" value="{createdByUser={id=http://wso2jsonschema.org/0/customerReadResponse/createdByUser, type=string}, isIndividualOverdiscDisabled={id=http://wso2jsonschema.org/0/customerReadResponse/isIndividualOverdiscDisabled, type=boolean}, familyId={id=http://wso2jsonschema.org/0/customerReadResponse/familyId, type=number}, listOfAssignments={id=http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments, type=object, properties={item={id=http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments/item, type=object, properties={familyId={id=http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments/item/familyId, type=number}, completionStatus={id=http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments/item/completionStatus, type=number}, validFrom={id=http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments/item/validFrom, type=string}}}}}, csId={id=http://wso2jsonschema.org/0/customerReadResponse/csId, type=number}, csIdPub={id=http://wso2jsonschema.org/0/customerReadResponse/csIdPub, type=string}, csCode={id=http://wso2jsonschema.org/0/customerReadResponse/csCode, type=number}, csStatus={id=http://wso2jsonschema.org/0/customerReadResponse/csStatus, type=string}, csStatusDate={id=http://wso2jsonschema.org/0/customerReadResponse/csStatusDate, type=string}, csActivationDate={id=http://wso2jsonschema.org/0/customerReadResponse/csActivationDate, type=string}, csLevelCode={id=http://wso2jsonschema.org/0/customerReadResponse/csLevelCode, type=number}, paymentResp={id=http://wso2jsonschema.org/0/customerReadResponse/paymentResp, type=boolean}, prgCode={id=http://wso2jsonschema.org/0/customerReadResponse/prgCode, type=number}, rpcode={id=http://wso2jsonschema.org/0/customerReadResponse/rpcode, type=number}, rpcodePub={id=http://wso2jsonschema.org/0/customerReadResponse/rpcodePub, type=string}, tradeCode={id=http://wso2jsonschema.org/0/customerReadResponse/tradeCode, type=string}, costId={id=http://wso2jsonschema.org/0/customerReadResponse/costId, type=number}, costCodePub={id=http://wso2jsonschema.org/0/customerReadResponse/costCodePub, type=string}, csPassword={id=http://wso2jsonschema.org/0/customerReadResponse/csPassword, type=number}, rsCode={id=http://wso2jsonschema.org/0/customerReadResponse/rsCode, type=number}, wpCode={id=http://wso2jsonschema.org/0/customerReadResponse/wpCode, type=number}, csBillInformation={id=http://wso2jsonschema.org/0/customerReadResponse/csBillInformation, type=boolean}, expectPayCurrencyId={id=http://wso2jsonschema.org/0/customerReadResponse/expectPayCurrencyId, type=number}, expectPayCurrencyIdPub={id=http://wso2jsonschema.org/0/customerReadResponse/expectPayCurrencyIdPub, type=string}, csConvratetypePayment={id=http://wso2jsonschema.org/0/customerReadResponse/csConvratetypePayment, type=number}, csConvratetypePaymentPub={id=http://wso2jsonschema.org/0/customerReadResponse/csConvratetypePaymentPub, type=string}, refundCurrencyId={id=http://wso2jsonschema.org/0/customerReadResponse/refundCurrencyId, type=number}, refundCurrencyIdPub={id=http://wso2jsonschema.org/0/customerReadResponse/refundCurrencyIdPub, type=string}, csConvratetypeRefund={id=http://wso2jsonschema.org/0/customerReadResponse/csConvratetypeRefund, type=number}, csConvratetypeRefundPub={id=http://wso2jsonschema.org/0/customerReadResponse/csConvratetypeRefundPub, type=string}, csCrcheckAgreed={id=http://wso2jsonschema.org/0/customerReadResponse/csCrcheckAgreed, type=boolean}, csIncorporatedInd={id=http://wso2jsonschema.org/0/customerReadResponse/csIncorporatedInd, type=boolean}, csBillcycle={id=http://wso2jsonschema.org/0/customerReadResponse/csBillcycle, type=string}, csBillcycleDesc={id=http://wso2jsonschema.org/0/customerReadResponse/csBillcycleDesc, type=string}, csLimitTr1={id=http://wso2jsonschema.org/0/customerReadResponse/csLimitTr1, type=number}, csLimitTr1Pub={id=http://wso2jsonschema.org/0/customerReadResponse/csLimitTr1Pub, type=string}, csLimitTr2={id=http://wso2jsonschema.org/0/customerReadResponse/csLimitTr2, type=number}, csLimitTr2Pub={id=http://wso2jsonschema.org/0/customerReadResponse/csLimitTr2Pub, type=string}, csLimitTr3={id=http://wso2jsonschema.org/0/customerReadResponse/csLimitTr3, type=number}, csLimitTr3Pub={id=http://wso2jsonschema.org/0/customerReadResponse/csLimitTr3Pub, type=string}, csClimit={id=http://wso2jsonschema.org/0/customerReadResponse/csClimit, type=object, properties={amount={id=http://wso2jsonschema.org/0/customerReadResponse/csClimit/amount, type=number}, currency={id=http://wso2jsonschema.org/0/customerReadResponse/csClimit/currency, type=string}}}, csContresp={id=http://wso2jsonschema.org/0/customerReadResponse/csContresp, type=boolean}, csDeposit={id=http://wso2jsonschema.org/0/customerReadResponse/csDeposit, type=object, properties={amount={id=http://wso2jsonschema.org/0/customerReadResponse/csDeposit/amount, type=number}, currency={id=http://wso2jsonschema.org/0/customerReadResponse/csDeposit/currency, type=string}}}, csDunning={id=http://wso2jsonschema.org/0/customerReadResponse/csDunning, type=boolean}, csPrepayment={id=http://wso2jsonschema.org/0/customerReadResponse/csPrepayment, type=boolean}, csFcId={id=http://wso2jsonschema.org/0/customerReadResponse/csFcId, type=number}, csFcIdPub={id=http://wso2jsonschema.org/0/customerReadResponse/csFcIdPub, type=string}, csCscurbalance={id=http://wso2jsonschema.org/0/customerReadResponse/csCscurbalance, type=object, properties={amount={id=http://wso2jsonschema.org/0/customerReadResponse/csCscurbalance/amount, type=number}, currency={id=http://wso2jsonschema.org/0/customerReadResponse/csCscurbalance/currency, type=string}}}, csPrevbalance={id=http://wso2jsonschema.org/0/customerReadResponse/csPrevbalance, type=object, properties={amount={id=http://wso2jsonschema.org/0/customerReadResponse/csPrevbalance/amount, type=number}, currency={id=http://wso2jsonschema.org/0/customerReadResponse/csPrevbalance/currency, type=string}}}, csUnbilledAmount={id=http://wso2jsonschema.org/0/customerReadResponse/csUnbilledAmount, type=object, properties={amount={id=http://wso2jsonschema.org/0/customerReadResponse/csUnbilledAmount/amount, type=number}, currency={id=http://wso2jsonschema.org/0/customerReadResponse/csUnbilledAmount/currency, type=string}}}, csInitPrepaidContrOwner={id=http://wso2jsonschema.org/0/customerReadResponse/csInitPrepaidContrOwner, type=boolean}, csCreationDate={id=http://wso2jsonschema.org/0/customerReadResponse/csCreationDate, type=string}, lastModificationUser={id=http://wso2jsonschema.org/0/customerReadResponse/lastModificationUser, type=string}, paymentRespId={id=http://wso2jsonschema.org/0/customerReadResponse/paymentRespId, type=number}, csPaymntRespCode={id=http://wso2jsonschema.org/0/customerReadResponse/csPaymntRespCode, type=number}, partyRoleAssignments={id=http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments, type=object, properties={item={id=http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item, type=object, properties={partyRoleId={id=http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item/partyRoleId, type=number}, partyRoleShname={id=http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item/partyRoleShname, type=string}, partyRoleName={id=http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item/partyRoleName, type=string}, partyRoleDescription={id=http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item/partyRoleDescription, type=string}}}}}, partyType={id=http://wso2jsonschema.org/0/customerReadResponse/partyType, type=string}, collInd={id=http://wso2jsonschema.org/0/customerReadResponse/collInd, type=boolean}, markedForRerating={id=http://wso2jsonschema.org/0/customerReadResponse/markedForRerating, type=boolean}, performCreditScoring={id=http://wso2jsonschema.org/0/customerReadResponse/performCreditScoring, type=boolean}}"/>
+        <properties key="properties_id" value="{adrSeq={id=http://wso2jsonschema.org/0/addressReadResponse/adrSeq, type=number}, adrRoles={id=http://wso2jsonschema.org/0/addressReadResponse/adrRoles, type=string}, adrJurTaxOverridden={id=http://wso2jsonschema.org/0/addressReadResponse/adrJurTaxOverridden, type=boolean}, adrTempbillOverridden={id=http://wso2jsonschema.org/0/addressReadResponse/adrTempbillOverridden, type=boolean}, ttlId={id=http://wso2jsonschema.org/0/addressReadResponse/ttlId, type=number}, ttlIdPub={id=http://wso2jsonschema.org/0/addressReadResponse/ttlIdPub, type=string}, adrLname={id=http://wso2jsonschema.org/0/addressReadResponse/adrLname, type=string}, adrStreet={id=http://wso2jsonschema.org/0/addressReadResponse/adrStreet, type=string}, adrStreetno={id=http://wso2jsonschema.org/0/addressReadResponse/adrStreetno, type=number}, adrZip={id=http://wso2jsonschema.org/0/addressReadResponse/adrZip, type=number}, adrCity={id=http://wso2jsonschema.org/0/addressReadResponse/adrCity, type=string}, lngCode={id=http://wso2jsonschema.org/0/addressReadResponse/lngCode, type=number}, lngCodePub={id=http://wso2jsonschema.org/0/addressReadResponse/lngCodePub, type=string}, adrUrgent={id=http://wso2jsonschema.org/0/addressReadResponse/adrUrgent, type=boolean}, adrForward={id=http://wso2jsonschema.org/0/addressReadResponse/adrForward, type=boolean}, idtypeCode={id=http://wso2jsonschema.org/0/addressReadResponse/idtypeCode, type=number}, adrSex={id=http://wso2jsonschema.org/0/addressReadResponse/adrSex, type=string}, adrCusttype={id=http://wso2jsonschema.org/0/addressReadResponse/adrCusttype, type=string}, masCode={id=http://wso2jsonschema.org/0/addressReadResponse/masCode, type=number}, masCodePub={id=http://wso2jsonschema.org/0/addressReadResponse/masCodePub, type=string}, adrNationality={id=http://wso2jsonschema.org/0/addressReadResponse/adrNationality, type=number}, adrNationalityPub={id=http://wso2jsonschema.org/0/addressReadResponse/adrNationalityPub, type=string}, adrEmployee={id=http://wso2jsonschema.org/0/addressReadResponse/adrEmployee, type=boolean}, csId={id=http://wso2jsonschema.org/0/addressReadResponse/csId, type=number}, csIdPub={id=http://wso2jsonschema.org/0/addressReadResponse/csIdPub, type=string}, countryId={id=http://wso2jsonschema.org/0/addressReadResponse/countryId, type=number}, countryIdPub={id=http://wso2jsonschema.org/0/addressReadResponse/countryIdPub, type=string}}"/>
+        <properties key="properties_id" value="{firstCsId={id=http://wso2jsonschema.org/0/contractReadResponse/firstCsId, type=number}, firstCsIdPub={id=http://wso2jsonschema.org/0/contractReadResponse/firstCsIdPub, type=number}, csId={id=http://wso2jsonschema.org/0/contractReadResponse/csId, type=number}, csIdPub={id=http://wso2jsonschema.org/0/contractReadResponse/csIdPub, type=string}, contractTypeId={id=http://wso2jsonschema.org/0/contractReadResponse/contractTypeId, type=number}, commonRefData={id=http://wso2jsonschema.org/0/contractReadResponse/commonRefData, type=boolean}, sccode={id=http://wso2jsonschema.org/0/contractReadResponse/sccode, type=number}, sccodePub={id=http://wso2jsonschema.org/0/contractReadResponse/sccodePub, type=string}, plcode={id=http://wso2jsonschema.org/0/contractReadResponse/plcode, type=number}, plcodePub={id=http://wso2jsonschema.org/0/contractReadResponse/plcodePub, type=string}, rpcode={id=http://wso2jsonschema.org/0/contractReadResponse/rpcode, type=number}, rpcodePub={id=http://wso2jsonschema.org/0/contractReadResponse/rpcodePub, type=string}, storageMediums={id=http://wso2jsonschema.org/0/contractReadResponse/storageMediums, type=string}, coArchive={id=http://wso2jsonschema.org/0/contractReadResponse/coArchive, type=boolean}, coOpDir={id=http://wso2jsonschema.org/0/contractReadResponse/coOpDir, type=boolean}, coPstnDir={id=http://wso2jsonschema.org/0/contractReadResponse/coPstnDir, type=boolean}, coStatus={id=http://wso2jsonschema.org/0/contractReadResponse/coStatus, type=number}, coLastReason={id=http://wso2jsonschema.org/0/contractReadResponse/coLastReason, type=number}, coLastStatusChangeDate={id=http://wso2jsonschema.org/0/contractReadResponse/coLastStatusChangeDate, type=string}, coModdate={id=http://wso2jsonschema.org/0/contractReadResponse/coModdate, type=string}, coEntdate={id=http://wso2jsonschema.org/0/contractReadResponse/coEntdate, type=string}, currencyId={id=http://wso2jsonschema.org/0/contractReadResponse/currencyId, type=number}, currencyIdPub={id=http://wso2jsonschema.org/0/contractReadResponse/currencyIdPub, type=string}, preratedTapRp={id=http://wso2jsonschema.org/0/contractReadResponse/preratedTapRp, type=boolean}, coNonexplServPaymentType={id=http://wso2jsonschema.org/0/contractReadResponse/coNonexplServPaymentType, type=string}, coSignedDate={id=http://wso2jsonschema.org/0/contractReadResponse/coSignedDate, type=string}, coId={id=http://wso2jsonschema.org/0/contractReadResponse/coId, type=number}, coIdPub={id=http://wso2jsonschema.org/0/contractReadResponse/coIdPub, type=string}, submId={id=http://wso2jsonschema.org/0/contractReadResponse/submId, type=number}, submIdPub={id=http://wso2jsonschema.org/0/contractReadResponse/submIdPub, type=string}, userinstallationAdr={id=http://wso2jsonschema.org/0/contractReadResponse/userinstallationAdr, type=boolean}, bmId={id=http://wso2jsonschema.org/0/contractReadResponse/bmId, type=number}, bmIdPub={id=http://wso2jsonschema.org/0/contractReadResponse/bmIdPub, type=string}, notificationMediumId={id=http://wso2jsonschema.org/0/contractReadResponse/notificationMediumId, type=number}, notificationMediumIdPub={id=http://wso2jsonschema.org/0/contractReadResponse/notificationMediumIdPub, type=string}, chargingPeriodAdjustmentReference={id=http://wso2jsonschema.org/0/contractReadResponse/chargingPeriodAdjustmentReference, type=string}, ivrLangId={id=http://wso2jsonschema.org/0/contractReadResponse/ivrLangId, type=number}, ivrLangIdPub={id=http://wso2jsonschema.org/0/contractReadResponse/ivrLangIdPub, type=string}, markedForRerating={id=http://wso2jsonschema.org/0/contractReadResponse/markedForRerating, type=boolean}, reratingSupported={id=http://wso2jsonschema.org/0/contractReadResponse/reratingSupported, type=boolean}}"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <properties key="type" value="array"/>
+      <properties key="$schema" value="http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#"/>
+      <properties key="id" value="http://wso2jsonschema.org"/>
+      <properties key="items_id" value="http://wso2jsonschema.org/0"/>
+      <properties key="items_type" value="object"/>
+      <properties key="nullable" value="false"/>
+      <outNode/>
+      <inNode/>
+    </treeNode>
+  </input>
+  <output>
+    <treeNode name="root" level="1">
+      <node name="id" schemaDataType="STRING" level="2">
+        <properties key="type" value="string"/>
+        <properties key="id" value="http://wso2jsonschema.org/0/id"/>
+        <properties key="nullable" value="false"/>
+        <outNode/>
+        <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.4/@outNode/@outgoingLink.0"/>
+      </node>
+      <node name="href" schemaDataType="STRING" level="2">
+        <properties key="type" value="string"/>
+        <properties key="id" value="http://wso2jsonschema.org/0/href"/>
+        <properties key="nullable" value="false"/>
+        <outNode/>
+        <inNode incomingLink="//@input/@treeNode.0/@node.2/@node.0/@outNode/@outgoingLink.0"/>
+      </node>
+      <node name="name" schemaDataType="STRING" level="2">
+        <properties key="type" value="string"/>
+        <properties key="id" value="http://wso2jsonschema.org/0/name"/>
+        <properties key="nullable" value="false"/>
+        <outNode/>
+        <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.18/@outNode/@outgoingLink.0"/>
+      </node>
+      <node name="status" schemaDataType="STRING" level="2">
+        <properties key="type" value="string"/>
+        <properties key="id" value="http://wso2jsonschema.org/0/status"/>
+        <properties key="nullable" value="false"/>
+        <outNode/>
+        <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.3/@node.0/@node.1/@outNode/@outgoingLink.0"/>
+      </node>
+      <node name="statusReason" schemaDataType="STRING" level="2">
+        <properties key="type" value="string"/>
+        <properties key="id" value="http://wso2jsonschema.org/0/statusReason"/>
+        <properties key="nullable" value="false"/>
+        <outNode/>
+        <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.7/@outNode/@outgoingLink.0"/>
+      </node>
+      <node name="account" level="2">
+        <node name="@baseType" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/account/0/baseType"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@schemaLocation" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/account/0/schemaLocation"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@type" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/account/0/type"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@referredType" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/account/0/referredType"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="id" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/account/0/id"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.4/@outNode/@outgoingLink.1"/>
+        </node>
+        <node name="href" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/account/0/href"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="description" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/account/0/description"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.12/@outNode/@outgoingLink.0"/>
+        </node>
+        <node name="name" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/account/0/name"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <properties key="type" value="array"/>
+        <properties key="id" value="http://wso2jsonschema.org/0/account"/>
+        <properties key="items_id" value="http://wso2jsonschema.org/0/account/0"/>
+        <properties key="items_type" value="object"/>
+        <properties key="nullable" value="false"/>
+        <properties key="attribute_id" value="{attribute_id=[http://wso2jsonschema.org/0/account/0/baseType, http://wso2jsonschema.org/0/account/0/schemaLocation, http://wso2jsonschema.org/0/account/0/type, http://wso2jsonschema.org/0/account/0/referredType]}"/>
+        <properties key="attribute_type" value="{attribute_type=[string, string, string, string]}"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <node name="agreement" level="2">
+        <node name="@baseType" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/agreement/0/baseType"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@schemaLocation" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/agreement/0/schemaLocation"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@type" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/agreement/0/type"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@referredType" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/agreement/0/referredType"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="id" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/agreement/0/id"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.4/@outNode/@outgoingLink.2"/>
+        </node>
+        <node name="href" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/agreement/0/href"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="name" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/agreement/0/name"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <properties key="type" value="array"/>
+        <properties key="id" value="http://wso2jsonschema.org/0/agreement"/>
+        <properties key="items_id" value="http://wso2jsonschema.org/0/agreement/0"/>
+        <properties key="items_type" value="object"/>
+        <properties key="nullable" value="false"/>
+        <properties key="attribute_id" value="{attribute_id=[http://wso2jsonschema.org/0/agreement/0/baseType, http://wso2jsonschema.org/0/agreement/0/schemaLocation, http://wso2jsonschema.org/0/agreement/0/type, http://wso2jsonschema.org/0/agreement/0/referredType]}"/>
+        <properties key="attribute_type" value="{attribute_type=[string, string, string, string]}"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <node name="characteristic" level="2">
+        <node name="@baseType" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/characteristic/0/baseType"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@schemaLocation" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/characteristic/0/schemaLocation"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@type" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/characteristic/0/type"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="name" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/characteristic/0/name"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="valueType" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/characteristic/0/valueType"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="value" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/characteristic/0/value"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.16/@outNode/@outgoingLink.0"/>
+        </node>
+        <properties key="type" value="array"/>
+        <properties key="id" value="http://wso2jsonschema.org/0/characteristic"/>
+        <properties key="items_id" value="http://wso2jsonschema.org/0/characteristic/0"/>
+        <properties key="items_type" value="object"/>
+        <properties key="nullable" value="false"/>
+        <properties key="attribute_id" value="{attribute_id=[http://wso2jsonschema.org/0/characteristic/0/baseType, http://wso2jsonschema.org/0/characteristic/0/schemaLocation, http://wso2jsonschema.org/0/characteristic/0/type]}"/>
+        <properties key="attribute_type" value="{attribute_type=[string, string, string]}"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <node name="contactMedium" level="2">
+        <node name="@baseType" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/baseType"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@schemaLocation" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/schemaLocation"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@type" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/type"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="mediumType" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/mediumType"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.49/@node.0/@outNode/@outgoingLink.0"/>
+        </node>
+        <node name="preferred" schemaDataType="BOOLEAN" level="3">
+          <properties key="type" value="boolean"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/preferred"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.13/@outNode/@outgoingLink.0"/>
+        </node>
+        <node name="characteristic" schemaDataType="OBJECT" level="3">
+          <node name="@baseType" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/characteristic/baseType"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="@schemaLocation" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/characteristic/schemaLocation"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="@type" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/characteristic/type"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="city" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/characteristic/city"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode incomingLink="//@input/@treeNode.0/@node.1/@node.10/@outNode/@outgoingLink.0"/>
+          </node>
+          <node name="contactType" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/characteristic/contactType"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="country" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/characteristic/country"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode incomingLink="//@input/@treeNode.0/@node.2/@node.11/@outNode/@outgoingLink.0"/>
+          </node>
+          <node name="emailAddress" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/characteristic/emailAddress"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode incomingLink="//@input/@treeNode.0/@node.1/@node.23/@outNode/@outgoingLink.0"/>
+          </node>
+          <node name="faxNumber" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/characteristic/faxNumber"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode incomingLink="//@input/@treeNode.0/@node.2/@node.31/@outNode/@outgoingLink.0"/>
+          </node>
+          <node name="phoneNumber" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/characteristic/phoneNumber"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.4/@outNode/@outgoingLink.3"/>
+          </node>
+          <node name="postCode" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/characteristic/postCode"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode incomingLink="//@input/@treeNode.0/@node.1/@node.15/@outNode/@outgoingLink.0"/>
+          </node>
+          <node name="socialNetworkId" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/characteristic/socialNetworkId"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode incomingLink="//@input/@treeNode.0/@node.2/@node.28/@outNode/@outgoingLink.0"/>
+          </node>
+          <node name="stateOrProvince" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/characteristic/stateOrProvince"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode incomingLink="//@input/@treeNode.0/@node.1/@node.20/@outNode/@outgoingLink.0"/>
+          </node>
+          <node name="street1" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/characteristic/street1"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode incomingLink="//@input/@treeNode.0/@node.2/@node.8/@outNode/@outgoingLink.0"/>
+          </node>
+          <node name="street2" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/characteristic/street2"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode incomingLink="//@input/@treeNode.0/@node.2/@node.6/@outNode/@outgoingLink.0"/>
+          </node>
+          <properties key="type" value="object"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/characteristic"/>
+          <properties key="nullable" value="false"/>
+          <properties key="attribute_id" value="{attribute_id=[http://wso2jsonschema.org/0/contactMedium/0/characteristic/baseType, http://wso2jsonschema.org/0/contactMedium/0/characteristic/schemaLocation, http://wso2jsonschema.org/0/contactMedium/0/characteristic/type]}"/>
+          <properties key="attribute_type" value="{attribute_type=[string, string, string]}"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="validFor" schemaDataType="OBJECT" level="3">
+          <node name="endDateTime" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/validFor/endDateTime"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="startDateTime" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/validFor/startDateTime"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <properties key="type" value="object"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/contactMedium/0/validFor"/>
+          <properties key="nullable" value="false"/>
+          <properties key="properties_id" value="{city={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/city, type=string}, contactType={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/contactType, type=string}, country={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/country, type=string}, emailAddress={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/emailAddress, type=string}, faxNumber={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/faxNumber, type=string}, phoneNumber={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/phoneNumber, type=string}, postCode={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/postCode, type=string}, socialNetworkId={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/socialNetworkId, type=string}, stateOrProvince={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/stateOrProvince, type=string}, street1={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/street1, type=string}, street2={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/street2, type=string}}"/>
+          <properties key="properties_id" value="{endDateTime={id=http://wso2jsonschema.org/0/contactMedium/0/validFor/endDateTime, type=string}, startDateTime={id=http://wso2jsonschema.org/0/contactMedium/0/validFor/startDateTime, type=string}}"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <properties key="type" value="array"/>
+        <properties key="id" value="http://wso2jsonschema.org/0/contactMedium"/>
+        <properties key="items_id" value="http://wso2jsonschema.org/0/contactMedium/0"/>
+        <properties key="items_type" value="object"/>
+        <properties key="nullable" value="false"/>
+        <properties key="attribute_id" value="{attribute_id=[http://wso2jsonschema.org/0/contactMedium/0/baseType, http://wso2jsonschema.org/0/contactMedium/0/schemaLocation, http://wso2jsonschema.org/0/contactMedium/0/type]}"/>
+        <properties key="attribute_type" value="{attribute_type=[string, string, string]}"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <node name="creditProfile" level="2">
+        <node name="@baseType" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/creditProfile/0/baseType"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@schemaLocation" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/creditProfile/0/schemaLocation"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@type" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/creditProfile/0/type"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="creditProfileDate" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/creditProfile/0/creditProfileDate"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.2/@node.18/@outNode/@outgoingLink.0"/>
+        </node>
+        <node name="creditRiskRating" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/creditProfile/0/creditRiskRating"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.53/@outNode/@outgoingLink.0"/>
+        </node>
+        <node name="creditScore" schemaDataType="NUMBER" level="3">
+          <properties key="type" value="number"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/creditProfile/0/creditScore"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.59/@outNode/@outgoingLink.0"/>
+        </node>
+        <node name="validFor" schemaDataType="OBJECT" level="3">
+          <node name="endDateTime" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/creditProfile/0/validFor/endDateTime"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="startDateTime" schemaDataType="STRING" level="4">
+            <properties key="type" value="string"/>
+            <properties key="id" value="http://wso2jsonschema.org/0/creditProfile/0/validFor/startDateTime"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <properties key="type" value="object"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/creditProfile/0/validFor"/>
+          <properties key="nullable" value="false"/>
+          <properties key="properties_id" value="{endDateTime={id=http://wso2jsonschema.org/0/creditProfile/0/validFor/endDateTime, type=string}, startDateTime={id=http://wso2jsonschema.org/0/creditProfile/0/validFor/startDateTime, type=string}}"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <properties key="type" value="array"/>
+        <properties key="id" value="http://wso2jsonschema.org/0/creditProfile"/>
+        <properties key="items_id" value="http://wso2jsonschema.org/0/creditProfile/0"/>
+        <properties key="items_type" value="object"/>
+        <properties key="nullable" value="false"/>
+        <properties key="attribute_id" value="{attribute_id=[http://wso2jsonschema.org/0/creditProfile/0/baseType, http://wso2jsonschema.org/0/creditProfile/0/schemaLocation, http://wso2jsonschema.org/0/creditProfile/0/type]}"/>
+        <properties key="attribute_type" value="{attribute_type=[string, string, string]}"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <node name="engagedParty" schemaDataType="OBJECT" level="2">
+        <node name="@baseType" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/engagedParty/baseType"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@schemaLocation" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/engagedParty/schemaLocation"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@type" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/engagedParty/type"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@referredType" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/engagedParty/referredType"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="id" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/engagedParty/id"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="href" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/engagedParty/href"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="name" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/engagedParty/name"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="role" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/engagedParty/role"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.55/@node.0/@node.1/@outNode/@outgoingLink.0"/>
+        </node>
+        <properties key="type" value="object"/>
+        <properties key="id" value="http://wso2jsonschema.org/0/engagedParty"/>
+        <properties key="nullable" value="false"/>
+        <properties key="attribute_id" value="{attribute_id=[http://wso2jsonschema.org/0/engagedParty/baseType, http://wso2jsonschema.org/0/engagedParty/schemaLocation, http://wso2jsonschema.org/0/engagedParty/type, http://wso2jsonschema.org/0/engagedParty/referredType]}"/>
+        <properties key="attribute_type" value="{attribute_type=[string, string, string, string]}"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <node name="paymentMethod" level="2">
+        <node name="@baseType" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/paymentMethod/0/baseType"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@schemaLocation" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/paymentMethod/0/schemaLocation"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@type" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/paymentMethod/0/type"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@referredType" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/paymentMethod/0/referredType"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="id" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/paymentMethod/0/id"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="href" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/paymentMethod/0/href"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="name" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/paymentMethod/0/name"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <properties key="type" value="array"/>
+        <properties key="id" value="http://wso2jsonschema.org/0/paymentMethod"/>
+        <properties key="items_id" value="http://wso2jsonschema.org/0/paymentMethod/0"/>
+        <properties key="items_type" value="object"/>
+        <properties key="nullable" value="false"/>
+        <properties key="attribute_id" value="{attribute_id=[http://wso2jsonschema.org/0/paymentMethod/0/baseType, http://wso2jsonschema.org/0/paymentMethod/0/schemaLocation, http://wso2jsonschema.org/0/paymentMethod/0/type, http://wso2jsonschema.org/0/paymentMethod/0/referredType]}"/>
+        <properties key="attribute_type" value="{attribute_type=[string, string, string, string]}"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <node name="relatedParty" level="2">
+        <node name="@baseType" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/relatedParty/0/baseType"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@schemaLocation" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/relatedParty/0/schemaLocation"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@type" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/relatedParty/0/type"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="@referredType" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/relatedParty/0/referredType"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="id" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/relatedParty/0/id"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="href" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/relatedParty/0/href"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="name" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/relatedParty/0/name"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
+        <node name="role" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/relatedParty/0/role"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.55/@node.0/@node.3/@outNode/@outgoingLink.0"/>
+        </node>
+        <properties key="type" value="array"/>
+        <properties key="id" value="http://wso2jsonschema.org/0/relatedParty"/>
+        <properties key="items_id" value="http://wso2jsonschema.org/0/relatedParty/0"/>
+        <properties key="items_type" value="object"/>
+        <properties key="nullable" value="false"/>
+        <properties key="attribute_id" value="{attribute_id=[http://wso2jsonschema.org/0/relatedParty/0/baseType, http://wso2jsonschema.org/0/relatedParty/0/schemaLocation, http://wso2jsonschema.org/0/relatedParty/0/type, http://wso2jsonschema.org/0/relatedParty/0/referredType]}"/>
+        <properties key="attribute_type" value="{attribute_type=[string, string, string, string]}"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <node name="validFor" schemaDataType="OBJECT" level="2">
+        <node name="endDateTime" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/validFor/endDateTime"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.0/@node.51/@outNode/@outgoingLink.0"/>
+        </node>
+        <node name="startDateTime" schemaDataType="STRING" level="3">
+          <properties key="type" value="string"/>
+          <properties key="id" value="http://wso2jsonschema.org/0/validFor/startDateTime"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode incomingLink="//@input/@treeNode.0/@node.2/@node.19/@outNode/@outgoingLink.0"/>
+        </node>
+        <properties key="type" value="object"/>
+        <properties key="id" value="http://wso2jsonschema.org/0/validFor"/>
+        <properties key="nullable" value="false"/>
+        <properties key="properties_id" value="{id={id=http://wso2jsonschema.org/0/account/0/id, type=string}, href={id=http://wso2jsonschema.org/0/account/0/href, type=string}, description={id=http://wso2jsonschema.org/0/account/0/description, type=string}, name={id=http://wso2jsonschema.org/0/account/0/name, type=string}}"/>
+        <properties key="properties_id" value="{id={id=http://wso2jsonschema.org/0/agreement/0/id, type=string}, href={id=http://wso2jsonschema.org/0/agreement/0/href, type=string}, name={id=http://wso2jsonschema.org/0/agreement/0/name, type=string}}"/>
+        <properties key="properties_id" value="{name={id=http://wso2jsonschema.org/0/characteristic/0/name, type=string}, valueType={id=http://wso2jsonschema.org/0/characteristic/0/valueType, type=string}, value={id=http://wso2jsonschema.org/0/characteristic/0/value, type=string}}"/>
+        <properties key="properties_id" value="{mediumType={id=http://wso2jsonschema.org/0/contactMedium/0/mediumType, type=string}, preferred={id=http://wso2jsonschema.org/0/contactMedium/0/preferred, type=boolean}, characteristic={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic, type=object, properties={city={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/city, type=string}, contactType={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/contactType, type=string}, country={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/country, type=string}, emailAddress={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/emailAddress, type=string}, faxNumber={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/faxNumber, type=string}, phoneNumber={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/phoneNumber, type=string}, postCode={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/postCode, type=string}, socialNetworkId={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/socialNetworkId, type=string}, stateOrProvince={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/stateOrProvince, type=string}, street1={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/street1, type=string}, street2={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/street2, type=string}}, attributes={baseType={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/baseType, type=string}, schemaLocation={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/schemaLocation, type=string}, type={id=http://wso2jsonschema.org/0/contactMedium/0/characteristic/type, type=string}}}, validFor={id=http://wso2jsonschema.org/0/contactMedium/0/validFor, type=object, properties={endDateTime={id=http://wso2jsonschema.org/0/contactMedium/0/validFor/endDateTime, type=string}, startDateTime={id=http://wso2jsonschema.org/0/contactMedium/0/validFor/startDateTime, type=string}}}}"/>
+        <properties key="properties_id" value="{creditProfileDate={id=http://wso2jsonschema.org/0/creditProfile/0/creditProfileDate, type=string}, creditRiskRating={id=http://wso2jsonschema.org/0/creditProfile/0/creditRiskRating, type=number}, creditScore={id=http://wso2jsonschema.org/0/creditProfile/0/creditScore, type=number}, validFor={id=http://wso2jsonschema.org/0/creditProfile/0/validFor, type=object, properties={endDateTime={id=http://wso2jsonschema.org/0/creditProfile/0/validFor/endDateTime, type=string}, startDateTime={id=http://wso2jsonschema.org/0/creditProfile/0/validFor/startDateTime, type=string}}}}"/>
+        <properties key="properties_id" value="{id={id=http://wso2jsonschema.org/0/engagedParty/id, type=string}, href={id=http://wso2jsonschema.org/0/engagedParty/href, type=string}, name={id=http://wso2jsonschema.org/0/engagedParty/name, type=string}, role={id=http://wso2jsonschema.org/0/engagedParty/role, type=string}}"/>
+        <properties key="properties_id" value="{id={id=http://wso2jsonschema.org/0/paymentMethod/0/id, type=string}, href={id=http://wso2jsonschema.org/0/paymentMethod/0/href, type=string}, name={id=http://wso2jsonschema.org/0/paymentMethod/0/name, type=string}}"/>
+        <properties key="properties_id" value="{id={id=http://wso2jsonschema.org/0/relatedParty/0/id, type=string}, href={id=http://wso2jsonschema.org/0/relatedParty/0/href, type=string}, name={id=http://wso2jsonschema.org/0/relatedParty/0/name, type=string}, role={id=http://wso2jsonschema.org/0/relatedParty/0/role, type=string}}"/>
+        <properties key="properties_id" value="{endDateTime={id=http://wso2jsonschema.org/0/validFor/endDateTime, type=string}, startDateTime={id=http://wso2jsonschema.org/0/validFor/startDateTime, type=string}}"/>
+        <outNode/>
+        <inNode/>
+      </node>
+      <properties key="type" value="array"/>
+      <properties key="$schema" value="http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#"/>
+      <properties key="id" value="http://wso2jsonschema.org"/>
+      <properties key="items_id" value="http://wso2jsonschema.org/0"/>
+      <properties key="items_type" value="object"/>
+      <properties key="nullable" value="false"/>
+      <outNode/>
+      <inNode/>
+    </treeNode>
+  </output>
+</datamapper:DataMapperRoot>
