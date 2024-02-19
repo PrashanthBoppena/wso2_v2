@@ -28,24 +28,24 @@
                         <log description="log the Enableflag Count" level="custom">
                             <property expression="get-property('query.param.fields')" name="get-property('query.param.fields')"/>
                         </log>
-                        <script language="js"><![CDATA[var fields = mc.getProperty('fields');
+                        <script description="script to prepare api call payload array" language="js"><![CDATA[var fields = mc.getProperty('fields');
 if (fields !== null && fields.trim() !== "" && fields.length() !== 0.0) {
     var fieldsArray = fields.split(',');
     var log = mc.getServiceLog();
-   
     var payload = mc.getPayloadJSON();
-
     var filteredPayload = [];
-
+	var encounteredObjects = {};
+	
     payload.forEach(function(item) {
         fieldsArray.forEach(function(field) {
             if (item.hasOwnProperty('tmf_params')) {
                 var tmfParamsArray = item['tmf_params'].split(',');
                 tmfParamsArray.forEach(function(tmfParam) {
-					log.info(field.equals(tmfParam));						
-                    if (field.equals(tmfParam)) {
-						log.info(field.equals(tmfParam));
+					//log.info(field.equals(tmfParam));						
+                    if (field.equals(tmfParam) && !encounteredObjects.hasOwnProperty(JSON.stringify(item))) {
+						
                         filteredPayload.push(item);
+						encounteredObjects[JSON.stringify(item)] = true;
                     }
                 });
             }
@@ -65,7 +65,6 @@ if (fields !== null && fields.trim() !== "" && fields.length() !== 0.0) {
                                     <switch source="$ctx:system_name">
                                         <case regex="UOL"/>
                                         <case regex="EB">
-                                            <sequence key="gov:custom/sequences/childIdGeneratingSeq.xml"/>
                                             <sequence key="gov:custom/sequences/EB_SOAP_Call_Seq.xml"/>
                                             <!--<log level="custom">
                                     <property expression="json-eval($)" name="eb response data==>"/>

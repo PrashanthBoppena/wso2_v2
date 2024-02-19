@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="DynamicReqProcessFilterSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <sequence key="dynamic_propvariable_setupSEQ"/>
+    <log level="custom">
+        <property expression="$ctx:retryStatusFlag" name="retrystatus flag is:======>"/>
+        <property expression="$ctx:logStatus" name="log status======================>"/>
+    </log>
+    <filter regex="1" source="$ctx:retryStatusFlag">
+        <then>
+            <log level="custom">
+                <property name="service" value="retry Services is called"/>
+                <property expression="$ctx:source_req_id" name="sourceRequestID============>"/>
+            </log>
+            <class description="com.uol.mediators.RetryFlowMediator" name="com.uol.mediators.RetryFlowMediator">
+                <property expression="$ctx:sourceRequestID" name="sourceRequestID"/>
+            </class>
+        </then>
+        <else>
+            <class description="com.uol.mediators.UOLRequestLogMediator" name="com.uol.mediators.UOLRequestLogMediator">
+                <property expression="$ctx:NIC" name="NIC"/>
+                <property expression="$ctx:sub_api_id" name="sub_api_id"/>
+                <property expression="$ctx:MSISDN" name="MSISDN"/>
+                <property expression="$ctx:csId" name="custid"/>
+                <property expression="$ctx:source_req_id" name="source_req_id"/>
+                <property expression="$ctx:NIC" name="channel"/>
+                <property expression="$ctx:source_req_id" name="child_req_id"/>
+                <property expression="get-property('REST_URL_PREFIX')" name="host_address"/>
+                <property expression="fn:concat(get-property('REST_URL_PREFIX'),get-property('REST_FULL_REQUEST_PATH'))" name="api_name"/>
+                <property name="processId" value="0"/>
+                <property name="processName" value="Intial Call"/>
+                <property expression="$ctx:logStatus" name="logStatus"/>
+                <property expression="$ctx:request" name="request"/>
+                <property name="status" value="in-progress"/>
+            </class>
+            <class description="com.uol.mediators.DynamicRestSeqMediator" name="com.uol.mediators.DynamicRestSeqMediator">
+                <property expression="$ctx:sub_api_id" name="subApiId"/>
+                <property expression="$ctx:source_req_id" name="sourceRequestID"/>
+                <property expression="$ctx:query_type" name="queryType"/>
+            </class>
+        </else>
+    </filter>
+</sequence>

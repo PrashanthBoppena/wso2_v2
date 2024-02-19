@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/smsc/sendNotification" name="smsc" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST">
+        <inSequence>
+            <log level="full"/>
+            <propertyGroup>
+                <property expression="json-eval($)" name="requestPayload" scope="default" type="STRING"/>
+            </propertyGroup>
+            <log>
+                <property expression="$ctx:requestPayload" name="json ayload::==>"/>
+            </log>
+            <class description="UOLsmsc" name="com.uol.mediators.smsc.SendNotification"/>
+            <log>
+                <property expression="$ctx:smscResponse" name="smscResponse =====>"/>
+                <property expression="get-property('smscResponse')" name="smscResponse------- =====>"/>
+            </log>
+            <propertyGroup>
+                <property expression="get-property('smscResponse')" name="responsePayload" scope="default" type="STRING"/>
+            </propertyGroup>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

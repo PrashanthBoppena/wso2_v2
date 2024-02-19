@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="REST_API_Call_Seq" onError="FaultSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <propertyGroup description="save api configs">
+        <property expression="$ctx:HTTP_Method" name="HTTP_METHOD" scope="axis2" type="STRING"/>
+        <property expression="get-property('file','hostAdd')" name="host" scope="default" type="STRING"/>
+        <property expression="$ctx:Endpoint" name="context" scope="default" type="STRING"/>
+    </propertyGroup>
+    <header description="constructAPI" expression="fn:concat($ctx:host,$ctx:context)" name="To" scope="default"/>
+    <call/>
+</sequence>

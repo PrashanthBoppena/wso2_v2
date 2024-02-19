@@ -107,7 +107,7 @@ mc.setPayloadJSON(newObj);]]></script>
                     <log level="custom">
                         <property expression="json-eval($)" name="AggRes===>"/>
                     </log>
-                    <datamapper config="gov:datamapper/TMF_ReadCust_DataMapperConfig.dmc" inputSchema="gov:datamapper/TMF_ReadCust_DataMapperConfig_inputSchema.json" inputType="JSON" outputSchema="gov:datamapper/TMF_ReadCust_DataMapperConfig_outputSchema.json" outputType="JSON" xsltStyleSheet="gov:datamapper/TMF_ReadCust_DataMapperConfig_xsltStyleSheet.xml"/>
+                    <datamapper config="gov:datamapper/TestConfig.dmc" inputSchema="gov:datamapper/TestConfig_inputSchema.json" inputType="XML" outputSchema="gov:datamapper/TestConfig_outputSchema.json" outputType="XML" xsltStyleSheet="gov:datamapper/TestConfig_xsltStyleSheet.xml"/>
                     <respond/>
                 </onComplete>
             </aggregate>

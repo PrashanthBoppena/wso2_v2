@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="Dynamic_EB_Sequence_v1" onError="FaultSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property name="BUID_VAL" scope="default" type="STRING" value="2"/>
+    <property expression="get-property($ctx:request_template_id)" name="req_template" scope="default" type="OM"/>
+    <!-- <log level="custom">
+<property expression="get-property($ctx:req_template_ID)" name="req_template data==>"/>
+</log>  -->
+    <script language="js"><![CDATA[var log = mc.getServiceLog();   
+	var XMLRequest = mc.getProperty("req_template");
+	//log.info("req_template in script "+ XMLRequest);
+	var srcRequest = XMLRequest.toString();
+	
+	// Extract placeholder keys from the  srcRequest
+	  var dynamicKeys = srcRequest.match(/{(.*?)}/g).map(function(key) 
+	  {
+	  return key.replace(/[{}]/g, '');
+	  });
+	 //     log.info("dynamic replaceble keys are-->"+dynamicKeys);       
+	// Replace placeholders with dynamically fetched values
+	  dynamicKeys.forEach(function(key) 
+	  {
+	   if (mc.getProperty(key)) {
+   //    log.info("key  are-->"+key+"::"+mc.getProperty(key));      
+	   srcRequest = srcRequest.replace("{" + key + "}", mc.getProperty(key));
+	  }
+	  });
+   //     log.info("templte info-->"+srcRequest);
+	mc.setPayloadXML(new XML(srcRequest));]]></script>
+    <property description="reqData" expression="$body/*" name="reqData" scope="default" type="STRING"/>
+    <payloadFactory media-type="xml" template-type="freemarker">
+        <format><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+ <soapenv:Header>
+ <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+ <wsse:UsernameToken wsu:Id="UsernameToken-4041E3749487CEEDA416735096455611">
+	<wsse:Username>ADMX</wsse:Username>
+	<wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">ADMX</wsse:Password>
+	<wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">qGELBcPOuTVG3N9euZozew==</wsse:Nonce>
+	<wsu:Created>2023-01-12T07:47:25.554Z</wsu:Created>
+ </wsse:UsernameToken>
+</wsse:Security>
+</soapenv:Header>		
+<soapenv:Body>
+${ctx.reqData}
+</soapenv:Body>
+</soapenv:Envelope>]]></format>
+        <args/>
+    </payloadFactory>
+    <property description="apiregistryConfigPath" expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath" scope="default" type="STRING"/>
+    <property expression="$ctx:child_req_id" name="child_req_id" scope="default" type="STRING"/>
+    <class description="com.uol.mediators.UOLRequestLogMediator" name="com.uol.mediators.UOLRequestLogMediator">
+        <property expression="$ctx:sub_api_id" name="sub_api_id"/>
+        <property expression="$ctx:NIC" name="NIC"/>
+        <property expression="$ctx:MSISDN" name="MSISDN"/>
+        <property expression="$ctx:csId" name="custid"/>
+        <property expression="$ctx:source_req_id" name="source_req_id"/>
+        <property expression="$ctx:channel" name="channel"/>
+        <property expression="$ctx:child_req_id" name="child_req_id"/>
+        <property expression="$ctx:sub_endpoint" name="api_name"/>
+        <property expression="$ctx:process_id" name="processId"/>
+        <property expression="$ctx:process_name" name="processName"/>
+        <property expression="$body/*" name="request"/>
+        <property expression="$ctx:logStatus" name="logStatus"/>
+        <property name="status" value="In-Progress"/>
+    </class>
+    <call>
+        <endpoint>
+            <address format="soap11" uri="$FILE:BSCSKnotServerURL">
+                <suspendOnFailure>
+                    <initialDuration>-1</initialDuration>
+                    <progressionFactor>-1</progressionFactor>
+                    <maximumDuration>0</maximumDuration>
+                </suspendOnFailure>
+                <markForSuspension>
+                    <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                </markForSuspension>
+            </address>
+        </endpoint>
+    </call>
+    <class description="UOLResponseLog" name="com.uol.mediators.UOLResponseLogMediator">
+        <property expression="$ctx:source_req_id" name="source_req_id"/>
+        <property expression="$ctx:child_req_id" name="child_req_id"/>
+        <property expression="json-eval($)" name="response"/>
+        <property expression="$axis2:HTTP_SC" name="status"/>
+        <property expression="$ctx:logStatus" name="logStatus"/>
+    </class>
+    <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+</sequence>

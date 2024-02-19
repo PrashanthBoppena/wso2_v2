@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/process/retry" name="RecallProcessSeqApi" xmlns="http://ws.apache.org/ns/synapse">
+    <resource faultSequence="FaultSequence" methods="POST">
+        <inSequence>
+            <sequence key="dynamic_propvariable_setupSEQ"/>
+            <property description="apiRegistryConfigs" expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath" scope="default" type="STRING"/>
+            <property description="compositeEndpoint" expression="$ctx:apiName" name="compositeEndpoint" scope="default" type="STRING"/>
+            <property description="sourceRequestID" expression="$ctx:sourceRequestID" name="sourceRequestID" scope="default" type="STRING"/>
+            <property description="query name to fetch request logs" name="sub_endpoint" scope="default" type="STRING" value="QRY_REQ_LOG_RESP"/>
+            <class description="dynamic QueryBuild" name="com.uol.mediators.query.DynamicXMLQueryMediator">
+                <property name="reqType" value="dynamicSBSeq"/>
+            </class>
+            <payloadFactory description="buildResponsePayload" media-type="json">
+                <format>
+					$1
+				</format>
+                <args>
+                    <arg evaluator="json" expression="$ctx:responsePayload"/>
+                </args>
+            </payloadFactory>
+            <sequence key="dynamic_propvariable_setupSEQ"/>
+            <filter regex="true" source="$ctx:statusCode >'200'">
+                <then/>
+                <else>
+                    <script language="js"><![CDATA[var log = mc.getServiceLog();
+    var request = mc.getProperty("request");
+     var srcReqId =mc.getProperty("source_req_id");
+    var logStatus = 0; // Default logStatus value
+
+    if (request !== null) {
+        try {
+            var jsonObject = JSON.parse(request);
+log.error("Request id============>."+srcReqId);
+            // If it's JSON, add logStatus as an attribute
+            jsonObject.logStatus = logStatus;
+            jsonObject.retryStatusFlag=1;
+            jsonObject.sourceRequestID = ""+srcReqId+"";
+            mc.setProperty("request", JSON.stringify(jsonObject));
+        } catch (jsonError) {
+            // If parsing as JSON fails, handle as XML
+            try {
+                var parser = new DOMParser();
+                var xmlDoc = parser.parseFromString(request, "text/xml");
+
+                // Create logstatus element
+                var logStatusNode = xmlDoc.createElement("logStatus");
+                logStatusNode.appendChild(xmlDoc.createTextNode(logStatus));
+
+                // Append logstatus to the root element
+                xmlDoc.documentElement.appendChild(logStatusNode);
+
+                mc.setProperty("request", new XMLSerializer().serializeToString(xmlDoc));
+            } catch (xmlError) {
+                log.error("Request is neither valid JSON nor XML.");
+            }
+        }
+    } else {
+        log.error("Request property is null or undefined.");
+    }
+    
+    
+    log.info("===================>"+mc.getProperty("request"));]]></script>
+                    <payloadFactory description="buildResponsePayload" media-type="json">
+                        <format>
+					$1
+				</format>
+                        <args>
+                            <arg evaluator="json" expression="$ctx:request"/>
+                        </args>
+                    </payloadFactory>
+                    <log>
+                        <property expression="$ctx:request" name="========>after json payload"/>
+                    </log>
+                    <property description="sub-endpoint" name="HTTP_Method" scope="default" type="STRING" value="POST"/>
+                    <property description="endpoint" expression="$ctx:api_name" name="Endpoint" scope="default" type="STRING"/>
+                    <sequence key="REST_API_Call_Seq"/>
+                </else>
+            </filter>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+    </resource>
+</api>

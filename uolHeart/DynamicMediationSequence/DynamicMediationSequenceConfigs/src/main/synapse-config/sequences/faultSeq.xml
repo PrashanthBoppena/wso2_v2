@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="faultSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log category="ERROR" level="custom">
+        <property expression="$ctx:ERROR_MESSAGE" name="ERROR_MESSAGE"/>
+        <property expression="$ctx:ERROR_CODE" name="ERROR_CODE"/>
+    </log>
+</sequence>

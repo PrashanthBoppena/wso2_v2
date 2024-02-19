@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="Dynamic_Query_Processing_Sequence_v1" onError="FaultSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property description="apiregistryConfigPath" expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath" scope="default" type="STRING"/>
+    <log description="propertiesPath" level="custom">
+        <property expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath"/>
+    </log>
+    <property description="carbonHome" expression="get-property('system', 'carbon.home')" name="CarbonHome" scope="default" type="STRING"/>
+    <class description="dynamic QueryBuild" name="com.uol.mediators.query.DynamicXMLQueryMediator">
+        <property name="reqType" value="dynamicEBSeq"/>
+    </class>
+    <payloadFactory description="buildResponsePayload" media-type="json">
+        <format>{&#xd;
+"validateStatus": true,&#xd;
+"Response":$1&#xd;
+}</format>
+        <args>
+            <arg evaluator="xml" expression="$ctx:responsePayload"/>
+        </args>
+    </payloadFactory>
+</sequence>

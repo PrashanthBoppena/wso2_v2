@@ -145,8 +145,16 @@ public class DynamicXMLQueryMediator extends AbstractMediator {
 			if (targetDBConnection != null) {
 			//log.info("===>Dynmc query::" + dynamicQuery);
 			messageContext.setProperty("dynamicQuery", dynamicQuery);
-			preparedStatement = targetDBConnection.prepareStatement(dynamicQuery);
+			
+			if(dynamicQuery.startsWith("CALL")) {
+				preparedStatement = targetDBConnection.prepareCall("{call uol_api_registry.SearchRecordsByTmfParams('read_customer','account')}");
+			}else {
+				preparedStatement = targetDBConnection.prepareStatement(dynamicQuery);
+			}
+			
+			
 			boolean execute = preparedStatement.execute();
+			
 			JsonArray resultsetJSONArray;
 			if (execute) {
 				ResultSet resultSet = preparedStatement.getResultSet();

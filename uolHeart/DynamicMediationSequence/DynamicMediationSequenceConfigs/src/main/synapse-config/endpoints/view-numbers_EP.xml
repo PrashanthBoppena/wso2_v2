@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint name="view-numbers_EP" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="get" uri-template="{uri.var.host}/{uri.var.ApiName}?channel={uri.var.channel}&amp;category={uri.var.category}">
+        <suspendOnFailure>
+            <initialDuration>-1</initialDuration>
+            <progressionFactor>1.0</progressionFactor>
+        </suspendOnFailure>
+        <markForSuspension>
+            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+        </markForSuspension>
+        <authentication>
+            <basicAuth>
+                <username>Ooredoo</username>
+                <password>Oor@ch007</password>
+            </basicAuth>
+        </authentication>
+    </http>
+</endpoint>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/uol/nb/createCustomer" name="NBCreateCustomerAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource faultSequence="FaultSequence" methods="POST">
+        <inSequence>
+            <propertyGroup>
+                <property expression="json-eval($)" name="request" scope="default" type="STRING"/>
+            </propertyGroup>
+            <!-- Handle any other sequences or mediation after the iteration if needed -->
+            <!-- Aggregate all API responses -->
+            <!-- Continue with further processing using the aggregated response -->
+            <property description="source_req_id" expression="get-property('MessageID')" name="source_req_id" scope="default" type="STRING"/>
+            <property description="logStatus" name="logStatus" scope="default" type="STRING" value="1"/>
+            <property description="apiRegistryConfigs" expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath" scope="default" type="STRING"/>
+            <property description="compositeEndpoint" name="compositeEndpoint" scope="default" type="STRING" value="createCustomerDetails"/>
+            <property description="sub_api_id" name="sub_api_id" scope="default" type="STRING" value="customer_onboarding"/>
+            <sequence key="DynamicReqProcessFilterSeq"/>
+            <payloadFactory description="buildResponsePayload" media-type="json">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:xmlResponse"/>
+                </args>
+            </payloadFactory>
+            <class description="UOLResponseLog" name="com.uol.mediators.UOLResponseLogMediator">
+                <property expression="$ctx:source_req_id" name="source_req_id"/>
+                <property expression="$ctx:source_req_id" name="child_req_id"/>
+                <property expression="json-eval($)" name="response"/>
+                <property expression="$ctx:statusCode" name="status"/>
+                <property name="logStatus" value="1"/>
+            </class>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+    </resource>
+</api>

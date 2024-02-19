@@ -1,0 +1,633 @@
+{
+  "$schema" : "http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#",
+  "inputType" : "JSON",
+  "id" : "http://wso2jsonschema.org",
+  "title" : "root",
+  "type" : "array",
+  "items" : [ {
+    "properties" : {
+      "addressReadResponse" : {
+        "id" : "http://wso2jsonschema.org/0/addressReadResponse",
+        "type" : "object",
+        "properties" : {
+          "adrSeq" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/adrSeq",
+            "type" : "number"
+          },
+          "adrRoles" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/adrRoles",
+            "type" : "string"
+          },
+          "adrJurTaxOverridden" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/adrJurTaxOverridden",
+            "type" : "boolean"
+          },
+          "adrTempbillOverridden" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/adrTempbillOverridden",
+            "type" : "boolean"
+          },
+          "ttlId" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/ttlId",
+            "type" : "number"
+          },
+          "ttlIdPub" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/ttlIdPub",
+            "type" : "string"
+          },
+          "adrLname" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/adrLname",
+            "type" : "string"
+          },
+          "adrStreet" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/adrStreet",
+            "type" : "string"
+          },
+          "adrStreetno" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/adrStreetno",
+            "type" : "number"
+          },
+          "adrZip" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/adrZip",
+            "type" : "number"
+          },
+          "adrCity" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/adrCity",
+            "type" : "string"
+          },
+          "lngCode" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/lngCode",
+            "type" : "number"
+          },
+          "lngCodePub" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/lngCodePub",
+            "type" : "string"
+          },
+          "adrUrgent" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/adrUrgent",
+            "type" : "boolean"
+          },
+          "adrForward" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/adrForward",
+            "type" : "boolean"
+          },
+          "idtypeCode" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/idtypeCode",
+            "type" : "number"
+          },
+          "adrSex" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/adrSex",
+            "type" : "string"
+          },
+          "adrCusttype" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/adrCusttype",
+            "type" : "string"
+          },
+          "masCode" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/masCode",
+            "type" : "number"
+          },
+          "masCodePub" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/masCodePub",
+            "type" : "string"
+          },
+          "adrNationality" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/adrNationality",
+            "type" : "number"
+          },
+          "adrNationalityPub" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/adrNationalityPub",
+            "type" : "string"
+          },
+          "adrEmployee" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/adrEmployee",
+            "type" : "boolean"
+          },
+          "csId" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/csId",
+            "type" : "number"
+          },
+          "csIdPub" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/csIdPub",
+            "type" : "string"
+          },
+          "countryId" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/countryId",
+            "type" : "number"
+          },
+          "countryIdPub" : {
+            "id" : "http://wso2jsonschema.org/0/addressReadResponse/countryIdPub",
+            "type" : "string"
+          }
+        }
+      },
+      "customerReadResponse" : {
+        "id" : "http://wso2jsonschema.org/0/customerReadResponse",
+        "type" : "object",
+        "properties" : {
+          "createdByUser" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/createdByUser",
+            "type" : "string"
+          },
+          "isIndividualOverdiscDisabled" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/isIndividualOverdiscDisabled",
+            "type" : "boolean"
+          },
+          "familyId" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/familyId",
+            "type" : "number"
+          },
+          "listOfAssignments" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments",
+            "type" : "object",
+            "properties" : {
+              "item" : {
+                "id" : "http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments/item",
+                "type" : "object",
+                "properties" : {
+                  "familyId" : {
+                    "id" : "http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments/item/familyId",
+                    "type" : "number"
+                  },
+                  "completionStatus" : {
+                    "id" : "http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments/item/completionStatus",
+                    "type" : "number"
+                  },
+                  "validFrom" : {
+                    "id" : "http://wso2jsonschema.org/0/customerReadResponse/listOfAssignments/item/validFrom",
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          },
+          "csId" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csId",
+            "type" : "number"
+          },
+          "csIdPub" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csIdPub",
+            "type" : "string"
+          },
+          "csCode" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csCode",
+            "type" : "number"
+          },
+          "csStatus" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csStatus",
+            "type" : "string"
+          },
+          "csStatusDate" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csStatusDate",
+            "type" : "string"
+          },
+          "csActivationDate" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csActivationDate",
+            "type" : "string"
+          },
+          "csLevelCode" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csLevelCode",
+            "type" : "number"
+          },
+          "paymentResp" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/paymentResp",
+            "type" : "boolean"
+          },
+          "prgCode" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/prgCode",
+            "type" : "number"
+          },
+          "rpcode" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/rpcode",
+            "type" : "number"
+          },
+          "rpcodePub" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/rpcodePub",
+            "type" : "string"
+          },
+          "tradeCode" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/tradeCode",
+            "type" : "string"
+          },
+          "costId" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/costId",
+            "type" : "number"
+          },
+          "costCodePub" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/costCodePub",
+            "type" : "string"
+          },
+          "csPassword" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csPassword",
+            "type" : "number"
+          },
+          "rsCode" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/rsCode",
+            "type" : "number"
+          },
+          "wpCode" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/wpCode",
+            "type" : "number"
+          },
+          "csBillInformation" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csBillInformation",
+            "type" : "boolean"
+          },
+          "expectPayCurrencyId" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/expectPayCurrencyId",
+            "type" : "number"
+          },
+          "expectPayCurrencyIdPub" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/expectPayCurrencyIdPub",
+            "type" : "string"
+          },
+          "csConvratetypePayment" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csConvratetypePayment",
+            "type" : "number"
+          },
+          "csConvratetypePaymentPub" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csConvratetypePaymentPub",
+            "type" : "string"
+          },
+          "refundCurrencyId" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/refundCurrencyId",
+            "type" : "number"
+          },
+          "refundCurrencyIdPub" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/refundCurrencyIdPub",
+            "type" : "string"
+          },
+          "csConvratetypeRefund" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csConvratetypeRefund",
+            "type" : "number"
+          },
+          "csConvratetypeRefundPub" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csConvratetypeRefundPub",
+            "type" : "string"
+          },
+          "csCrcheckAgreed" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csCrcheckAgreed",
+            "type" : "boolean"
+          },
+          "csIncorporatedInd" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csIncorporatedInd",
+            "type" : "boolean"
+          },
+          "csBillcycle" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csBillcycle",
+            "type" : "string"
+          },
+          "csBillcycleDesc" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csBillcycleDesc",
+            "type" : "string"
+          },
+          "csLimitTr1" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csLimitTr1",
+            "type" : "number"
+          },
+          "csLimitTr1Pub" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csLimitTr1Pub",
+            "type" : "string"
+          },
+          "csLimitTr2" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csLimitTr2",
+            "type" : "number"
+          },
+          "csLimitTr2Pub" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csLimitTr2Pub",
+            "type" : "string"
+          },
+          "csLimitTr3" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csLimitTr3",
+            "type" : "number"
+          },
+          "csLimitTr3Pub" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csLimitTr3Pub",
+            "type" : "string"
+          },
+          "csClimit" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csClimit",
+            "type" : "object",
+            "properties" : {
+              "amount" : {
+                "id" : "http://wso2jsonschema.org/0/customerReadResponse/csClimit/amount",
+                "type" : "number"
+              },
+              "currency" : {
+                "id" : "http://wso2jsonschema.org/0/customerReadResponse/csClimit/currency",
+                "type" : "string"
+              }
+            }
+          },
+          "csContresp" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csContresp",
+            "type" : "boolean"
+          },
+          "csDeposit" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csDeposit",
+            "type" : "object",
+            "properties" : {
+              "amount" : {
+                "id" : "http://wso2jsonschema.org/0/customerReadResponse/csDeposit/amount",
+                "type" : "number"
+              },
+              "currency" : {
+                "id" : "http://wso2jsonschema.org/0/customerReadResponse/csDeposit/currency",
+                "type" : "string"
+              }
+            }
+          },
+          "csDunning" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csDunning",
+            "type" : "boolean"
+          },
+          "csPrepayment" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csPrepayment",
+            "type" : "boolean"
+          },
+          "csFcId" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csFcId",
+            "type" : "number"
+          },
+          "csFcIdPub" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csFcIdPub",
+            "type" : "string"
+          },
+          "csCscurbalance" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csCscurbalance",
+            "type" : "object",
+            "properties" : {
+              "amount" : {
+                "id" : "http://wso2jsonschema.org/0/customerReadResponse/csCscurbalance/amount",
+                "type" : "number"
+              },
+              "currency" : {
+                "id" : "http://wso2jsonschema.org/0/customerReadResponse/csCscurbalance/currency",
+                "type" : "string"
+              }
+            }
+          },
+          "csPrevbalance" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csPrevbalance",
+            "type" : "object",
+            "properties" : {
+              "amount" : {
+                "id" : "http://wso2jsonschema.org/0/customerReadResponse/csPrevbalance/amount",
+                "type" : "number"
+              },
+              "currency" : {
+                "id" : "http://wso2jsonschema.org/0/customerReadResponse/csPrevbalance/currency",
+                "type" : "string"
+              }
+            }
+          },
+          "csUnbilledAmount" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csUnbilledAmount",
+            "type" : "object",
+            "properties" : {
+              "amount" : {
+                "id" : "http://wso2jsonschema.org/0/customerReadResponse/csUnbilledAmount/amount",
+                "type" : "number"
+              },
+              "currency" : {
+                "id" : "http://wso2jsonschema.org/0/customerReadResponse/csUnbilledAmount/currency",
+                "type" : "string"
+              }
+            }
+          },
+          "csInitPrepaidContrOwner" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csInitPrepaidContrOwner",
+            "type" : "boolean"
+          },
+          "csCreationDate" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csCreationDate",
+            "type" : "string"
+          },
+          "lastModificationUser" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/lastModificationUser",
+            "type" : "string"
+          },
+          "paymentRespId" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/paymentRespId",
+            "type" : "number"
+          },
+          "csPaymntRespCode" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/csPaymntRespCode",
+            "type" : "number"
+          },
+          "partyRoleAssignments" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments",
+            "type" : "object",
+            "properties" : {
+              "item" : {
+                "id" : "http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item",
+                "type" : "object",
+                "properties" : {
+                  "partyRoleId" : {
+                    "id" : "http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item/partyRoleId",
+                    "type" : "number"
+                  },
+                  "partyRoleShname" : {
+                    "id" : "http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item/partyRoleShname",
+                    "type" : "string"
+                  },
+                  "partyRoleName" : {
+                    "id" : "http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item/partyRoleName",
+                    "type" : "string"
+                  },
+                  "partyRoleDescription" : {
+                    "id" : "http://wso2jsonschema.org/0/customerReadResponse/partyRoleAssignments/item/partyRoleDescription",
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          },
+          "partyType" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/partyType",
+            "type" : "string"
+          },
+          "collInd" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/collInd",
+            "type" : "boolean"
+          },
+          "markedForRerating" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/markedForRerating",
+            "type" : "boolean"
+          },
+          "performCreditScoring" : {
+            "id" : "http://wso2jsonschema.org/0/customerReadResponse/performCreditScoring",
+            "type" : "boolean"
+          }
+        }
+      },
+      "contractReadResponse" : {
+        "id" : "http://wso2jsonschema.org/0/contractReadResponse",
+        "type" : "object",
+        "properties" : {
+          "firstCsId" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/firstCsId",
+            "type" : "number"
+          },
+          "firstCsIdPub" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/firstCsIdPub",
+            "type" : "number"
+          },
+          "csId" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/csId",
+            "type" : "number"
+          },
+          "csIdPub" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/csIdPub",
+            "type" : "string"
+          },
+          "contractTypeId" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/contractTypeId",
+            "type" : "number"
+          },
+          "commonRefData" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/commonRefData",
+            "type" : "boolean"
+          },
+          "sccode" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/sccode",
+            "type" : "number"
+          },
+          "sccodePub" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/sccodePub",
+            "type" : "string"
+          },
+          "plcode" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/plcode",
+            "type" : "number"
+          },
+          "plcodePub" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/plcodePub",
+            "type" : "string"
+          },
+          "rpcode" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/rpcode",
+            "type" : "number"
+          },
+          "rpcodePub" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/rpcodePub",
+            "type" : "string"
+          },
+          "storageMediums" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/storageMediums",
+            "type" : "string"
+          },
+          "coArchive" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/coArchive",
+            "type" : "boolean"
+          },
+          "coOpDir" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/coOpDir",
+            "type" : "boolean"
+          },
+          "coPstnDir" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/coPstnDir",
+            "type" : "boolean"
+          },
+          "coStatus" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/coStatus",
+            "type" : "number"
+          },
+          "coLastReason" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/coLastReason",
+            "type" : "number"
+          },
+          "coLastStatusChangeDate" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/coLastStatusChangeDate",
+            "type" : "string"
+          },
+          "coModdate" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/coModdate",
+            "type" : "string"
+          },
+          "coEntdate" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/coEntdate",
+            "type" : "string"
+          },
+          "currencyId" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/currencyId",
+            "type" : "number"
+          },
+          "currencyIdPub" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/currencyIdPub",
+            "type" : "string"
+          },
+          "preratedTapRp" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/preratedTapRp",
+            "type" : "boolean"
+          },
+          "coNonexplServPaymentType" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/coNonexplServPaymentType",
+            "type" : "string"
+          },
+          "coSignedDate" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/coSignedDate",
+            "type" : "string"
+          },
+          "coId" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/coId",
+            "type" : "number"
+          },
+          "coIdPub" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/coIdPub",
+            "type" : "string"
+          },
+          "submId" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/submId",
+            "type" : "number"
+          },
+          "submIdPub" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/submIdPub",
+            "type" : "string"
+          },
+          "userinstallationAdr" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/userinstallationAdr",
+            "type" : "boolean"
+          },
+          "bmId" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/bmId",
+            "type" : "number"
+          },
+          "bmIdPub" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/bmIdPub",
+            "type" : "string"
+          },
+          "notificationMediumId" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/notificationMediumId",
+            "type" : "number"
+          },
+          "notificationMediumIdPub" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/notificationMediumIdPub",
+            "type" : "string"
+          },
+          "chargingPeriodAdjustmentReference" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/chargingPeriodAdjustmentReference",
+            "type" : "string"
+          },
+          "ivrLangId" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/ivrLangId",
+            "type" : "number"
+          },
+          "ivrLangIdPub" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/ivrLangIdPub",
+            "type" : "string"
+          },
+          "markedForRerating" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/markedForRerating",
+            "type" : "boolean"
+          },
+          "reratingSupported" : {
+            "id" : "http://wso2jsonschema.org/0/contractReadResponse/reratingSupported",
+            "type" : "boolean"
+          }
+        }
+      }
+    },
+    "id" : "http://wso2jsonschema.org/0",
+    "type" : "object"
+  } ]
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_lBTmYMr1Ee6UaNpXbFwVvA" type="Esb" name="AuthProxyServ" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_ngIZQMr1Ee6UaNpXbFwVvA" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_ngRjMMr1Ee6UaNpXbFwVvA" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_oHNAUMr1Ee6UaNpXbFwVvA" type="3001">
+        <children xmi:type="notation:DecorationNode" xmi:id="_oHNAVcr1Ee6UaNpXbFwVvA" type="5003"/>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_oHNAUcr1Ee6UaNpXbFwVvA"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_oHNAUsr1Ee6UaNpXbFwVvA" fontName="Segoe UI"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_oHNAU8r1Ee6UaNpXbFwVvA"/>
+        <element xmi:type="esb:ProxyService" href="AuthProxyServ.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oHNAVMr1Ee6UaNpXbFwVvA" width="300" height="400"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_ngIZQcr1Ee6UaNpXbFwVvA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_ngIZQsr1Ee6UaNpXbFwVvA" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_ngIZQ8r1Ee6UaNpXbFwVvA"/>
+    <element xmi:type="esb:EsbServer" href="AuthProxyServ.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ngIZRMr1Ee6UaNpXbFwVvA"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_lBTmYcr1Ee6UaNpXbFwVvA"/>
+  <element xmi:type="esb:EsbDiagram" href="AuthProxyServ.esb#/"/>
+</notation:Diagram>

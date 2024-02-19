@@ -1,0 +1,13 @@
+openapi: 3.0.1
+info:
+  title: smsc
+  description: API Definition of smsc
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/smsc/sendNotification
+paths:
+  /:
+    post:
+      responses:
+        default:
+          description: Default response

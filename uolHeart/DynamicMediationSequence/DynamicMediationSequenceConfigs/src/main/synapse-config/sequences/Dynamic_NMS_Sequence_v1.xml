@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="Dynamic_NMS_Sequence_v1" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property description="apiregistryConfigPath" expression="get-property('file','apiRegistryConfigs')" name="apiregistryConfigPath" scope="default" type="STRING"/>
+    <property expression="$ctx:child_req_id" name="child_req_id" scope="default" type="STRING"/>
+    <class description="com.uol.mediators.UOLRequestLogMediator" name="com.uol.mediators.UOLRequestLogMediator">
+        <property expression="$ctx:sub_api_id" name="sub_api_id"/>
+        <property expression="$ctx:NIC" name="NIC"/>
+        <property expression="$ctx:MSISDN" name="MSISDN"/>
+        <property expression="$ctx:csId" name="custid"/>
+        <property expression="$ctx:source_req_id" name="source_req_id"/>
+        <property expression="$ctx:channel" name="channel"/>
+        <property expression="$ctx:child_req_id" name="child_req_id"/>
+        <property expression="$ctx:sub_endpoint" name="api_name"/>
+        <property expression="$ctx:process_id" name="processId"/>
+        <property expression="$ctx:process_name" name="processName"/>
+        <property expression="$body/*" name="request"/>
+        <property name="status" value="In-Progress"/>
+        <property expression="$ctx:logStatus" name="logStatus"/>
+    </class>
+    <call-template onError="faultSeq" target="DynamicNMSSeqTemplate">
+        <with-param name="ApiName" value="{$ctx:sub_endpoint}"/>
+    </call-template>
+    <class description="UOLResponseLog" name="com.uol.mediators.UOLResponseLogMediator">
+        <property expression="$ctx:source_req_id" name="source_req_id"/>
+        <property expression="$ctx:child_req_id" name="child_req_id"/>
+        <property expression="$body/*" name="response"/>
+        <property expression="$axis2:HTTP_SC" name="status"/>
+        <property expression="$ctx:logStatus" name="logStatus"/>
+    </class>
+</sequence>

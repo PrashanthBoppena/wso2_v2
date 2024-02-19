@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_kcG84MscEe6p34wKlh-HGw" type="Esb" name="NBReadCustomer" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_kdT2wMscEe6p34wKlh-HGw" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_kdUd0MscEe6p34wKlh-HGw" type="7001">
+      <children xmi:type="notation:Shape" xmi:id="_oc-xUMscEe6p34wKlh-HGw" type="3668" fontName="Segoe UI">
+        <children xmi:type="notation:BasicCompartment" xmi:id="_oc_YYMscEe6p34wKlh-HGw" type="7044">
+          <children xmi:type="notation:Node" xmi:id="_odMzwMscEe6p34wKlh-HGw" type="3669">
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_odMzwcscEe6p34wKlh-HGw"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_odMzwsscEe6p34wKlh-HGw" fontName="Segoe UI"/>
+            <styles xmi:type="notation:LineStyle" xmi:id="_odMzw8scEe6p34wKlh-HGw"/>
+            <element xmi:type="esb:APIResource" href="NBReadCustomer.esb#//@server/@children.0/@resources.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_odMzxMscEe6p34wKlh-HGw" width="300" height="400"/>
+          </children>
+        </children>
+        <element xmi:type="esb:SynapseAPI" href="NBReadCustomer.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oc-xUcscEe6p34wKlh-HGw" width="640" height="500"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_kdT2wcscEe6p34wKlh-HGw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_kdT2wsscEe6p34wKlh-HGw" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_kdT2w8scEe6p34wKlh-HGw"/>
+    <element xmi:type="esb:EsbServer" href="NBReadCustomer.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kdT2xMscEe6p34wKlh-HGw"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_kcG84cscEe6p34wKlh-HGw"/>
+  <element xmi:type="esb:EsbDiagram" href="NBReadCustomer.esb#/"/>
+</notation:Diagram>

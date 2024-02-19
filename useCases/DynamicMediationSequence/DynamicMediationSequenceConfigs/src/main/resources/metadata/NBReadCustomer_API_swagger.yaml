@@ -1,0 +1,13 @@
+openapi: 3.0.1
+info:
+  title: NBReadCustomer_API
+  description: API Definition of NBReadCustomer_API
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/uol/nb/readCustomer
+paths:
+  /:
+    post:
+      responses:
+        default:
+          description: Default response

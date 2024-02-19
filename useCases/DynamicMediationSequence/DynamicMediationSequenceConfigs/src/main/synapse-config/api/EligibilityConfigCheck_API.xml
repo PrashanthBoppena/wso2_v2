@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/check-eligibility" name="EligibilityConfigCheck_API" xmlns="http://ws.apache.org/ns/synapse">
+    <resource faultSequence="FaultSequence" methods="POST">
+        <inSequence>
+            <property expression="$ctx:parentId" name="parentId" scope="transport" type="STRING"/>
+            <call description="DynamicQueryCall">
+                <endpoint>
+                    <http method="post" uri-template="$FILE:dynamicQueryCall">
+                        <suspendOnFailure>
+                            <initialDuration>-1</initialDuration>
+                            <progressionFactor>-1</progressionFactor>
+                            <maximumDuration>0</maximumDuration>
+                        </suspendOnFailure>
+                        <markForSuspension>
+                            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                        </markForSuspension>
+                    </http>
+                </endpoint>
+            </call>
+            <payloadFactory description="buildPayload" media-type="json">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="json" expression="$.response"/>
+                </args>
+            </payloadFactory>
+            <script description="countEnableFlags" language="js"><![CDATA[var responseArray  = mc.getPayloadJSON();
+
+		var count = 0;
+
+for (var i = 0; i < responseArray.length; i++) {
+    if (responseArray[i].Enable_Flag === "1") {
+        count++;
+    }
+}
+
+        
+        mc.setProperty("EnableFlagCount", count);]]></script>
+            <log description="log the Enableflag Count" level="custom">
+                <property expression="get-property('EnableFlagCount')" name="CountWith1==>"/>
+            </log>
+            <iterate description="IterateonEachObject" expression="//jsonElement" id="eligibility_check_2" sequential="true">
+                <target>
+                    <sequence>
+                        <filter description="check Flag status and call the service" regex="1" source="//Enable_Flag">
+                            <then>
+                                <propertyGroup description="db configs">
+                                    <property expression="//Process_ID" name="processId" scope="default" type="STRING"/>
+                                    <property expression="//Process_Name" name="process" scope="default" type="STRING"/>
+                                    <property expression="//Endpoint" name="endpoint" scope="default" type="STRING"/>
+                                    <property expression="//HTTP_Method" name="HTTP_Method" scope="default" type="STRING"/>
+                                    <property expression="//System_Name" name="System_Name" scope="default" type="STRING"/>
+                                </propertyGroup>
+                                <sequence key="gov:custom/sequences/childIdGeneratingSeq.xml"/>
+                                <payloadFactory media-type="xml">
+                                    <format>
+                                        <data xmlns="">$1</data>
+                                    </format>
+                                    <args>
+                                        <arg evaluator="json" expression="$ctx:requestPayload.requestPayload"/>
+                                    </args>
+                                </payloadFactory>
+                                <payloadFactory media-type="json">
+                                    <format>{&#xd;
+"request":"$1"&#xd;
+}</format>
+                                    <args>
+                                        <arg evaluator="xml" expression="$body//*[local-name()=$ctx:process]/*[local-name()='request']"/>
+                                    </args>
+                                </payloadFactory>
+                                <sequence key="REST_API_Call_Seq"/>
+                            </then>
+                            <else/>
+                        </filter>
+                    </sequence>
+                </target>
+            </iterate>
+            <log level="custom">
+                <property expression="json-eval($)" name="@@@@@@@@@@@@@@@@@@@@@@==>"/>
+            </log>
+            <payloadFactory media-type="json">
+                <format>{&#xd;
+"$1":$2&#xd;
+}</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:process"/>
+                    <arg evaluator="json" expression="$"/>
+                </args>
+            </payloadFactory>
+            <aggregate id="eligibility_check_2">
+                <correlateOn expression="$body"/>
+                <completeCondition timeout="6000">
+                    <messageCount max="{get-property('EnableFlagCount')}" min="0"/>
+                </completeCondition>
+                <onComplete aggregateElementType="root" expression="json-eval($)">
+                    <script language="js"><![CDATA[var log = mc.getServiceLog();
+                            var responses = mc.getPayloadJSON();
+                            var eligibilitystatus = true;
+                            for(var i=0; i<responses.length; i++){
+                            	 for(var key in responses[i]){
+                            		var validateStatus=responses[i][key].validateStatus;
+                            		/*  log.info("process==> "+key);
+                            		log.info("dot notation==> "+validateStatus); */
+                            		if (validateStatus === false){
+                            			
+                            			eligibilitystatus = false;
+                            			break;
+                            		}
+                            	} 
+                    			if (eligibilitystatus === false) {
+            						break;
+        						}                	
+                            	
+                            	
+                            }   
+                            /*log.info("eligibilitystatus==> "+eligibilitystatus);
+                            responses.push({ "eligibilitystatus": eligibilitystatus });
+                            mc.setPayloadJSON(responses); */
+                            
+                            mc.setProperty("eligibilitystatus",eligibilitystatus);]]></script>
+                    <payloadFactory media-type="json">
+                        <format>{&#xd;
+"eligibilitystatus":$2,&#xd;
+"response":$1&#xd;
+}</format>
+                        <args>
+                            <arg evaluator="json" expression="$"/>
+                            <arg evaluator="xml" expression="$ctx:eligibilitystatus"/>
+                        </args>
+                    </payloadFactory>
+                    <property action="remove" description="remove parentId from $trp" name="parentId" scope="transport"/>
+                    <respond/>
+                </onComplete>
+            </aggregate>
+        </inSequence>
+        <outSequence/>
+    </resource>
+</api>

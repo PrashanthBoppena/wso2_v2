@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_35dYIMr1Ee6UaNpXbFwVvA" type="Esb" name="SMSClient" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_3614MMr1Ee6UaNpXbFwVvA" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_362fQMr1Ee6UaNpXbFwVvA" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_4DMi8Mr1Ee6UaNpXbFwVvA" type="3001">
+        <children xmi:type="notation:DecorationNode" xmi:id="_4DNKAMr1Ee6UaNpXbFwVvA" type="5003"/>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_4DMi8cr1Ee6UaNpXbFwVvA"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_4DMi8sr1Ee6UaNpXbFwVvA" fontName="Segoe UI"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_4DMi88r1Ee6UaNpXbFwVvA"/>
+        <element xmi:type="esb:ProxyService" href="SMSClient.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4DMi9Mr1Ee6UaNpXbFwVvA" width="300" height="400"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_3614Mcr1Ee6UaNpXbFwVvA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_3614Msr1Ee6UaNpXbFwVvA" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_3614M8r1Ee6UaNpXbFwVvA"/>
+    <element xmi:type="esb:EsbServer" href="SMSClient.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3614NMr1Ee6UaNpXbFwVvA"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_35dYIcr1Ee6UaNpXbFwVvA"/>
+  <element xmi:type="esb:EsbDiagram" href="SMSClient.esb#/"/>
+</notation:Diagram>

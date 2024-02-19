@@ -213,25 +213,25 @@
                   <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=", ">
                     <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.13/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
                     <outputConnector>
-                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.13/@mediatorFlow/@children.2/@inputConnector"/>
+                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.13/@mediatorFlow/@children.3/@inputConnector"/>
                     </outputConnector>
                     <properties propertyName="AggRes===>" propertyValueType="EXPRESSION" propertyValue="">
                       <propertyExpression propertyValue="json-eval($)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
                     </properties>
                   </children>
-                  <children xsi:type="esb:DataMapperMediator" inputType="JSON" outputType="JSON">
+                  <children xsi:type="esb:RespondMediator">
+                    <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.13/@mediatorFlow/@children.3/@outputConnector/@outgoingLink"/>
+                    <outputConnector/>
+                  </children>
+                  <children xsi:type="esb:DataMapperMediator" configurationLocalPath="/TMF_Format_PreparationRegistryResources/TestConfig.dmc" inputSchemaLocalPath="/TMF_Format_PreparationRegistryResources/TestConfig_inputSchema.json" outputSchemaLocalPath="/TMF_Format_PreparationRegistryResources/TestConfig_outputSchema.json" xsltStyleSheetLocalPath="/TMF_Format_PreparationRegistryResources/TestConfig_xsltStyleSheet.xml">
                     <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.13/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
                     <outputConnector>
-                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.13/@mediatorFlow/@children.3/@inputConnector"/>
+                      <outgoingLink target="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.13/@mediatorFlow/@children.2/@inputConnector"/>
                     </outputConnector>
-                    <configuration keyValue="gov:datamapper/TMF_ReadCust_DataMapperConfig.dmc" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
-                    <InputSchema keyValue="gov:datamapper/TMF_ReadCust_DataMapperConfig_inputSchema.json" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
-                    <outputSchema keyValue="gov:datamapper/TMF_ReadCust_DataMapperConfig_outputSchema.json" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
-                    <xsltStyleSheet keyValue="gov:datamapper/TMF_ReadCust_DataMapperConfig_xsltStyleSheet.xml" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
-                  </children>
-                  <children xsi:type="esb:RespondMediator">
-                    <inputConnector incomingLinks="//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.13/@mediatorFlow/@children.2/@outputConnector/@outgoingLink"/>
-                    <outputConnector/>
+                    <configuration keyValue="gov:datamapper/TestConfig.dmc" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    <InputSchema keyValue="gov:datamapper/TestConfig_inputSchema.json" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    <outputSchema keyValue="gov:datamapper/TestConfig_outputSchema.json" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
+                    <xsltStyleSheet keyValue="gov:datamapper/TestConfig_xsltStyleSheet.xml" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078"/>
                   </children>
                 </mediatorFlow>
                 <aggregationExpression propertyValue="json-eval($)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000007708000000100000000078" supportJsonPaths="true"/>

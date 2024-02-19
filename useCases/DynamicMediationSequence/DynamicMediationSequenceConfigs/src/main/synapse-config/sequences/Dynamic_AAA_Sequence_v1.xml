@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="Dynamic_AAA_Sequence_v1" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log description="log the Enableflag Count" level="custom">
+        <property expression="get-property('Endpoint')" name="Endpoint in seq==>"/>
+        <property expression="get-property('System_Name')" name="System_Name in seq==>"/>
+    </log>
+</sequence>
